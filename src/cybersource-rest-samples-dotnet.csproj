@@ -1,0 +1,220 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4CF837FF-237D-4B5B-B922-71CCC654D718}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CybsPayments</RootNamespace>
+    <AssemblyName>cybersource-rest-samples-dotnet</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>CybsPayments.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>CybsPayments.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AuthenticationSdk">
+      <HintPath>..\..\CyberSource_Authentication_SDK_dotNet\src\References\AuthenticationSdk\AuthenticationSdk\bin\Debug\AuthenticationSdk.dll</HintPath>
+    </Reference>
+    <Reference Include="CyberSource, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\3935\Swagger Gen Code\CyberSource\bin\Debug\CyberSource.dll</HintPath>
+    </Reference>
+    <Reference Include="FlexServerSDK, Version=0.2.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CyberSource.Flex.Server.0.2.1\lib\FlexServerSDK.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="RestSharp, Version=106.4.1.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.106.4.1\lib\net452\RestSharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Api.cs" />
+    <Compile Include="Flex\GenerateKey.cs" />
+    <Compile Include="Flex\TokenizeCard.cs" />
+    <Compile Include="Payments Core\AuthReversalSample.cs" />
+    <Compile Include="Payments\All Services\CapturePayment.cs" />
+    <Compile Include="Collated.cs" />
+    <Compile Include="Configuration.cs" />
+    <Compile Include="Payments Core\CreateCreditSample.cs" />
+    <Compile Include="Payments Core\GetCaptureSample.cs" />
+    <Compile Include="Payments Core\GetCreditSample.cs" />
+    <Compile Include="Payments Core\GetPaymentSample.cs" />
+    <Compile Include="Payments Core\GetRefundSample.cs" />
+    <Compile Include="Payments Core\GetReversalSample.cs" />
+    <Compile Include="Payments Core\GetVoidSample.cs" />
+    <Compile Include="Payments\All Services\AuthorizationOnly.cs" />
+    <Compile Include="Payments\All Services\AuthReversal.cs" />
+    <Compile Include="Payments\All Services\FollowOnCredit.cs" />
+    <Compile Include="Payments\All Services\StandaloneCredit.cs" />
+    <Compile Include="Payments\All Services\VoidAPayment.cs" />
+    <Compile Include="Payments\Authorize Payment\AmericanExpressSafeKey.cs" />
+    <Compile Include="Payments\Authorize Payment\AvsOnly.cs" />
+    <Compile Include="Payments\Authorize Payment\CurrenciesSupported.cs" />
+    <Compile Include="Payments\Authorize Payment\Dollar0Authorization.cs" />
+    <Compile Include="Payments\Authorize Payment\AVS Non US Supported Card Types\AvsNonUsAmexOptima.cs" />
+    <Compile Include="Payments\Authorize Payment\AVS Non US Supported Card Types\AvsNonUsMaestroInternational.cs" />
+    <Compile Include="Payments\Authorize Payment\AVS Non US Supported Card Types\AvsNonUsMaestroUkDomestic.cs" />
+    <Compile Include="Payments\Authorize Payment\AVS Non US Supported Card Types\AvsNonUsSoloUk.cs" />
+    <Compile Include="Payments\Authorize Payment\AVS Non US Supported Card Types\AvsNonUsVisa.cs" />
+    <Compile Include="Payments\Authorize Payment\AVS Relax\AvsRelaxNonRetail.cs" />
+    <Compile Include="Payments\Authorize Payment\AVS Relax\AvsRelaxRetail.cs" />
+    <Compile Include="Payments\Authorize Payment\AVS US Supported Card Types\AvsUsAmericanExpress.cs" />
+    <Compile Include="Payments\Authorize Payment\AVS US Supported Card Types\AvsUsDiscover.cs" />
+    <Compile Include="Payments\Authorize Payment\AVS US Supported Card Types\AvsUsMasterCard.cs" />
+    <Compile Include="Payments\Authorize Payment\AVS US Supported Card Types\AvsUsVisa.cs" />
+    <Compile Include="Payments\Authorize Payment\BasicPaymentAuthorization.cs" />
+    <Compile Include="Payments\Authorize Payment\Card Brand\MaestroSecureCode.cs" />
+    <Compile Include="Payments\Authorize Payment\Card Brand\MasterCard.cs" />
+    <Compile Include="Payments\Authorize Payment\Card Brand\SoloUK.cs" />
+    <Compile Include="Payments\Authorize Payment\Card Brand\Visa.cs" />
+    <Compile Include="Payments\Authorize Payment\Currency Support\AuthorizationOnly0ExponentCurrencies.cs" />
+    <Compile Include="Payments\Authorize Payment\Currency Support\AuthorizationOnly2ExponentCurrencies.cs" />
+    <Compile Include="Payments\Authorize Payment\CVN\CvnAmexCid.cs" />
+    <Compile Include="Payments\Authorize Payment\CVN\CvnDiscoverCid.cs" />
+    <Compile Include="Payments\Authorize Payment\CVN\CvnMaestroInternationalCopy.cs" />
+    <Compile Include="Payments\Authorize Payment\CVN\CvnMaestroUkDomestic.cs" />
+    <Compile Include="Payments\Authorize Payment\CVN\CvnMasterCardCvc2.cs" />
+    <Compile Include="Payments\Authorize Payment\CVN\CvnVisaCvv2.cs" />
+    <Compile Include="Payments\Authorize Payment\Digital Payments\AndroidPay\AndroidPay.cs" />
+    <Compile Include="Payments\Authorize Payment\Digital Payments\AndroidPay\AuthorizeAndroidPayCyberSourceDecryption.cs" />
+    <Compile Include="Payments\Authorize Payment\Digital Payments\AndroidPay\AuthorizeAndroidPayMerchantDecryption.cs" />
+    <Compile Include="Payments\Authorize Payment\Digital Payments\ApplePay\ApplePay.cs" />
+    <Compile Include="Payments\Authorize Payment\Digital Payments\ApplePay\AuthorizeApplePayCyberSourceDecryption.cs" />
+    <Compile Include="Payments\Authorize Payment\Digital Payments\ApplePay\AuthorizeApplePayMerchantDecryption.cs" />
+    <Compile Include="Payments\Authorize Payment\Digital Payments\Chase Pay\ChasePay.cs" />
+    <Compile Include="Payments\Authorize Payment\Digital Payments\Google Pay\AuthorizeGooglePayCyberSourceDecryption.cs" />
+    <Compile Include="Payments\Authorize Payment\Digital Payments\Google Pay\AuthorizeGooglePayMerchantDecryption.cs" />
+    <Compile Include="Payments\Authorize Payment\Digital Payments\Google Pay\GooglePay.cs" />
+    <Compile Include="Payments\Authorize Payment\Digital Payments\SamSung Pay\AuthorizeSamsungPayCyberSourceDecryption.cs" />
+    <Compile Include="Payments\Authorize Payment\Digital Payments\SamSung Pay\AuthorizeSamsungPayMerchantDecryption.cs" />
+    <Compile Include="Payments\Authorize Payment\Digital Payments\SamSung Pay\SamsungPayRetailEmvMsd.cs" />
+    <Compile Include="Payments\Authorize Payment\Digital Payments\SamSung Pay\SamsungPayRetailRetailEmvCcontact.cs" />
+    <Compile Include="Payments\Authorize Payment\Digital Payments\SamSung Pay\SamsungPayRetailRetailEmvContactless.cs" />
+    <Compile Include="Payments\Authorize Payment\Dollar0AuthorizationMasterCard.cs" />
+    <Compile Include="Payments\Authorize Payment\EcisSupported.cs" />
+    <Compile Include="Payments\Authorize Payment\ForcedCaptures.cs" />
+    <Compile Include="Payments\Authorize Payment\GetPayment.cs" />
+    <Compile Include="Payments\Authorize Payment\JcbjSecure.cs" />
+    <Compile Include="Payments\Authorize Payment\LevelIIData.cs" />
+    <Compile Include="Payments\Authorize Payment\LeveliiiData.cs" />
+    <Compile Include="Payments\Authorize Payment\MasterCardSecureCode.cs" />
+    <Compile Include="Payments\Authorize Payment\MasterCardSecureCode2.cs" />
+    <Compile Include="Payments\Authorize Payment\Merchant Initiated Reversals and Voids\AltTestHaveQuestions.cs" />
+    <Compile Include="Payments\Authorize Payment\Merchant Initiated Reversals and Voids\MirvAuthReversal.cs" />
+    <Compile Include="Payments\Authorize Payment\Merchant Initiated Reversals and Voids\OriginalRequestAuth.cs" />
+    <Compile Include="Payments\Authorize Payment\Merchant Initiated Reversals and Voids\Void.cs" />
+    <Compile Include="Payments\Authorize Payment\MerchantDescriptorsAuth.cs" />
+    <Compile Include="Payments\Authorize Payment\Network Tokenization\CyberSourcePaymentTokenization.cs" />
+    <Compile Include="Payments\Authorize Payment\Network Tokenization\PaymentNetworkTokenization.cs" />
+    <Compile Include="Payments\Authorize Payment\PartialAuthorization.cs" />
+    <Compile Include="Payments\Authorize Payment\POS Transactions\Bluefin.cs" />
+    <Compile Include="Payments\Authorize Payment\POS Transactions\Emv.cs" />
+    <Compile Include="Payments\Authorize Payment\Purchase Cards Level 2\Pcl2AmericanExpress.cs" />
+    <Compile Include="Payments\Authorize Payment\Purchase Cards Level 2\Pcl2MasterCard.cs" />
+    <Compile Include="Payments\Authorize Payment\Purchase Cards Level 2\Pcl2Visa.cs" />
+    <Compile Include="Payments\Authorize Payment\Purchase Cards Level 3\Pcl3MasterCard.cs" />
+    <Compile Include="Payments\Authorize Payment\Purchase Cards Level 3\Pcl3Visa.cs" />
+    <Compile Include="Payments\Authorize Payment\ApRecurringIndicator.cs" />
+    <Compile Include="Payments\Authorize Payment\RecurringBilling.cs" />
+    <Compile Include="Payments\Authorize Payment\ServiceFees.cs" />
+    <Compile Include="Payments\Authorize Payment\Simple Auth\AuthorizationOnlyCommerceIndicatorMoto.cs" />
+    <Compile Include="Payments\Authorize Payment\Simple Auth\AuthorizationOnlyInternet.cs" />
+    <Compile Include="Payments\Authorize Payment\Simple Auth\AuthorizationOnlyNonRetail.cs" />
+    <Compile Include="Payments\Authorize Payment\Simple Auth\RecurringIndicator.cs" />
+    <Compile Include="Payments\Authorize Payment\Simple Auth\RetailEmvContact.cs" />
+    <Compile Include="Payments\Authorize Payment\Simple Auth\RetailPosStandardKey.cs" />
+    <Compile Include="Payments\Authorize Payment\Simple Auth\RetailPosStandardSwipe.cs" />
+    <Compile Include="Payments\Authorize Payment\VerbalAuthorizationsCapture.cs" />
+    <Compile Include="Payments\Authorize Payment\VerifiedByVisa.cs" />
+    <Compile Include="Payments\Authorize Payment\VoiceAuthReferral.cs" />
+    <Compile Include="Payments\Capture Payment\Simple Capture\ScAuthorizationOnly.cs" />
+    <Compile Include="Payments\Capture Payment\Simple Capture\ScBillAmtGreaterThanAuthAmt.cs" />
+    <Compile Include="Payments\Capture Payment\Simple Capture\ScCapturePayment.cs" />
+    <Compile Include="Payments\Capture Payment\Simple Capture\ScPartialBills.cs" />
+    <Compile Include="Payments\Capture Payment\Simple Capture\ScVisaBillPayment.cs" />
+    <Compile Include="Payments\Credit Payment\CpFollowOnCredit.cs" />
+    <Compile Include="Payments\Credit Payment\CpPartialCredits.cs" />
+    <Compile Include="Payments\Credit Payment\CpStandaloneCredit.cs" />
+    <Compile Include="Payments\Refund Payment\RefundPayment.cs" />
+    <Compile Include="Payments\Reverse Payment\AuthReversalFull.cs" />
+    <Compile Include="Payments\Void Transactions\Void a Payment\VtVoidAPaymentZeroDollar.cs" />
+    <Compile Include="Payments\Void Transactions\Void a Payment\VtVoidAPayment.cs" />
+    <Compile Include="Payouts\Payouts.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Payments Core\RefundCaptureSample.cs" />
+    <Compile Include="Payments Core\RefundPaymentSample.cs" />
+    <Compile Include="Payments Core\VoidCaptureSample.cs" />
+    <Compile Include="Payments Core\VoidCreditSample.cs" />
+    <Compile Include="Payments Core\VoidPaymentSample.cs" />
+    <Compile Include="Payments Core\VoidRefundSample.cs" />
+    <Compile Include="TMS\CreateInstrumentIdentifier.cs" />
+    <Compile Include="TMS\CreatePaymentsInstruments.cs" />
+    <Compile Include="TMS\PaymentsWithToken\AuthorizationWithToken.cs" />
+    <Compile Include="TMS\PaymentsWithToken\PaymentsInstrumentsForAuthorization.cs" />
+    <Compile Include="TMS\RemoveInstrumentIdentifier.cs" />
+    <Compile Include="TMS\RemovePaymentsInstruments.cs" />
+    <Compile Include="TMS\RetrieveAllPaymentsIdentifierForGivenInstrumentIdentifier.cs" />
+    <Compile Include="TMS\RetrieveInstrumentIdentifier.cs" />
+    <Compile Include="TMS\RetrievePaymentIdentifiers.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="CybsPayments.ruleset" />
+    <None Include="packages.config" />
+    <None Include="Resource\mcb_test_merch.p12" />
+    <None Include="Resource\testrest.p12" />
+    <None Include="Resource\TRRReport.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\StyleCop.Analyzers.1.0.2\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
+    <Analyzer Include="..\packages\StyleCop.Analyzers.1.0.2\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
