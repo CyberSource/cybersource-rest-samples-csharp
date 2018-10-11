@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
 
-namespace CybsPayments
+namespace Cybersource_rest_samples_dotnet
 {
     public class Program
     {
@@ -20,7 +21,7 @@ namespace CybsPayments
 
         // List of Location Path for the Directories containing Sample Codes
         // The Paths are used to Call the Class File Dynamically (using Reflections) avoiding long switch case statements
-        private static readonly List<string> SampleClassesPathList = new List<string>();
+        private static readonly List<string> SampleCodeClassesPathList = new List<string>();
 
         // Name of the Sample Code File to run for the current execution
         private static string _sampleToRun = string.Empty;
@@ -30,8 +31,12 @@ namespace CybsPayments
             // Set Network Settings (To Avoid SSL/TLS Secure Channel Error)
             SetNetworkSettings();
 
+            // Initialize Api List and the paths of all the sample codes
             InitializeApiList();
             InitializeSampleClassesPathList();
+
+            // Display all sample codes available to run
+            ShowMethods();
 
             // Take the Input from user for which sample code to run
             SelectMethod();
@@ -42,46 +47,54 @@ namespace CybsPayments
 
         public static void RunSample(string sampleClassName)
         {
-            Console.WriteLine("\n");
-            Type className = null;
-
-            foreach (var path in SampleClassesPathList)
+            try
             {
-                className = Type.GetType(path + sampleClassName);
+                Console.WriteLine("\n");
+                Type className = null;
 
-                if (className != null)
+                foreach (var path in SampleCodeClassesPathList)
                 {
-                    break;
+                    className = Type.GetType(path + sampleClassName);
+
+                    if (className != null)
+                    {
+                        break;
+                    }
+                }
+
+                if (className == null)
+                {
+                    Console.WriteLine("No Sample Code Found with the name: {0}", sampleClassName);
+                    return;
+                }
+
+                var obj = Activator.CreateInstance(className);
+                var methodInfo = className.GetMethod("Run");
+                if (methodInfo != null)
+                {
+                    methodInfo.Invoke(obj, new object[] { ConfigDictionary });
+                }
+                else
+                {
+                    Console.WriteLine("No Run Method Found in the class: {0}", sampleClassName);
                 }
             }
+            catch (Exception e)
+            {
+                Console.WriteLine("Exception in RunSample() Method: " + e.Message);
 
-            if (className == null)
-            {
-                Console.WriteLine("No Sample Code Found with the name: {0}", sampleClassName);
-                return;
-            }
+                if (e.InnerException != null)
+                {
+                    Console.WriteLine("Inner Exception: " + e.InnerException.Message);
+                    Console.WriteLine(e.InnerException.StackTrace);
+                }
 
-            var obj = Activator.CreateInstance(className);
-            var methodInfo = className.GetMethod("Run");
-            if (methodInfo != null)
-            {
-                methodInfo.Invoke(obj, new object[] { ConfigDictionary });
-            }
-            else
-            {
-                Console.WriteLine("No Run Method Found in the class: {0}", sampleClassName);
+                Console.WriteLine(e.StackTrace);
             }
         }
 
         private static void SelectMethod()
         {
-            Console.WriteLine(" ---------------------------------------------------------------------------------------------------");
-            Console.WriteLine(" -                                    Code Sample Names                                            -");
-            Console.WriteLine(" ---------------------------------------------------------------------------------------------------");
-            ShowMethods();
-            Console.WriteLine(string.Empty);
-            Console.Write("Type a sample name & then press <Return> : ");
-
             var inputChar = Console.ReadKey();
             var inputString = new StringBuilder();
 
@@ -145,6 +158,10 @@ namespace CybsPayments
 
         private static void ShowMethods()
         {
+            Console.WriteLine(" ---------------------------------------------------------------------------------------------------");
+            Console.WriteLine(" -                                    Code Sample Names                                            -");
+            Console.WriteLine(" ---------------------------------------------------------------------------------------------------");
+
             var apiFamilies = new List<string>();
 
             foreach (var api in ApiList.Where(api => !apiFamilies.Contains(api.ApiFamily)))
@@ -161,7 +178,7 @@ namespace CybsPayments
                 const int nextLineCharsMaxCount = 85;
                 var apirow = " - ";
 
-                foreach (var api in ApiList.Where(api => api.ApiFamily == apiFamily))
+                foreach (var api in ApiList.Where(api => api.ApiFamily == apiFamily).OrderBy(api => api.ApiFunctionCall))
                 {
                     if (lineCharsCount + api.ApiFunctionCall.Length < nextLineCharsMaxCount)
                     {
@@ -180,62 +197,63 @@ namespace CybsPayments
                 Console.WriteLine(apirow);
                 Console.WriteLine(" ---------------------------------------------------------------------------------------------------");
             }
+
+            Console.WriteLine(string.Empty);
+            Console.Write("Type a sample name & then press <Return> : ");
         }
 
         private static void InitializeApiList()
         {
-            const string apiList =
-                "Payments:AuthorizationOnly|Payments:AuthReversal|Payments:CapturePayment|Payments:StandaloneCredit|Payments:FollowOnCredit" +
-                "|Payments:VoidAPayment|Payments:AuthorizationOnlyInternet|Payments:RetailPosStandardKey|Payments:RetailPosStandardSwipe" +
-                "|Payments:RetailEmvContact|Payments:AuthorizationOnlyNonRetail|Payments:AuthorizationOnlyCommerceIndicatorMoto" +
-                "|Payments:RecurringIndicator|Payments:AltTestHaveQuestions|Payments:MirvAuthReversal|Payments:OriginalRequestAuth|Payments:Void" +
-                "|Payments:PaymentNetworkTokenization|Payments:CyberSourcePaymentTokenization|Payments:Emv|Payments:Bluefin" +
-                "|Payments:AuthorizeSamsungPayCyberSourceDecryption|Payments:SamsungPayRetailEmvMsd" +
-                "|Payments:SamsungPayRetailRetailEmvContactless|Payments:SamsungPayRetailRetailEmvCcontact" +
-                "|Payments:AuthorizeSamsungPayMerchantDecryption|Payments:ChasePay|Payments:AuthorizeApplePayCyberSourceDecryption" +
-                "|Payments:ApplePay|Payments:AuthorizeApplePayMerchantDecryption|Payments:AuthorizeGooglePayCyberSourceDecryption" +
-                "|Payments:GooglePay|Payments:AuthorizeGooglePayMerchantDecryption|Payments:AuthorizeAndroidPayCyberSourceDecryption" +
-                "|Payments:AndroidPay|Payments:AuthorizeAndroidPayMerchantDecryption|Payments:Visa|Payments:MasterCard|Payments:MaestroSecureCode" +
-                "|Payments:SoloUk|Payments:AvsUsAmericanExpress|Payments:AvsUsDiscover|Payments:AvsUsMasterCard|Payments:AvsUsVisa" +
-                "|Payments:AvsNonUsSoloUk|Payments:AvsNonUsMaestroInternational|Payments:AvsNonUsAmexOptima|Payments:AvsNonUsMaestroUkDomestic" +
-                "|Payments:AvsNonUsVisa|Payments:AvsRelaxNonRetail|Payments:AvsRelaxRetail|Payments:CvnVisaCvv2|Payments:CvnMaestroUkDomestic" +
-                "|Payments:CvnAmexCid|Payments:CvnDiscoverCid|Payments:CvnMaestroInternationalCopy|Payments:CvnMasterCardCvc2" +
-                "|Payments:AuthorizationOnly0ExponentCurrencies|Payments:AuthorizationOnly2ExponentCurrencies|Payments:Pcl2AmericanExpress" +
-                "|Payments:Pcl2MasterCard|Payments:Pcl2Visa|Payments:Pcl3Visa|Payments:Pcl3MasterCard|Payments:BasicPaymentAuthorization" +
-                "|Payments:VoiceAuthReferral|Payments:MasterCardSecureCode|Payments:GetPayment|Payments:Dollar0Authorization" +
-                "|Payments:Dollar0AuthorizationMasterCard|Payments:CurrenciesSupported|Payments:ApRecurringIndicator|Payments:PartialAuthorization" +
-                "|Payments:AmericanExpressSafeKey|Payments:AvsOnly|Payments:ForcedCaptures|Payments:JcbjSecure|Payments:LeveliiData" +
-                "|Payments:EcisSupported|Payments:LeveliiiData|Payments:MasterCardSecureCode2|Payments:MerchantDescriptorsAuth" +
-                "|Payments:RecurringBilling|Payments:VerbalAuthorizationsCapture|Payments:ServiceFees|Payments:VerifiedByVisa" +
-                "|Payments:ScAuthorizationOnly|Payments:ScCapturePayment|Payments:ScVisaBillPayment|Payments:ScBillAmtGreaterThanAuthAmt" +
-                "|Payments:ScPartialBills|Payments:CpStandaloneCredit|Payments:CpFollowOnCredit|Payments:CpPartialCredits|Payments:RefundPayment" +
-                "|Payments:AuthReversalFull|Payments:VtVoidAPayment|Payments:VtVoidAPaymentZeroDollar|Payouts:Payouts|Flex:GenerateKey|Flex:TokenizeCard" +
-                "|Payments_Core:AuthReversalSample|Payments_Core:CreateCreditSample|Payments_Core:GetCaptureSample|Payments_Core:GetCreditSample" +
-                "|Payments_Core:GetPaymentSample|Payments_Core:GetRefundSample|Payments_Core:GetReversalSample|Payments_Core:GetVoidSample" +
-                "|Payments_Core:RefundCaptureSample|Payments_Core:RefundPaymentSample|Payments_Core:VoidCaptureSample|Payments_Core:VoidCreditSample" +
-                "|Payments_Core:VoidPaymentSample|Payments_Core:VoidRefundSample|TMS:CreateInstrumentIdentifier|TMS:RetrieveInstrumentIdentifier";
+            /*
+             Initialization of Api List contains Following steps:-
 
-            var apis = apiList.Split('|');
+                1. Find the Api Families (Folders inside the main 'Samples' Folder)
 
-            foreach (var api in apis)
+                For Each Api Family:-
+                2. Fetch all the Files Paths inside Api Family folder (and all of its subfoldes)
+                3. Create Api Object by providing value of Api Family and File Name (Extracted from File path).
+                4. Add the Api Object to the ApiList List.
+             */
+
+            // 1. Find the Api Families (Folders inside the main 'Samples' Folder)
+            const string pathOfSamplesFolder = @"C:\Users\glondhe\Documents\MAPPD-Projects\Rest-API\Authentication-sample-code\ClientSDK\cybersource-rest-samples-csharp\Samples\src\Samples";
+            var dirList = Directory.GetDirectories(pathOfSamplesFolder, "*");
+            var apiFamilies = new List<string>();
+
+            foreach (var dir in dirList)
             {
-                var apiFamily = api.Split(':')[0];
-                var apiFunctionCall = api.Split(':')[1];
-                ApiFunctionCalls.Add(apiFunctionCall);
+                var dirModified = dir.Replace(' ', '_');
+                dirModified = dirModified.Substring(pathOfSamplesFolder.Length + 1);
+                dirModified = dirModified.Replace(@"\", ".");
 
-                var newApi = new Api
-                {
-                    ApiFamily = apiFamily,
-                    ApiFunctionCall = apiFunctionCall
-                };
-
-                ApiList.Add(newApi);
+                apiFamilies.Add(dirModified);
             }
 
-            // Remove Code before deployment.
-            // Console.WriteLine();
-            // Console.WriteLine(ApiList.Count);
-            // Console.WriteLine();
+            foreach (var apiFamily in apiFamilies)
+            {
+                // 2.Fetch all the Files Paths inside Api Family folder (and all of its subfoldes)
+                var allfiles = Directory.GetFileSystemEntries(pathOfSamplesFolder + @"\" + apiFamily, "*.cs*", SearchOption.AllDirectories);
+
+                foreach (var file in allfiles)
+                {
+                    var lastBackSlashIndex = file.LastIndexOf(@"\", StringComparison.Ordinal);
+                    var firstPart = file.Remove(lastBackSlashIndex);
+                    var secondPart = file.Substring(lastBackSlashIndex + 1, file.Length - firstPart.Length - 4);
+
+                    ApiFunctionCalls.Add(secondPart);
+
+                    // 3.Create Api Object by providing value of Api Family and File Name(Extracted from File path).
+                    var newApi = new Api
+                    {
+                        ApiFamily = apiFamily,
+                        ApiFunctionCall = secondPart
+                    };
+
+                    // 4.Add the Api Object to the ApiList List.
+                    ApiList.Add(newApi);
+                }
+            }
+
             CheckDuplicateSampleCodes();
         }
 
@@ -264,35 +282,25 @@ namespace CybsPayments
 
         private static void InitializeSampleClassesPathList()
         {
-            // make sure you put a dot . at the end of the path
-            SampleClassesPathList.Add("CybsPayments.Payments.All_Services.");
-            SampleClassesPathList.Add("CybsPayments.Payments.Authorize_Payment.");
-            SampleClassesPathList.Add("CybsPayments.Payments.Authorize_Payment.Simple_Auth.");
-            SampleClassesPathList.Add("CybsPayments.Payments.Authorize_Payment.Merchant_Initiated_Reversals_and_Voids.");
-            SampleClassesPathList.Add("CybsPayments.Payments.Authorize_Payment.Network_Tokenization.");
-            SampleClassesPathList.Add("CybsPayments.Payments.Authorize_Payment.POS_Transactions.");
-            SampleClassesPathList.Add("CybsPayments.Payments.Authorize_Payment.Digital_Payments.SamSung_Pay.");
-            SampleClassesPathList.Add("CybsPayments.Payments.Authorize_Payment.Digital_Payments.Chase_Pay.");
-            SampleClassesPathList.Add("CybsPayments.Payments.Authorize_Payment.Digital_Payments.ApplePay.");
-            SampleClassesPathList.Add("CybsPayments.Payments.Authorize_Payment.Digital_Payments.Google_Pay.");
-            SampleClassesPathList.Add("CybsPayments.Payments.Authorize_Payment.Digital_Payments.AndroidPay.");
-            SampleClassesPathList.Add("CybsPayments.Payments.Authorize_Payment.Card_Brand.");
-            SampleClassesPathList.Add("CybsPayments.Payments.Authorize_Payment.AVS_US_Supported_Card_Types.");
-            SampleClassesPathList.Add("CybsPayments.Payments.Authorize_Payment.AVS_Non_US_Supported_Card_Types.");
-            SampleClassesPathList.Add("CybsPayments.Payments.Authorize_Payment.AVS_Relax.");
-            SampleClassesPathList.Add("CybsPayments.Payments.Authorize_Payment.CVN.");
-            SampleClassesPathList.Add("CybsPayments.Payments.Authorize_Payment.Currency_Support.");
-            SampleClassesPathList.Add("CybsPayments.Payments.Authorize_Payment.Purchase_Cards_Level_2.");
-            SampleClassesPathList.Add("CybsPayments.Payments.Authorize_Payment.Purchase_Cards_Level_3.");
-            SampleClassesPathList.Add("CybsPayments.Payments.Capture_Payment.Simple_Capture.");
-            SampleClassesPathList.Add("CybsPayments.Payments.Credit_Payment.");
-            SampleClassesPathList.Add("CybsPayments.Payments.Refund_Payment.");
-            SampleClassesPathList.Add("CybsPayments.Payments.Reverse_Payment.");
-            SampleClassesPathList.Add("CybsPayments.Payments.Void_Transactions.Void_a_Payment.");
-            SampleClassesPathList.Add("CybsPayments.Payouts.");
-            SampleClassesPathList.Add("CybsPayments.Flex.");
-            SampleClassesPathList.Add("CybsPayments.Payments_Core.");
-            SampleClassesPathList.Add("CybsPayments.TMS.");
+            const string pathOfSamplesFolder = @"C:\Users\glondhe\Documents\MAPPD-Projects\Rest-API\Authentication-sample-code\ClientSDK\cybersource-rest-samples-csharp\Samples\src\Samples";
+            const string projectNamespace = "Cybersource_rest_samples_dotnet";
+
+            // dirList has got all the folders and sub-folders for the Samples Folder Path
+            var dirList = Directory.GetDirectories(pathOfSamplesFolder, "*", SearchOption.AllDirectories);
+            foreach (var dir in dirList)
+            {
+                /*
+                    Once we have the path of each folder,
+                    we can use that to create the namespace names of all the sample codes,
+                    inside the folder [Samples].
+                */
+                var dirModified = dir.Replace(' ', '_');
+                dirModified = dirModified.Substring(pathOfSamplesFolder.Length + 1);
+                dirModified = dirModified.Replace(@"\", ".");
+
+                // SampleCodeClassesPathList is the complete list of all the possible namespaces for all the sample codes
+                SampleCodeClassesPathList.Add(projectNamespace + ".Samples." + dirModified + ".");
+            }
         }
 
         private static void SetNetworkSettings()

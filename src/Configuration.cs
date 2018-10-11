@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace CybsPayments
+namespace Cybersource_rest_samples_dotnet
 {
     public class Configuration
     {
