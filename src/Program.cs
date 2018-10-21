@@ -4,11 +4,16 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
+using NLog;
 
 namespace Cybersource_rest_samples_dotnet
 {
     public class Program
     {
+        private static readonly string PathOfSamplesFolder = "..\\..\\Samples";
+
+        private static readonly string ProjectNamespace = "Cybersource_rest_samples_dotnet";
+
         // Create Dictionary object to be passed to the Merchant Config constructor
         // This Contains all Merchant level configurations like Merchant Key ID etc
         private static readonly IReadOnlyDictionary<string, string> ConfigDictionary = new Configuration().GetConfiguration();
@@ -26,8 +31,16 @@ namespace Cybersource_rest_samples_dotnet
         // Name of the Sample Code File to run for the current execution
         private static string _sampleToRun = string.Empty;
 
+        // NLog Logger object
+        private static Logger logger;
+
         public static void Main(string[] args)
         {
+            // initializing logger object
+            logger = LogManager.GetCurrentClassLogger();
+            logger.Trace("\n");
+            logger.Trace("PROGRAM EXECUTION BEGINS");
+
             // Set Network Settings (To Avoid SSL/TLS Secure Channel Error)
             SetNetworkSettings();
 
@@ -43,12 +56,16 @@ namespace Cybersource_rest_samples_dotnet
 
             // Run the Sample Code as per user input
             RunSample(_sampleToRun);
+
+            logger.Trace("PROGRAM EXECUTION ENDS");
         }
 
         public static void RunSample(string sampleClassName)
         {
             try
             {
+                logger.Trace($"Sample Code to Run: {sampleClassName}");
+
                 Console.WriteLine("\n");
                 Type className = null;
 
@@ -58,12 +75,14 @@ namespace Cybersource_rest_samples_dotnet
 
                     if (className != null)
                     {
+                        logger.Trace($"Sample Code found in the namespace: {path}");
                         break;
                     }
                 }
 
                 if (className == null)
                 {
+                    logger.Warn("No Sample Code Found with the name: {0}", sampleClassName);
                     Console.WriteLine("No Sample Code Found with the name: {0}", sampleClassName);
                     return;
                 }
@@ -72,10 +91,12 @@ namespace Cybersource_rest_samples_dotnet
                 var methodInfo = className.GetMethod("Run");
                 if (methodInfo != null)
                 {
+                    logger.Trace($"Invoking Run() method of {sampleClassName}");
                     methodInfo.Invoke(obj, new object[] { ConfigDictionary });
                 }
                 else
                 {
+                    logger.Warn($"No Run Method Found in the class: {sampleClassName}");
                     Console.WriteLine("No Run Method Found in the class: {0}", sampleClassName);
                 }
             }
@@ -114,6 +135,7 @@ namespace Cybersource_rest_samples_dotnet
             }
 
             _sampleToRun = inputString.ToString();
+            logger.Trace($"Input provided for Sample Code to Run: {_sampleToRun}");
         }
 
         private static void HandleTabInput(StringBuilder builder, string bestMatch)
@@ -158,6 +180,8 @@ namespace Cybersource_rest_samples_dotnet
 
         private static void ShowMethods()
         {
+            logger.Trace("Beginning to Show All Sample Codes on Console");
+
             Console.WriteLine(" ---------------------------------------------------------------------------------------------------");
             Console.WriteLine(" -                                    Code Sample Names                                            -");
             Console.WriteLine(" ---------------------------------------------------------------------------------------------------");
@@ -171,6 +195,8 @@ namespace Cybersource_rest_samples_dotnet
 
             foreach (var apiFamily in apiFamilies)
             {
+                logger.Trace($"Showing Sample Codes for Api Family: {apiFamily}");
+
                 Console.WriteLine(" " + apiFamily.ToUpper() + " API'S   ");
                 Console.WriteLine(" ---------------------------------------------------------------------------------------------------");
 
@@ -198,6 +224,7 @@ namespace Cybersource_rest_samples_dotnet
                 Console.WriteLine(" ---------------------------------------------------------------------------------------------------");
             }
 
+            logger.Trace("All Sample Codes Shown on Console");
             Console.WriteLine(string.Empty);
             Console.Write("Type a sample name & then press <Return> : ");
         }
@@ -216,14 +243,15 @@ namespace Cybersource_rest_samples_dotnet
              */
 
             // 1. Find the Api Families (Folders inside the main 'Samples' Folder)
-            const string pathOfSamplesFolder = @"C:\Users\glondhe\Documents\MAPPD-Projects\Rest-API\Authentication-sample-code\ClientSDK\cybersource-rest-samples-csharp\Samples\src\Samples";
-            var dirList = Directory.GetDirectories(pathOfSamplesFolder, "*");
+            logger.Trace($"Samples Folder At:{Path.GetFullPath(PathOfSamplesFolder)}");
+
+            var dirList = Directory.GetDirectories(PathOfSamplesFolder, "*");
             var apiFamilies = new List<string>();
 
             foreach (var dir in dirList)
             {
                 var dirModified = dir.Replace(' ', '_');
-                dirModified = dirModified.Substring(pathOfSamplesFolder.Length + 1);
+                dirModified = dirModified.Substring(PathOfSamplesFolder.Length + 1);
                 dirModified = dirModified.Replace(@"\", ".");
 
                 apiFamilies.Add(dirModified);
@@ -232,7 +260,10 @@ namespace Cybersource_rest_samples_dotnet
             foreach (var apiFamily in apiFamilies)
             {
                 // 2.Fetch all the Files Paths inside Api Family folder (and all of its subfoldes)
-                var allfiles = Directory.GetFileSystemEntries(pathOfSamplesFolder + @"\" + apiFamily, "*.cs*", SearchOption.AllDirectories);
+                var allfiles = Directory.GetFileSystemEntries(PathOfSamplesFolder + @"\" + apiFamily, "*.cs*", SearchOption.AllDirectories);
+
+                logger.Trace($"Api Family: {apiFamily}");
+                logger.Trace($"Total Sample Codes Detected: {allfiles.Count()}");
 
                 foreach (var file in allfiles)
                 {
@@ -273,6 +304,7 @@ namespace Cybersource_rest_samples_dotnet
 
             if (duplicateFound)
             {
+                logger.Warn("DUPLICATE SAMPLE CODES DETECTED!");
                 Console.WriteLine();
                 Console.WriteLine("WARNING:");
                 Console.WriteLine(duplicateListOutput);
@@ -282,11 +314,10 @@ namespace Cybersource_rest_samples_dotnet
 
         private static void InitializeSampleClassesPathList()
         {
-            const string pathOfSamplesFolder = @"C:\Users\glondhe\Documents\MAPPD-Projects\Rest-API\Authentication-sample-code\ClientSDK\cybersource-rest-samples-csharp\Samples\src\Samples";
-            const string projectNamespace = "Cybersource_rest_samples_dotnet";
-
             // dirList has got all the folders and sub-folders for the Samples Folder Path
-            var dirList = Directory.GetDirectories(pathOfSamplesFolder, "*", SearchOption.AllDirectories);
+            var dirList = Directory.GetDirectories(PathOfSamplesFolder, "*", SearchOption.AllDirectories);
+            logger.Trace($"Project Namespace value provided: {ProjectNamespace}");
+
             foreach (var dir in dirList)
             {
                 /*
@@ -295,11 +326,11 @@ namespace Cybersource_rest_samples_dotnet
                     inside the folder [Samples].
                 */
                 var dirModified = dir.Replace(' ', '_');
-                dirModified = dirModified.Substring(pathOfSamplesFolder.Length + 1);
+                dirModified = dirModified.Substring(PathOfSamplesFolder.Length + 1);
                 dirModified = dirModified.Replace(@"\", ".");
 
                 // SampleCodeClassesPathList is the complete list of all the possible namespaces for all the sample codes
-                SampleCodeClassesPathList.Add(projectNamespace + ".Samples." + dirModified + ".");
+                SampleCodeClassesPathList.Add(ProjectNamespace + ".Samples." + dirModified + ".");
             }
         }
 

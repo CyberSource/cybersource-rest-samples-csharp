@@ -49,13 +49,22 @@
       <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.4.5.10\lib\net45\NLog.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="RestSharp, Version=106.4.1.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
       <HintPath>..\packages\RestSharp.106.4.1\lib\net452\RestSharp.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -197,6 +206,8 @@
     <Compile Include="Samples\TMS\CoreServices\CreateInstrumentIdentifier.cs" />
     <Compile Include="Samples\TMS\CoreServices\CreatePaymentsInstruments.cs" />
     <Compile Include="Samples\TMS\CoreServices\DeleteInstrumentIdentifier.cs" />
+    <Compile Include="Samples\TMS\CoreServices\UpdateInstrumentIdentifier.cs" />
+    <Compile Include="Samples\TMS\CoreServices\UpdatePaymentInstrument.cs" />
     <Compile Include="Samples\TMS\PaymentsWithToken\AuthorizationWithToken.cs" />
     <Compile Include="Samples\TMS\PaymentsWithToken\PaymentsInstrumentsForAuthorization.cs" />
     <Compile Include="Samples\TMS\CoreServices\DeletePaymentsInstruments.cs" />
@@ -208,6 +219,13 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="CybsPayments.ruleset" />
+    <Content Include="NLog.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="logs\cybs.log" />
+    <None Include="NLog.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
     <None Include="Resource\mcb_test_merch.p12" />
     <None Include="Resource\testrest.p12" />
