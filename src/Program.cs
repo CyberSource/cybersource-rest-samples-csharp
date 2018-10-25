@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
-using System.Text;
 using NLog;
 
 namespace Cybersource_rest_samples_dotnet
@@ -51,27 +50,25 @@ namespace Cybersource_rest_samples_dotnet
             // Display all sample codes available to run
             ShowMethods();
 
-            // Take the Input from user for which sample code to run
-            SelectMethod();
-
             // Run the Sample Code as per user input
-            RunSample(_sampleToRun);
+            RunSample();
 
             logger.Trace("PROGRAM EXECUTION ENDS");
         }
 
-        public static void RunSample(string sampleClassName)
+        public static void RunSample()
         {
             try
             {
-                logger.Trace($"Sample Code to Run: {sampleClassName}");
+                _sampleToRun = Console.ReadLine();
+                logger.Trace($"Input provided for Sample Code to Run: {_sampleToRun}");
 
                 Console.WriteLine("\n");
                 Type className = null;
 
                 foreach (var path in SampleCodeClassesPathList)
                 {
-                    className = Type.GetType(path + sampleClassName);
+                    className = Type.GetType(path + _sampleToRun);
 
                     if (className != null)
                     {
@@ -82,8 +79,8 @@ namespace Cybersource_rest_samples_dotnet
 
                 if (className == null)
                 {
-                    logger.Warn("No Sample Code Found with the name: {0}", sampleClassName);
-                    Console.WriteLine("No Sample Code Found with the name: {0}", sampleClassName);
+                    logger.Warn("No Sample Code Found with the name: {0}", _sampleToRun);
+                    Console.WriteLine("No Sample Code Found with the name: {0}", _sampleToRun);
                     return;
                 }
 
@@ -91,13 +88,13 @@ namespace Cybersource_rest_samples_dotnet
                 var methodInfo = className.GetMethod("Run");
                 if (methodInfo != null)
                 {
-                    logger.Trace($"Invoking Run() method of {sampleClassName}");
+                    logger.Trace($"Invoking Run() method of {_sampleToRun}");
                     methodInfo.Invoke(obj, new object[] { ConfigDictionary });
                 }
                 else
                 {
-                    logger.Warn($"No Run Method Found in the class: {sampleClassName}");
-                    Console.WriteLine("No Run Method Found in the class: {0}", sampleClassName);
+                    logger.Warn($"No Run Method Found in the class: {_sampleToRun}");
+                    Console.WriteLine("No Run Method Found in the class: {0}", _sampleToRun);
                 }
             }
             catch (Exception e)
@@ -112,70 +109,6 @@ namespace Cybersource_rest_samples_dotnet
 
                 Console.WriteLine(e.StackTrace);
             }
-        }
-
-        private static void SelectMethod()
-        {
-            var inputChar = Console.ReadKey();
-            var inputString = new StringBuilder();
-
-            while (inputChar.Key != ConsoleKey.Enter)
-            {
-                if (inputChar.Key == ConsoleKey.Tab)
-                {
-                    var bestMatch = GetBestMatch(inputString.ToString());
-                    HandleTabInput(inputString, bestMatch);
-                }
-                else
-                {
-                    HandleKeyInput(inputString, inputChar);
-                }
-
-                inputChar = Console.ReadKey();
-            }
-
-            _sampleToRun = inputString.ToString();
-            logger.Trace($"Input provided for Sample Code to Run: {_sampleToRun}");
-        }
-
-        private static void HandleTabInput(StringBuilder builder, string bestMatch)
-        {
-            if (string.IsNullOrEmpty(bestMatch))
-            {
-                return;
-            }
-
-            ClearCurrentLine();
-            builder.Clear();
-
-            Console.Write("Type a sample name & then press <Return> : " + bestMatch);
-            builder.Append(bestMatch);
-        }
-
-        private static void HandleKeyInput(StringBuilder builder, ConsoleKeyInfo input)
-        {
-            var currentInput = builder.ToString();
-            if (input.Key == ConsoleKey.Backspace && currentInput.Length > 0)
-            {
-                builder.Remove(builder.Length - 1, 1);
-                ClearCurrentLine();
-
-                currentInput = currentInput.Remove(currentInput.Length - 1);
-                Console.Write("Type a sample name & then press <Return> : " + currentInput);
-            }
-            else
-            {
-                var key = input.KeyChar;
-                builder.Append(key);
-            }
-        }
-
-        private static void ClearCurrentLine()
-        {
-            var currentLine = Console.CursorTop;
-            Console.SetCursorPosition(0, Console.CursorTop);
-            Console.Write(new string(' ', Console.WindowWidth));
-            Console.SetCursorPosition(0, currentLine);
         }
 
         private static void ShowMethods()
@@ -341,55 +274,6 @@ namespace Cybersource_rest_samples_dotnet
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
             ServicePointManager.ServerCertificateValidationCallback +=
                 (sender, certificate, chain, sslPolicyErrors) => true;
-        }
-
-        private static string GetBestMatch(string input)
-        {
-            var matchList = new List<string>();
-            var bestMatches = new Dictionary<string, int>();
-            var maxCharMatchCount = 0;
-
-            foreach (var api in ApiList)
-            {
-                var charNo = 0;
-                var charMatchCount = 0;
-                var apiFunctionCall = api.ApiFunctionCall;
-
-                while (charNo < input.Length && charNo < apiFunctionCall.Length)
-                {
-                    if (input[charNo] == apiFunctionCall[charNo])
-                    {
-                        charMatchCount++;
-                    }
-                    else
-                    {
-                        break;
-                    }
-
-                    charNo++;
-                }
-
-                if (charMatchCount > 0)
-                {
-                    bestMatches.Add(apiFunctionCall, charMatchCount);
-
-                    if (charMatchCount > maxCharMatchCount)
-                    {
-                        maxCharMatchCount = charMatchCount;
-                    }
-                }
-            }
-
-            foreach (var api in bestMatches)
-            {
-                if (api.Value == maxCharMatchCount)
-                {
-                    matchList.Add(api.Key);
-                    break; // just adding one best matching value is enough
-                }
-            }
-
-            return matchList.FirstOrDefault();
         }
     }
 }

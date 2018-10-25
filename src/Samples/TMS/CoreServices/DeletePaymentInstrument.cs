@@ -1,28 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
-using AuthenticationSdk.core;
 using CyberSource.Api;
-using CyberSource.Client;
 
 namespace Cybersource_rest_samples_dotnet.Samples.TMS.CoreServices
 {
-    public class DeletePaymentsInstruments
+    public class DeletePaymentInstrument
     {
         public static void Run(IReadOnlyDictionary<string, string> configDictionary)
         {
             var profileId = "93B32398-AD51-4CC2-A682-EA3E93614EB1";
-            var tokenId = "78409487AA09FBDBE05341588E0A4D36";
-
-            var merchantConfig = new MerchantConfig(configDictionary)
-            {
-                RequestType = "DELETE",
-                RequestTarget = "/tms/v1/paymentinstruments/" + tokenId
-            };
+            var tokenId = CreatePaymentInstrument.Run().Id;
 
             try
             {
-                var configurationSwagger = new ApiClient().CallAuthenticationHeader(merchantConfig);
-                var apiInstance = new PaymentInstrumentApi(configurationSwagger);
+                var apiInstance = new PaymentInstrumentApi()
+                {
+                    Configuration = new CyberSource.Client.Configuration()
+                };
                 var result = apiInstance.PaymentinstrumentsTokenIdDeleteWithHttpInfo(profileId, tokenId);
                 Console.WriteLine(result);
             }

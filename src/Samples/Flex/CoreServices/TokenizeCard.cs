@@ -3,17 +3,14 @@ using System.Collections.Generic;
 using System.IO;
 using System.Security.Cryptography;
 using System.Text;
-using AuthenticationSdk.core;
 using CyberSource.Api;
-using CyberSource.Client;
 using CyberSource.Model;
 using FlexServerSDK.Exception;
 using FlexServerSDK.Model;
-using Newtonsoft.Json;
 
 namespace Cybersource_rest_samples_dotnet.Samples.Flex.CoreServices
 {
-    public class FlexTokenizeCard
+    public class TokenizeCard
     {
         public static void Run(IReadOnlyDictionary<string, string> configDictionary)
         {
@@ -35,17 +32,12 @@ namespace Cybersource_rest_samples_dotnet.Samples.Flex.CoreServices
                 }
             };
 
-            var merchantConfig = new MerchantConfig(configDictionary)
-            {
-                RequestType = "POST",
-                RequestTarget = "/flex/v1/tokens",
-                RequestJsonData = JsonConvert.SerializeObject(requestObj)
-            };
-
             try
             {
-                var configurationSwagger = new ApiClient().CallAuthenticationHeader(merchantConfig);
-                var apiInstance = new TokenizationApi(configurationSwagger);
+                var apiInstance = new TokenizationApi()
+                {
+                    Configuration = new CyberSource.Client.Configuration()
+                };
                 var result = apiInstance.Tokenize(requestObj);
                 Console.WriteLine(result);
 
@@ -61,14 +53,6 @@ namespace Cybersource_rest_samples_dotnet.Samples.Flex.CoreServices
                     signature = result.Signature,
                     discoverableServices = result.DiscoverableServices
                 };
-
-                //var tokenVerificationResult = Verify(
-                //    configDictionary["merchantID"],
-                //    configDictionary["merchantKeyId"],
-                //    configDictionary["merchantsecretKey"],
-                //    flexPublicKey,
-                //    flexToken);
-                // Console.WriteLine(tokenVerificationResult);
 
                 IDictionary<string, string> postParameters = new Dictionary<string, string>();
                 postParameters["signedFields"] = flexToken.signedFields;
