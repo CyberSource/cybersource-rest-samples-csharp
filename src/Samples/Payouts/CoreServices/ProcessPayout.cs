@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using AuthenticationSdk.core;
 using CyberSource.Api;
-using CyberSource.Client;
 using CyberSource.Model;
-using Newtonsoft.Json;
 
 namespace Cybersource_rest_samples_dotnet.Samples.Payouts.CoreServices
 {
@@ -49,14 +46,6 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payouts.CoreServices
             };
 
             requestObj.ProcessingInformation = processingInformationObj;
-
-            //var payoutsOptionsObj = new PayoutsOptions();
-
-            //payoutsOptionsObj.RetrievalReferenceNumber = "123456789012";
-            //payoutsOptionsObj.AcquirerBin = "567890124";
-            //requestObj.PayoutsOptions = payoutsOptionsObj;
-
-            // requestObj.ReconciliationId = "1087488702VIAQNSPQ";
 
             var orderInformationObj = new V2payoutsOrderInformation();
 
@@ -118,17 +107,9 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payouts.CoreServices
 
             requestObj.RecipientInformation = recipientInformationObj;
 
-            var merchantConfig = new MerchantConfig(configDictionary)
-            {
-                RequestType = "POST",
-                RequestTarget = "/pts/v2/payouts",
-                RequestJsonData = JsonConvert.SerializeObject(requestObj)
-            };
-
             try
             {
-                var configurationSwagger = new ApiClient().CallAuthenticationHeader(merchantConfig);
-                var apiInstance = new DefaultApi(configurationSwagger);
+                var apiInstance = new DefaultApi();
                 var result = apiInstance.OctCreatePaymentWithHttpInfo(requestObj);
                 Console.WriteLine(result);
             }

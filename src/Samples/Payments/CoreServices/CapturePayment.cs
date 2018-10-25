@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using AuthenticationSdk.core;
 using CyberSource.Api;
-using CyberSource.Client;
 using CyberSource.Model;
-using Newtonsoft.Json;
 
 namespace Cybersource_rest_samples_dotnet.Samples.Payments.CoreServices
 {
@@ -58,9 +55,6 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments.CoreServices
 
             try
             {
-                //var config = new CyberSource.Client.Configuration();
-                //var config2 = CyberSource.Client.Configuration.Default;
-
                 var apiInstance = new CaptureApi()
                 {
                     Configuration = new CyberSource.Client.Configuration()

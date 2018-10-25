@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using AuthenticationSdk.core;
 using CyberSource.Api;
-using CyberSource.Client;
 using CyberSource.Model;
-using Newtonsoft.Json;
 
 namespace Cybersource_rest_samples_dotnet.Samples.Payments.CoreServices
 {
@@ -12,13 +9,19 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments.CoreServices
     {
         public static void Run(IReadOnlyDictionary<string, string> configDictionary)
         {
+            var processCreditId = ProcessCredit.Run().Id;
+
             var clientReferenceInformationObj = new V2paymentsidreversalsClientReferenceInformation("test_credit_void");
             var requestBody = new VoidCreditRequest(clientReferenceInformationObj);
 
             try
             {
-                var apiInstance = new VoidApi();
-                var result = apiInstance.VoidCredit(requestBody, "5395911486196754404005");
+                var apiInstance = new VoidApi()
+                {
+                    Configuration = new CyberSource.Client.Configuration()
+                };
+
+                var result = apiInstance.VoidCredit(requestBody, processCreditId);
                 Console.WriteLine(result);
             }
             catch (Exception e)

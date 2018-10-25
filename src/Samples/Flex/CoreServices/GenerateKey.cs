@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using AuthenticationSdk.core;
 using CyberSource.Api;
-using CyberSource.Client;
 using CyberSource.Model;
-using Newtonsoft.Json;
 
 namespace Cybersource_rest_samples_dotnet.Samples.Flex.CoreServices
 {
@@ -19,17 +16,9 @@ namespace Cybersource_rest_samples_dotnet.Samples.Flex.CoreServices
                 EncryptionType = "None"
             };
 
-            var merchantConfig = new MerchantConfig(configDictionary)
-            {
-                RequestType = "POST",
-                RequestTarget = "/flex/v1/keys",
-                RequestJsonData = JsonConvert.SerializeObject(requestObj)
-            };
-
             try
             {
-                var configurationSwagger = new ApiClient().CallAuthenticationHeader(merchantConfig);
-                var apiInstance = new KeyGenerationApi(configurationSwagger);
+                var apiInstance = new KeyGenerationApi();
                 var result = apiInstance.GeneratePublicKey(requestObj);
                 generateKeyResult = result;
                 Console.WriteLine(result);

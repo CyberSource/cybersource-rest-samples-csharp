@@ -1,18 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using AuthenticationSdk.core;
 using CyberSource.Api;
-using CyberSource.Client;
 using CyberSource.Model;
-using Newtonsoft.Json;
 
 namespace Cybersource_rest_samples_dotnet.Samples.Payments.CoreServices
 {
     public class ProcessPayment
     {
+        public static bool CaptureTrueForProcessPayment { get; set; } = false;
+
         public static InlineResponse201 Run(IReadOnlyDictionary<string, string> configDictionary = null)
         {
-            var processingInformationObj = new V2paymentsProcessingInformation() { Capture = true };
+            var processingInformationObj = new V2paymentsProcessingInformation() { CommerceIndicator = "internet" };
 
             var clientReferenceInformationObj = new V2paymentsClientReferenceInformation { Code = "test_payment" };
 
@@ -61,16 +60,24 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments.CoreServices
 
             var requestObj = new CreatePaymentRequest
             {
-                //ProcessingInformation = processingInformationObj,
+                ProcessingInformation = processingInformationObj,
                 PaymentInformation = paymentInformationObj,
                 ClientReferenceInformation = clientReferenceInformationObj,
                 PointOfSaleInformation = pointOfSaleInformationObj,
                 OrderInformation = orderInformationObj
             };
 
+            if (CaptureTrueForProcessPayment)
+            {
+                requestObj.ProcessingInformation.Capture = true;
+            }
+
             try
             {
-                var apiInstance = new PaymentApi();
+                var apiInstance = new PaymentApi()
+                {
+                    Configuration = new CyberSource.Client.Configuration()
+                };
                 var result = apiInstance.CreatePayment(requestObj);
                 Console.WriteLine(result);
                 return result;

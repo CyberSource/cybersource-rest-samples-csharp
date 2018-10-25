@@ -1,16 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using AuthenticationSdk.core;
 using CyberSource.Api;
-using CyberSource.Client;
 using CyberSource.Model;
-using Newtonsoft.Json;
 
 namespace Cybersource_rest_samples_dotnet.Samples.Payments.CoreServices
 {
     public class ProcessCredit
     {
-        public static void Run(IReadOnlyDictionary<string, string> configDictionary)
+        public static InlineResponse2014 Run(IReadOnlyDictionary<string, string> configDictionary = null)
         {
             var requestObj = new CreateCreditRequest();
 
@@ -67,10 +64,12 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments.CoreServices
                 var apiInstance = new CreditApi();
                 var result = apiInstance.CreateCredit(requestObj);
                 Console.WriteLine(result);
+                return result;
             }
             catch (Exception e)
             {
                 Console.WriteLine("Exception on calling the API: " + e.Message);
+                return null;
             }
         }
     }
