@@ -35,12 +35,6 @@
     <CodeAnalysisRuleSet>CybsPayments.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AuthenticationSdk">
-      <HintPath>..\..\..\..\CyberSource_Authentication_SDK_dotNet\src\References\AuthenticationSdk\AuthenticationSdk\bin\Debug\AuthenticationSdk.dll</HintPath>
-    </Reference>
-    <Reference Include="cybersource-rest-client-dotnet">
-      <HintPath>..\..\cybersource-rest-client-dotnet\bin\Debug\cybersource-rest-client-dotnet.dll</HintPath>
-    </Reference>
     <Reference Include="FlexServerSDK, Version=0.2.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\CyberSource.Flex.Server.0.2.1\lib\FlexServerSDK.dll</HintPath>
       <Private>True</Private>
