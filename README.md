@@ -1,5 +1,5 @@
 # cybersource-rest-samples-csharp
-This project provides a sample codes for REST APIs supported by CyberSource
+This project provides multiple sample codes for REST APIs supported by CyberSource.
 
 ## Requirements
 * .NET Framework 4.6.1
