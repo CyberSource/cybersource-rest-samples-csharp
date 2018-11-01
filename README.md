@@ -38,7 +38,7 @@ e.g.
 ```
 Running SampleCode without a parameter will give you the list of sample names. 
 
-#### To set your API credentials for an API request,Configure the following information in resources/cybersource.properties file:
+#### To set your API credentials for an API request,Configure the following information in /src/App.config file:
   
   * Http
 
