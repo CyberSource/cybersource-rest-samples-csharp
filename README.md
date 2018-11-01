@@ -38,7 +38,7 @@ e.g.
 ```
 Running SampleCode without a parameter will give you the list of sample names. 
 
-#### To set your API credentials for an API request,Configure the following information in /src/App.config file:
+#### To set your API credentials for an API request,Configure the following information in src/App.config file:
   
   * Http
 
@@ -73,7 +73,7 @@ Running SampleCode without a parameter will give you the list of sample names.
 CyberSource maintains a complete sandbox environment for testing and development purposes. This sandbox environment is an exact
 duplicate of our production environment with the transaction authorization and settlement process simulated. By default, this SDK is 
 configured to communicate with the sandbox environment. To switch to the production environment, set the appropriate environment 
-constant in resources/cybs.json file.  For example:
+constant in src/App.json file.  For example:
 
 ```java
 // For PRODUCTION use
