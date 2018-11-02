@@ -328,3 +328,7 @@ ASALocalRun/
 
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
+/src/cybersource-rest-samples-dotnet.vshost.exe.manifest
+/src/cybersource-rest-samples-dotnet.vshost.exe.config
+/src/cybersource-rest-samples-dotnet.vshost.exe
+/src/cybersource-rest-samples-dotnet.exe.config
