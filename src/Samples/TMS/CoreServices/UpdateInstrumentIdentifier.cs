@@ -14,15 +14,18 @@ namespace Cybersource_rest_samples_dotnet.Samples.TMS.CoreServices
 
             var requestObj = new Body1();
 
-            var processingInformationObj = new InstrumentidentifiersProcessingInformation();
+            var processingInformationObj = new Tmsv1instrumentidentifiersProcessingInformation();
 
-            var authorizationOptionsObj = new InstrumentidentifiersProcessingInformationAuthorizationOptions();
+            var authorizationOptionsObj = new Tmsv1instrumentidentifiersProcessingInformationAuthorizationOptions();
 
-            var initiatorObj = new InstrumentidentifiersProcessingInformationAuthorizationOptionsInitiator();
+            var initiatorObj = new Tmsv1instrumentidentifiersProcessingInformationAuthorizationOptionsInitiator();
 
-            var merchantInitiatedTransactionObj = new InstrumentidentifiersProcessingInformationAuthorizationOptionsInitiatorMerchantInitiatedTransaction();
+            var merchantInitiatedTransactionObj =
+                new Tmsv1instrumentidentifiersProcessingInformationAuthorizationOptionsInitiatorMerchantInitiatedTransaction
+                {
+                    PreviousTransactionId = "123456789012345"
+                };
 
-            merchantInitiatedTransactionObj.PreviousTransactionId = "123456789012345";
             initiatorObj.MerchantInitiatedTransaction = merchantInitiatedTransactionObj;
 
             authorizationOptionsObj.Initiator = initiatorObj;
@@ -38,7 +41,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TMS.CoreServices
                     Configuration = new CyberSource.Client.Configuration()
                 };
 
-                var result = apiInstance.InstrumentidentifiersTokenIdPatch(profileId, tokenId, requestObj);
+                var result = apiInstance.TmsV1InstrumentidentifiersTokenIdPatch(profileId, tokenId, requestObj);
                 Console.WriteLine(result);
             }
             catch (Exception e)

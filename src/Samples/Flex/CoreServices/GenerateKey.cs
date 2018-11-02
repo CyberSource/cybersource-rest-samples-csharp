@@ -11,10 +11,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Flex.CoreServices
 
         public static void Run(IReadOnlyDictionary<string, string> configDictionary)
         {
-            var requestObj = new GeneratePublicKeyRequest
-            {
-                EncryptionType = "None"
-            };
+            var requestObj = new GeneratePublicKeyRequest("None");
 
             try
             {

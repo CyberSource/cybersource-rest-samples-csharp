@@ -13,11 +13,11 @@ namespace Cybersource_rest_samples_dotnet.Samples.TMS.CoreServices
 
             try
             {
-                var apiInstance = new InstrumentIdentifierApi()
+                var apiInstance = new PaymentInstrumentsApi()
                 {
                     Configuration = new CyberSource.Client.Configuration()
                 };
-                var result = apiInstance.InstrumentidentifiersTokenIdPaymentinstrumentsGet(profileId, tokenId);
+                var result = apiInstance.TmsV1InstrumentidentifiersTokenIdPaymentinstrumentsGet(profileId, tokenId);
                 Console.WriteLine(result);
             }
             catch (Exception e)

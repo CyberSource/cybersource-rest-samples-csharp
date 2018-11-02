@@ -11,7 +11,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments.CoreServices
         {
             var refundPaymentId = RefundPayment.Run().Id;
 
-            var clientReferenceInformationObj = new V2paymentsidreversalsClientReferenceInformation("test_refund_void");
+            var clientReferenceInformationObj = new Ptsv2paymentsidreversalsClientReferenceInformation("test_refund_void");
             var requestBody = new VoidRefundRequest(clientReferenceInformationObj);
 
             try

@@ -11,9 +11,9 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments.CoreServices
         {
             var capturePaymentId = CapturePayment.Run().Id;
 
-            var clientReferenceInformationObj = new V2paymentsClientReferenceInformation("test_refund_capture");
-            var amountDetailsObj = new V2paymentsidcapturesOrderInformationAmountDetails("102.21", "USD");
-            var orderInformationObj = new V2paymentsidrefundsOrderInformation(amountDetailsObj);
+            var clientReferenceInformationObj = new Ptsv2paymentsClientReferenceInformation("test_refund_capture");
+            var amountDetailsObj = new Ptsv2paymentsidcapturesOrderInformationAmountDetails("102.21", "USD");
+            var orderInformationObj = new Ptsv2paymentsidrefundsOrderInformation(amountDetailsObj);
             var requestBody = new RefundCaptureRequest(clientReferenceInformationObj,null, null, orderInformationObj);
 
             try

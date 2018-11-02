@@ -10,7 +10,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments.CoreServices
         public static void Run(IReadOnlyDictionary<string, string> configDictionary)
         {
             var capturePaymentId = CapturePayment.Run().Id;
-            var clientReferenceInformationObj = new V2paymentsidreversalsClientReferenceInformation("test_capture_void");
+            var clientReferenceInformationObj = new Ptsv2paymentsidreversalsClientReferenceInformation("test_capture_void");
             var requestBody = new VoidCaptureRequest(clientReferenceInformationObj);
 
             try

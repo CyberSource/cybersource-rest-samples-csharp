@@ -17,7 +17,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TMS.CoreServices
                 {
                     Configuration = new CyberSource.Client.Configuration()
                 };
-                var result = apiInstance.InstrumentidentifiersTokenIdGet(profileId, tokenId);
+                var result = apiInstance.TmsV1InstrumentidentifiersTokenIdGet(profileId, tokenId);
                 Console.WriteLine(result);
             }
             catch (Exception e)

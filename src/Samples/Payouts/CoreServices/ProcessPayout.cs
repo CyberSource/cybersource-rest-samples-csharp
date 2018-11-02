@@ -18,7 +18,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payouts.CoreServices
 
             requestObj.ClientReferenceInformation = clientReferenceInformationObj;
 
-            var senderInformationObj = new V2payoutsSenderInformation
+            var senderInformationObj = new Ptsv2payoutsSenderInformation
             {
                 ReferenceNumber = "1234567890",
                 Address1 = "900 Metro Center Blvd.900",
@@ -28,7 +28,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payouts.CoreServices
                 AdministrativeArea = "CA"
             };
 
-            var accountObj = new V2payoutsSenderInformationAccount
+            var accountObj = new Ptsv2payoutsSenderInformationAccount
             {
                 Number = "1234567890123456789012345678901234",
                 FundsSource = "01"
@@ -38,7 +38,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payouts.CoreServices
 
             requestObj.SenderInformation = senderInformationObj;
 
-            var processingInformationObj = new V2payoutsProcessingInformation
+            var processingInformationObj = new Ptsv2payoutsProcessingInformation
             {
                 CommerceIndicator = "internet",
                 BusinessApplicationId = "FD",
@@ -47,9 +47,9 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payouts.CoreServices
 
             requestObj.ProcessingInformation = processingInformationObj;
 
-            var orderInformationObj = new V2payoutsOrderInformation();
+            var orderInformationObj = new Ptsv2payoutsOrderInformation();
 
-            var amountDetailsObj = new V2payoutsOrderInformationAmountDetails
+            var amountDetailsObj = new Ptsv2payoutsOrderInformationAmountDetails
             {
                 TotalAmount = "100.00",
                 Currency = "USD"
@@ -59,12 +59,12 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payouts.CoreServices
 
             requestObj.OrderInformation = orderInformationObj;
 
-            var merchantInformationObj = new V2payoutsMerchantInformation
+            var merchantInformationObj = new Ptsv2payoutsMerchantInformation
             {
                 CategoryCode = 123
             };
 
-            var merchantDescriptorObj = new V2payoutsMerchantInformationMerchantDescriptor
+            var merchantDescriptorObj = new Ptsv2payoutsMerchantInformationMerchantDescriptor
             {
                 Country = "US",
                 PostalCode = "94440",
@@ -77,9 +77,9 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payouts.CoreServices
 
             requestObj.MerchantInformation = merchantInformationObj;
 
-            var paymentInformationObj = new V2payoutsPaymentInformation();
+            var paymentInformationObj = new Ptsv2payoutsPaymentInformation();
 
-            var cardObj = new V2payoutsPaymentInformationCard
+            var cardObj = new Ptsv2payoutsPaymentInformationCard
             {
                 ExpirationYear = "2025",
                 Number = "4111111111111111",
@@ -92,7 +92,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payouts.CoreServices
 
             requestObj.PaymentInformation = paymentInformationObj;
 
-            var recipientInformationObj = new V2payoutsRecipientInformation
+            var recipientInformationObj = new Ptsv2payoutsRecipientInformation
             {
                 FirstName = "John",
                 LastName = "Doe",
@@ -109,7 +109,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payouts.CoreServices
 
             try
             {
-                var apiInstance = new DefaultApi();
+                var apiInstance = new ProcessAPayoutApi();
                 var result = apiInstance.OctCreatePaymentWithHttpInfo(requestObj);
                 Console.WriteLine(result);
             }

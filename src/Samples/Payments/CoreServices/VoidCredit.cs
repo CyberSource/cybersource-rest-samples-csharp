@@ -11,7 +11,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments.CoreServices
         {
             var processCreditId = ProcessCredit.Run().Id;
 
-            var clientReferenceInformationObj = new V2paymentsidreversalsClientReferenceInformation("test_credit_void");
+            var clientReferenceInformationObj = new Ptsv2paymentsidreversalsClientReferenceInformation("test_credit_void");
             var requestBody = new VoidCreditRequest(clientReferenceInformationObj);
 
             try

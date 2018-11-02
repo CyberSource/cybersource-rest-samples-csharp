@@ -12,9 +12,9 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments.CoreServices
             ProcessPayment.CaptureTrueForProcessPayment = true;
             var processPaymentId = ProcessPayment.Run().Id;
 
-            var clientReferenceInformationObj = new V2paymentsClientReferenceInformation("test_refund_payment");
-            var amountDetailsObj = new V2paymentsidcapturesOrderInformationAmountDetails("10", "USD");
-            var orderInformationObj = new V2paymentsidrefundsOrderInformation(amountDetailsObj);
+            var clientReferenceInformationObj = new Ptsv2paymentsClientReferenceInformation("test_refund_payment");
+            var amountDetailsObj = new Ptsv2paymentsidcapturesOrderInformationAmountDetails("10", "USD");
+            var orderInformationObj = new Ptsv2paymentsidrefundsOrderInformation(amountDetailsObj);
             var requestBody = new RefundPaymentRequest(clientReferenceInformationObj, null, null, orderInformationObj);
 
             try

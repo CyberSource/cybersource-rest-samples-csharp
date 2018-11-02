@@ -9,7 +9,8 @@ namespace Cybersource_rest_samples_dotnet
 {
     public class Program
     {
-        private static readonly string PathOfSamplesFolder = "..\\..\\Samples";
+        // private static readonly string PathOfSamplesFolder = $"..{Path.DirectorySeparatorChar}..{Path.DirectorySeparatorChar}Samples";
+        private static readonly string PathOfSamplesFolder = $"{AppDomain.CurrentDomain.BaseDirectory}{Path.DirectorySeparatorChar}Samples";
 
         private static readonly string ProjectNamespace = "Cybersource_rest_samples_dotnet";
 

@@ -11,7 +11,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments.CoreServices
         {
             ProcessPayment.CaptureTrueForProcessPayment = true;
             var processPaymentId = ProcessPayment.Run().Id;
-            var clientReferenceInformationObj = new V2paymentsidreversalsClientReferenceInformation("test_payment_void");
+            var clientReferenceInformationObj = new Ptsv2paymentsidreversalsClientReferenceInformation("test_payment_void");
             var requestObj = new VoidPaymentRequest(clientReferenceInformationObj);
 
             try

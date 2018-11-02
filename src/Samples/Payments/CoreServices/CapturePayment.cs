@@ -13,23 +13,25 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments.CoreServices
 
             var requestObj = new CapturePaymentRequest();
 
-            var clientReferenceInformationObj = new V2paymentsClientReferenceInformation
+            var clientReferenceInformationObj = new Ptsv2paymentsClientReferenceInformation
             {
                 Code = "test_capture"
             };
 
             requestObj.ClientReferenceInformation = clientReferenceInformationObj;
 
-            var pointOfSaleInformationObj = new V2paymentsidcapturesPointOfSaleInformation();
+            var pointOfSaleInformationObj = new Ptsv2paymentsidcapturesPointOfSaleInformation
+            {
+                CardPresent = false,
+                CatLevel = "6",
+                TerminalCapability = "4"
+            };
 
-            pointOfSaleInformationObj.CardPresent = false;
-            pointOfSaleInformationObj.CatLevel = "6";
-            pointOfSaleInformationObj.TerminalCapability = "4";
             requestObj.PointOfSaleInformation = pointOfSaleInformationObj;
 
-            var orderInformationObj = new V2paymentsidcapturesOrderInformation();
+            var orderInformationObj = new Ptsv2paymentsidcapturesOrderInformation();
 
-            var billToObj = new V2paymentsidcapturesOrderInformationBillTo
+            var billToObj = new Ptsv2paymentsidcapturesOrderInformationBillTo
             {
                 Country = "US",
                 FirstName = "John",
@@ -43,7 +45,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments.CoreServices
 
             orderInformationObj.BillTo = billToObj;
 
-            var amountDetailsObj = new V2paymentsidcapturesOrderInformationAmountDetails
+            var amountDetailsObj = new Ptsv2paymentsidcapturesOrderInformationAmountDetails
             {
                 TotalAmount = "102.21",
                 Currency = "USD"
