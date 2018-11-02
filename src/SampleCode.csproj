@@ -8,7 +8,7 @@
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Cybersource_rest_samples_dotnet</RootNamespace>
-    <AssemblyName>cybersource-rest-samples-dotnet</AssemblyName>
+    <AssemblyName>SampleCode</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -33,6 +33,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>CybsPayments.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>Cybersource_rest_samples_dotnet.SampleCode</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AuthenticationSdk, Version=0.0.0.1, Culture=neutral, processorArchitecture=MSIL">
@@ -93,7 +96,7 @@
     <Compile Include="Samples\Payments\CoreServices\VoidCredit.cs" />
     <Compile Include="Samples\Payments\CoreServices\VoidPayment.cs" />
     <Compile Include="Samples\Payments\CoreServices\VoidRefund.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="SampleCode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Samples\Payouts\CoreServices\ProcessPayout.cs" />
     <Compile Include="Samples\TMS\CoreServices\CreateInstrumentIdentifier.cs" />

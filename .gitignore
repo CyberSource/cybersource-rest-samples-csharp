@@ -344,3 +344,7 @@ ASALocalRun/
 /src/cybersource-rest-samples-dotnet.exe
 /src/cybersource-rest-client-dotnet.dll
 /src/AuthenticationSdk.dll
+/src/SampleCode.vshost.exe.config
+/src/SampleCode.vshost.exe
+/src/SampleCode.exe.config
+/src/SampleCode.exe

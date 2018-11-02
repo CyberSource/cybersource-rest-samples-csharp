@@ -7,7 +7,7 @@ using NLog;
 
 namespace Cybersource_rest_samples_dotnet
 {
-    public class Program
+    public class SampleCode
     {
         private static readonly string PathOfSamplesFolder = $"{AppDomain.CurrentDomain.BaseDirectory}{Path.DirectorySeparatorChar}Samples";
 
@@ -47,6 +47,13 @@ namespace Cybersource_rest_samples_dotnet
             InitializeApiList();
             InitializeSampleClassesPathList();
 
+            if (args.Length == 1)
+            {
+                // Run the Sample Code as per input in the command line
+                RunSample(args[0]);
+                return;
+            }
+
             // Display all sample codes available to run
             ShowMethods();
 
@@ -56,11 +63,11 @@ namespace Cybersource_rest_samples_dotnet
             logger.Trace("PROGRAM EXECUTION ENDS");
         }
 
-        public static void RunSample()
+        public static void RunSample(string cmdLineArg = null)
         {
             try
             {
-                _sampleToRun = Console.ReadLine();
+                _sampleToRun = string.IsNullOrEmpty(cmdLineArg) ? Console.ReadLine() : cmdLineArg;
                 logger.Trace($"Input provided for Sample Code to Run: {_sampleToRun}");
 
                 Console.WriteLine("\n");
