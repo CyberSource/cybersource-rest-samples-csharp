@@ -332,3 +332,15 @@ ASALocalRun/
 /src/cybersource-rest-samples-dotnet.vshost.exe.config
 /src/cybersource-rest-samples-dotnet.vshost.exe
 /src/cybersource-rest-samples-dotnet.exe.config
+/src/RestSharp.xml
+/src/RestSharp.dll
+/src/NLog.xml
+/src/NLog.dll
+/src/Newtonsoft.Json.xml
+/src/Newtonsoft.Json.dll
+/src/jose-jwt.dll
+/src/FlexServerSDK.xml
+/src/FlexServerSDK.dll
+/src/cybersource-rest-samples-dotnet.exe
+/src/cybersource-rest-client-dotnet.dll
+/src/AuthenticationSdk.dll
