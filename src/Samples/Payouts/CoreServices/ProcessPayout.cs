@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using CyberSource.Api;
 using CyberSource.Model;
 
@@ -7,11 +6,11 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payouts.CoreServices
 {
     public class ProcessPayout
     {
-        public static void Run(IReadOnlyDictionary<string, string> configDictionary)
+        public static void Run()
         {
-            var requestObj = new OctCreatePaymentRequest();
+            var requestObj = new PtsV2PayoutsPostResponse();
 
-            var clientReferenceInformationObj = new InlineResponse201ClientReferenceInformation
+            var clientReferenceInformationObj = new PtsV2PaymentsPost201ResponseClientReferenceInformation
             {
                 Code = "33557799"
             };
@@ -109,7 +108,10 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payouts.CoreServices
 
             try
             {
-                var apiInstance = new ProcessAPayoutApi();
+                var configDictionary = new Configuration().GetConfiguration();
+                var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
+                var apiInstance = new ProcessAPayoutApi(clientConfig);
+
                 var result = apiInstance.OctCreatePaymentWithHttpInfo(requestObj);
                 Console.WriteLine(result);
             }

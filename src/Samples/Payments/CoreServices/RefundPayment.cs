@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using CyberSource.Api;
 using CyberSource.Model;
 
@@ -7,7 +6,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments.CoreServices
 {
     public class RefundPayment
     {
-        public static InlineResponse2013 Run(IReadOnlyDictionary<string, string> configDictionary = null)
+        public static PtsV2PaymentsRefundPost201Response Run()
         {
             ProcessPayment.CaptureTrueForProcessPayment = true;
             var processPaymentId = ProcessPayment.Run().Id;
@@ -19,10 +18,9 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments.CoreServices
 
             try
             {
-                var apiInstance = new RefundApi()
-                {
-                    Configuration = new CyberSource.Client.Configuration()
-                };
+                var configDictionary = new Configuration().GetConfiguration();
+                var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
+                var apiInstance = new RefundApi(clientConfig);
 
                 var result = apiInstance.RefundPayment(requestBody, processPaymentId);
                 Console.WriteLine(result);

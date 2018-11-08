@@ -1,22 +1,23 @@
 ﻿using System;
+using System.Globalization;
 using CyberSource.Api;
 
-namespace Cybersource_rest_samples_dotnet.Samples.TMS.CoreServices
+namespace Cybersource_rest_samples_dotnet.Samples.TransactionBatches.CoreServices
 {
-    public class RetrievePaymentInstrument
+    public class GetListOfBatchFiles
     {
         public static void Run()
         {
-            var profileId = "93B32398-AD51-4CC2-A682-EA3E93614EB1";
-            var tokenId = CreatePaymentInstrument.Run().Id;
-
             try
             {
+                var startTime = "2018-08-11T22:47:57Z";
+                var endTime = "2018-10-29T22:47:57Z";
+
                 var configDictionary = new Configuration().GetConfiguration();
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
-                var apiInstance = new PaymentInstrumentsApi(clientConfig);
+                var apiInstance = new TransactionBatchesApi(clientConfig);
 
-                var result = apiInstance.TmsV1PaymentinstrumentsTokenIdGet(profileId, tokenId);
+                var result = apiInstance.PtsV1TransactionBatchesGet(startTime, endTime);
                 Console.WriteLine(result);
             }
             catch (Exception e)

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using CyberSource.Api;
 using CyberSource.Model;
 
@@ -9,7 +8,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments.CoreServices
     {
         public static bool CaptureTrueForProcessPayment { get; set; } = false;
 
-        public static InlineResponse201 Run(IReadOnlyDictionary<string, string> configDictionary = null)
+        public static PtsV2PaymentsPost201Response Run()
         {
             var processingInformationObj = new Ptsv2paymentsProcessingInformation() { CommerceIndicator = "internet" };
 
@@ -74,10 +73,10 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments.CoreServices
 
             try
             {
-                var apiInstance = new PaymentsApi()
-                {
-                    Configuration = new CyberSource.Client.Configuration()
-                };
+                var configDictionary = new Configuration().GetConfiguration();
+                var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
+                var apiInstance = new PaymentsApi(clientConfig);
+
                 var result = apiInstance.CreatePayment(requestObj);
                 Console.WriteLine(result);
                 return result;

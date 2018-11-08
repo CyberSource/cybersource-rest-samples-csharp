@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using CyberSource.Api;
 using CyberSource.Model;
 
@@ -7,7 +6,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments.CoreServices
 {
     public class VoidCredit
     {
-        public static void Run(IReadOnlyDictionary<string, string> configDictionary)
+        public static void Run()
         {
             var processCreditId = ProcessCredit.Run().Id;
 
@@ -16,10 +15,9 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments.CoreServices
 
             try
             {
-                var apiInstance = new VoidApi()
-                {
-                    Configuration = new CyberSource.Client.Configuration()
-                };
+                var configDictionary = new Configuration().GetConfiguration();
+                var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
+                var apiInstance = new VoidApi(clientConfig);
 
                 var result = apiInstance.VoidCredit(requestBody, processCreditId);
                 Console.WriteLine(result);

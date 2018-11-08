@@ -7,16 +7,11 @@ using NLog;
 
 namespace Cybersource_rest_samples_dotnet
 {
-    public class Program
+    public class SampleCode
     {
-        // private static readonly string PathOfSamplesFolder = $"..{Path.DirectorySeparatorChar}..{Path.DirectorySeparatorChar}Samples";
         private static readonly string PathOfSamplesFolder = $"{AppDomain.CurrentDomain.BaseDirectory}{Path.DirectorySeparatorChar}Samples";
 
         private static readonly string ProjectNamespace = "Cybersource_rest_samples_dotnet";
-
-        // Create Dictionary object to be passed to the Merchant Config constructor
-        // This Contains all Merchant level configurations like Merchant Key ID etc
-        private static readonly IReadOnlyDictionary<string, string> ConfigDictionary = new Configuration().GetConfiguration();
 
         // List of all the all the APIs
         private static readonly List<Api> ApiList = new List<Api>();
@@ -37,6 +32,7 @@ namespace Cybersource_rest_samples_dotnet
         public static void Main(string[] args)
         {
             // initializing logger object
+            // LogManager.DisableLogging();
             logger = LogManager.GetCurrentClassLogger();
             logger.Trace("\n");
             logger.Trace("PROGRAM EXECUTION BEGINS");
@@ -48,6 +44,13 @@ namespace Cybersource_rest_samples_dotnet
             InitializeApiList();
             InitializeSampleClassesPathList();
 
+            if (args.Length == 1)
+            {
+                // Run the Sample Code as per input in the command line
+                RunSample(args[0]);
+                return;
+            }
+
             // Display all sample codes available to run
             ShowMethods();
 
@@ -57,11 +60,11 @@ namespace Cybersource_rest_samples_dotnet
             logger.Trace("PROGRAM EXECUTION ENDS");
         }
 
-        public static void RunSample()
+        public static void RunSample(string cmdLineArg = null)
         {
             try
             {
-                _sampleToRun = Console.ReadLine();
+                _sampleToRun = string.IsNullOrEmpty(cmdLineArg) ? Console.ReadLine() : cmdLineArg;
                 logger.Trace($"Input provided for Sample Code to Run: {_sampleToRun}");
 
                 Console.WriteLine("\n");
@@ -90,7 +93,7 @@ namespace Cybersource_rest_samples_dotnet
                 if (methodInfo != null)
                 {
                     logger.Trace($"Invoking Run() method of {_sampleToRun}");
-                    methodInfo.Invoke(obj, new object[] { ConfigDictionary });
+                    methodInfo.Invoke(obj, null);
                 }
                 else
                 {

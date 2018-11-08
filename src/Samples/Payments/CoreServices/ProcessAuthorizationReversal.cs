@@ -7,7 +7,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments.CoreServices
 {
     public class ProcessAuthorizationReversal
     {
-        public static InlineResponse2011 Run(IReadOnlyDictionary<string, string> configDictionary = null)
+        public static PtsV2PaymentsReversalsPost201Response Run()
         {
             var processPaymentId = ProcessPayment.Run().Id;
 
@@ -19,10 +19,10 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments.CoreServices
 
             try
             {
-                var apiInstance = new ReversalApi()
-                {
-                    Configuration = new CyberSource.Client.Configuration()
-                };
+                var configDictionary = new Configuration().GetConfiguration();
+                var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
+                var apiInstance = new ReversalApi(clientConfig);
+
                 var result = apiInstance.AuthReversal(processPaymentId, requestBody);
                 Console.WriteLine(result);
                 return result;

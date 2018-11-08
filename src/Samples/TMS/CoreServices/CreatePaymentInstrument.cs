@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using CyberSource.Api;
 using CyberSource.Model;
 
@@ -7,7 +6,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TMS.CoreServices
 {
     public class CreatePaymentInstrument
     {
-        public static InlineResponse2016 Run(IReadOnlyDictionary<string, string> configDictionary = null)
+        public static TmsV1PaymentinstrumentsPost201Response Run()
         {
             var profileId = "93B32398-AD51-4CC2-A682-EA3E93614EB1";
             var requestObj = new Body2();
@@ -51,7 +50,10 @@ namespace Cybersource_rest_samples_dotnet.Samples.TMS.CoreServices
 
             try
             {
-                var apiInstance = new PaymentInstrumentsApi();
+                var configDictionary = new Configuration().GetConfiguration();
+                var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
+                var apiInstance = new PaymentInstrumentsApi(clientConfig);
+
                 var result = apiInstance.TmsV1PaymentinstrumentsPost(profileId, requestObj);
                 Console.WriteLine(result);
                 return result;

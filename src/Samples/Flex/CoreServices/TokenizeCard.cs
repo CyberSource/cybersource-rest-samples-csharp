@@ -12,9 +12,9 @@ namespace Cybersource_rest_samples_dotnet.Samples.Flex.CoreServices
 {
     public class TokenizeCard
     {
-        public static void Run(IReadOnlyDictionary<string, string> configDictionary)
+        public static void Run()
         {
-            var generateKeyResult = GenerateKey.GenerateKeyResult(configDictionary);
+            var generateKeyResult = GenerateKey.Run();
             var keyId = generateKeyResult.KeyId;
             var derFormat = generateKeyResult.Der.Format;
             var derAlgo = generateKeyResult.Der.Algorithm;
@@ -34,10 +34,10 @@ namespace Cybersource_rest_samples_dotnet.Samples.Flex.CoreServices
 
             try
             {
-                var apiInstance = new FlexTokenApi()
-                {
-                    Configuration = new CyberSource.Client.Configuration()
-                };
+                var configDictionary = new Configuration().GetConfiguration();
+                var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
+                var apiInstance = new FlexTokenApi(clientConfig);
+
                 var result = apiInstance.Tokenize(requestObj);
                 Console.WriteLine(result);
 

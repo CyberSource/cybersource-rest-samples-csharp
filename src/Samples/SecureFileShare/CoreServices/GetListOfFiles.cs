@@ -1,22 +1,23 @@
 ﻿using System;
+using System.Globalization;
 using CyberSource.Api;
 
-namespace Cybersource_rest_samples_dotnet.Samples.TMS.CoreServices
+namespace Cybersource_rest_samples_dotnet.Samples.SecureFileShare.CoreServices
 {
-    public class RetrievePaymentInstrument
+    public class GetListOfFiles
     {
         public static void Run()
         {
-            var profileId = "93B32398-AD51-4CC2-A682-EA3E93614EB1";
-            var tokenId = CreatePaymentInstrument.Run().Id;
-
             try
             {
+                var startDate ="2018-10-20";
+                var endDate = "2018-10-30";
+                var organizationId = "testrest";
+
                 var configDictionary = new Configuration().GetConfiguration();
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
-                var apiInstance = new PaymentInstrumentsApi(clientConfig);
-
-                var result = apiInstance.TmsV1PaymentinstrumentsTokenIdGet(profileId, tokenId);
+                var apiInstance = new SecureFileShareApi(clientConfig);
+                var result = apiInstance.GetFileDetails(startDate, endDate, organizationId);
                 Console.WriteLine(result);
             }
             catch (Exception e)

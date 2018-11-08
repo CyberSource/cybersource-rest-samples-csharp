@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using CyberSource.Api;
 using CyberSource.Model;
 
@@ -7,7 +6,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments.CoreServices
 {
     public class ProcessCredit
     {
-        public static InlineResponse2014 Run(IReadOnlyDictionary<string, string> configDictionary = null)
+        public static PtsV2CreditsPost201Response Run()
         {
             var requestObj = new CreateCreditRequest();
 
@@ -61,7 +60,10 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments.CoreServices
 
             try
             {
-                var apiInstance = new CreditApi();
+                var configDictionary = new Configuration().GetConfiguration();
+                var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
+                var apiInstance = new CreditApi(clientConfig);
+
                 var result = apiInstance.CreateCredit(requestObj);
                 Console.WriteLine(result);
                 return result;

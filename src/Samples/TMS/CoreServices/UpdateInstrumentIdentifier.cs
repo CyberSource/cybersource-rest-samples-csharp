@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using CyberSource.Api;
 using CyberSource.Model;
 
@@ -7,7 +6,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TMS.CoreServices
 {
     public class UpdateInstrumentIdentifier
     {
-        public static void Run(IReadOnlyDictionary<string, string> configDictionary = null)
+        public static void Run()
         {
             var profileId = "93B32398-AD51-4CC2-A682-EA3E93614EB1";
             var tokenId = CreateInstrumentIdentifier.Run().Id;
@@ -36,10 +35,9 @@ namespace Cybersource_rest_samples_dotnet.Samples.TMS.CoreServices
 
             try
             {
-                var apiInstance = new InstrumentIdentifierApi()
-                {
-                    Configuration = new CyberSource.Client.Configuration()
-                };
+                var configDictionary = new Configuration().GetConfiguration();
+                var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
+                var apiInstance = new InstrumentIdentifierApi(clientConfig);
 
                 var result = apiInstance.TmsV1InstrumentidentifiersTokenIdPatch(profileId, tokenId, requestObj);
                 Console.WriteLine(result);
