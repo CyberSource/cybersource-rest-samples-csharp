@@ -116,19 +116,13 @@ You can also run each sample directly from the command line.
 ```
     $ git clone https://github.com/CyberSource/cybersource-rest-samples-csharp.git
 ```
-* Install the [CyberSource .NET SDK](https://www.github.com/CyberSource/cybersource-rest-client-dotnet):
+* Build the project. Nuget package restore will add the CyberSource .NET SDK and the Authentication SDK.
+* Start the project to load the console app with the list of all the sample names.
+* To Run the individual samples, provide the sample code name as input to the console app.
 ```
-     PM> Install-Package CyberSource
-```  
- Build the project to produce the SampleCode console app.
-* Run the individual samples by name. For example:
-```
-     > SampleCode [CodeSampleName]
+     > Type a sample name & then press <Return> : [CodeSampleName]
 ```
 e.g.
 ```
-     > SampleCode ProcessPayment
+     > Type a sample name & then press <Return> : ProcessPayment
 ```
-Running SampleCode without a parameter will give you the list of sample names. 
-
-
