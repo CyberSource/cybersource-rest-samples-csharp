@@ -7,22 +7,22 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments.CoreServices
 {
     public class ProcessAuthorizationReversal
     {
-        public static InlineResponse2011 Run(IReadOnlyDictionary<string, string> configDictionary = null)
+        public static PtsV2PaymentsReversalsPost201Response Run()
         {
             var processPaymentId = ProcessPayment.Run().Id;
 
-            var clientReferenceInformationObj = new V2paymentsidreversalsClientReferenceInformation("test_reversal");
-            var amount = new V2paymentsidreversalsOrderInformationLineItems(null, "102.21");
-            var amountDetailsObj = new List<V2paymentsidreversalsOrderInformationLineItems> { amount };
-            var orderInformationObj = new V2paymentsidreversalsOrderInformation(amountDetailsObj);
+            var clientReferenceInformationObj = new Ptsv2paymentsidreversalsClientReferenceInformation("test_reversal");
+            var amount = new Ptsv2paymentsidreversalsOrderInformationLineItems(null, "102.21");
+            var amountDetailsObj = new List<Ptsv2paymentsidreversalsOrderInformationLineItems> { amount };
+            var orderInformationObj = new Ptsv2paymentsidreversalsOrderInformation(amountDetailsObj);
             var requestBody = new AuthReversalRequest(clientReferenceInformationObj, null, null, orderInformationObj);
 
             try
             {
-                var apiInstance = new ReversalApi()
-                {
-                    Configuration = new CyberSource.Client.Configuration()
-                };
+                var configDictionary = new Configuration().GetConfiguration();
+                var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
+                var apiInstance = new ReversalApi(clientConfig);
+
                 var result = apiInstance.AuthReversal(processPaymentId, requestBody);
                 Console.WriteLine(result);
                 return result;

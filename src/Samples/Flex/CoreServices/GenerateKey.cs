@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using CyberSource.Api;
 using CyberSource.Model;
 
@@ -7,32 +6,25 @@ namespace Cybersource_rest_samples_dotnet.Samples.Flex.CoreServices
 {
     public class GenerateKey
     {
-        private static InlineResponse200 generateKeyResult;
-
-        public static void Run(IReadOnlyDictionary<string, string> configDictionary)
+        public static FlexV1KeysPost200Response Run()
         {
-            var requestObj = new GeneratePublicKeyRequest
-            {
-                EncryptionType = "None"
-            };
+            var requestObj = new GeneratePublicKeyRequest("None");
 
             try
             {
-                var apiInstance = new KeyGenerationApi();
+                var configDictionary = new Configuration().GetConfiguration();
+                var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
+                var apiInstance = new KeyGenerationApi(clientConfig);
+
                 var result = apiInstance.GeneratePublicKey(requestObj);
-                generateKeyResult = result;
                 Console.WriteLine(result);
+                return result;
             }
             catch (Exception e)
             {
                 Console.WriteLine("Exception on calling the API: " + e.Message);
+                return null;
             }
-        }
-
-        public static InlineResponse200 GenerateKeyResult(IReadOnlyDictionary<string, string> configDictionary)
-        {
-            Run(configDictionary);
-            return generateKeyResult;
         }
     }
 }

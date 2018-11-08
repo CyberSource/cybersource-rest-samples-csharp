@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using CyberSource.Api;
 using CyberSource.Model;
 
@@ -7,29 +6,31 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments.CoreServices
 {
     public class CapturePayment
     {
-        public static InlineResponse2012 Run(IReadOnlyDictionary<string, string> configDictionary = null)
+        public static PtsV2PaymentsCapturesPost201Response Run()
         {
             var processPaymentId = ProcessPayment.Run().Id;
 
             var requestObj = new CapturePaymentRequest();
 
-            var clientReferenceInformationObj = new V2paymentsClientReferenceInformation
+            var clientReferenceInformationObj = new Ptsv2paymentsClientReferenceInformation
             {
                 Code = "test_capture"
             };
 
             requestObj.ClientReferenceInformation = clientReferenceInformationObj;
 
-            var pointOfSaleInformationObj = new V2paymentsidcapturesPointOfSaleInformation();
+            var pointOfSaleInformationObj = new Ptsv2paymentsidcapturesPointOfSaleInformation
+            {
+                CardPresent = false,
+                CatLevel = "6",
+                TerminalCapability = "4"
+            };
 
-            pointOfSaleInformationObj.CardPresent = false;
-            pointOfSaleInformationObj.CatLevel = "6";
-            pointOfSaleInformationObj.TerminalCapability = "4";
             requestObj.PointOfSaleInformation = pointOfSaleInformationObj;
 
-            var orderInformationObj = new V2paymentsidcapturesOrderInformation();
+            var orderInformationObj = new Ptsv2paymentsidcapturesOrderInformation();
 
-            var billToObj = new V2paymentsidcapturesOrderInformationBillTo
+            var billToObj = new Ptsv2paymentsidcapturesOrderInformationBillTo
             {
                 Country = "US",
                 FirstName = "John",
@@ -43,7 +44,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments.CoreServices
 
             orderInformationObj.BillTo = billToObj;
 
-            var amountDetailsObj = new V2paymentsidcapturesOrderInformationAmountDetails
+            var amountDetailsObj = new Ptsv2paymentsidcapturesOrderInformationAmountDetails
             {
                 TotalAmount = "102.21",
                 Currency = "USD"
@@ -55,10 +56,9 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments.CoreServices
 
             try
             {
-                var apiInstance = new CaptureApi()
-                {
-                    Configuration = new CyberSource.Client.Configuration()
-                };
+                var configDictionary = new Configuration().GetConfiguration();
+                var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
+                var apiInstance = new CaptureApi(clientConfig);
 
                 var result = apiInstance.CapturePayment(requestObj, processPaymentId);
                 Console.WriteLine(result);

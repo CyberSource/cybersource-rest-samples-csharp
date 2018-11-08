@@ -12,9 +12,9 @@ namespace Cybersource_rest_samples_dotnet.Samples.Flex.CoreServices
 {
     public class TokenizeCard
     {
-        public static void Run(IReadOnlyDictionary<string, string> configDictionary)
+        public static void Run()
         {
-            var generateKeyResult = GenerateKey.GenerateKeyResult(configDictionary);
+            var generateKeyResult = GenerateKey.Run();
             var keyId = generateKeyResult.KeyId;
             var derFormat = generateKeyResult.Der.Format;
             var derAlgo = generateKeyResult.Der.Algorithm;
@@ -23,7 +23,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Flex.CoreServices
             var requestObj = new TokenizeRequest
             {
                 KeyId = keyId,
-                CardInfo = new Paymentsflexv1tokensCardInfo()
+                CardInfo = new Flexv1tokensCardInfo()
                 {
                     CardExpirationYear = "2031",
                     CardNumber = "5555555555554444",
@@ -34,10 +34,10 @@ namespace Cybersource_rest_samples_dotnet.Samples.Flex.CoreServices
 
             try
             {
-                var apiInstance = new TokenizationApi()
-                {
-                    Configuration = new CyberSource.Client.Configuration()
-                };
+                var configDictionary = new Configuration().GetConfiguration();
+                var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
+                var apiInstance = new FlexTokenApi(clientConfig);
+
                 var result = apiInstance.Tokenize(requestObj);
                 Console.WriteLine(result);
 
@@ -286,54 +286,5 @@ namespace Cybersource_rest_samples_dotnet.Samples.Flex.CoreServices
 
             return true;
         }
-
-        //private static bool Verify(string merchantId, string keyId, string secretKey, FlexPublicKey flexPublicKey, FlexToken flexTokenResponseBody)
-        //{
-        //    // Verify function of FlexService class needs 2 objects: flexPublicKey and flexTokenResponseBody
-        //    // These are being passed to the function
-
-        //    // However creation of an instance of flexservice also needs 2 objects: flexCredentials and flexServiceConfiguration
-
-        //    // Step 1: Creation of flexCredentials
-        //    var secretKeyCharArray = secretKey.ToCharArray();
-        //    SecureString sharedSecret = new SecureString();
-
-        //    foreach (char c in secretKeyCharArray)
-        //    {
-        //        sharedSecret.AppendChar(c);
-        //    }
-
-        //    var environment = FlexServerSDK.Authentication.Environment.TEST;
-
-        //    IFlexCredentials flexCredentials = new CyberSourceFlexCredentials(
-        //        environment,
-        //        merchantId,
-        //        keyId,
-        //        sharedSecret);
-
-        //    int requestTimeout = 10000;
-        //    IWebProxy proxy = null;
-        //    bool enableDebugLogging = false;
-
-        //    // Step 2: Creation of flexServiceConfiguration
-        //    FlexServiceConfiguration flexServiceConfiguration = new FlexServiceConfigurationBuilder()
-        //        .SetRequestTimeout(requestTimeout)
-        //        .SetProxy(proxy)
-        //        .SetDebugLoggingEnabled(enableDebugLogging)
-        //        .Build();
-
-        //    // Step3: Creation of instance of IFlexService
-        //    IFlexService flexService = FlexServiceFactory.Create(flexCredentials, flexServiceConfiguration);
-
-        //    // Final Step: Pass pubilc key and token to the Verify Function
-        //    if (!flexService.Verify(flexPublicKey, flexTokenResponseBody))
-        //    {
-        //        return false;
-        //    }
-        //    else
-        //    {
-        //        return true;
-        //    }
-        //}
     }
 }

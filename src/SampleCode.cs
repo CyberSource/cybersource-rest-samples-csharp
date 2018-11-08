@@ -13,10 +13,6 @@ namespace Cybersource_rest_samples_dotnet
 
         private static readonly string ProjectNamespace = "Cybersource_rest_samples_dotnet";
 
-        // Create Dictionary object to be passed to the Merchant Config constructor
-        // This Contains all Merchant level configurations like Merchant Key ID etc
-        private static readonly IReadOnlyDictionary<string, string> ConfigDictionary = new Configuration().GetConfiguration();
-
         // List of all the all the APIs
         private static readonly List<Api> ApiList = new List<Api>();
 
@@ -36,6 +32,7 @@ namespace Cybersource_rest_samples_dotnet
         public static void Main(string[] args)
         {
             // initializing logger object
+            // LogManager.DisableLogging();
             logger = LogManager.GetCurrentClassLogger();
             logger.Trace("\n");
             logger.Trace("PROGRAM EXECUTION BEGINS");
@@ -96,7 +93,7 @@ namespace Cybersource_rest_samples_dotnet
                 if (methodInfo != null)
                 {
                     logger.Trace($"Invoking Run() method of {_sampleToRun}");
-                    methodInfo.Invoke(obj, new object[] { ConfigDictionary });
+                    methodInfo.Invoke(obj, null);
                 }
                 else
                 {

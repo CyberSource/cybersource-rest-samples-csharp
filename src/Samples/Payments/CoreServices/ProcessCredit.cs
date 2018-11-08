@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using CyberSource.Api;
 using CyberSource.Model;
 
@@ -7,20 +6,20 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments.CoreServices
 {
     public class ProcessCredit
     {
-        public static InlineResponse2014 Run(IReadOnlyDictionary<string, string> configDictionary = null)
+        public static PtsV2CreditsPost201Response Run()
         {
             var requestObj = new CreateCreditRequest();
 
-            var v2PaymentsClientReferenceInformationObj = new V2paymentsClientReferenceInformation
+            var v2PaymentsClientReferenceInformationObj = new Ptsv2paymentsClientReferenceInformation
             {
                 Code = "test_credits"
             };
 
             requestObj.ClientReferenceInformation = v2PaymentsClientReferenceInformationObj;
 
-            var v2PaymentsOrderInformationObj = new V2paymentsidrefundsOrderInformation();
+            var v2PaymentsOrderInformationObj = new Ptsv2paymentsidrefundsOrderInformation();
 
-            var v2PaymentsOrderInformationBillToObj = new V2paymentsidcapturesOrderInformationBillTo
+            var v2PaymentsOrderInformationBillToObj = new Ptsv2paymentsidcapturesOrderInformationBillTo
             {
                 Country = "US",
                 FirstName = "John",
@@ -35,7 +34,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments.CoreServices
 
             v2PaymentsOrderInformationObj.BillTo = v2PaymentsOrderInformationBillToObj;
 
-            var v2PaymentsOrderInformationAmountDetailsObj = new V2paymentsidcapturesOrderInformationAmountDetails
+            var v2PaymentsOrderInformationAmountDetailsObj = new Ptsv2paymentsidcapturesOrderInformationAmountDetails
             {
                 TotalAmount = "200",
                 Currency = "usd"
@@ -45,9 +44,9 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments.CoreServices
 
             requestObj.OrderInformation = v2PaymentsOrderInformationObj;
 
-            var v2PaymentsPaymentInformationObj = new V2paymentsidrefundsPaymentInformation();
+            var v2PaymentsPaymentInformationObj = new Ptsv2paymentsidrefundsPaymentInformation();
 
-            var v2PaymentsPaymentInformationCardObj = new V2paymentsidrefundsPaymentInformationCard
+            var v2PaymentsPaymentInformationCardObj = new Ptsv2paymentsidrefundsPaymentInformationCard
             {
                 ExpirationYear = "2031",
                 Number = "4111111111111111",
@@ -61,7 +60,10 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments.CoreServices
 
             try
             {
-                var apiInstance = new CreditApi();
+                var configDictionary = new Configuration().GetConfiguration();
+                var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
+                var apiInstance = new CreditApi(clientConfig);
+
                 var result = apiInstance.CreateCredit(requestObj);
                 Console.WriteLine(result);
                 return result;

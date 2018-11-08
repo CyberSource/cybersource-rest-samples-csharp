@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using CyberSource.Api;
 using CyberSource.Model;
 
@@ -7,22 +6,25 @@ namespace Cybersource_rest_samples_dotnet.Samples.TMS.CoreServices
 {
     public class UpdateInstrumentIdentifier
     {
-        public static void Run(IReadOnlyDictionary<string, string> configDictionary = null)
+        public static void Run()
         {
             var profileId = "93B32398-AD51-4CC2-A682-EA3E93614EB1";
             var tokenId = CreateInstrumentIdentifier.Run().Id;
 
             var requestObj = new Body1();
 
-            var processingInformationObj = new InstrumentidentifiersProcessingInformation();
+            var processingInformationObj = new Tmsv1instrumentidentifiersProcessingInformation();
 
-            var authorizationOptionsObj = new InstrumentidentifiersProcessingInformationAuthorizationOptions();
+            var authorizationOptionsObj = new Tmsv1instrumentidentifiersProcessingInformationAuthorizationOptions();
 
-            var initiatorObj = new InstrumentidentifiersProcessingInformationAuthorizationOptionsInitiator();
+            var initiatorObj = new Tmsv1instrumentidentifiersProcessingInformationAuthorizationOptionsInitiator();
 
-            var merchantInitiatedTransactionObj = new InstrumentidentifiersProcessingInformationAuthorizationOptionsInitiatorMerchantInitiatedTransaction();
+            var merchantInitiatedTransactionObj =
+                new Tmsv1instrumentidentifiersProcessingInformationAuthorizationOptionsInitiatorMerchantInitiatedTransaction
+                {
+                    PreviousTransactionId = "123456789012345"
+                };
 
-            merchantInitiatedTransactionObj.PreviousTransactionId = "123456789012345";
             initiatorObj.MerchantInitiatedTransaction = merchantInitiatedTransactionObj;
 
             authorizationOptionsObj.Initiator = initiatorObj;
@@ -33,12 +35,11 @@ namespace Cybersource_rest_samples_dotnet.Samples.TMS.CoreServices
 
             try
             {
-                var apiInstance = new InstrumentIdentifierApi()
-                {
-                    Configuration = new CyberSource.Client.Configuration()
-                };
+                var configDictionary = new Configuration().GetConfiguration();
+                var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
+                var apiInstance = new InstrumentIdentifierApi(clientConfig);
 
-                var result = apiInstance.InstrumentidentifiersTokenIdPatch(profileId, tokenId, requestObj);
+                var result = apiInstance.TmsV1InstrumentidentifiersTokenIdPatch(profileId, tokenId, requestObj);
                 Console.WriteLine(result);
             }
             catch (Exception e)

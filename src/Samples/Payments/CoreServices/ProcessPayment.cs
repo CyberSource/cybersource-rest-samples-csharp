@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using CyberSource.Api;
 using CyberSource.Model;
 
@@ -9,22 +8,22 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments.CoreServices
     {
         public static bool CaptureTrueForProcessPayment { get; set; } = false;
 
-        public static InlineResponse201 Run(IReadOnlyDictionary<string, string> configDictionary = null)
+        public static PtsV2PaymentsPost201Response Run()
         {
-            var processingInformationObj = new V2paymentsProcessingInformation() { CommerceIndicator = "internet" };
+            var processingInformationObj = new Ptsv2paymentsProcessingInformation() { CommerceIndicator = "internet" };
 
-            var clientReferenceInformationObj = new V2paymentsClientReferenceInformation { Code = "test_payment" };
+            var clientReferenceInformationObj = new Ptsv2paymentsClientReferenceInformation { Code = "test_payment" };
 
-            var pointOfSaleInformationObj = new V2paymentsPointOfSaleInformation
+            var pointOfSaleInformationObj = new Ptsv2paymentsPointOfSaleInformation
             {
                 CardPresent = false,
                 CatLevel = 6,
                 TerminalCapability = 4
             };
 
-            var orderInformationObj = new V2paymentsOrderInformation();
+            var orderInformationObj = new Ptsv2paymentsOrderInformation();
 
-            var billToObj = new V2paymentsOrderInformationBillTo
+            var billToObj = new Ptsv2paymentsOrderInformationBillTo
             {
                 Country = "US",
                 FirstName = "John",
@@ -38,7 +37,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments.CoreServices
 
             orderInformationObj.BillTo = billToObj;
 
-            var amountDetailsObj = new V2paymentsOrderInformationAmountDetails
+            var amountDetailsObj = new Ptsv2paymentsOrderInformationAmountDetails
             {
                 TotalAmount = "102.21",
                 Currency = "USD"
@@ -46,9 +45,9 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments.CoreServices
 
             orderInformationObj.AmountDetails = amountDetailsObj;
 
-            var paymentInformationObj = new V2paymentsPaymentInformation();
+            var paymentInformationObj = new Ptsv2paymentsPaymentInformation();
 
-            var cardObj = new V2paymentsPaymentInformationCard
+            var cardObj = new Ptsv2paymentsPaymentInformationCard
             {
                 ExpirationYear = "2031",
                 Number = "4111111111111111",
@@ -74,10 +73,10 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments.CoreServices
 
             try
             {
-                var apiInstance = new PaymentApi()
-                {
-                    Configuration = new CyberSource.Client.Configuration()
-                };
+                var configDictionary = new Configuration().GetConfiguration();
+                var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
+                var apiInstance = new PaymentsApi(clientConfig);
+
                 var result = apiInstance.CreatePayment(requestObj);
                 Console.WriteLine(result);
                 return result;

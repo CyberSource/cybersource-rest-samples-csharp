@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using CyberSource.Api;
 using CyberSource.Model;
 
@@ -7,24 +6,29 @@ namespace Cybersource_rest_samples_dotnet.Samples.TMS.CoreServices
 {
     public class CreateInstrumentIdentifier
     {
-        public static InlineResponse2007 Run(IReadOnlyDictionary<string, string> configDictionary = null)
+        public static TmsV1InstrumentidentifiersPost200Response Run()
         {
             var requestObj = new Body();
 
-            var cardObj = new InstrumentidentifiersCard();
+            var cardObj = new Tmsv1instrumentidentifiersCard
+            {
+                Number = "1234567123487456"
+            };
 
-            cardObj.Number = "1234567890987456";
             requestObj.Card = cardObj;
 
-            var processingInformationObj = new InstrumentidentifiersProcessingInformation();
+            var processingInformationObj = new Tmsv1instrumentidentifiersProcessingInformation();
 
-            var authorizationOptionsObj = new InstrumentidentifiersProcessingInformationAuthorizationOptions();
+            var authorizationOptionsObj = new Tmsv1instrumentidentifiersProcessingInformationAuthorizationOptions();
 
-            var initiatorObj = new InstrumentidentifiersProcessingInformationAuthorizationOptionsInitiator();
+            var initiatorObj = new Tmsv1instrumentidentifiersProcessingInformationAuthorizationOptionsInitiator();
 
-            var merchantInitiatedTransactionObj = new InstrumentidentifiersProcessingInformationAuthorizationOptionsInitiatorMerchantInitiatedTransaction();
+            var merchantInitiatedTransactionObj =
+                new Tmsv1instrumentidentifiersProcessingInformationAuthorizationOptionsInitiatorMerchantInitiatedTransaction
+                {
+                    PreviousTransactionId = "123456789012345"
+                };
 
-            merchantInitiatedTransactionObj.PreviousTransactionId = "123456789012345";
             initiatorObj.MerchantInitiatedTransaction = merchantInitiatedTransactionObj;
 
             authorizationOptionsObj.Initiator = initiatorObj;
@@ -35,8 +39,11 @@ namespace Cybersource_rest_samples_dotnet.Samples.TMS.CoreServices
 
             try
             {
-                var apiInstance = new InstrumentIdentifierApi();
-                var result = apiInstance.InstrumentidentifiersPost("93B32398-AD51-4CC2-A682-EA3E93614EB1", requestObj);
+                var configDictionary = new Configuration().GetConfiguration();
+                var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
+                var apiInstance = new InstrumentIdentifiersApi(clientConfig);
+
+                var result = apiInstance.TmsV1InstrumentidentifiersPost("93B32398-AD51-4CC2-A682-EA3E93614EB1", requestObj);
                 Console.WriteLine(result);
                 return result;
             }

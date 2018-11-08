@@ -328,10 +328,6 @@ ASALocalRun/
 
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
-/src/cybersource-rest-samples-dotnet.vshost.exe.manifest
-/src/cybersource-rest-samples-dotnet.vshost.exe.config
-/src/cybersource-rest-samples-dotnet.vshost.exe
-/src/cybersource-rest-samples-dotnet.exe.config
 /src/RestSharp.xml
 /src/RestSharp.dll
 /src/NLog.xml
@@ -341,10 +337,13 @@ ASALocalRun/
 /src/jose-jwt.dll
 /src/FlexServerSDK.xml
 /src/FlexServerSDK.dll
+/src/CyberSource.dll
+/src/cybersource-rest-samples-dotnet.vshost.exe.config
+/src/cybersource-rest-samples-dotnet.vshost.exe
+/src/cybersource-rest-samples-dotnet.exe.config
 /src/cybersource-rest-samples-dotnet.exe
-/src/cybersource-rest-client-dotnet.dll
 /src/AuthenticationSdk.dll
-/src/SampleCode.vshost.exe.config
-/src/SampleCode.vshost.exe
-/src/SampleCode.exe.config
+/src/cybersource-rest-samples-dotnet.vshost.exe.manifest
 /src/SampleCode.exe
+/src/SampleCode.vshost.exe
+/src/SampleCode.vshost.exe.config

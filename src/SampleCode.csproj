@@ -34,9 +34,6 @@
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>CybsPayments.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject>Cybersource_rest_samples_dotnet.SampleCode</StartupObject>
-  </PropertyGroup>
   <ItemGroup>
     <Reference Include="AuthenticationSdk, Version=0.0.0.1, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\CyberSource.Authentication.0.0.0.1\lib\AuthenticationSdk.dll</HintPath>
@@ -61,8 +58,8 @@
       <HintPath>..\packages\NLog.4.5.10\lib\net45\NLog.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="RestSharp, Version=106.4.1.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
-      <HintPath>..\packages\RestSharp.106.4.1\lib\net452\RestSharp.dll</HintPath>
+    <Reference Include="RestSharp, Version=106.5.4.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.106.5.4\lib\net452\RestSharp.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -99,6 +96,20 @@
     <Compile Include="SampleCode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Samples\Payouts\CoreServices\ProcessPayout.cs" />
+    <Compile Include="Samples\Reporting\CoreServices\CreateAdhocReport.cs" />
+    <Compile Include="Samples\Reporting\CoreServices\CreateReportSubscriptionForReportNameByOrganization.cs" />
+    <Compile Include="Samples\Reporting\CoreServices\DeleteSubscriptionOfReportNameByOrganization.cs" />
+    <Compile Include="Samples\Reporting\CoreServices\DownloadReport.cs" />
+    <Compile Include="Samples\Reporting\CoreServices\GetAllSubscriptions.cs" />
+    <Compile Include="Samples\Reporting\CoreServices\GetNotificationOfChanges.cs" />
+    <Compile Include="Samples\Reporting\CoreServices\GetPurchaseAndRefundDetails.cs" />
+    <Compile Include="Samples\Reporting\CoreServices\GetReportBasedOnReportid.cs" />
+    <Compile Include="Samples\Reporting\CoreServices\GetReportDefinition.cs" />
+    <Compile Include="Samples\Reporting\CoreServices\GetReportingResourceInformation.cs" />
+    <Compile Include="Samples\Reporting\CoreServices\GetSubscriptionForReportName.cs" />
+    <Compile Include="Samples\Reporting\CoreServices\GetAvailableReports.cs" />
+    <Compile Include="Samples\SecureFileShare\CoreServices\DownloadFileWithFileIdentifier.cs" />
+    <Compile Include="Samples\SecureFileShare\CoreServices\GetListOfFiles.cs" />
     <Compile Include="Samples\TMS\CoreServices\CreateInstrumentIdentifier.cs" />
     <Compile Include="Samples\TMS\CoreServices\CreatePaymentInstrument.cs" />
     <Compile Include="Samples\TMS\CoreServices\DeleteInstrumentIdentifier.cs" />
@@ -108,15 +119,25 @@
     <Compile Include="Samples\TMS\CoreServices\RetrievePaymentInstrument.cs" />
     <Compile Include="Samples\TMS\CoreServices\UpdateInstrumentIdentifier.cs" />
     <Compile Include="Samples\TMS\CoreServices\UpdatePaymentInstrument.cs" />
+    <Compile Include="Samples\TransactionBatches\CoreServices\GetIndividualBatchFile.cs" />
+    <Compile Include="Samples\TransactionBatches\CoreServices\GetListOfBatchFiles.cs" />
+    <Compile Include="Samples\TransactionDetails\CoreServices\RetrieveTransaction.cs" />
+    <Compile Include="Samples\TransactionSearch\CoreServices\CreateSearchRequest.cs" />
+    <Compile Include="Samples\TransactionSearch\CoreServices\GetSearchResults.cs" />
+    <Compile Include="Samples\UserManagement\CoreServices\GetUserInformation.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="CybsPayments.ruleset" />
     <None Include="logs\cybs.log" />
     <None Include="NLog.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Resource\mcb_test_merch.p12" />
     <None Include="Resource\testrest.p12" />
     <None Include="Resource\TRRReport.json" />
@@ -125,7 +146,6 @@
     <Analyzer Include="..\packages\StyleCop.Analyzers.1.0.2\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
     <Analyzer Include="..\packages\StyleCop.Analyzers.1.0.2\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

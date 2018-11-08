@@ -1,22 +1,22 @@
 ﻿using System;
 using CyberSource.Api;
 
-namespace Cybersource_rest_samples_dotnet.Samples.TMS.CoreServices
+namespace Cybersource_rest_samples_dotnet.Samples.Reporting.CoreServices
 {
-    public class RetrievePaymentInstrument
+    public class GetReportBasedOnReportid
     {
         public static void Run()
         {
-            var profileId = "93B32398-AD51-4CC2-A682-EA3E93614EB1";
-            var tokenId = CreatePaymentInstrument.Run().Id;
+            const string reportId = "79642c43-2368-0cd5-e053-a2588e0a7b3c";
+            const string organizationId = "testrest";
 
             try
             {
                 var configDictionary = new Configuration().GetConfiguration();
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
-                var apiInstance = new PaymentInstrumentsApi(clientConfig);
+                var apiInstance = new ReportsApi(clientConfig);
 
-                var result = apiInstance.TmsV1PaymentinstrumentsTokenIdGet(profileId, tokenId);
+                var result = apiInstance.GetReportByReportId(reportId, organizationId);
                 Console.WriteLine(result);
             }
             catch (Exception e)
