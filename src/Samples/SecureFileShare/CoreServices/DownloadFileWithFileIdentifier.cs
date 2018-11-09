@@ -12,7 +12,15 @@ namespace Cybersource_rest_samples_dotnet.Samples.SecureFileShare.CoreServices
         {
             try
             {
-                const string downloadFilePath = @"C:\CYBS\3935\Solutions\cybersource-rest-samples-csharp\src\report_DownloadFileWithFileIdentifier.csv";
+                // File will be created with the Data received in the Response Body
+
+                // Provide the File Name
+                const string fileName = "DownloadFileWithFileIdentifier.csv";
+
+                // Provide the path where the file needs to be downloaded
+                // This can be either a relative path or an absolute path
+                const string downloadFilePath = @".\Resource\" + fileName;
+
                 var fileId = "VFJSUmVwb3J0LTc4NTVkMTNmLTkzOTgtNTExMy1lMDUzLWEyNTg4ZTBhNzE5Mi5jc3YtMjAxOC0xMC0yMA==";
                 var organizationId = "testrest";
 
@@ -23,6 +31,8 @@ namespace Cybersource_rest_samples_dotnet.Samples.SecureFileShare.CoreServices
                 var result = apiInstance.GetFileWithHttpInfo(fileId, organizationId);
                 Console.WriteLine(result);
                 File.WriteAllText(downloadFilePath, CreateXml(result.Data));
+                Console.WriteLine("\nFile downloaded at the below location:");
+                Console.WriteLine($"{Path.GetFullPath(downloadFilePath)}\n");
             }
             catch (FileNotFoundException)
             {

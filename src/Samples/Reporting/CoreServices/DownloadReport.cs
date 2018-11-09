@@ -11,7 +11,15 @@ namespace Cybersource_rest_samples_dotnet.Samples.Reporting.CoreServices
     {
         public static void Run()
         {
-            const string downloadFilePath = @"C:\CYBS\3935\Solutions\cybersource-rest-samples-csharp\src\report_DownloadReport.csv";
+            // File will be created with the Data received in the Response Body
+
+            // Provide the File Name
+            const string fileName = "DownloadReport.csv";
+
+            // Provide the path where the file needs to be downloaded
+            // This can be either a relative path or an absolute path
+            const string downloadFilePath = @".\Resource\" + fileName;
+
             const string organizationId = "testrest";
             const string reportName = "testrest_v2";
             var reportDate = "2018-09-02";
@@ -26,6 +34,8 @@ namespace Cybersource_rest_samples_dotnet.Samples.Reporting.CoreServices
                 Console.WriteLine(result);
 
                 File.WriteAllText(downloadFilePath, CreateXml(result.Data));
+                Console.WriteLine("\nFile downloaded at the below location:");
+                Console.WriteLine($"{Path.GetFullPath(downloadFilePath)}\n");
             }
             catch (FileNotFoundException)
             {
