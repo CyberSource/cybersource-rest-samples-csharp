@@ -347,3 +347,6 @@ ASALocalRun/
 /src/SampleCode.exe
 /src/SampleCode.vshost.exe
 /src/SampleCode.vshost.exe.config
+/src/SampleCode.vshost.exe.manifest
+/src/SampleCode.exe.config
+/src/cybersource-rest-client-dotnet.dll
