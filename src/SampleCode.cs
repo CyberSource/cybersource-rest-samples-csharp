@@ -85,7 +85,15 @@ namespace Cybersource_rest_samples_dotnet
                 {
                     logger.Warn("No Sample Code Found with the name: {0}", _sampleToRun);
                     Console.WriteLine("No Sample Code Found with the name: {0}", _sampleToRun);
+
+                    if (cmdLineArg == null)
+                    {
+                        ShowMethods();
+                        RunSample();
+                    }
+
                     return;
+
                 }
 
                 var obj = Activator.CreateInstance(className);
@@ -99,6 +107,14 @@ namespace Cybersource_rest_samples_dotnet
                 {
                     logger.Warn($"No Run Method Found in the class: {_sampleToRun}");
                     Console.WriteLine("No Run Method Found in the class: {0}", _sampleToRun);
+
+                    if (cmdLineArg == null)
+                    {
+                        ShowMethods();
+                        RunSample();
+                    }
+
+                    return;
                 }
             }
             catch (Exception e)
@@ -112,6 +128,12 @@ namespace Cybersource_rest_samples_dotnet
                 }
 
                 Console.WriteLine(e.StackTrace);
+            }
+
+            if (cmdLineArg == null)
+            {
+                ShowMethods();
+                RunSample();
             }
         }
 
