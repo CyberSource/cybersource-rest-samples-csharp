@@ -27,7 +27,7 @@ The samples are all completely independent and self-contained. You can analyze t
 * Run the console app and select a sample to execute. 
 
 
-#### To set your API credentials for an API request,Configure the following information in src/App.config file:
+#### To set your API credentials for an API request,Configure the following information in src/Configuration.cs file:
   
   * Http
 
