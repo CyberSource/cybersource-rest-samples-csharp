@@ -48,7 +48,7 @@ The samples are all completely independent and self-contained. You can analyze t
    authenticationType  = Jwt
    merchantID 	       = testrest
    runEnvironment      = CyberSource.Environment.SANDBOX
-   keyAlias		       = testrest
+   keyAlias	       = testrest
    keyPassword	       = testrest
    keyFileName         = testrest
    keysDirectory       = resources
