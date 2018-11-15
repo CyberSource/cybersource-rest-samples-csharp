@@ -1,10 +1,9 @@
 ﻿using System;
-using System.Globalization;
 using CyberSource.Api;
 
 namespace Cybersource_rest_samples_dotnet.Samples.Reporting.CoreServices
 {
-    public class GetAvailableReports
+    public class RetrieveAvailableReports
     {
         public static void Run()
         {

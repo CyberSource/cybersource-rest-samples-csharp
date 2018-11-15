@@ -107,7 +107,7 @@
     <Compile Include="Samples\Reporting\CoreServices\GetReportDefinition.cs" />
     <Compile Include="Samples\Reporting\CoreServices\GetReportingResourceInformation.cs" />
     <Compile Include="Samples\Reporting\CoreServices\GetSubscriptionForReportName.cs" />
-    <Compile Include="Samples\Reporting\CoreServices\GetAvailableReports.cs" />
+    <Compile Include="Samples\Reporting\CoreServices\RetrieveAvailableReports.cs" />
     <Compile Include="Samples\SecureFileShare\CoreServices\DownloadFileWithFileIdentifier.cs" />
     <Compile Include="Samples\SecureFileShare\CoreServices\GetListOfFiles.cs" />
     <Compile Include="Samples\TMS\CoreServices\CreateInstrumentIdentifier.cs" />
