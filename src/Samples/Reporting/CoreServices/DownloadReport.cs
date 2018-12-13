@@ -31,7 +31,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Reporting.CoreServices
                 var apiInstance = new ReportDownloadsApi(clientConfig);
 
                 var result = apiInstance.DownloadReportWithHttpInfo(reportDate, reportName, organizationId);
-                Console.WriteLine(result);
+                Console.WriteLine(result.Data.ToString());
 
                 File.WriteAllText(downloadFilePath, CreateXml(result.Data));
                 Console.WriteLine("\nFile downloaded at the below location:");
