@@ -19,7 +19,6 @@ namespace Cybersource_rest_samples_dotnet.Samples.Reporting.CoreServices
                 var apiInstance = new ReportsApi(clientConfig);
 
                 var result = apiInstance.SearchReports(startTime, endTime, timeQueryType, organizationId);
-                Console.WriteLine(result);
             }
             catch (Exception e)
             {
