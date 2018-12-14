@@ -113,7 +113,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payouts.CoreServices
                 var apiInstance = new ProcessAPayoutApi(clientConfig);
 
                 var result = apiInstance.OctCreatePaymentWithHttpInfo(requestObj);
-                Console.WriteLine(result);
+                Console.WriteLine(result.Data);
             }
             catch (Exception e)
             {
