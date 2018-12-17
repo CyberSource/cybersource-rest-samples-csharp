@@ -60,43 +60,8 @@ namespace Cybersource_rest_samples_dotnet.Samples.Reporting.CoreServices
 
                 // Loads the XML document from the specified string.
                 xmlDoc.Load(xmlStream);
-                return xmlDoc.InnerXml;
+                return xmlDoc.InnerText;
             }
         }
-
-        //private static object CreateObject(string xmlString, object obj)
-        //{
-        //    var oXmlSerializer = new XmlSerializer(obj.GetType());
-
-        //    // The StringReader will be the stream holder for the existing XML file
-        //    obj = oXmlSerializer.Deserialize(new StringReader(xmlString));
-
-        //    // initially deserialized, the data is represented by an object without a defined type
-        //    return obj;
-        //}
-
-        //private class Report
-        //{
-        //    public string ReportName { get; set; }
-
-        //    public string Type { get; set; }
-
-        //    public string OrganizationID { get; set; }
-
-        //    public string ReportStartDate { get; set; }
-
-        //    public string ReportEndDate { get; set; }
-
-        //    public Request Request { get; set; }
-        //}
-
-        //private class Request
-        //{
-        //    public string RequestID { get; set; }
-
-        //    public string RequestDate { get; set; }
-
-        //    public string MerchantID { get; set; }
-        //}
     }
 }

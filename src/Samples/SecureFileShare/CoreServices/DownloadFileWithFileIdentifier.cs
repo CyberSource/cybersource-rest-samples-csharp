@@ -57,7 +57,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.SecureFileShare.CoreServices
 
                 // Loads the XML document from the specified string.
                 xmlDoc.Load(xmlStream);
-                return xmlDoc.InnerXml;
+                return xmlDoc.InnerText;
             }
         }
     }
