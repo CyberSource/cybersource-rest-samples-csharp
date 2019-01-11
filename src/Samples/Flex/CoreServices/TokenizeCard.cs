@@ -14,6 +14,12 @@ namespace Cybersource_rest_samples_dotnet.Samples.Flex.CoreServices
     {
         public static void Run()
         {
+            Console.WriteLine($"\n[BEGIN] EXECUTION OF SAMPLE CODE: {nameof(TokenizeCard)}");
+
+            CyberSource.Client.Configuration clientConfig = null;
+            FlexV1TokensPost200Response result = null;
+            bool tokenVerificationResult = false;
+
             var generateKeyResult = GenerateKey.Run();
             var keyId = generateKeyResult.KeyId;
             var derFormat = generateKeyResult.Der.Format;
@@ -35,11 +41,10 @@ namespace Cybersource_rest_samples_dotnet.Samples.Flex.CoreServices
             try
             {
                 var configDictionary = new Configuration().GetConfiguration();
-                var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
+                clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
                 var apiInstance = new FlexTokenApi(clientConfig);
 
-                var result = apiInstance.Tokenize(requestObj);
-                Console.WriteLine(result);
+                result = apiInstance.Tokenize(requestObj);
 
                 var flexPublicKey = new FlexPublicKey(keyId, new FlexServerSDK.Model.DerPublicKey(derFormat, derAlgo, derPublicKey), null);
                 var flexToken = new FlexToken()
@@ -63,12 +68,51 @@ namespace Cybersource_rest_samples_dotnet.Samples.Flex.CoreServices
                 postParameters["token"] = flexToken.token;
                 postParameters["timestamp"] = Convert.ToString(flexToken.timestamp);
 
-                var tokenVerificationResult = Verify(flexPublicKey, postParameters);
-                Console.WriteLine(tokenVerificationResult);
+                tokenVerificationResult = Verify(flexPublicKey, postParameters);
             }
             catch (Exception e)
             {
-                Console.WriteLine("Exception on calling the API: " + e.Message);
+                Console.WriteLine($"Exception on calling the Sample Code({nameof(TokenizeCard)}):{e.Message}");
+            }
+            finally
+            {
+                if (clientConfig != null)
+                {
+                    Console.WriteLine("\nAPI REQUEST HEADERS:");
+
+                    foreach (var requestHeader in clientConfig.ApiClient.ApiRequest.Headers)
+                    {
+                        Console.WriteLine(requestHeader);
+                    }
+
+                    Console.WriteLine("\nAPI REQUEST BODY:");
+                    Console.WriteLine(clientConfig.ApiClient.ApiRequest.Data);
+
+                    Console.WriteLine($"\nAPI RESPONSE CODE: {clientConfig.ApiClient.ApiResponse.StatusCode}");
+
+                    Console.WriteLine("\nAPI RESPONSE HEADERS:");
+
+                    foreach (var responseHeader in clientConfig.ApiClient.ApiResponse.HeadersList)
+                    {
+                        Console.WriteLine(responseHeader);
+                    }
+
+                    Console.WriteLine("\nAPI RESPONSE BODY:");
+                    Console.WriteLine(clientConfig.ApiClient.ApiResponse.Data);
+
+                    if (result != null)
+                    {
+                        Console.WriteLine("\nAPI RESPONSE DATA OBJECT:");
+                        Console.WriteLine(result);
+                    }
+
+                    Console.WriteLine($"\nToken Verification Result: {tokenVerificationResult}");
+
+                    Console.WriteLine($"\n[END] EXECUTION OF SAMPLE CODE: {nameof(TokenizeCard)}");
+                }
+
+                clientConfig = null;
+                result = null;
             }
         }
 

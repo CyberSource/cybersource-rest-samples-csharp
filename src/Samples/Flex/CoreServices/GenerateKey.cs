@@ -8,22 +8,65 @@ namespace Cybersource_rest_samples_dotnet.Samples.Flex.CoreServices
     {
         public static FlexV1KeysPost200Response Run()
         {
+            Console.WriteLine($"\n[BEGIN] EXECUTION OF SAMPLE CODE: {nameof(GenerateKey)}");
+
+            CyberSource.Client.Configuration clientConfig = null;
+            FlexV1KeysPost200Response result = null;
+
             var requestObj = new GeneratePublicKeyRequest("None");
 
             try
             {
                 var configDictionary = new Configuration().GetConfiguration();
-                var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
+                clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
                 var apiInstance = new KeyGenerationApi(clientConfig);
 
-                var result = apiInstance.GeneratePublicKey(requestObj);
-                Console.WriteLine(result);
+                result = apiInstance.GeneratePublicKey(requestObj);
                 return result;
             }
             catch (Exception e)
             {
-                Console.WriteLine("Exception on calling the API: " + e.Message);
+                Console.WriteLine($"Exception on calling the Sample Code({nameof(GenerateKey)}):{e.Message}");
                 return null;
+            }
+            finally
+            {
+                if (clientConfig != null)
+                {
+
+                    Console.WriteLine("\nAPI REQUEST HEADERS:");
+
+                    foreach (var requestHeader in clientConfig.ApiClient.ApiRequest.Headers)
+                    {
+                        Console.WriteLine(requestHeader);
+                    }
+
+                    Console.WriteLine("\nAPI REQUEST BODY:");
+                    Console.WriteLine(clientConfig.ApiClient.ApiRequest.Data);
+
+                    Console.WriteLine($"\nAPI RESPONSE CODE: {clientConfig.ApiClient.ApiResponse.StatusCode}");
+
+                    Console.WriteLine("\nAPI RESPONSE HEADERS:");
+
+                    foreach (var responseHeader in clientConfig.ApiClient.ApiResponse.HeadersList)
+                    {
+                        Console.WriteLine(responseHeader);
+                    }
+
+                    Console.WriteLine("\nAPI RESPONSE BODY:");
+                    Console.WriteLine(clientConfig.ApiClient.ApiResponse.Data);
+
+                    if (result != null)
+                    {
+                        Console.WriteLine("\nAPI RESPONSE DATA OBJECT:");
+                        Console.WriteLine(result);
+                    }
+
+                    Console.WriteLine($"\n[END] EXECUTION OF SAMPLE CODE: {nameof(GenerateKey)}");
+                }
+
+                clientConfig = null;
+                result = null;
             }
         }
     }
