@@ -110,9 +110,6 @@ namespace Cybersource_rest_samples_dotnet.Samples.Flex.CoreServices
 
                     Console.WriteLine($"\n[END] EXECUTION OF SAMPLE CODE: {nameof(TokenizeCard)}");
                 }
-
-                clientConfig = null;
-                result = null;
             }
         }
 

@@ -64,9 +64,6 @@ namespace Cybersource_rest_samples_dotnet.Samples.Flex.CoreServices
 
                     Console.WriteLine($"\n[END] EXECUTION OF SAMPLE CODE: {nameof(GenerateKey)}");
                 }
-
-                clientConfig = null;
-                result = null;
             }
         }
     }
