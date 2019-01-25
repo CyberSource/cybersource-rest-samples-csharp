@@ -39,6 +39,10 @@
       <HintPath>..\packages\CyberSource.Authentication.0.0.0.3\lib\AuthenticationSdk.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="cybersource-rest-client-dotnet, Version=0.0.0.4, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CyberSource.Rest.Client.0.0.0.4\lib\cybersource-rest-client-dotnet.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="FlexServerSDK, Version=0.2.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\CyberSource.Flex.Server.0.2.1\lib\FlexServerSDK.dll</HintPath>
       <Private>True</Private>
@@ -141,12 +145,6 @@
   <ItemGroup>
     <Analyzer Include="..\packages\StyleCop.Analyzers.1.0.2\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
     <Analyzer Include="..\packages\StyleCop.Analyzers.1.0.2\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\cybersource-rest-client-dotnet\cybersource-rest-client-dotnet.csproj">
-      <Project>{b0b5bddb-e666-47ef-95b9-2bf8e88a51e4}</Project>
-      <Name>cybersource-rest-client-dotnet</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
