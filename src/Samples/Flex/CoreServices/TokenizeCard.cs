@@ -7,6 +7,7 @@ using CyberSource.Api;
 using CyberSource.Model;
 using FlexServerSDK.Exception;
 using FlexServerSDK.Model;
+using Newtonsoft.Json;
 
 namespace Cybersource_rest_samples_dotnet.Samples.Flex.CoreServices
 {
@@ -72,43 +73,45 @@ namespace Cybersource_rest_samples_dotnet.Samples.Flex.CoreServices
             }
             catch (Exception e)
             {
-                Console.WriteLine($"Exception on calling the Sample Code({nameof(TokenizeCard)}):{e.Message}");
+                Console.WriteLine($"\nException on calling the Sample Code({nameof(TokenizeCard)}):{e.Message}");
             }
             finally
             {
                 if (clientConfig != null)
                 {
-                    Console.WriteLine("\nAPI REQUEST HEADERS:");
-
-                    foreach (var requestHeader in clientConfig.ApiClient.ApiRequest.Headers)
+                    // PRINTING REQUEST DETAILS
+                    if (clientConfig.ApiClient.Configuration.RequestHeaders != null)
                     {
-                        Console.WriteLine(requestHeader);
+                        Console.WriteLine("\nAPI REQUEST HEADERS:");
+                        foreach (var requestHeader in clientConfig.ApiClient.Configuration.RequestHeaders)
+                        {
+                            Console.WriteLine(requestHeader);
+                        }
                     }
 
                     Console.WriteLine("\nAPI REQUEST BODY:");
-                    Console.WriteLine(clientConfig.ApiClient.ApiRequest.Data);
+                    Console.WriteLine(JsonConvert.SerializeObject(requestObj));
 
-                    Console.WriteLine($"\nAPI RESPONSE CODE: {clientConfig.ApiClient.ApiResponse.StatusCode}");
-
-                    Console.WriteLine("\nAPI RESPONSE HEADERS:");
-
-                    foreach (var responseHeader in clientConfig.ApiClient.ApiResponse.HeadersList)
+                    // PRINTING RESPONSE DETAILS
+                    if (clientConfig.ApiClient.ApiResponse != null)
                     {
-                        Console.WriteLine(responseHeader);
+                        if (!string.IsNullOrEmpty(clientConfig.ApiClient.ApiResponse.StatusCode.ToString()))
+                        {
+                            Console.WriteLine($"\nAPI RESPONSE CODE: {clientConfig.ApiClient.ApiResponse.StatusCode}");
+                        }
+
+                        Console.WriteLine("\nAPI RESPONSE HEADERS:");
+
+                        foreach (var responseHeader in clientConfig.ApiClient.ApiResponse.HeadersList)
+                        {
+                            Console.WriteLine(responseHeader);
+                        }
+
+                        Console.WriteLine("\nAPI RESPONSE BODY:");
+                        Console.WriteLine(clientConfig.ApiClient.ApiResponse.Data);
                     }
 
-                    Console.WriteLine("\nAPI RESPONSE BODY:");
-                    Console.WriteLine(clientConfig.ApiClient.ApiResponse.Data);
-
-                    if (result != null)
-                    {
-                        Console.WriteLine("\nAPI RESPONSE DATA OBJECT:");
-                        Console.WriteLine(result);
-                    }
-
-                    Console.WriteLine($"\nToken Verification Result: {tokenVerificationResult}");
-
-                    Console.WriteLine($"\n[END] EXECUTION OF SAMPLE CODE: {nameof(TokenizeCard)}");
+                    Console.WriteLine($"\n[END] EXECUTION OF SAMPLE CODE: {nameof(GenerateKey)}");
                 }
             }
         }

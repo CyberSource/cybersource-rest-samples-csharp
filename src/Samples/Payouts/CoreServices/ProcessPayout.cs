@@ -1,6 +1,8 @@
 ﻿using System;
 using CyberSource.Api;
 using CyberSource.Model;
+using CyberSource.Client;
+using Newtonsoft.Json;
 
 namespace Cybersource_rest_samples_dotnet.Samples.Payouts.CoreServices
 {
@@ -8,6 +10,11 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payouts.CoreServices
     {
         public static void Run()
         {
+            Console.WriteLine($"\n[BEGIN] EXECUTION OF SAMPLE CODE: {nameof(ProcessPayout)}");
+
+            CyberSource.Client.Configuration clientConfig = null;
+            ApiResponse<object> result = null;
+
             var requestObj = new PtsV2PayoutsPostResponse();
 
             var clientReferenceInformationObj = new PtsV2PaymentsPost201ResponseClientReferenceInformation
@@ -109,15 +116,54 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payouts.CoreServices
             try
             {
                 var configDictionary = new Configuration().GetConfiguration();
-                var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
+                clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
                 var apiInstance = new ProcessAPayoutApi(clientConfig);
 
-                var result = apiInstance.OctCreatePaymentWithHttpInfo(requestObj);
-                Console.WriteLine(result);
+                result = apiInstance.OctCreatePaymentWithHttpInfo(requestObj);
+
             }
             catch (Exception e)
             {
-                Console.WriteLine("Exception on calling the API: " + e.Message);
+                Console.WriteLine($"\nException on calling the Sample Code({nameof(ProcessPayout)}):{e.Message}");
+            }
+            finally
+            {
+                if (clientConfig != null)
+                {
+                    // PRINTING REQUEST DETAILS
+                    if (clientConfig.ApiClient.Configuration.RequestHeaders != null)
+                    {
+                        Console.WriteLine("\nAPI REQUEST HEADERS:");
+                        foreach (var requestHeader in clientConfig.ApiClient.Configuration.RequestHeaders)
+                        {
+                            Console.WriteLine(requestHeader);
+                        }
+                    }
+
+                    Console.WriteLine("\nAPI REQUEST BODY:");
+                    Console.WriteLine(JsonConvert.SerializeObject(requestObj));
+
+                    // PRINTING RESPONSE DETAILS
+                    if (clientConfig.ApiClient.ApiResponse != null)
+                    {
+                        if (!string.IsNullOrEmpty(clientConfig.ApiClient.ApiResponse.StatusCode.ToString()))
+                        {
+                            Console.WriteLine($"\nAPI RESPONSE CODE: {clientConfig.ApiClient.ApiResponse.StatusCode}");
+                        }
+
+                        Console.WriteLine("\nAPI RESPONSE HEADERS:");
+
+                        foreach (var responseHeader in clientConfig.ApiClient.ApiResponse.HeadersList)
+                        {
+                            Console.WriteLine(responseHeader);
+                        }
+
+                        Console.WriteLine("\nAPI RESPONSE BODY:");
+                        Console.WriteLine(clientConfig.ApiClient.ApiResponse.Data);
+                    }
+
+                    Console.WriteLine($"\n[END] EXECUTION OF SAMPLE CODE: {nameof(ProcessPayout)}");
+                }
             }
         }
     }

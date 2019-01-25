@@ -1,5 +1,7 @@
 ﻿using System;
 using CyberSource.Api;
+using CyberSource.Model;
+using Newtonsoft.Json.Linq;
 
 namespace Cybersource_rest_samples_dotnet.Samples.TransactionSearch.CoreServices
 {
@@ -7,20 +9,61 @@ namespace Cybersource_rest_samples_dotnet.Samples.TransactionSearch.CoreServices
     {
         public static void Run()
         {
-            var id = "5f6b1f07-0190-460b-852e-6766252fbb18";
+            Console.WriteLine($"\n[BEGIN] EXECUTION OF SAMPLE CODE: {nameof(GetSearchResults)}");
+
+            CyberSource.Client.Configuration clientConfig = null;
+            TssV2TransactionsPost201Response result = null;
+
+            var id = "a39188d5-158a-4fb4-98e5-b4a05e0017d2";
 
             try
             {
                 var configDictionary = new Configuration().GetConfiguration();
-                var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
+                clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
                 var apiInstance = new SearchTransactionsApi(clientConfig);
 
-                var result = apiInstance.GetSearch(id);
-                Console.WriteLine(result);
+                result = apiInstance.GetSearch(id);
+
             }
             catch (Exception e)
             {
-                Console.WriteLine("Exception on calling the API: " + e.Message);
+                Console.WriteLine($"\nException on calling the Sample Code({nameof(GetSearchResults)}):{e.Message}");
+            }
+            finally
+            {
+                if (clientConfig != null)
+                {
+                    // PRINTING REQUEST DETAILS
+                    if (clientConfig.ApiClient.Configuration.RequestHeaders != null)
+                    {
+                        Console.WriteLine("\nAPI REQUEST HEADERS:");
+                        foreach (var requestHeader in clientConfig.ApiClient.Configuration.RequestHeaders)
+                        {
+                            Console.WriteLine(requestHeader);
+                        }
+                    }
+
+                    // PRINTING RESPONSE DETAILS
+                    if (clientConfig.ApiClient.ApiResponse != null)
+                    {
+                        if (!string.IsNullOrEmpty(clientConfig.ApiClient.ApiResponse.StatusCode.ToString()))
+                        {
+                            Console.WriteLine($"\nAPI RESPONSE CODE: {clientConfig.ApiClient.ApiResponse.StatusCode}");
+                        }
+
+                        Console.WriteLine("\nAPI RESPONSE HEADERS:");
+
+                        foreach (var responseHeader in clientConfig.ApiClient.ApiResponse.HeadersList)
+                        {
+                            Console.WriteLine(responseHeader);
+                        }
+
+                        Console.WriteLine("\nAPI RESPONSE BODY:");
+                        Console.WriteLine(clientConfig.ApiClient.ApiResponse.Data);
+                    }
+
+                    Console.WriteLine($"\n[END] EXECUTION OF SAMPLE CODE: {nameof(GetSearchResults)}");
+                }
             }
         }
     }
