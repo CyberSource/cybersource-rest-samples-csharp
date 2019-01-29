@@ -111,7 +111,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Flex.CoreServices
                         Console.WriteLine(clientConfig.ApiClient.ApiResponse.Data);
                     }
 
-                    Console.WriteLine($"\n[END] EXECUTION OF SAMPLE CODE: {nameof(GenerateKey)}");
+                    Console.WriteLine($"\n[END] EXECUTION OF SAMPLE CODE: {nameof(TokenizeCard)}");
                 }
             }
         }
