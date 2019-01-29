@@ -37,10 +37,6 @@ namespace Cybersource_rest_samples_dotnet.Samples.Reporting.CoreServices
                 var apiInstance = new ReportSubscriptionsApi(clientConfig);
 
                 result = apiInstance.CreateSubscriptionWithHttpInfo(string.Empty, requestObj);
-
-
-                DeleteSubscriptionOfReportNameByOrganization.ReportNameToDelete = reportName;
-                DeleteSubscriptionOfReportNameByOrganization.Run();
             }
             catch (Exception e)
             {
@@ -84,6 +80,9 @@ namespace Cybersource_rest_samples_dotnet.Samples.Reporting.CoreServices
 
                     Console.WriteLine($"\n[END] EXECUTION OF SAMPLE CODE: {nameof(CreateReportSubscriptionForReportNameByOrganization)}");
                 }
+
+                DeleteSubscriptionOfReportNameByOrganization.ReportNameToDelete = reportName;
+                DeleteSubscriptionOfReportNameByOrganization.Run();
             }
         }
     }
