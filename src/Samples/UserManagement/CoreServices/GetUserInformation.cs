@@ -1,6 +1,7 @@
 ﻿using System;
 using CyberSource.Api;
 using CyberSource.Model;
+using NLog;
 
 namespace Cybersource_rest_samples_dotnet.Samples.UserManagement.CoreServices
 {
@@ -10,6 +11,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.UserManagement.CoreServices
         {
             Console.WriteLine($"\n[BEGIN] EXECUTION OF SAMPLE CODE: {nameof(GetUserInformation)}");
 
+            Logger logger = LogManager.GetCurrentClassLogger();
             CyberSource.Client.Configuration clientConfig = null;
             UmsV1UsersGet200Response result = null;
 

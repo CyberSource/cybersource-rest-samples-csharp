@@ -1,6 +1,7 @@
 ﻿using System;
 using CyberSource.Api;
 using CyberSource.Client;
+using NLog;
 
 namespace Cybersource_rest_samples_dotnet.Samples.Reporting.CoreServices
 {
@@ -12,6 +13,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Reporting.CoreServices
         {
             Console.WriteLine($"\n[BEGIN] EXECUTION OF SAMPLE CODE: {nameof(DeleteSubscriptionOfReportNameByOrganization)}");
 
+            Logger logger = LogManager.GetCurrentClassLogger();
             CyberSource.Client.Configuration clientConfig = null;
             ApiResponse<object> result = null;
 

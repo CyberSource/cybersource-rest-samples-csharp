@@ -1,16 +1,18 @@
-﻿using System;
-using System.Globalization;
-using CyberSource.Api;
-using CyberSource.Model;
-
-namespace Cybersource_rest_samples_dotnet.Samples.SecureFileShare.CoreServices
+﻿namespace Cybersource_rest_samples_dotnet.Samples.SecureFileShare.CoreServices
 {
+    using System;
+    using System.Globalization;
+    using CyberSource.Api;
+    using CyberSource.Model;
+    using NLog;
+
     public class GetListOfFiles
     {
         public static void Run()
         {
             Console.WriteLine($"\n[BEGIN] EXECUTION OF SAMPLE CODE: {nameof(GetListOfFiles)}");
 
+            Logger logger = LogManager.GetCurrentClassLogger();
             CyberSource.Client.Configuration clientConfig = null;
             V1FileDetailsGet200Response result = null;
 

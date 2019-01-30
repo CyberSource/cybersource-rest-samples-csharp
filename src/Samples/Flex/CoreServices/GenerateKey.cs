@@ -2,6 +2,7 @@
 using CyberSource.Api;
 using CyberSource.Model;
 using Newtonsoft.Json;
+using NLog;
 
 namespace Cybersource_rest_samples_dotnet.Samples.Flex.CoreServices
 {
@@ -11,6 +12,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Flex.CoreServices
         {
             Console.WriteLine($"\n[BEGIN] EXECUTION OF SAMPLE CODE: {nameof(GenerateKey)}");
 
+            Logger logger = LogManager.GetCurrentClassLogger();
             CyberSource.Client.Configuration clientConfig = null;
             FlexV1KeysPost200Response result = null;
 
@@ -46,6 +48,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Flex.CoreServices
 
                     Console.WriteLine("\nAPI REQUEST BODY:");
                     Console.WriteLine(JsonConvert.SerializeObject(requestObj));
+                    logger.Trace($"\nAPI REQUEST BODY:{JsonConvert.SerializeObject(requestObj)}");
 
                     // PRINTING RESPONSE DETAILS
                     if (clientConfig.ApiClient.ApiResponse != null)

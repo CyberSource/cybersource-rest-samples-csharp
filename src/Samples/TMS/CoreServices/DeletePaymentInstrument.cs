@@ -1,6 +1,7 @@
 ﻿using System;
 using CyberSource.Api;
 using CyberSource.Client;
+using NLog;
 
 namespace Cybersource_rest_samples_dotnet.Samples.TMS.CoreServices
 {
@@ -10,6 +11,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TMS.CoreServices
         {
             Console.WriteLine($"\n[BEGIN] EXECUTION OF SAMPLE CODE: {nameof(DeletePaymentInstrument)}");
 
+            Logger logger = LogManager.GetCurrentClassLogger();
             CyberSource.Client.Configuration clientConfig = null;
             ApiResponse<object> result = null;
 

@@ -5,6 +5,7 @@ using CyberSource.Api;
 using CyberSource.Client;
 using CyberSource.Model;
 using Newtonsoft.Json;
+using NLog;
 
 namespace Cybersource_rest_samples_dotnet.Samples.Reporting.CoreServices
 {
@@ -14,6 +15,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Reporting.CoreServices
         {
             Console.WriteLine($"\n[BEGIN] EXECUTION OF SAMPLE CODE: {nameof(CreateReportSubscriptionForReportNameByOrganization)}");
 
+            Logger logger = LogManager.GetCurrentClassLogger();
             CyberSource.Client.Configuration clientConfig = null;
             ApiResponse<Object> result = null;
 
@@ -58,6 +60,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Reporting.CoreServices
 
                     Console.WriteLine("\nAPI REQUEST BODY:");
                     Console.WriteLine(JsonConvert.SerializeObject(requestObj));
+                    logger.Trace($"\nAPI REQUEST BODY:{JsonConvert.SerializeObject(requestObj)}");
 
                     // PRINTING RESPONSE DETAILS
                     if (clientConfig.ApiClient.ApiResponse != null)

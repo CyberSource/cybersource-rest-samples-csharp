@@ -4,6 +4,7 @@ using System.Xml;
 using System.Xml.Serialization;
 using CyberSource.Api;
 using CyberSource.Client;
+using NLog;
 
 namespace Cybersource_rest_samples_dotnet.Samples.SecureFileShare.CoreServices
 {
@@ -13,6 +14,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.SecureFileShare.CoreServices
         {
             Console.WriteLine($"\n[BEGIN] EXECUTION OF SAMPLE CODE: {nameof(DownloadFileWithFileIdentifier)}");
 
+            Logger logger = LogManager.GetCurrentClassLogger();
             CyberSource.Client.Configuration clientConfig = null;
             ApiResponse<object> result = null;
 

@@ -2,6 +2,7 @@
 using CyberSource.Api;
 using CyberSource.Model;
 using Newtonsoft.Json;
+using NLog;
 
 namespace Cybersource_rest_samples_dotnet.Samples.Payments.CoreServices
 {
@@ -13,6 +14,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments.CoreServices
 
             var processPaymentId = ProcessPayment.Run().Id;
 
+            Logger logger = LogManager.GetCurrentClassLogger();
             CyberSource.Client.Configuration clientConfig = null;
             PtsV2PaymentsCapturesPost201Response result = null;
 
@@ -91,6 +93,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments.CoreServices
 
                     Console.WriteLine("\nAPI REQUEST BODY:");
                     Console.WriteLine(JsonConvert.SerializeObject(requestObj));
+                    logger.Trace($"\nAPI REQUEST BODY:{JsonConvert.SerializeObject(requestObj)}");
 
                     // PRINTING RESPONSE DETAILS
                     if (clientConfig.ApiClient.ApiResponse != null)

@@ -8,6 +8,7 @@ using CyberSource.Model;
 using FlexServerSDK.Exception;
 using FlexServerSDK.Model;
 using Newtonsoft.Json;
+using NLog;
 
 namespace Cybersource_rest_samples_dotnet.Samples.Flex.CoreServices
 {
@@ -17,6 +18,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Flex.CoreServices
         {
             Console.WriteLine($"\n[BEGIN] EXECUTION OF SAMPLE CODE: {nameof(TokenizeCard)}");
 
+            Logger logger = LogManager.GetCurrentClassLogger();
             CyberSource.Client.Configuration clientConfig = null;
             FlexV1TokensPost200Response result = null;
             bool tokenVerificationResult = false;
@@ -91,6 +93,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Flex.CoreServices
 
                     Console.WriteLine("\nAPI REQUEST BODY:");
                     Console.WriteLine(JsonConvert.SerializeObject(requestObj));
+                    logger.Trace($"\nAPI REQUEST BODY:{JsonConvert.SerializeObject(requestObj)}");
 
                     // PRINTING RESPONSE DETAILS
                     if (clientConfig.ApiClient.ApiResponse != null)
