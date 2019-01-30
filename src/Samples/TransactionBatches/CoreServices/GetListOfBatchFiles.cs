@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Globalization;
 using CyberSource.Api;
 using CyberSource.Model;
-using NLog;
 
 namespace Cybersource_rest_samples_dotnet.Samples.TransactionBatches.CoreServices
 {
@@ -12,7 +10,6 @@ namespace Cybersource_rest_samples_dotnet.Samples.TransactionBatches.CoreService
         {
             Console.WriteLine($"\n[BEGIN] EXECUTION OF SAMPLE CODE: {nameof(GetListOfBatchFiles)}");
 
-            Logger logger = LogManager.GetCurrentClassLogger();
             CyberSource.Client.Configuration clientConfig = null;
             PtsV1TransactionBatchesGet200Response result = null;
 

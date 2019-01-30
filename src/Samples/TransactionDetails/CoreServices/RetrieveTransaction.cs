@@ -1,7 +1,6 @@
 ﻿using System;
 using CyberSource.Api;
 using CyberSource.Model;
-using NLog;
 
 namespace Cybersource_rest_samples_dotnet.Samples.TransactionDetails.CoreServices
 {
@@ -11,7 +10,6 @@ namespace Cybersource_rest_samples_dotnet.Samples.TransactionDetails.CoreService
         {
             Console.WriteLine($"\n[BEGIN] EXECUTION OF SAMPLE CODE: {nameof(RetrieveTransaction)}");
 
-            Logger logger = LogManager.GetCurrentClassLogger();
             CyberSource.Client.Configuration clientConfig = null;
             TssV2TransactionsGet200Response result = null;
 

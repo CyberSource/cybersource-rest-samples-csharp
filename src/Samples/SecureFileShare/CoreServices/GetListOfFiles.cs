@@ -1,10 +1,8 @@
 ﻿namespace Cybersource_rest_samples_dotnet.Samples.SecureFileShare.CoreServices
 {
     using System;
-    using System.Globalization;
     using CyberSource.Api;
     using CyberSource.Model;
-    using NLog;
 
     public class GetListOfFiles
     {
@@ -12,7 +10,6 @@
         {
             Console.WriteLine($"\n[BEGIN] EXECUTION OF SAMPLE CODE: {nameof(GetListOfFiles)}");
 
-            Logger logger = LogManager.GetCurrentClassLogger();
             CyberSource.Client.Configuration clientConfig = null;
             V1FileDetailsGet200Response result = null;
 

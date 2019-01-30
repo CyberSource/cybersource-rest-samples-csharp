@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Globalization;
 using System.IO;
 using System.Xml;
 using System.Xml.Serialization;
 using CyberSource.Api;
 using CyberSource.Client;
-using NLog;
 
 namespace Cybersource_rest_samples_dotnet.Samples.Reporting.CoreServices
 {
@@ -15,7 +13,6 @@ namespace Cybersource_rest_samples_dotnet.Samples.Reporting.CoreServices
         {
             Console.WriteLine($"\n[BEGIN] EXECUTION OF SAMPLE CODE: {nameof(DownloadReport)}");
 
-            Logger logger = LogManager.GetCurrentClassLogger();
             CyberSource.Client.Configuration clientConfig = null;
             ApiResponse<object> result = null;
 
@@ -39,7 +36,6 @@ namespace Cybersource_rest_samples_dotnet.Samples.Reporting.CoreServices
                 var apiInstance = new ReportDownloadsApi(clientConfig);
 
                 result = apiInstance.DownloadReportWithHttpInfo(reportDate, reportName, organizationId);
-
 
                 File.WriteAllText(downloadFilePath, CreateXml(result.Data));
                 Console.WriteLine("\nFile downloaded at the below location:");

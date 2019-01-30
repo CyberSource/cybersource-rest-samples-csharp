@@ -1,8 +1,6 @@
 ﻿using System;
 using CyberSource.Api;
 using CyberSource.Model;
-using Newtonsoft.Json.Linq;
-using NLog;
 
 namespace Cybersource_rest_samples_dotnet.Samples.TransactionSearch.CoreServices
 {
@@ -12,7 +10,6 @@ namespace Cybersource_rest_samples_dotnet.Samples.TransactionSearch.CoreServices
         {
             Console.WriteLine($"\n[BEGIN] EXECUTION OF SAMPLE CODE: {nameof(GetSearchResults)}");
 
-            Logger logger = LogManager.GetCurrentClassLogger();
             CyberSource.Client.Configuration clientConfig = null;
             TssV2TransactionsPost201Response result = null;
 

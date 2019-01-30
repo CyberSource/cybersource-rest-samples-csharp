@@ -1,8 +1,6 @@
 ﻿using System;
 using CyberSource.Api;
 using CyberSource.Model;
-using Newtonsoft.Json;
-using NLog;
 
 namespace Cybersource_rest_samples_dotnet.Samples.TransactionSearch.CoreServices
 {
@@ -12,7 +10,6 @@ namespace Cybersource_rest_samples_dotnet.Samples.TransactionSearch.CoreServices
         {
             Console.WriteLine($"\n[BEGIN] EXECUTION OF SAMPLE CODE: {nameof(CreateSearchRequest)}");
 
-            Logger logger = LogManager.GetCurrentClassLogger();
             CyberSource.Client.Configuration clientConfig = null;
             TssV2TransactionsPost201Response result = null;
 
@@ -54,9 +51,11 @@ namespace Cybersource_rest_samples_dotnet.Samples.TransactionSearch.CoreServices
                         }
                     }
 
-                    Console.WriteLine("\nAPI REQUEST BODY:");
-                    Console.WriteLine(JsonConvert.SerializeObject(requestObj));
-                    logger.Trace($"\nAPI REQUEST BODY:{JsonConvert.SerializeObject(requestObj)}");
+                    if (!string.IsNullOrEmpty(clientConfig.ApiClient.Configuration.RequestBody))
+                    {
+                        Console.WriteLine("\nAPI REQUEST BODY:");
+                        Console.WriteLine(clientConfig.ApiClient.Configuration.RequestBody);
+                    }
 
                     // PRINTING RESPONSE DETAILS
                     if (clientConfig.ApiClient.ApiResponse != null)

@@ -1,7 +1,6 @@
 ﻿using System;
 using CyberSource.Api;
 using CyberSource.Model;
-using NLog;
 
 namespace Cybersource_rest_samples_dotnet.Samples.Reporting.CoreServices
 {
@@ -11,7 +10,6 @@ namespace Cybersource_rest_samples_dotnet.Samples.Reporting.CoreServices
         {
             Console.WriteLine($"\n[BEGIN] EXECUTION OF SAMPLE CODE: {nameof(GetReportBasedOnReportid)}");
 
-            Logger logger = LogManager.GetCurrentClassLogger();
             CyberSource.Client.Configuration clientConfig = null;
             ReportingV3ReportsIdGet200Response result = null;
 
