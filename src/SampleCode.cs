@@ -34,8 +34,6 @@ namespace Cybersource_rest_samples_dotnet
             // initializing logger object
             // LogManager.DisableLogging();
             logger = LogManager.GetCurrentClassLogger();
-            logger.Trace("\n");
-            logger.Trace("PROGRAM EXECUTION BEGINS");
 
             // Set Network Settings (To Avoid SSL/TLS Secure Channel Error)
             SetNetworkSettings();
@@ -56,8 +54,6 @@ namespace Cybersource_rest_samples_dotnet
 
             // Run the Sample Code as per user input
             RunSample();
-
-            logger.Trace("PROGRAM EXECUTION ENDS");
         }
 
         public static void RunSample(string cmdLineArg = null)
@@ -65,7 +61,6 @@ namespace Cybersource_rest_samples_dotnet
             try
             {
                 _sampleToRun = string.IsNullOrEmpty(cmdLineArg) ? Console.ReadLine() : cmdLineArg;
-                logger.Trace($"Input provided for Sample Code to Run: {_sampleToRun}");
 
                 Console.WriteLine("\n");
                 Type className = null;
@@ -76,7 +71,6 @@ namespace Cybersource_rest_samples_dotnet
 
                     if (className != null)
                     {
-                        logger.Trace($"Sample Code found in the namespace: {path}");
                         break;
                     }
                 }
@@ -100,7 +94,6 @@ namespace Cybersource_rest_samples_dotnet
                 var methodInfo = className.GetMethod("Run");
                 if (methodInfo != null)
                 {
-                    logger.Trace($"Invoking Run() method of {_sampleToRun}");
                     methodInfo.Invoke(obj, null);
                 }
                 else
@@ -139,8 +132,6 @@ namespace Cybersource_rest_samples_dotnet
 
         private static void ShowMethods()
         {
-            logger.Trace("Beginning to Show All Sample Codes on Console");
-
             Console.WriteLine(" ---------------------------------------------------------------------------------------------------");
             Console.WriteLine(" -                                    Code Sample Names                                            -");
             Console.WriteLine(" ---------------------------------------------------------------------------------------------------");
@@ -154,8 +145,6 @@ namespace Cybersource_rest_samples_dotnet
 
             foreach (var apiFamily in apiFamilies)
             {
-                logger.Trace($"Showing Sample Codes for Api Family: {apiFamily}");
-
                 Console.WriteLine(" " + apiFamily.ToUpper() + " API'S   ");
                 Console.WriteLine(" ---------------------------------------------------------------------------------------------------");
 
@@ -183,7 +172,6 @@ namespace Cybersource_rest_samples_dotnet
                 Console.WriteLine(" ---------------------------------------------------------------------------------------------------");
             }
 
-            logger.Trace("All Sample Codes Shown on Console");
             Console.WriteLine(string.Empty);
             Console.Write("Type a sample name & then press <Return> : ");
         }
@@ -202,8 +190,6 @@ namespace Cybersource_rest_samples_dotnet
              */
 
             // 1. Find the Api Families (Folders inside the main 'Samples' Folder)
-            logger.Trace($"Samples Folder At:{Path.GetFullPath(PathOfSamplesFolder)}");
-
             var dirList = Directory.GetDirectories(PathOfSamplesFolder, "*");
             var apiFamilies = new List<string>();
 
@@ -220,9 +206,6 @@ namespace Cybersource_rest_samples_dotnet
             {
                 // 2.Fetch all the Files Paths inside Api Family folder (and all of its subfoldes)
                 var allfiles = Directory.GetFileSystemEntries(PathOfSamplesFolder + @"\" + apiFamily, "*.cs*", SearchOption.AllDirectories);
-
-                logger.Trace($"Api Family: {apiFamily}");
-                logger.Trace($"Total Sample Codes Detected: {allfiles.Count()}");
 
                 foreach (var file in allfiles)
                 {
@@ -275,7 +258,6 @@ namespace Cybersource_rest_samples_dotnet
         {
             // dirList has got all the folders and sub-folders for the Samples Folder Path
             var dirList = Directory.GetDirectories(PathOfSamplesFolder, "*", SearchOption.AllDirectories);
-            logger.Trace($"Project Namespace value provided: {ProjectNamespace}");
 
             foreach (var dir in dirList)
             {
