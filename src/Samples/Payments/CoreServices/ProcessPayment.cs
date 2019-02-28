@@ -16,7 +16,6 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments.CoreServices
 
             var pointOfSaleInformationObj = new Ptsv2paymentsPointOfSaleInformation
             {
-                CardPresent = false,
                 CatLevel = 6,
                 TerminalCapability = 4
             };
