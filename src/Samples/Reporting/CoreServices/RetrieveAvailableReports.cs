@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using CyberSource.Api;
 
 namespace Cybersource_rest_samples_dotnet.Samples.Reporting.CoreServices
@@ -9,8 +10,8 @@ namespace Cybersource_rest_samples_dotnet.Samples.Reporting.CoreServices
         {
             try
             {
-                var startTime = "2018-10-01T00:00:00Z";
-                var endTime = "2018-10-30T23:59:59Z";
+                var startTime = DateTime.ParseExact("2018-10-01T00:00:00Z", "yyyy-MM-ddTHH:mm:ssZ", CultureInfo.InvariantCulture);
+                var endTime = DateTime.ParseExact("2018-10-30T23:59:59Z", "yyyy-MM-ddTHH:mm:ssZ", CultureInfo.InvariantCulture);
                 var timeQueryType = "executedTime";
                 var organizationId = "testrest";
 
