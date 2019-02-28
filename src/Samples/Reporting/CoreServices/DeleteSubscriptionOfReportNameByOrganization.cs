@@ -20,8 +20,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Reporting.CoreServices
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
                 var apiInstance = new ReportSubscriptionsApi(clientConfig);
 
-                var result = apiInstance.DeleteSubscriptionWithHttpInfo(ReportNameToDelete);
-                Console.WriteLine(result);
+                apiInstance.DeleteSubscription(ReportNameToDelete);
                 ReportNameToDelete = null;
             }
             catch (Exception e)
