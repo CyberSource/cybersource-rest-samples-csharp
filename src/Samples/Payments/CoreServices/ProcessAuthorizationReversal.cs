@@ -14,7 +14,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments.CoreServices
             var clientReferenceInformationObj = new Ptsv2paymentsidreversalsClientReferenceInformation("test_reversal");
             var amount = new Ptsv2paymentsidreversalsOrderInformationLineItems(null, "102.21");
             var amountDetailsObj = new List<Ptsv2paymentsidreversalsOrderInformationLineItems> { amount };
-            var orderInformationObj = new Ptsv2paymentsidreversalsOrderInformation(amountDetailsObj);
+            var orderInformationObj = new Ptsv2paymentsidreversalsOrderInformation(null, amountDetailsObj);
             var requestBody = new AuthReversalRequest(clientReferenceInformationObj, null, null, orderInformationObj);
 
             try

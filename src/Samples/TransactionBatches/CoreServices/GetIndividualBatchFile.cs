@@ -13,9 +13,9 @@ namespace Cybersource_rest_samples_dotnet.Samples.TransactionBatches.CoreService
 
                 var configDictionary = new Configuration().GetConfiguration();
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
-                var apiInstance = new TransactionBatchApi(clientConfig);
+                var apiInstance = new TransactionBatchesApi(clientConfig);
 
-                var result = apiInstance.PtsV1TransactionBatchesIdGetWithHttpInfo(id);
+                var result = apiInstance.GetTransactionBatchId(id);
                 Console.WriteLine(result);
             }
             catch (Exception e)

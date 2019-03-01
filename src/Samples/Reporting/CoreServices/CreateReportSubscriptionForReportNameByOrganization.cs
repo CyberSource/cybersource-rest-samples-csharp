@@ -12,16 +12,15 @@ namespace Cybersource_rest_samples_dotnet.Samples.Reporting.CoreServices
         {
             const string reportName = "testrest_subcription_v1";
 
-            var request = new RequestBody(ReportDefinitionName: "TransactionRequestClass",
+            var request = new RequestBody1(
+                ReportDefinitionName: "TransactionRequestClass",
+                ReportMimeType: RequestBody1.ReportMimeTypeEnum.ApplicationXml,
                 ReportFields: new List<string>() {"Request.RequestID", "Request.TransactionDate", "Request.MerchantID"},
-                ReportName: reportName)
-            {
-                ReportMimeType = RequestBody.ReportMimeTypeEnum.ApplicationXml,
-                ReportFrequency = "WEEKLY",
-                Timezone = "GMT",
-                StartTime = "0115",
-                StartDay = 1
-            };
+                ReportName: reportName,
+                ReportFrequency: RequestBody1.ReportFrequencyEnum.WEEKLY,
+                Timezone: "GMT",
+                StartTime: "0115",
+                StartDay: 1);
 
             try
             {
@@ -29,8 +28,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Reporting.CoreServices
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
                 var apiInstance = new ReportSubscriptionsApi(clientConfig);
 
-                var result = apiInstance.CreateSubscriptionWithHttpInfo("", request);
-                Console.WriteLine(result);
+                apiInstance.CreateSubscription(request);
 
                 DeleteSubscriptionOfReportNameByOrganization.ReportNameToDelete = reportName;
                 DeleteSubscriptionOfReportNameByOrganization.Run();

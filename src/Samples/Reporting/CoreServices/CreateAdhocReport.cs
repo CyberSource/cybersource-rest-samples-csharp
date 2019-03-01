@@ -12,7 +12,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Reporting.CoreServices
         {
             try
             {
-                var requestObj = new RequestBody1
+                var requestObj = new RequestBody
                 {
                     ReportDefinitionName = "TransactionRequestClass",
                     ReportFields = new List<string>()
@@ -21,17 +21,17 @@ namespace Cybersource_rest_samples_dotnet.Samples.Reporting.CoreServices
                         "Request.TransactionDate",
                         "Request.MerchantID"
                     },
-                    ReportMimeType = RequestBody1.ReportMimeTypeEnum.ApplicationXml,
-                    ReportName = "testrest_vter9",
+                    ReportMimeType = RequestBody.ReportMimeTypeEnum.ApplicationXml,
+                    ReportName = "testrest_vter1002",
                     Timezone = "GMT",
                     ReportStartTime = DateTime.ParseExact("2018-09-01T12:00:00Z", "yyyy-MM-ddTHH:mm:ssZ", CultureInfo.InvariantCulture),
                     ReportEndTime = DateTime.ParseExact("2018-09-02T12:00:00Z", "yyyy-MM-ddTHH:mm:ssZ", CultureInfo.InvariantCulture)
                 };
 
-                var reportPreferencesObj = new ReportingV3ReportSubscriptionsGet200ResponseReportPreferences()
+                var reportPreferencesObj = new Reportingv3reportsReportPreferences()
                 {
                     SignedAmounts = true,
-                    FieldNameConvention = ReportingV3ReportSubscriptionsGet200ResponseReportPreferences.FieldNameConventionEnum.SOAPI
+                    FieldNameConvention = Reportingv3reportsReportPreferences.FieldNameConventionEnum.SOAPI
                 };
 
                 requestObj.ReportPreferences = reportPreferencesObj;
@@ -40,8 +40,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Reporting.CoreServices
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
                 var apiInstance = new ReportsApi(clientConfig);
 
-                var result = apiInstance.CreateReportWithHttpInfo(requestObj);
-                Console.WriteLine(result);
+                apiInstance.CreateReport(requestObj);
             }
             catch (Exception e)
             {
