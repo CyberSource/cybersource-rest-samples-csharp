@@ -32,7 +32,6 @@ namespace Cybersource_rest_samples_dotnet.Samples.Reporting.CoreServices
 
                 apiInstance.DownloadReport(reportDate, reportName, organizationId);
 
-                // File.WriteAllText(downloadFilePath, CreateXml(result.Data));
                 Console.WriteLine("\nFile downloaded at the below location:");
                 Console.WriteLine($"{Path.GetFullPath(downloadFilePath)}\n");
             }

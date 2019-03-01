@@ -29,8 +29,6 @@ namespace Cybersource_rest_samples_dotnet.Samples.SecureFileShare.CoreServices
                 var apiInstance = new SecureFileShareApi(clientConfig);
 
                 apiInstance.GetFile(fileId, organizationId);
-                //Console.WriteLine(result);
-                //File.WriteAllText(downloadFilePath, CreateXml(result.Data));
                 Console.WriteLine("\nFile downloaded at the below location:");
                 Console.WriteLine($"{Path.GetFullPath(downloadFilePath)}\n");
             }
