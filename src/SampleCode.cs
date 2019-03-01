@@ -75,11 +75,17 @@ namespace Cybersource_rest_samples_dotnet
                     }
                 }
 
+                // Sample Code not found in the project files
                 if (className == null)
                 {
                     logger.Warn("No Sample Code Found with the name: {0}", _sampleToRun);
                     Console.WriteLine("No Sample Code Found with the name: {0}", _sampleToRun);
 
+                    // Holding the full display of sample codes to show the response of current action
+                    Console.WriteLine("Press any key to continue...");
+                    Console.ReadLine();
+
+                    // Running the App from visual studio or from command line without passing any args
                     if (cmdLineArg == null)
                     {
                         ShowMethods();
@@ -87,9 +93,9 @@ namespace Cybersource_rest_samples_dotnet
                     }
 
                     return;
-
                 }
 
+                // Sample Code is found in the project files, invoking it...
                 var obj = Activator.CreateInstance(className);
                 var methodInfo = className.GetMethod("Run");
                 if (methodInfo != null)
@@ -101,6 +107,11 @@ namespace Cybersource_rest_samples_dotnet
                     logger.Warn($"No Run Method Found in the class: {_sampleToRun}");
                     Console.WriteLine("No Run Method Found in the class: {0}", _sampleToRun);
 
+                    // Holding the full display of sample codes to show the response of current action
+                    Console.WriteLine("Press any key to continue...");
+                    Console.ReadLine();
+
+                    // Running the App from visual studio or from command line without passing any args
                     if (cmdLineArg == null)
                     {
                         ShowMethods();
@@ -123,6 +134,12 @@ namespace Cybersource_rest_samples_dotnet
                 Console.WriteLine(e.StackTrace);
             }
 
+            // Holding the full display of sample codes to show the response of current action
+            Console.WriteLine("Press any key to continue...");
+            Console.ReadLine();
+
+            // Previous Sample Code executed successfully. Displaying the sample codes again for the next run
+            // Running the App from visual studio or from command line without passing any args
             if (cmdLineArg == null)
             {
                 ShowMethods();
