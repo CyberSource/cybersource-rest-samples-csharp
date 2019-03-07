@@ -22,7 +22,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Reporting.CoreServices
 
             const string organizationId = "testrest";
             const string reportName = "testrest_v2";
-            var reportDate = "2018-09-02";
+            var reportDate = DateTime.ParseExact("2018-09-02", "yyyy-MM-dd", CultureInfo.InvariantCulture);
 
             try
             {
@@ -30,10 +30,8 @@ namespace Cybersource_rest_samples_dotnet.Samples.Reporting.CoreServices
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
                 var apiInstance = new ReportDownloadsApi(clientConfig);
 
-                var result = apiInstance.DownloadReportWithHttpInfo(reportDate, reportName, organizationId);
-                Console.WriteLine(result);
+                apiInstance.DownloadReport(reportDate, reportName, organizationId);
 
-                File.WriteAllText(downloadFilePath, CreateXml(result.Data));
                 Console.WriteLine("\nFile downloaded at the below location:");
                 Console.WriteLine($"{Path.GetFullPath(downloadFilePath)}\n");
             }

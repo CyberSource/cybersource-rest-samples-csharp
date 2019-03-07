@@ -2,9 +2,9 @@
 using CyberSource.Api;
 using CyberSource.Model;
 
-namespace Cybersource_rest_samples_dotnet.Samples.Payments.CoreServices
+namespace Cybersource_rest_samples_dotnet.Samples.Payments.ServiceFees
 {
-    public class ProcessPayment
+    public class ProcessPaymentWithServiceFee
     {
         public static bool CaptureTrueForProcessPayment { get; set; } = false;
 
@@ -13,14 +13,6 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments.CoreServices
             var processingInformationObj = new Ptsv2paymentsProcessingInformation() { CommerceIndicator = "internet" };
 
             var clientReferenceInformationObj = new Ptsv2paymentsClientReferenceInformation { Code = "test_payment" };
-
-            var pointOfSaleInformationObj = new Ptsv2paymentsPointOfSaleInformation
-            {
-                CatLevel = 6,
-                TerminalCapability = 4
-            };
-
-            var orderInformationObj = new Ptsv2paymentsOrderInformation();
 
             var billToObj = new Ptsv2paymentsOrderInformationBillTo
             {
@@ -34,35 +26,45 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments.CoreServices
                 Email = "test@cybs.com"
             };
 
-            orderInformationObj.BillTo = billToObj;
-
             var amountDetailsObj = new Ptsv2paymentsOrderInformationAmountDetails
             {
-                TotalAmount = "102.21",
-                Currency = "USD"
+                TotalAmount = "2325.00",
+                Currency = "USD",
+                ServiceFeeAmount = "30.00"
             };
 
+            var orderInformationObj = new Ptsv2paymentsOrderInformation();
+            orderInformationObj.BillTo = billToObj;
             orderInformationObj.AmountDetails = amountDetailsObj;
-
-            var paymentInformationObj = new Ptsv2paymentsPaymentInformation();
 
             var cardObj = new Ptsv2paymentsPaymentInformationCard
             {
                 ExpirationYear = "2031",
                 Number = "4111111111111111",
-                SecurityCode = "123",
                 ExpirationMonth = "12"
             };
 
+            var paymentInformationObj = new Ptsv2paymentsPaymentInformation();
             paymentInformationObj.Card = cardObj;
 
+            var serviceFeeDescriptorObj = new Ptsv2paymentsMerchantInformationServiceFeeDescriptor
+            {
+                Name = "CyberSource Service Fee",
+                Contact = "800-999-9999",
+                State = "CA",
+
+            };
+
+            var merchantInformationObj = new Ptsv2paymentsMerchantInformation();
+            merchantInformationObj.ServiceFeeDescriptor = serviceFeeDescriptorObj;
+			
             var requestObj = new CreatePaymentRequest
             {
                 ProcessingInformation = processingInformationObj,
                 PaymentInformation = paymentInformationObj,
                 ClientReferenceInformation = clientReferenceInformationObj,
-                PointOfSaleInformation = pointOfSaleInformationObj,
-                OrderInformation = orderInformationObj
+                OrderInformation = orderInformationObj,
+                MerchantInformation = merchantInformationObj
             };
 
             if (CaptureTrueForProcessPayment)
@@ -77,7 +79,9 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments.CoreServices
                 var apiInstance = new PaymentsApi(clientConfig);
 
                 var result = apiInstance.CreatePayment(requestObj);
+				
                 Console.WriteLine(result);
+				
                 return result;
             }
             catch (Exception e)

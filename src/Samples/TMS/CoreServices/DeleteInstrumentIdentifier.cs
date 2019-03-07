@@ -16,8 +16,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TMS.CoreServices
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
                 var apiInstance = new InstrumentIdentifierApi(clientConfig);
 
-                var result = apiInstance.TmsV1InstrumentidentifiersTokenIdDeleteWithHttpInfo(profileId, tokenId);
-                Console.WriteLine(result);
+                apiInstance.TmsV1InstrumentidentifiersTokenIdDelete(profileId, tokenId);
             }
             catch (Exception e)
             {
