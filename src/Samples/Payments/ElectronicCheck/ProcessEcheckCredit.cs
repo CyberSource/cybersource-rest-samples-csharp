@@ -6,22 +6,21 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments.ElectronicCheck
 {
     /**
      * This is the sample code to do Credit transaction to bank account
-     * */
+     * 
+	 */
     class ProcessEcheckCredit
     {
-          public static PtsV2CreditsPost201Response Run()
+        public static PtsV2CreditsPost201Response Run()
         {
             var requestObj = new CreateCreditRequest();
 
-            // This is a section to set client reference information
             var v2PaymentsClientReferenceInformationObj = new Ptsv2paymentsClientReferenceInformation
             {
                 Code = "test_credits"
             };
+			
             requestObj.ClientReferenceInformation = v2PaymentsClientReferenceInformationObj;
-
-            var v2PaymentsOrderInformationObj = new Ptsv2paymentsidrefundsOrderInformation();
-            // This is the block to set Bill to object information
+			
             var v2PaymentsOrderInformationBillToObj = new Ptsv2paymentsidcapturesOrderInformationBillTo
             {
                 Country = "US",
@@ -35,22 +34,19 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments.ElectronicCheck
                 Email = "test@cybs.com"
             };
 
-            v2PaymentsOrderInformationObj.BillTo = v2PaymentsOrderInformationBillToObj;
-
-            // This is the block to set Amount details to be credited
             var v2PaymentsOrderInformationAmountDetailsObj = new Ptsv2paymentsidcapturesOrderInformationAmountDetails
             {
                 TotalAmount = "200",
                 Currency = "usd"
-            };
+            };            
 
-            v2PaymentsOrderInformationObj.AmountDetails = v2PaymentsOrderInformationAmountDetailsObj;
+            var v2PaymentsOrderInformationObj = new Ptsv2paymentsidrefundsOrderInformation();
+            v2PaymentsOrderInformationObj.BillTo = v2PaymentsOrderInformationBillToObj;
+			v2PaymentsOrderInformationObj.AmountDetails = v2PaymentsOrderInformationAmountDetailsObj;
 
             requestObj.OrderInformation = v2PaymentsOrderInformationObj;
-
-            var paymentInformationObj = new Ptsv2paymentsidrefundsPaymentInformation();
-            // This is the block to set payment information by providing bank account details
-            var bankAccountObj = new Ptsv2paymentsPaymentInformationBankAccount
+            
+			var bankAccountObj = new Ptsv2paymentsPaymentInformationBankAccount
             {
                 Number = "4100",
                 Type = "C",
@@ -63,9 +59,11 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments.ElectronicCheck
             };
 
             bankObj.RoutingNumber = "071923284";
-            paymentInformationObj.Bank = bankObj;
-            requestObj.PaymentInformation = paymentInformationObj;
 
+            var paymentInformationObj = new Ptsv2paymentsidrefundsPaymentInformation();
+            paymentInformationObj.Bank = bankObj;
+			
+            requestObj.PaymentInformation = paymentInformationObj;
 
             try
             {
@@ -74,7 +72,9 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments.ElectronicCheck
                 var apiInstance = new CreditApi(clientConfig);
 
                 var result = apiInstance.CreateCredit(requestObj);
+				
                 Console.WriteLine(result);
+				
                 return result;
             }
             catch (Exception e)

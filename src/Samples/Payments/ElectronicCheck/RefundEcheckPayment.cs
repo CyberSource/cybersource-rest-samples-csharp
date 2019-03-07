@@ -11,12 +11,10 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments.ElectronicCheck
         {
             var capturePaymentId = CapturePayment.Run().Id;
 
-            // This is a section to set client reference information
             var clientReferenceInformationObj = new Ptsv2paymentsClientReferenceInformation("test_refund_capture");
-            // This is the block to set Amount detail to be credited
-            var amountDetailsObj = new Ptsv2paymentsidcapturesOrderInformationAmountDetails("102.21", "USD");
+            
+			var amountDetailsObj = new Ptsv2paymentsidcapturesOrderInformationAmountDetails("102.21", "USD");
 
-            // This is the block to set Bill to object information
             var billToObj = new Ptsv2paymentsidcapturesOrderInformationBillTo
             {
                 Country = "US",
@@ -28,11 +26,8 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments.ElectronicCheck
                 AdministrativeArea = "CA",
                 Email = "test@cybs.com"
             };
-
             var orderInformationObj = new Ptsv2paymentsidrefundsOrderInformation(amountDetailsObj, billToObj);
 
-            // This is the block to set payment information by providing bank account details
-            var paymentInformationObj = new Ptsv2paymentsidrefundsPaymentInformation();
             var bankAccountObj = new Ptsv2paymentsPaymentInformationBankAccount
             {
                 Number = "4100",
@@ -45,9 +40,10 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments.ElectronicCheck
                 Account = bankAccountObj
             };
             bankObj.RoutingNumber = "071923284";
+			
+            var paymentInformationObj = new Ptsv2paymentsidrefundsPaymentInformation();			
             paymentInformationObj.Bank = bankObj;
 
-            // This is the block to set request body to the request object
             var requestBody = new RefundCaptureRequest(clientReferenceInformationObj, null, paymentInformationObj, orderInformationObj);
 
             try
@@ -57,6 +53,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments.ElectronicCheck
                 var apiInstance = new RefundApi(clientConfig);
 
                 var result = apiInstance.RefundCapture(requestBody, capturePaymentId);
+				
                 Console.WriteLine(result);
             }
             catch (Exception e)

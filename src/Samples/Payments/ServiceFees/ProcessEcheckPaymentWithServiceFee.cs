@@ -33,14 +33,13 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments.ServiceFees
             var amountDetailsObj = new Ptsv2paymentsOrderInformationAmountDetails
             {
                 TotalAmount = "2325.00",
-                ServiceFeeAmount = "30.0",
+                ServiceFeeAmount = "30.00",
                 Currency = "USD",
             };
 
             orderInformationObj.AmountDetails = amountDetailsObj;
 
-            var paymentInformationObj = new Ptsv2paymentsPaymentInformation();
-            var bankAccountObj=new Ptsv2paymentsPaymentInformationBankAccount
+            var bankAccountObj = new Ptsv2paymentsPaymentInformationBankAccount
             {
                 Number = "4100",
                 Type = "C",
@@ -51,6 +50,8 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments.ServiceFees
                  Account = bankAccountObj,
                  RoutingNumber = "071923284",
             };
+            
+			var paymentInformationObj = new Ptsv2paymentsPaymentInformation();
             paymentInformationObj.Bank = bankObj;
 
             var requestObj = new CreatePaymentRequest
@@ -73,7 +74,9 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments.ServiceFees
                 var apiInstance = new PaymentsApi(clientConfig);
 
                 var result = apiInstance.CreatePayment(requestObj);
+				
                 Console.WriteLine(result);
+				
                 return result;
             }
             catch (Exception e)

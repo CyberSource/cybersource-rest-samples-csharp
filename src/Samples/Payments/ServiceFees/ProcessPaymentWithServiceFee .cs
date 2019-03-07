@@ -14,8 +14,6 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments.ServiceFees
 
             var clientReferenceInformationObj = new Ptsv2paymentsClientReferenceInformation { Code = "test_payment" };
 
-            var orderInformationObj = new Ptsv2paymentsOrderInformation();
-
             var billToObj = new Ptsv2paymentsOrderInformationBillTo
             {
                 Country = "US",
@@ -28,18 +26,16 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments.ServiceFees
                 Email = "test@cybs.com"
             };
 
-            orderInformationObj.BillTo = billToObj;
-
             var amountDetailsObj = new Ptsv2paymentsOrderInformationAmountDetails
             {
                 TotalAmount = "2325.00",
                 Currency = "USD",
-                ServiceFeeAmount = "30.0"
+                ServiceFeeAmount = "30.00"
             };
 
+            var orderInformationObj = new Ptsv2paymentsOrderInformation();
+            orderInformationObj.BillTo = billToObj;
             orderInformationObj.AmountDetails = amountDetailsObj;
-
-            var paymentInformationObj = new Ptsv2paymentsPaymentInformation();
 
             var cardObj = new Ptsv2paymentsPaymentInformationCard
             {
@@ -48,18 +44,20 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments.ServiceFees
                 ExpirationMonth = "12"
             };
 
+            var paymentInformationObj = new Ptsv2paymentsPaymentInformation();
             paymentInformationObj.Card = cardObj;
-
-            var merchantInformationObj=new Ptsv2paymentsMerchantInformation();
 
             var serviceFeeDescriptorObj = new Ptsv2paymentsMerchantInformationServiceFeeDescriptor
             {
                 Name = "CyberSource Service Fee",
-                Contact="800-999-9999",
-                State="CA",
+                Contact = "800-999-9999",
+                State = "CA",
 
             };
-            merchantInformationObj.ServiceFeeDescriptor=serviceFeeDescriptorObj;
+
+            var merchantInformationObj = new Ptsv2paymentsMerchantInformation();
+            merchantInformationObj.ServiceFeeDescriptor = serviceFeeDescriptorObj;
+			
             var requestObj = new CreatePaymentRequest
             {
                 ProcessingInformation = processingInformationObj,
@@ -81,7 +79,9 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments.ServiceFees
                 var apiInstance = new PaymentsApi(clientConfig);
 
                 var result = apiInstance.CreatePayment(requestObj);
+				
                 Console.WriteLine(result);
+				
                 return result;
             }
             catch (Exception e)

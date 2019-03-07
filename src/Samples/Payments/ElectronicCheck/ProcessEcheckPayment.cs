@@ -10,12 +10,10 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments.ElectronicCheck
 
         public static PtsV2PaymentsPost201Response Run()
         {
-            // This is a section to set client reference information
             var clientReferenceInformationObj = new Ptsv2paymentsClientReferenceInformation { Code = "test_payment" };
+			
             var processingInformationObj = new Ptsv2paymentsProcessingInformation() { CommerceIndicator = "internet" };
-            var orderInformationObj = new Ptsv2paymentsOrderInformation();
 
-            // This is the block to set Bill to object information
             var billToObj = new Ptsv2paymentsOrderInformationBillTo
             {
                 Country = "US",
@@ -28,20 +26,17 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments.ElectronicCheck
                 Email = "test@cybs.com"
             };
 
-            orderInformationObj.BillTo = billToObj;
-
-            // This is the block to set Amount details to be debited
             var amountDetailsObj = new Ptsv2paymentsOrderInformationAmountDetails
             {
                 TotalAmount = "102.21",
                 Currency = "USD"
             };
-
-            orderInformationObj.AmountDetails = amountDetailsObj;
-
-            var paymentInformationObj = new Ptsv2paymentsPaymentInformation();
-            // This is the block to set payment information by providing bank account details
-            var bankAccountObj = new Ptsv2paymentsPaymentInformationBankAccount
+            
+            var orderInformationObj = new Ptsv2paymentsOrderInformation();
+            orderInformationObj.BillTo = billToObj;
+			orderInformationObj.AmountDetails = amountDetailsObj;
+            
+			var bankAccountObj = new Ptsv2paymentsPaymentInformationBankAccount
             {
                 Number = "4100",
                 Type = "C",
@@ -52,10 +47,11 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments.ElectronicCheck
             {
                 Account = bankAccountObj
             };
-            bankObj.RoutingNumber= "071923284";
-            paymentInformationObj.Bank = bankObj;
+            bankObj.RoutingNumber= "071923284";            
 
-            // Assign all the objects to request body
+            var paymentInformationObj = new Ptsv2paymentsPaymentInformation();			
+			paymentInformationObj.Bank = bankObj;
+
             var requestObj = new CreatePaymentRequest
             {
                 ProcessingInformation = processingInformationObj,
@@ -76,7 +72,9 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments.ElectronicCheck
                 var apiInstance = new PaymentsApi(clientConfig);
 
                 var result = apiInstance.CreatePayment(requestObj);
+				
                 Console.WriteLine(result);
+				
                 return result;
             }
             catch (Exception e)
