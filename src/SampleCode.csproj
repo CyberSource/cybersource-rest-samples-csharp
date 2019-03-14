@@ -39,8 +39,8 @@
       <HintPath>..\packages\CyberSource.Authentication.0.0.0.3\lib\AuthenticationSdk.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="cybersource-rest-client-dotnet, Version=0.0.0.4, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\CyberSource.Rest.Client.0.0.0.4\lib\cybersource-rest-client-dotnet.dll</HintPath>
+    <Reference Include="cybersource-rest-client-dotnet, Version=0.0.0.5, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CyberSource.Rest.Client.0.0.0.5\lib\cybersource-rest-client-dotnet.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="FlexServerSDK, Version=0.2.1.0, Culture=neutral, processorArchitecture=MSIL">
@@ -95,6 +95,13 @@
     <Compile Include="Samples\Payments\CoreServices\VoidRefund.cs" />
     <Compile Include="SampleCode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Samples\Payments\ElectronicCheck\ProcessEcheckCredit.cs" />
+    <Compile Include="Samples\Payments\ElectronicCheck\ProcessEcheckPayment.cs" />
+    <Compile Include="Samples\Payments\ElectronicCheck\RefundEcheckPayment.cs" />
+    <Compile Include="Samples\Payments\ServiceFees\CapturePaymentWithServiceFee.cs" />
+    <Compile Include="Samples\Payments\ServiceFees\ProcessEcheckCreditWIthServiceFee .cs" />
+    <Compile Include="Samples\Payments\ServiceFees\ProcessEcheckPaymentWithServiceFee.cs" />
+    <Compile Include="Samples\Payments\ServiceFees\ProcessPaymentWithServiceFee .cs" />
     <Compile Include="Samples\Payouts\CoreServices\ProcessPayout.cs" />
     <Compile Include="Samples\Reporting\CoreServices\CreateAdhocReport.cs" />
     <Compile Include="Samples\Reporting\CoreServices\CreateReportSubscriptionForReportNameByOrganization.cs" />
