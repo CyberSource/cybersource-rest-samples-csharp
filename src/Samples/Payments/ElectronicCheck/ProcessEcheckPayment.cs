@@ -2,25 +2,17 @@
 using CyberSource.Api;
 using CyberSource.Model;
 
-namespace Cybersource_rest_samples_dotnet.Samples.Payments.CoreServices
+namespace Cybersource_rest_samples_dotnet.Samples.Payments.ElectronicCheck
 {
-    public class ProcessPayment
+    public class ProcessEcheckPayment
     {
         public static bool CaptureTrueForProcessPayment { get; set; } = false;
 
         public static PtsV2PaymentsPost201Response Run()
         {
-            var processingInformationObj = new Ptsv2paymentsProcessingInformation() { CommerceIndicator = "internet" };
-
             var clientReferenceInformationObj = new Ptsv2paymentsClientReferenceInformation { Code = "test_payment" };
-
-            var pointOfSaleInformationObj = new Ptsv2paymentsPointOfSaleInformation
-            {
-                CatLevel = 6,
-                TerminalCapability = 4
-            };
-
-            var orderInformationObj = new Ptsv2paymentsOrderInformation();
+			
+            var processingInformationObj = new Ptsv2paymentsProcessingInformation() { CommerceIndicator = "internet" };
 
             var billToObj = new Ptsv2paymentsOrderInformationBillTo
             {
@@ -34,34 +26,37 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments.CoreServices
                 Email = "test@cybs.com"
             };
 
-            orderInformationObj.BillTo = billToObj;
-
             var amountDetailsObj = new Ptsv2paymentsOrderInformationAmountDetails
             {
                 TotalAmount = "102.21",
                 Currency = "USD"
             };
-
-            orderInformationObj.AmountDetails = amountDetailsObj;
-
-            var paymentInformationObj = new Ptsv2paymentsPaymentInformation();
-
-            var cardObj = new Ptsv2paymentsPaymentInformationCard
+            
+            var orderInformationObj = new Ptsv2paymentsOrderInformation();
+            orderInformationObj.BillTo = billToObj;
+			orderInformationObj.AmountDetails = amountDetailsObj;
+            
+			var bankAccountObj = new Ptsv2paymentsPaymentInformationBankAccount
             {
-                ExpirationYear = "2031",
-                Number = "4111111111111111",
-                SecurityCode = "123",
-                ExpirationMonth = "12"
+                Number = "4100",
+                Type = "C",
+                CheckNumber = "123456"
             };
 
-            paymentInformationObj.Card = cardObj;
+            var bankObj = new Ptsv2paymentsPaymentInformationBank
+            {
+                Account = bankAccountObj
+            };
+            bankObj.RoutingNumber= "071923284";            
+
+            var paymentInformationObj = new Ptsv2paymentsPaymentInformation();			
+			paymentInformationObj.Bank = bankObj;
 
             var requestObj = new CreatePaymentRequest
             {
                 ProcessingInformation = processingInformationObj,
                 PaymentInformation = paymentInformationObj,
                 ClientReferenceInformation = clientReferenceInformationObj,
-                PointOfSaleInformation = pointOfSaleInformationObj,
                 OrderInformation = orderInformationObj
             };
 
@@ -77,7 +72,9 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments.CoreServices
                 var apiInstance = new PaymentsApi(clientConfig);
 
                 var result = apiInstance.CreatePayment(requestObj);
+				
                 Console.WriteLine(result);
+				
                 return result;
             }
             catch (Exception e)

@@ -10,7 +10,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payouts.CoreServices
         {
             var requestObj = new PtsV2PayoutsPostResponse();
 
-            var clientReferenceInformationObj = new PtsV2PaymentsPost201ResponseClientReferenceInformation
+            var clientReferenceInformationObj = new Ptsv2payoutsClientReferenceInformation
             {
                 Code = "33557799"
             };
@@ -112,7 +112,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payouts.CoreServices
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
                 var apiInstance = new ProcessAPayoutApi(clientConfig);
 
-                var result = apiInstance.OctCreatePaymentWithHttpInfo(requestObj);
+                var result = apiInstance.OctCreatePayment(requestObj);
                 Console.WriteLine(result);
             }
             catch (Exception e)

@@ -22,9 +22,8 @@ namespace Cybersource_rest_samples_dotnet.Samples.Reporting.CoreServices
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
                 var apiInstance = new PurchaseAndRefundDetailsApi(clientConfig);
 
-                var result = apiInstance.GetPurchaseAndRefundDetailsWithHttpInfo(startTime, endTime, organizationId, paymentSubtype,
+                var result = apiInstance.GetPurchaseAndRefundDetails(startTime, endTime, organizationId, paymentSubtype,
                     viewBy, groupName, offset, limit);
-                Console.WriteLine(result);
             }
             catch (Exception e)
             {
