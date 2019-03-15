@@ -1,0 +1,11 @@
+﻿{
+  "clientReferenceInformation": {
+    "code": "Testing-VDP-Payments-Refund"
+  },
+  "orderInformation": {
+    "amountDetails": {
+      "totalAmount": "102.21",
+      "currency": "USD"
+    }
+  }
+}
