@@ -7,7 +7,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments.ElectronicCheck
 {
     public class RefundEcheckPayment
     {
-        public static void Run()
+        public static PtsV2PaymentsRefundPost201Response Run()
         {
             var capturePaymentId = CapturePayment.Run().Id;
 
@@ -53,12 +53,16 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments.ElectronicCheck
                 var apiInstance = new RefundApi(clientConfig);
 
                 var result = apiInstance.RefundCapture(requestBody, capturePaymentId);
+
+                Console.WriteLine(result.Id);
 				
                 Console.WriteLine(result);
+                return result;
             }
             catch (Exception e)
             {
                 Console.WriteLine("Exception on calling the API: " + e.Message);
+                return null;
             }
         }
     }
