@@ -98,10 +98,17 @@
     <Compile Include="Samples\Payments\ElectronicCheck\ProcessEcheckCredit.cs" />
     <Compile Include="Samples\Payments\ElectronicCheck\ProcessEcheckPayment.cs" />
     <Compile Include="Samples\Payments\ElectronicCheck\RefundEcheckPayment.cs" />
+    <Compile Include="Samples\Payments\ElectronicCheck\VoidEcheckCredit.cs" />
+    <Compile Include="Samples\Payments\ElectronicCheck\VoidECheckPaymentRefund.cs" />
     <Compile Include="Samples\Payments\ServiceFees\CapturePaymentWithServiceFee.cs" />
+    <Compile Include="Samples\Payments\ServiceFees\CreditWithServiceFee.cs" />
+    <Compile Include="Samples\Payments\ServiceFees\ECheckStandaloneCreditWithServiceFee.cs" />
+    <Compile Include="Samples\Payments\ServiceFees\ProcessAuthorizationReversalWithServiceFee.cs" />
     <Compile Include="Samples\Payments\ServiceFees\ProcessEcheckCreditWIthServiceFee .cs" />
     <Compile Include="Samples\Payments\ServiceFees\ProcessEcheckPaymentWithServiceFee.cs" />
     <Compile Include="Samples\Payments\ServiceFees\ProcessPaymentWithServiceFee .cs" />
+    <Compile Include="Samples\Payments\ServiceFees\VoidCreditWithServiceFee.cs" />
+    <Compile Include="Samples\Payments\ServiceFees\VoidStandaloneEcheckCreditWithServiceFee.cs" />
     <Compile Include="Samples\Payouts\CoreServices\ProcessPayout.cs" />
     <Compile Include="Samples\Reporting\CoreServices\CreateAdhocReport.cs" />
     <Compile Include="Samples\Reporting\CoreServices\CreateReportSubscriptionForReportNameByOrganization.cs" />
