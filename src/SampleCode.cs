@@ -93,7 +93,6 @@ namespace Cybersource_rest_samples_dotnet
                     }
 
                     return;
-
                 }
 
                 var obj = Activator.CreateInstance(className);
@@ -101,6 +100,7 @@ namespace Cybersource_rest_samples_dotnet
                 if (methodInfo != null)
                 {
                     logger.Trace($"Invoking Run() method of {_sampleToRun}");
+                    Console.WriteLine($"Invoking Run() method of {_sampleToRun}");
                     methodInfo.Invoke(obj, null);
                 }
                 else
@@ -132,6 +132,8 @@ namespace Cybersource_rest_samples_dotnet
 
             if (cmdLineArg == null)
             {
+                Console.WriteLine("Press any key to continue.....");
+                Console.ReadLine();
                 ShowMethods();
                 RunSample();
             }
@@ -156,23 +158,23 @@ namespace Cybersource_rest_samples_dotnet
             {
                 logger.Trace($"Showing Sample Codes for Api Family: {apiFamily}");
 
-                Console.WriteLine(" " + apiFamily.ToUpper() + " API'S   ");
+                Console.WriteLine(" " + apiFamily.ToUpper() + " APIs   ");
                 Console.WriteLine(" ---------------------------------------------------------------------------------------------------");
 
                 var lineCharsCount = 0;
                 const int nextLineCharsMaxCount = 85;
-                var apirow = " - ";
+                string apirow = null;
 
                 foreach (var api in ApiList.Where(api => api.ApiFamily == apiFamily).OrderBy(api => api.ApiFunctionCall))
                 {
                     if (lineCharsCount + api.ApiFunctionCall.Length < nextLineCharsMaxCount)
                     {
-                        apirow += " " + api.ApiFunctionCall + " | ";
+                        apirow += " " + api.ApiFunctionCall + " \n";
                     }
                     else
                     {
                         Console.WriteLine(apirow);
-                        apirow = " -  " + api.ApiFunctionCall + " | ";
+                        apirow = " " + api.ApiFunctionCall + " \n";
                         lineCharsCount = 0;
                     }
 
