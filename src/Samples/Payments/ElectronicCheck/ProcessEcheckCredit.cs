@@ -6,7 +6,6 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments.ElectronicCheck
 {
     /**
      * This is the sample code to do Credit transaction to bank account
-     * 
 	 */
     class ProcessEcheckCredit
     {

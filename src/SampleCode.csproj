@@ -35,6 +35,10 @@
     <CodeAnalysisRuleSet>CybsPayments.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ApiSdk, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\ApiSdk.dll</HintPath>
+    </Reference>
     <Reference Include="AuthenticationSdk, Version=0.0.0.3, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\CyberSource.Authentication.0.0.0.3\lib\AuthenticationSdk.dll</HintPath>
       <Private>True</Private>
@@ -80,6 +84,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Api.cs" />
+    <Compile Include="AuthenticationData\Configuration.cs" />
+    <Compile Include="AuthenticationData\RequestData.cs" />
+    <Compile Include="Samples\Authentication\CallHttpMethods\DeleteMethod.cs" />
+    <Compile Include="Samples\Authentication\CallHttpMethods\GetMethod.cs" />
+    <Compile Include="Samples\Authentication\CallHttpMethods\GetObjectMethod.cs" />
+    <Compile Include="Samples\Authentication\CallHttpMethods\PostMethod.cs" />
+    <Compile Include="Samples\Authentication\CallHttpMethods\PostObjectMethod.cs" />
+    <Compile Include="Samples\Authentication\CallHttpMethods\PutMethod.cs" />
+    <Compile Include="Samples\Authentication\GenerateHttpRequestHeaders\DeleteGenerateHeaders.cs" />
+    <Compile Include="Samples\Authentication\GenerateHttpRequestHeaders\GetGenerateHeaders.cs" />
+    <Compile Include="Samples\Authentication\GenerateHttpRequestHeaders\PostGenerateHeaders.cs" />
+    <Compile Include="Samples\Authentication\GenerateHttpRequestHeaders\PutGenerateHeaders.cs" />
     <Compile Include="Samples\Flex\CoreServices\GenerateKey.cs" />
     <Compile Include="Configuration.cs" />
     <Compile Include="Samples\Flex\CoreServices\TokenizeCard.cs" />
@@ -152,13 +168,23 @@
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Resource\AuthTRRReport.json" />
+    <None Include="Resource\DownloadReport.csv" />
     <None Include="Resource\mcb_test_merch.p12" />
+    <None Include="Resource\request_captures.json" />
+    <None Include="Resource\request_payments.json" />
+    <None Include="Resource\request_refund.json" />
+    <None Include="Resource\request_reversals.json" />
+    <None Include="Resource\request_void.json" />
     <None Include="Resource\testrest.p12" />
     <None Include="Resource\TRRReport.json" />
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\packages\StyleCop.Analyzers.1.0.2\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
     <Analyzer Include="..\packages\StyleCop.Analyzers.1.0.2\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="lib\ApiSdk.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
