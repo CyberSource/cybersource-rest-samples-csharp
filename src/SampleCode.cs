@@ -132,7 +132,7 @@ namespace Cybersource_rest_samples_dotnet
 
             if (cmdLineArg == null)
             {
-                Console.WriteLine("Press any key to continue.....");
+                Console.WriteLine("\nPress any key to continue.....");
                 Console.ReadLine();
                 ShowMethods();
                 RunSample();
