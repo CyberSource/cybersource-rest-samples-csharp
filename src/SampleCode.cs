@@ -41,8 +41,8 @@ namespace Cybersource_rest_samples_dotnet
             SetNetworkSettings();
 
             // Initialize Api List and the paths of all the sample codes
-            InitializeApiList();
             InitializeSampleClassesPathList();
+            InitializeApiList();
 
             if (args.Length == 1)
             {
@@ -70,51 +70,63 @@ namespace Cybersource_rest_samples_dotnet
                 Console.WriteLine("\n");
                 Type className = null;
 
-                foreach (var path in SampleCodeClassesPathList)
+                if (_sampleToRun.ToUpper().Contains("RUNALL"))
                 {
-                    className = Type.GetType(path + _sampleToRun);
-
-                    if (className != null)
+                    foreach (var apiMethod in ApiList)
                     {
-                        logger.Trace($"Sample Code found in the namespace: {path}");
-                        break;
+                        Console.WriteLine("\n#### START RUNNING SAMPLE CODE FOR " + apiMethod.ApiFunctionCall + " ####");
+                        RunSample(apiMethod.ApiFunctionCall);
+                        Console.WriteLine("\n#### END RUNNING SAMPLE CODE FOR " + apiMethod.ApiFunctionCall + " ####");
                     }
-                }
-
-                if (className == null)
-                {
-                    logger.Warn("No Sample Code Found with the name: {0}", _sampleToRun);
-                    Console.WriteLine("No Sample Code Found with the name: {0}", _sampleToRun);
-
-                    if (cmdLineArg == null)
-                    {
-                        ShowMethods();
-                        RunSample();
-                    }
-
-                    return;
-                }
-
-                var obj = Activator.CreateInstance(className);
-                var methodInfo = className.GetMethod("Run");
-                if (methodInfo != null)
-                {
-                    logger.Trace($"Invoking Run() method of {_sampleToRun}");
-                    Console.WriteLine($"Invoking Run() method of {_sampleToRun}");
-                    methodInfo.Invoke(obj, null);
                 }
                 else
                 {
-                    logger.Warn($"No Run Method Found in the class: {_sampleToRun}");
-                    Console.WriteLine("No Run Method Found in the class: {0}", _sampleToRun);
-
-                    if (cmdLineArg == null)
+                    foreach (var path in SampleCodeClassesPathList)
                     {
-                        ShowMethods();
-                        RunSample();
+                        className = Type.GetType(path + _sampleToRun);
+
+                        if (className != null)
+                        {
+                            logger.Trace($"Sample Code found in the namespace: {path}");
+                            break;
+                        }
                     }
 
-                    return;
+                    if (className == null)
+                    {
+                        logger.Warn("No Sample Code Found with the name: {0}", _sampleToRun);
+                        Console.WriteLine("No Sample Code Found with the name: {0}", _sampleToRun);
+
+                        if (cmdLineArg == null)
+                        {
+                            ShowMethods();
+                            RunSample();
+                        }
+
+                        return;
+                    }
+
+                    var obj = Activator.CreateInstance(className);
+                    var methodInfo = className.GetMethod("Run");
+                    if (methodInfo != null)
+                    {
+                        logger.Trace($"Invoking Run() method of {_sampleToRun}");
+                        Console.WriteLine($"Invoking Run() method of {_sampleToRun}");
+                        methodInfo.Invoke(obj, null);
+                    }
+                    else
+                    {
+                        logger.Warn($"No Run Method Found in the class: {_sampleToRun}");
+                        Console.WriteLine("No Run Method Found in the class: {0}", _sampleToRun);
+
+                        if (cmdLineArg == null)
+                        {
+                            ShowMethods();
+                            RunSample();
+                        }
+
+                        return;
+                    }
                 }
             }
             catch (Exception e)

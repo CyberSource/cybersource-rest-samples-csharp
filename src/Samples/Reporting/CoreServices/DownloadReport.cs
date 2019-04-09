@@ -30,7 +30,9 @@ namespace Cybersource_rest_samples_dotnet.Samples.Reporting.CoreServices
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
                 var apiInstance = new ReportDownloadsApi(clientConfig);
 
-                apiInstance.DownloadReport(reportDate, reportName, organizationId);
+                var content = apiInstance.DownloadReportWithHttpInfo(reportDate, reportName, organizationId);
+
+                File.WriteAllText(downloadFilePath, CreateXml(content.Data));
 
                 Console.WriteLine("\nFile downloaded at the below location:");
                 Console.WriteLine($"{Path.GetFullPath(downloadFilePath)}\n");

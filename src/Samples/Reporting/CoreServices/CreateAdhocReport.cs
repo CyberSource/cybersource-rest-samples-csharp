@@ -22,7 +22,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Reporting.CoreServices
                         "Request.MerchantID"
                     },
                     ReportMimeType = RequestBody.ReportMimeTypeEnum.ApplicationXml,
-                    ReportName = "testrest_vter1002",
+                    ReportName = Utilities.RandomString(17),
                     Timezone = "GMT",
                     ReportStartTime = DateTime.ParseExact("2018-09-01T12:00:00Z", "yyyy-MM-ddTHH:mm:ssZ", CultureInfo.InvariantCulture),
                     ReportEndTime = DateTime.ParseExact("2018-09-02T12:00:00Z", "yyyy-MM-ddTHH:mm:ssZ", CultureInfo.InvariantCulture)
