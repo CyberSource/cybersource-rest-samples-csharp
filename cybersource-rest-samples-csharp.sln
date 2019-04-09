@@ -5,8 +5,6 @@ VisualStudioVersion = 15.0.28307.438
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleCode", "src\SampleCode.csproj", "{4CF837FF-237D-4B5B-B922-71CCC654D718}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiSdk", "..\cybersource-rest-auth-dotnet\src\References\ApiSdk\ApiSdk\ApiSdk.csproj", "{BEF2C4FA-F8F6-49B1-B1A3-A818168192E8}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{4CF837FF-237D-4B5B-B922-71CCC654D718}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4CF837FF-237D-4B5B-B922-71CCC654D718}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4CF837FF-237D-4B5B-B922-71CCC654D718}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BEF2C4FA-F8F6-49B1-B1A3-A818168192E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BEF2C4FA-F8F6-49B1-B1A3-A818168192E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BEF2C4FA-F8F6-49B1-B1A3-A818168192E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BEF2C4FA-F8F6-49B1-B1A3-A818168192E8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
