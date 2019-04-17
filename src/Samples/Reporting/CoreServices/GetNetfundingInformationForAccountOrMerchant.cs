@@ -4,7 +4,7 @@ using CyberSource.Api;
 
 namespace Cybersource_rest_samples_dotnet.Samples.Reporting.CoreServices
 {
-    public class GetNetFundingInformation
+    public class GetNetfundingInformationForAccountOrMerchant
     {
         public static void Run()
         {
