@@ -4,7 +4,7 @@ using System.Globalization;
 
 namespace Cybersource_rest_samples_dotnet.Samples.Reporting.CoreServices
 {
-    public class GetConversionDetails
+    public class GetConversionDetailTransactions
     {
         public static void Run()
         {
