@@ -21,8 +21,8 @@ namespace Cybersource_rest_samples_dotnet.Samples.Reporting.CoreServices
             const string downloadFilePath = @".\Resource\" + fileName;
 
             const string organizationId = "testrest";
-            const string reportName = "testrest_v2";
-            var reportDate = DateTime.ParseExact("2018-09-02", "yyyy-MM-dd", CultureInfo.InvariantCulture);
+            const string reportName = "Demo_Report";
+            var reportDate = DateTime.ParseExact("2018-10-18", "yyyy-MM-dd", CultureInfo.InvariantCulture);
 
             try
             {
