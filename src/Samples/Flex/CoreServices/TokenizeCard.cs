@@ -64,7 +64,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Flex.CoreServices
                 postParameters["timestamp"] = Convert.ToString(flexToken.timestamp);
 
                 var tokenVerificationResult = Verify(flexPublicKey, postParameters);
-                Console.WriteLine(tokenVerificationResult);
+                Console.WriteLine("TOKEN VERIFICATION : " + tokenVerificationResult);
             }
             catch (Exception e)
             {

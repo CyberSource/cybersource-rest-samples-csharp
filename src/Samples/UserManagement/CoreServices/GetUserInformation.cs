@@ -12,7 +12,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.UserManagement.CoreServices
                 var organizationId = "testrest";
                 var permissionId = "CustomerProfileViewPermission";
                 var roleId = "admin";
-                var username = "tesrest";
+                var username = "testrest";
 
                 var configDictionary = new Configuration().GetConfiguration();
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);

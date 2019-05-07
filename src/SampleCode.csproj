@@ -44,8 +44,8 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="cybersource-rest-client-dotnet, Version=0.0.0.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\CyberSource.Rest.Client.0.0.0.6\lib\cybersource-rest-client-dotnet.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="FlexServerSDK, Version=0.2.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\CyberSource.Flex.Server.0.2.1\lib\FlexServerSDK.dll</HintPath>
@@ -120,7 +120,7 @@
     <Compile Include="Samples\Payments\ServiceFees\CreditWithServiceFee.cs" />
     <Compile Include="Samples\Payments\ServiceFees\ECheckStandaloneCreditWithServiceFee.cs" />
     <Compile Include="Samples\Payments\ServiceFees\ProcessAuthorizationReversalWithServiceFee.cs" />
-    <Compile Include="Samples\Payments\ServiceFees\ProcessEcheckCreditWIthServiceFee .cs" />
+    <Compile Include="Samples\Payments\ServiceFees\ProcessEcheckCreditWithServiceFee.cs" />
     <Compile Include="Samples\Payments\ServiceFees\ProcessEcheckPaymentWithServiceFee.cs" />
     <Compile Include="Samples\Payments\ServiceFees\ProcessPaymentWithServiceFee .cs" />
     <Compile Include="Samples\Payments\ServiceFees\VoidCreditWithServiceFee.cs" />
@@ -155,6 +155,7 @@
     <Compile Include="Samples\TransactionSearch\CoreServices\CreateSearchRequest.cs" />
     <Compile Include="Samples\TransactionSearch\CoreServices\GetSearchResults.cs" />
     <Compile Include="Samples\UserManagement\CoreServices\GetUserInformation.cs" />
+    <Compile Include="Utilities.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">

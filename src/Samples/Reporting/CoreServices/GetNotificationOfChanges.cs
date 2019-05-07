@@ -7,8 +7,8 @@ namespace Cybersource_rest_samples_dotnet.Samples.Reporting.CoreServices
     {
         public static void Run()
         {
-            var startTime = DateTime.Parse("2018-09-01T12:00:00-05:00");
-            var endTime = DateTime.Parse("2018-09-30T12:00:00-05:00");
+            var startTime = DateTime.Parse("2019-03-01T12:00:00-05:00");
+            var endTime = DateTime.Parse("2019-03-30T12:00:00-05:00");
 
             //var startTime = DateTime.Parse("2018-09-01T12:00:00.000Z");
             //var endTime = DateTime.Parse("2018-09-30T12:00:00.000Z");

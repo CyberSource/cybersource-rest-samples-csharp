@@ -4,15 +4,15 @@ using CyberSource.Model;
 
 namespace Cybersource_rest_samples_dotnet.Samples.Payments.ServiceFees
 {
-    public class ProcessEcheckCreditWIthServiceFee
+    public class ProcessEcheckCreditWithServiceFee
     {
         public static void Run()
         {
             var echeckPaymentWithServiceFeecapturePaymentId = ProcessEcheckPaymentWithServiceFee.Run().Id;
 
             var clientReferenceInformationObj = new Ptsv2paymentsClientReferenceInformation("test_refund_capture");
-            
-			var amountDetailsObj = new Ptsv2paymentsidcapturesOrderInformationAmountDetails("102.21", "USD");
+
+            var amountDetailsObj = new Ptsv2paymentsidcapturesOrderInformationAmountDetails("102.21", "USD");
 
             var billToObj = new Ptsv2paymentsidcapturesOrderInformationBillTo
             {
@@ -40,8 +40,8 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments.ServiceFees
                 Account = bankAccountObj
             };
             bankObj.RoutingNumber = "071923284";
-            
-			var paymentInformationObj = new Ptsv2paymentsidrefundsPaymentInformation();
+
+            var paymentInformationObj = new Ptsv2paymentsidrefundsPaymentInformation();
             paymentInformationObj.Bank = bankObj;
 
             var requestBody = new RefundCaptureRequest(clientReferenceInformationObj, null, paymentInformationObj, orderInformationObj);
@@ -53,7 +53,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments.ServiceFees
                 var apiInstance = new RefundApi(clientConfig);
 
                 var result = apiInstance.RefundCapture(requestBody, echeckPaymentWithServiceFeecapturePaymentId);
-				
+
                 Console.WriteLine(result);
             }
             catch (Exception e)
