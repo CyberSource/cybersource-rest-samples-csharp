@@ -96,6 +96,14 @@
     <Compile Include="Samples\Authentication\GenerateHttpRequestHeaders\GetGenerateHeaders.cs" />
     <Compile Include="Samples\Authentication\GenerateHttpRequestHeaders\PostGenerateHeaders.cs" />
     <Compile Include="Samples\Authentication\GenerateHttpRequestHeaders\PutGenerateHeaders.cs" />
+    <Compile Include="Samples\Decision_Manager\CoreServices\BasicDMTransaction.cs" />
+    <Compile Include="Samples\Decision_Manager\CoreServices\DECISION_PROFILE_REJECT.cs" />
+    <Compile Include="Samples\Decision_Manager\CoreServices\DMwithBuyerInformation.cs" />
+    <Compile Include="Samples\Decision_Manager\CoreServices\DMwithDeviceInformation.cs" />
+    <Compile Include="Samples\Decision_Manager\CoreServices\DMwithMerchantDefinedInformation.cs" />
+    <Compile Include="Samples\Decision_Manager\CoreServices\DMwithShippingInformation.cs" />
+    <Compile Include="Samples\Decision_Manager\CoreServices\DMwithTravelInformation.cs" />
+    <Compile Include="Samples\Decision_Manager\CoreServices\SCORE_EXCEEDS_THRESHOLD.cs" />
     <Compile Include="Samples\Flex\CoreServices\GenerateKey.cs" />
     <Compile Include="Configuration.cs" />
     <Compile Include="Samples\Flex\CoreServices\TokenizeCard.cs" />
@@ -122,7 +130,7 @@
     <Compile Include="Samples\Payments\ServiceFees\ProcessAuthorizationReversalWithServiceFee.cs" />
     <Compile Include="Samples\Payments\ServiceFees\ProcessEcheckCreditWithServiceFee.cs" />
     <Compile Include="Samples\Payments\ServiceFees\ProcessEcheckPaymentWithServiceFee.cs" />
-    <Compile Include="Samples\Payments\ServiceFees\ProcessPaymentWithServiceFee .cs" />
+    <Compile Include="Samples\Payments\ServiceFees\ProcessPaymentWithServiceFee.cs" />
     <Compile Include="Samples\Payments\ServiceFees\VoidCreditWithServiceFee.cs" />
     <Compile Include="Samples\Payments\ServiceFees\VoidStandaloneEcheckCreditWithServiceFee.cs" />
     <Compile Include="Samples\Payouts\CoreServices\ProcessPayout.cs" />
@@ -131,6 +139,8 @@
     <Compile Include="Samples\Reporting\CoreServices\DeleteSubscriptionOfReportNameByOrganization.cs" />
     <Compile Include="Samples\Reporting\CoreServices\DownloadReport.cs" />
     <Compile Include="Samples\Reporting\CoreServices\GetAllSubscriptions.cs" />
+    <Compile Include="Samples\Reporting\CoreServices\GetConversionDetailTransactions.cs" />
+    <Compile Include="Samples\Reporting\CoreServices\GetNetfundingInformationForAccountOrMerchant.cs" />
     <Compile Include="Samples\Reporting\CoreServices\GetNotificationOfChanges.cs" />
     <Compile Include="Samples\Reporting\CoreServices\GetPurchaseAndRefundDetails.cs" />
     <Compile Include="Samples\Reporting\CoreServices\GetReportBasedOnReportid.cs" />
@@ -152,7 +162,7 @@
     <Compile Include="Samples\TransactionBatches\CoreServices\GetIndividualBatchFile.cs" />
     <Compile Include="Samples\TransactionBatches\CoreServices\GetListOfBatchFiles.cs" />
     <Compile Include="Samples\TransactionDetails\CoreServices\RetrieveTransaction.cs" />
-    <Compile Include="Samples\TransactionSearch\CoreServices\CreateSearchRequest.cs" />
+    <Compile Include="Samples\TransactionSearch\CoreServices\CreateRequestForSearch.cs" />
     <Compile Include="Samples\TransactionSearch\CoreServices\GetSearchResults.cs" />
     <Compile Include="Samples\UserManagement\CoreServices\GetUserInformation.cs" />
     <Compile Include="Utilities.cs" />

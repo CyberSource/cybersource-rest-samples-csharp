@@ -21,22 +21,22 @@ namespace Cybersource_rest_samples_dotnet.Samples.Flex.CoreServices
             var derPublicKey = generateKeyResult.Der.PublicKey;
 
             var requestObj = new TokenizeRequest
-            {
-                KeyId = keyId,
-                CardInfo = new Flexv1tokensCardInfo()
-                {
-                    CardExpirationYear = "2031",
-                    CardNumber = "5555555555554444",
-                    CardType = "002",
-                    CardExpirationMonth = "03"
-                }
-            };
+            (
+                KeyId: keyId,
+                CardInfo: new Flexv1tokensCardInfo
+                (
+                    CardExpirationYear: "2031",
+                    CardNumber: "5555555555554444",
+                    CardType: "002",
+                    CardExpirationMonth: "03"
+                )
+            );
 
             try
             {
                 var configDictionary = new Configuration().GetConfiguration();
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
-                var apiInstance = new FlexTokenApi(clientConfig);
+                var apiInstance = new TokenizationApi(clientConfig);
 
                 var result = apiInstance.Tokenize(requestObj);
                 Console.WriteLine(result);

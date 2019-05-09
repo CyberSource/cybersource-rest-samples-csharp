@@ -11,16 +11,16 @@ namespace Cybersource_rest_samples_dotnet.Samples.TMS.CoreServices
             var profileId = "93B32398-AD51-4CC2-A682-EA3E93614EB1";
             var tokenId = CreateInstrumentIdentifier.Run().Id;
 
-            var requestObj = new Body1();
+            var requestObj = new UpdateInstrumentIdentifierRequest();
 
-            var processingInformationObj = new Tmsv1instrumentidentifiersProcessingInformation();
+            var processingInformationObj = new TmsV1InstrumentIdentifiersPost200ResponseProcessingInformation();
 
-            var authorizationOptionsObj = new Tmsv1instrumentidentifiersProcessingInformationAuthorizationOptions();
+            var authorizationOptionsObj = new TmsV1InstrumentIdentifiersPost200ResponseProcessingInformationAuthorizationOptions();
 
-            var initiatorObj = new Tmsv1instrumentidentifiersProcessingInformationAuthorizationOptionsInitiator();
+            var initiatorObj = new TmsV1InstrumentIdentifiersPost200ResponseProcessingInformationAuthorizationOptionsInitiator();
 
             var merchantInitiatedTransactionObj =
-                new Tmsv1instrumentidentifiersProcessingInformationAuthorizationOptionsInitiatorMerchantInitiatedTransaction
+                new TmsV1InstrumentIdentifiersPost200ResponseProcessingInformationAuthorizationOptionsInitiatorMerchantInitiatedTransaction
                 {
                     PreviousTransactionId = "123456789012345"
                 };
@@ -39,7 +39,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TMS.CoreServices
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
                 var apiInstance = new InstrumentIdentifierApi(clientConfig);
 
-                var result = apiInstance.TmsV1InstrumentidentifiersTokenIdPatch(profileId, tokenId, requestObj);
+                var result = apiInstance.UpdateInstrumentIdentifier(profileId, tokenId, requestObj);
                 Console.WriteLine(result);
             }
             catch (Exception e)
