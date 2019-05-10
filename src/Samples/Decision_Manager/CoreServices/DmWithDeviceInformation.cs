@@ -8,7 +8,7 @@ using CyberSource.Model;
 
 namespace Cybersource_rest_samples_dotnet.Samples.Decision_Manager.CoreServices
 {
-    public class DMwithDeviceInformation
+    public class DmWithDeviceInformation
     {
         public static RiskV1DecisionsPost201Response Run()
         {

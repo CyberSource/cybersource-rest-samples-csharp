@@ -8,7 +8,7 @@ using CyberSource.Model;
 
 namespace Cybersource_rest_samples_dotnet.Samples.Decision_Manager.CoreServices
 {
-    public class DMwithMerchantDefinedInformation
+    public class DmWithMerchantDefinedInformation
     {
         public static RiskV1DecisionsPost201Response Run()
         {

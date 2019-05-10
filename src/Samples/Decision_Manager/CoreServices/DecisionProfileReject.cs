@@ -8,7 +8,7 @@ using CyberSource.Model;
 
 namespace Cybersource_rest_samples_dotnet.Samples.Decision_Manager.CoreServices
 {
-    public class DECISION_PROFILE_REJECT
+    public class DecisionProfileReject
     {
         public static RiskV1DecisionsPost201Response Run()
         {
