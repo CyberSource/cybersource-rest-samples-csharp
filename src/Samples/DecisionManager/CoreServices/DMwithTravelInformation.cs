@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using CyberSource.Api;
 using CyberSource.Model;
 
-namespace Cybersource_rest_samples_dotnet.Samples.Decision_Manager.CoreServices
+namespace Cybersource_rest_samples_dotnet.Samples.DecisionManager.CoreServices
 {
-    public class DmWithBuyerInformation
+    public class DmWithTravelInformation
     {
         public static RiskV1DecisionsPost201Response Run()
         {
@@ -53,18 +53,26 @@ namespace Cybersource_rest_samples_dotnet.Samples.Decision_Manager.CoreServices
 
             requestObj.OrderInformation = orderInformation;
 
-            var buyerInformation = new Riskv1decisionsBuyerInformation();
+            var travelInformation = new Riskv1decisionsTravelInformation();
 
-            buyerInformation.HashedPassword = "";
-            buyerInformation.DateOfBirth = "1998-05-05";
-            var personalIdentification = new List<Ptsv2paymentsBuyerInformationPersonalIdentification>();
+            travelInformation.CompleteRoute = "SFO-JFK:JFK-BLR";
+            travelInformation.DepartureTime = "2011-03-20 11:30pm GMT";
+            travelInformation.JourneyType = "One way";
+            var legs = new List<Riskv1decisionsTravelInformationLegs>();
 
-            var personalIdentification0 = new Ptsv2paymentsBuyerInformationPersonalIdentification();
-            personalIdentification0.Type = Ptsv2paymentsBuyerInformationPersonalIdentification.TypeEnum.CPF;
-            personalIdentification0.Id = "1a23apwe98";
-            personalIdentification.Add(personalIdentification0);
+            var legs0 = new Riskv1decisionsTravelInformationLegs();
+            legs0.Origination = "SFO";
+            legs0.Destination = "JFK";
+            legs.Add(legs0);
 
-            requestObj.BuyerInformation = buyerInformation;
+            var legs1 = new Riskv1decisionsTravelInformationLegs();
+            legs1.Origination = "JFK";
+            legs1.Destination = "BLR";
+            legs.Add(legs1);
+
+            travelInformation.Legs = legs;
+
+            requestObj.TravelInformation = travelInformation;
 
             try
             {

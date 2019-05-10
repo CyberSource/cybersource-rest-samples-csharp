@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using CyberSource.Api;
 using CyberSource.Model;
 
-namespace Cybersource_rest_samples_dotnet.Samples.Decision_Manager.CoreServices
+namespace Cybersource_rest_samples_dotnet.Samples.DecisionManager.CoreServices
 {
-    public class ScoreExceedsThreshold
+    public class DmWithBuyerInformation
     {
         public static RiskV1DecisionsPost201Response Run()
         {
@@ -38,19 +38,6 @@ namespace Cybersource_rest_samples_dotnet.Samples.Decision_Manager.CoreServices
             amountDetails.TotalAmount = "144.14";
             orderInformation.AmountDetails = amountDetails;
 
-            var shipTo = new Riskv1decisionsOrderInformationShipTo();
-
-            shipTo.Address1 = "96, powers street";
-            shipTo.Address2 = "";
-            shipTo.AdministrativeArea = "KA";
-            shipTo.Country = "INDIA";
-            shipTo.Locality = "Clearwater milford";
-            shipTo.FirstName = "James";
-            shipTo.LastName = "Smith";
-            shipTo.PhoneNumber = "7606160717";
-            shipTo.PostalCode = "560056";
-            orderInformation.ShipTo = shipTo;
-
             var billTo = new Riskv1decisionsOrderInformationBillTo();
 
             billTo.Address1 = "96, powers street";
@@ -65,6 +52,19 @@ namespace Cybersource_rest_samples_dotnet.Samples.Decision_Manager.CoreServices
             orderInformation.BillTo = billTo;
 
             requestObj.OrderInformation = orderInformation;
+
+            var buyerInformation = new Riskv1decisionsBuyerInformation();
+
+            buyerInformation.HashedPassword = "";
+            buyerInformation.DateOfBirth = "1998-05-05";
+            var personalIdentification = new List<Ptsv2paymentsBuyerInformationPersonalIdentification>();
+
+            var personalIdentification0 = new Ptsv2paymentsBuyerInformationPersonalIdentification();
+            personalIdentification0.Type = Ptsv2paymentsBuyerInformationPersonalIdentification.TypeEnum.CPF;
+            personalIdentification0.Id = "1a23apwe98";
+            personalIdentification.Add(personalIdentification0);
+
+            requestObj.BuyerInformation = buyerInformation;
 
             try
             {

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using CyberSource.Api;
 using CyberSource.Model;
 
-namespace Cybersource_rest_samples_dotnet.Samples.Decision_Manager.CoreServices
+namespace Cybersource_rest_samples_dotnet.Samples.DecisionManager.CoreServices
 {
-    public class CreateDecisionManagerRequest
+    public class DmWithDeviceInformation
     {
         public static RiskV1DecisionsPost201Response Run()
         {
@@ -52,6 +52,15 @@ namespace Cybersource_rest_samples_dotnet.Samples.Decision_Manager.CoreServices
             orderInformation.BillTo = billTo;
 
             requestObj.OrderInformation = orderInformation;
+
+            var deviceInformation = new Riskv1decisionsDeviceInformation();
+
+            deviceInformation.CookiesAccepted = "yes";
+            deviceInformation.IpAddress = "64.124.61.215";
+            deviceInformation.HostName = "host.com";
+            deviceInformation.HttpBrowserEmail = "xyz@gmail.com";
+            deviceInformation.UserAgent = "Chrome";
+            requestObj.DeviceInformation = deviceInformation;
 
             try
             {

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using CyberSource.Api;
 using CyberSource.Model;
 
-namespace Cybersource_rest_samples_dotnet.Samples.Decision_Manager.CoreServices
+namespace Cybersource_rest_samples_dotnet.Samples.DecisionManager.CoreServices
 {
-    public class DecisionProfileReject
+    public class CreateDecisionManagerRequest
     {
         public static RiskV1DecisionsPost201Response Run()
         {
@@ -52,15 +52,6 @@ namespace Cybersource_rest_samples_dotnet.Samples.Decision_Manager.CoreServices
             orderInformation.BillTo = billTo;
 
             requestObj.OrderInformation = orderInformation;
-
-            var riskInformation = new Riskv1decisionsRiskInformation();
-
-            var profile = new Riskv1decisionsRiskInformationProfile();
-
-            profile.Name = "profile2";
-            riskInformation.Profile = profile;
-
-            requestObj.RiskInformation = riskInformation;
 
             try
             {

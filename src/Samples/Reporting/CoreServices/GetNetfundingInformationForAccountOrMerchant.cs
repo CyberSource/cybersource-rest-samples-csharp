@@ -19,7 +19,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Reporting.CoreServices
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
                 var apiInstance = new NetFundingsApi(clientConfig);
 
-                var result = apiInstance.GetNetFundingInfo(startTime, endTime, organizationId, groupName);
+                var result = apiInstance.GetNetFundingDetails(startTime, endTime, organizationId, groupName);
             }
             catch (Exception e)
             {

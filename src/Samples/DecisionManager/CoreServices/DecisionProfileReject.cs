@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using CyberSource.Api;
 using CyberSource.Model;
 
-namespace Cybersource_rest_samples_dotnet.Samples.Decision_Manager.CoreServices
+namespace Cybersource_rest_samples_dotnet.Samples.DecisionManager.CoreServices
 {
-    public class DmWithShippingInformation
+    public class DecisionProfileReject
     {
         public static RiskV1DecisionsPost201Response Run()
         {
@@ -38,19 +38,6 @@ namespace Cybersource_rest_samples_dotnet.Samples.Decision_Manager.CoreServices
             amountDetails.TotalAmount = "144.14";
             orderInformation.AmountDetails = amountDetails;
 
-            var shipTo = new Riskv1decisionsOrderInformationShipTo();
-
-            shipTo.Address1 = "96, powers street";
-            shipTo.Address2 = "";
-            shipTo.AdministrativeArea = "KA";
-            shipTo.Country = "INDIA";
-            shipTo.Locality = "Clearwater milford";
-            shipTo.FirstName = "James";
-            shipTo.LastName = "Smith";
-            shipTo.PhoneNumber = "7606160717";
-            shipTo.PostalCode = "560056";
-            orderInformation.ShipTo = shipTo;
-
             var billTo = new Riskv1decisionsOrderInformationBillTo();
 
             billTo.Address1 = "96, powers street";
@@ -65,6 +52,15 @@ namespace Cybersource_rest_samples_dotnet.Samples.Decision_Manager.CoreServices
             orderInformation.BillTo = billTo;
 
             requestObj.OrderInformation = orderInformation;
+
+            var riskInformation = new Riskv1decisionsRiskInformation();
+
+            var profile = new Riskv1decisionsRiskInformationProfile();
+
+            profile.Name = "profile2";
+            riskInformation.Profile = profile;
+
+            requestObj.RiskInformation = riskInformation;
 
             try
             {
