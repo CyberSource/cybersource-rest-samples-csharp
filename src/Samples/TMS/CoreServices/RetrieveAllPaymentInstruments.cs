@@ -8,7 +8,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TMS.CoreServices
         public static void Run()
         {
             var profileId = "93B32398-AD51-4CC2-A682-EA3E93614EB1";
-            var tokenId = CreateInstrumentIdentifier.Run().Id;
+            var tokenId = "7010000000016241111"; // CreateInstrumentIdentifier.Run().Id;
 
             try
             {

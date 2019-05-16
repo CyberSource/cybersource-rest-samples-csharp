@@ -15,9 +15,9 @@ namespace Cybersource_rest_samples_dotnet.Samples.TransactionSearch.CoreServices
                     Save = false,
                     Name = "TSS search",
                     Timezone = "America/Chicago",
-                    Query = "clientReferenceInformation.code:12345",
+                    Query = "clientReferenceInformation.code:TC50171_3",
                     Offset = 0,
-                    Limit = 100,
+                    Limit = 10,
                     Sort = "id:asc, submitTimeUtc:asc"
                 };
 

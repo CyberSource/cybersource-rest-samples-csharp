@@ -39,13 +39,11 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>lib\ApiSdk.dll</HintPath>
     </Reference>
-    <Reference Include="AuthenticationSdk, Version=0.0.0.3, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\CyberSource.Authentication.0.0.0.3\lib\AuthenticationSdk.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="AuthenticationSdk">
+      <HintPath>..\packages\CyberSource.Authentication.0.0.0.4\lib\AuthenticationSdk.dll</HintPath>
     </Reference>
-    <Reference Include="cybersource-rest-client-dotnet, Version=0.0.0.6, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\CyberSource.Rest.Client.0.0.0.6\lib\cybersource-rest-client-dotnet.dll</HintPath>
+    <Reference Include="cybersource-rest-client-dotnet">
+      <HintPath>..\packages\CyberSource.Rest.Client.0.0.0.7\lib\cybersource-rest-client-dotnet.dll</HintPath>
     </Reference>
     <Reference Include="FlexServerSDK, Version=0.2.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\CyberSource.Flex.Server.0.2.1\lib\FlexServerSDK.dll</HintPath>
