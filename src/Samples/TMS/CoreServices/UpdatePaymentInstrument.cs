@@ -11,18 +11,18 @@ namespace Cybersource_rest_samples_dotnet.Samples.TMS.CoreServices
             var profileId = "93B32398-AD51-4CC2-A682-EA3E93614EB1";
             var tokenId = CreatePaymentInstrument.Run().Id;
 
-            var requestObj = new Body3();
+            var requestObj = new UpdatePaymentInstrumentRequest();
 
-            var cardObj = new Tmsv1paymentinstrumentsCard
-            {
-                ExpirationMonth = "09",
-                ExpirationYear = "2022",
-                Type = Tmsv1paymentinstrumentsCard.TypeEnum.Visa
-            };
+            var cardObj = new TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedCard
+            (
+                ExpirationMonth: "09",
+                ExpirationYear: "2022",
+                Type: TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedCard.TypeEnum.Visa
+            );
 
             requestObj.Card = cardObj;
 
-            var billToObj = new Tmsv1paymentinstrumentsBillTo
+            var billToObj = new TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedBillTo
             {
                 FirstName = "John",
                 LastName = "Smith",
@@ -39,9 +39,9 @@ namespace Cybersource_rest_samples_dotnet.Samples.TMS.CoreServices
 
             requestObj.BillTo = billToObj;
 
-            var instrumentIdentifierObj = new Tmsv1paymentinstrumentsInstrumentIdentifier();
+            var instrumentIdentifierObj = new TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedInstrumentIdentifier();
 
-            var cardObj2 = new Tmsv1instrumentidentifiersCard
+            var cardObj2 = new TmsV1InstrumentIdentifiersPost200ResponseCard
             {
                 Number = "4111111111111111"
             };
@@ -54,9 +54,9 @@ namespace Cybersource_rest_samples_dotnet.Samples.TMS.CoreServices
             {
                 var configDictionary = new Configuration().GetConfiguration();
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
-                var apiInstance = new PaymentInstrumentsApi(clientConfig);
+                var apiInstance = new PaymentInstrumentApi(clientConfig);
 
-                var result = apiInstance.TmsV1PaymentinstrumentsTokenIdPatch(profileId, tokenId, requestObj);
+                var result = apiInstance.UpdatePaymentInstrument(profileId, tokenId, requestObj);
                 Console.WriteLine(result);
             }
             catch (Exception e)

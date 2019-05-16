@@ -14,9 +14,9 @@ namespace Cybersource_rest_samples_dotnet.Samples.TMS.CoreServices
             {
                 var configDictionary = new Configuration().GetConfiguration();
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
-                var apiInstance = new PaymentInstrumentsApi(clientConfig);
+                var apiInstance = new InstrumentIdentifierApi(clientConfig);
 
-                var result = apiInstance.TmsV1InstrumentidentifiersTokenIdPaymentinstrumentsGet(profileId, tokenId);
+                var result = apiInstance.GetAllPaymentInstruments(profileId, tokenId);
                 Console.WriteLine(result);
             }
             catch (Exception e)

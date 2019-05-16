@@ -1,5 +1,6 @@
 ﻿using System;
 using CyberSource.Api;
+using CyberSource.Model;
 
 namespace Cybersource_rest_samples_dotnet.Samples.TransactionSearch.CoreServices
 {
@@ -9,7 +10,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TransactionSearch.CoreServices
         {
             try
             {
-                var requestObj = new CyberSource.Model.TssV2TransactionsPostResponse()
+                var requestObj = new CyberSource.Model.CreateSearchRequest()
                 {
                     Save = false,
                     Name = "TSS search",
