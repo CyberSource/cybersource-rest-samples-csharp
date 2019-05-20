@@ -225,7 +225,7 @@ namespace Cybersource_rest_samples_dotnet
             {
                 var dirModified = dir.Replace(' ', '_');
                 dirModified = dirModified.Substring(PathOfSamplesFolder.Length + 1);
-                dirModified = dirModified.Replace(@"\", ".");
+                dirModified = dirModified.Replace(@"/", ".");
 
                 apiFamilies.Add(dirModified);
             }
@@ -233,14 +233,14 @@ namespace Cybersource_rest_samples_dotnet
             foreach (var apiFamily in apiFamilies)
             {
                 // 2.Fetch all the Files Paths inside Api Family folder (and all of its subfoldes)
-                var allfiles = Directory.GetFileSystemEntries(PathOfSamplesFolder + @"\" + apiFamily, "*.cs*", SearchOption.AllDirectories);
+                var allfiles = Directory.GetFileSystemEntries(PathOfSamplesFolder + @"/" + apiFamily, "*.cs*", SearchOption.AllDirectories);
 
                 logger.Trace($"Api Family: {apiFamily}");
                 logger.Trace($"Total Sample Codes Detected: {allfiles.Count()}");
 
                 foreach (var file in allfiles)
                 {
-                    var lastBackSlashIndex = file.LastIndexOf(@"\", StringComparison.Ordinal);
+                    var lastBackSlashIndex = file.LastIndexOf(@"/", StringComparison.Ordinal);
                     var firstPart = file.Remove(lastBackSlashIndex);
                     var secondPart = file.Substring(lastBackSlashIndex + 1, file.Length - firstPart.Length - 4);
 
@@ -300,7 +300,7 @@ namespace Cybersource_rest_samples_dotnet
                 */
                 var dirModified = dir.Replace(' ', '_');
                 dirModified = dirModified.Substring(PathOfSamplesFolder.Length + 1);
-                dirModified = dirModified.Replace(@"\", ".");
+                dirModified = dirModified.Replace(@"/", ".");
 
                 // SampleCodeClassesPathList is the complete list of all the possible namespaces for all the sample codes
                 SampleCodeClassesPathList.Add(ProjectNamespace + ".Samples." + dirModified + ".");
