@@ -6,4 +6,4 @@ install:
     
 script:
     - xbuild ./src/SampleCode.csproj 
-    - sample_code_runner.bat
+    - cmd.exe /C "src\SampleCode.exe RunAll"
