@@ -5,5 +5,6 @@ install:
     - nuget restore cybersource-rest-samples-csharp.sln
     
 script:
-    - xbuild ./src/SampleCode.csproj 
+    - xbuild ./src/SampleCode.csproj
+    - chmod a+x ./src/SampleCode.exe
     - cmd.exe /C "src\SampleCode.exe RunAll"
