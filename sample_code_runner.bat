@@ -1,0 +1,1 @@
+START src\SampleCode.exe RunAll

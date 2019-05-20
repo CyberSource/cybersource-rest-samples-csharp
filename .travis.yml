@@ -1,0 +1,9 @@
+language:
+    csharp
+
+install:
+    - nuget restore SampleCode.sln
+    
+script:
+    - xbuild ./src/SampleCode.csproj 
+    - sample_code_runner.bat
