@@ -6,9 +6,9 @@ namespace Cybersource_rest_samples_dotnet.Samples.TMS.CoreServices
 {
     public class CreateInstrumentIdentifier
     {
-        public static TmsV1InstrumentidentifiersPost200Response Run()
+        public static TmsV1InstrumentIdentifiersPost200Response Run()
         {
-            var requestObj = new Body();
+            var requestObj = new CreateInstrumentIdentifierRequest();
 
             var cardObj = new Tmsv1instrumentidentifiersCard
             {
@@ -17,33 +17,13 @@ namespace Cybersource_rest_samples_dotnet.Samples.TMS.CoreServices
 
             requestObj.Card = cardObj;
 
-            var processingInformationObj = new Tmsv1instrumentidentifiersProcessingInformation();
-
-            var authorizationOptionsObj = new Tmsv1instrumentidentifiersProcessingInformationAuthorizationOptions();
-
-            var initiatorObj = new Tmsv1instrumentidentifiersProcessingInformationAuthorizationOptionsInitiator();
-
-            var merchantInitiatedTransactionObj =
-                new Tmsv1instrumentidentifiersProcessingInformationAuthorizationOptionsInitiatorMerchantInitiatedTransaction
-                {
-                    PreviousTransactionId = "123456789012345"
-                };
-
-            initiatorObj.MerchantInitiatedTransaction = merchantInitiatedTransactionObj;
-
-            authorizationOptionsObj.Initiator = initiatorObj;
-
-            processingInformationObj.AuthorizationOptions = authorizationOptionsObj;
-
-            requestObj.ProcessingInformation = processingInformationObj;
-
             try
             {
                 var configDictionary = new Configuration().GetConfiguration();
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
-                var apiInstance = new InstrumentIdentifiersApi(clientConfig);
+                var apiInstance = new InstrumentIdentifierApi(clientConfig);
 
-                var result = apiInstance.TmsV1InstrumentidentifiersPost("93B32398-AD51-4CC2-A682-EA3E93614EB1", requestObj);
+                var result = apiInstance.CreateInstrumentIdentifier("93B32398-AD51-4CC2-A682-EA3E93614EB1", requestObj);
                 Console.WriteLine(result);
                 return result;
             }

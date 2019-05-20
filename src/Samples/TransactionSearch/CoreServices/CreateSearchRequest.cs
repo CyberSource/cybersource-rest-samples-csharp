@@ -1,5 +1,6 @@
 ﻿using System;
 using CyberSource.Api;
+using CyberSource.Model;
 
 namespace Cybersource_rest_samples_dotnet.Samples.TransactionSearch.CoreServices
 {
@@ -9,14 +10,14 @@ namespace Cybersource_rest_samples_dotnet.Samples.TransactionSearch.CoreServices
         {
             try
             {
-                var requestObj = new CyberSource.Model.TssV2TransactionsPostResponse()
+                var requestObj = new CyberSource.Model.CreateSearchRequest()
                 {
                     Save = false,
                     Name = "TSS search",
                     Timezone = "America/Chicago",
-                    Query = "clientReferenceInformation.code:12345",
+                    Query = "clientReferenceInformation.code:TC50171_3",
                     Offset = 0,
-                    Limit = 100,
+                    Limit = 10,
                     Sort = "id:asc, submitTimeUtc:asc"
                 };
 

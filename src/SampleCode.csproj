@@ -39,13 +39,11 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>lib\ApiSdk.dll</HintPath>
     </Reference>
-    <Reference Include="AuthenticationSdk, Version=0.0.0.3, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\CyberSource.Authentication.0.0.0.3\lib\AuthenticationSdk.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="AuthenticationSdk">
+      <HintPath>..\packages\CyberSource.Authentication.0.0.0.4\lib\AuthenticationSdk.dll</HintPath>
     </Reference>
-    <Reference Include="cybersource-rest-client-dotnet, Version=0.0.0.6, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\CyberSource.Rest.Client.0.0.0.6\lib\cybersource-rest-client-dotnet.dll</HintPath>
+    <Reference Include="cybersource-rest-client-dotnet">
+      <HintPath>..\packages\CyberSource.Rest.Client.0.0.0.7\lib\cybersource-rest-client-dotnet.dll</HintPath>
     </Reference>
     <Reference Include="FlexServerSDK, Version=0.2.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\CyberSource.Flex.Server.0.2.1\lib\FlexServerSDK.dll</HintPath>
@@ -96,6 +94,14 @@
     <Compile Include="Samples\Authentication\GenerateHttpRequestHeaders\GetGenerateHeaders.cs" />
     <Compile Include="Samples\Authentication\GenerateHttpRequestHeaders\PostGenerateHeaders.cs" />
     <Compile Include="Samples\Authentication\GenerateHttpRequestHeaders\PutGenerateHeaders.cs" />
+    <Compile Include="Samples\DecisionManager\CoreServices\CreateDecisionManagerRequest.cs" />
+    <Compile Include="Samples\DecisionManager\CoreServices\DecisionProfileReject.cs" />
+    <Compile Include="Samples\DecisionManager\CoreServices\DmWithBuyerInformation.cs" />
+    <Compile Include="Samples\DecisionManager\CoreServices\DmWithDeviceInformation.cs" />
+    <Compile Include="Samples\DecisionManager\CoreServices\DmWithMerchantDefinedInformation.cs" />
+    <Compile Include="Samples\DecisionManager\CoreServices\DmWithShippingInformation.cs" />
+    <Compile Include="Samples\DecisionManager\CoreServices\DmWithTravelInformation.cs" />
+    <Compile Include="Samples\DecisionManager\CoreServices\ScoreExceedsThreshold.cs" />
     <Compile Include="Samples\Flex\CoreServices\GenerateKey.cs" />
     <Compile Include="Configuration.cs" />
     <Compile Include="Samples\Flex\CoreServices\TokenizeCard.cs" />
@@ -122,7 +128,7 @@
     <Compile Include="Samples\Payments\ServiceFees\ProcessAuthorizationReversalWithServiceFee.cs" />
     <Compile Include="Samples\Payments\ServiceFees\ProcessEcheckCreditWithServiceFee.cs" />
     <Compile Include="Samples\Payments\ServiceFees\ProcessEcheckPaymentWithServiceFee.cs" />
-    <Compile Include="Samples\Payments\ServiceFees\ProcessPaymentWithServiceFee .cs" />
+    <Compile Include="Samples\Payments\ServiceFees\ProcessPaymentWithServiceFee.cs" />
     <Compile Include="Samples\Payments\ServiceFees\VoidCreditWithServiceFee.cs" />
     <Compile Include="Samples\Payments\ServiceFees\VoidStandaloneEcheckCreditWithServiceFee.cs" />
     <Compile Include="Samples\Payouts\CoreServices\ProcessPayout.cs" />
@@ -131,6 +137,8 @@
     <Compile Include="Samples\Reporting\CoreServices\DeleteSubscriptionOfReportNameByOrganization.cs" />
     <Compile Include="Samples\Reporting\CoreServices\DownloadReport.cs" />
     <Compile Include="Samples\Reporting\CoreServices\GetAllSubscriptions.cs" />
+    <Compile Include="Samples\Reporting\CoreServices\GetConversionDetailTransactions.cs" />
+    <Compile Include="Samples\Reporting\CoreServices\GetNetfundingInformationForAccountOrMerchant.cs" />
     <Compile Include="Samples\Reporting\CoreServices\GetNotificationOfChanges.cs" />
     <Compile Include="Samples\Reporting\CoreServices\GetPurchaseAndRefundDetails.cs" />
     <Compile Include="Samples\Reporting\CoreServices\GetReportBasedOnReportid.cs" />

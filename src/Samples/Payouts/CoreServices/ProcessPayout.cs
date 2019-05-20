@@ -8,7 +8,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payouts.CoreServices
     {
         public static void Run()
         {
-            var requestObj = new PtsV2PayoutsPostResponse();
+            var requestObj = new OctCreatePaymentRequest();
 
             var clientReferenceInformationObj = new Ptsv2payoutsClientReferenceInformation
             {
@@ -110,9 +110,9 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payouts.CoreServices
             {
                 var configDictionary = new Configuration().GetConfiguration();
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
-                var apiInstance = new ProcessAPayoutApi(clientConfig);
+                var apiInstance = new PayoutsApi(clientConfig);
 
-                var result = apiInstance.OctCreatePayment(requestObj);
+                var result = apiInstance.OctCreatePaymentWithHttpInfo(requestObj);
                 Console.WriteLine(result);
             }
             catch (Exception e)

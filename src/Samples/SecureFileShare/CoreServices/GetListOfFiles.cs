@@ -17,7 +17,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.SecureFileShare.CoreServices
                 var configDictionary = new Configuration().GetConfiguration();
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
                 var apiInstance = new SecureFileShareApi(clientConfig);
-                var result = apiInstance.GetFileDetails(startDate, endDate, organizationId);
+                var result = apiInstance.GetFileDetail(startDate, endDate, organizationId);
                 Console.WriteLine(result);
             }
             catch (Exception e)
