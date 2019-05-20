@@ -2,7 +2,7 @@ language:
     csharp
 
 install:
-    - nuget restore SampleCode.sln
+    - nuget restore cybersource-rest-samples-csharp.sln
     
 script:
     - xbuild ./src/SampleCode.csproj 
