@@ -8,7 +8,7 @@ using CyberSource.Model;
 
 namespace Cybersource_rest_samples_dotnet.Samples.DecisionManager.CoreServices
 {
-    public class CreateDecisionManagerRequest
+    public class CreateDecisionManagerCase
     {
         public static RiskV1DecisionsPost201Response Run()
         {
