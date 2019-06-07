@@ -94,7 +94,7 @@
     <Compile Include="Samples\Authentication\GenerateHttpRequestHeaders\GetGenerateHeaders.cs" />
     <Compile Include="Samples\Authentication\GenerateHttpRequestHeaders\PostGenerateHeaders.cs" />
     <Compile Include="Samples\Authentication\GenerateHttpRequestHeaders\PutGenerateHeaders.cs" />
-    <Compile Include="Samples\DecisionManager\CoreServices\CreateDecisionManagerRequest.cs" />
+    <Compile Include="Samples\DecisionManager\CoreServices\CreateDecisionManagerCase.cs" />
     <Compile Include="Samples\DecisionManager\CoreServices\DecisionProfileReject.cs" />
     <Compile Include="Samples\DecisionManager\CoreServices\DmWithBuyerInformation.cs" />
     <Compile Include="Samples\DecisionManager\CoreServices\DmWithDeviceInformation.cs" />
