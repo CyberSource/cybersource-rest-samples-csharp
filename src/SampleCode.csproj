@@ -105,6 +105,12 @@
     <Compile Include="Samples\Flex\CoreServices\GenerateKey.cs" />
     <Compile Include="Configuration.cs" />
     <Compile Include="Samples\Flex\CoreServices\TokenizeCard.cs" />
+    <Compile Include="Samples\PayerAuthentication\CoreServices\AuthenticationWithNewAccount.cs" />
+    <Compile Include="Samples\PayerAuthentication\CoreServices\AuthenticationWithNoRedirect.cs" />
+    <Compile Include="Samples\PayerAuthentication\CoreServices\CheckPayerAuthEnrollment.cs" />
+    <Compile Include="Samples\PayerAuthentication\CoreServices\EnrollWithTravelInformation.cs" />
+    <Compile Include="Samples\PayerAuthentication\CoreServices\PendingAuthenticationWithUnknownPath.cs" />
+    <Compile Include="Samples\PayerAuthentication\CoreServices\ValidateAuthenticationResults.cs" />
     <Compile Include="Samples\Payments\CoreServices\CapturePayment.cs" />
     <Compile Include="Samples\Payments\CoreServices\ProcessAuthorizationReversal.cs" />
     <Compile Include="Samples\Payments\CoreServices\ProcessCredit.cs" />
