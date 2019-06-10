@@ -75,6 +75,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.PayerAuthentication.CoreServic
             legs1.DepartureDate = "2019-02-21";
             legs.Add(legs1);
 
+			travelInformation.Legs = legs;
             travelInformation.NumberOfPassengers = 2;
             var passengers = new List<Riskv1authenticationsTravelInformationPassengers>();
 
