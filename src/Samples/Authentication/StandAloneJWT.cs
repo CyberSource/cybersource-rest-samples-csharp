@@ -10,10 +10,6 @@ using System.Threading.Tasks;
 
 namespace Cybersource_rest_samples_dotnet.Samples.Authentication
 {
-    /// <summary>
-    /// This class is not expected to run on Linux VMs on Travis CI.
-    /// This sample will not pass due to issues with JWT and keystores on Linux machines.
-    /// </summary>
     public class StandAloneJWT
     {
         private static string merchantID = "testrest";
