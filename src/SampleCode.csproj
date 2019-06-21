@@ -94,6 +94,8 @@
     <Compile Include="Samples\Authentication\GenerateHttpRequestHeaders\GetGenerateHeaders.cs" />
     <Compile Include="Samples\Authentication\GenerateHttpRequestHeaders\PostGenerateHeaders.cs" />
     <Compile Include="Samples\Authentication\GenerateHttpRequestHeaders\PutGenerateHeaders.cs" />
+    <Compile Include="Samples\Authentication\StandAloneHttpSignature.cs" />
+    <Compile Include="Samples\Authentication\StandAloneJWT.cs" />
     <Compile Include="Samples\DecisionManager\CoreServices\CreateDecisionManagerCase.cs" />
     <Compile Include="Samples\DecisionManager\CoreServices\DecisionProfileReject.cs" />
     <Compile Include="Samples\DecisionManager\CoreServices\DmWithBuyerInformation.cs" />

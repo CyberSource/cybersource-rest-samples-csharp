@@ -7,4 +7,5 @@ install:
 script:
     - xbuild ./src/SampleCode.csproj
     - chmod a+x ./src/SampleCode.exe
-    - ./src/SampleCode.exe RunAll
+    - cd ./src
+    - ./SampleCode.exe RunAll

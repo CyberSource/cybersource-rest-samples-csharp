@@ -1,50 +1,43 @@
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.IO;
-using System.Linq;
-using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Security.AccessControl;
 using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
 
-namespace CybsJWTSample
+namespace Cybersource_rest_samples_dotnet.Samples.Authentication
 {
-    class Program
+    /// <summary>
+    /// This class is not expected to run on Linux VMs on Travis CI.
+    /// This sample will not pass due to issues with JWT and keystores on Linux machines.
+    /// </summary>
+    public class StandAloneJWT
     {
-        static HttpClient client = new HttpClient();
-        static String merchantID = "testrest";
+        private static string merchantID = "testrest";
+        private static string requestHost = "apitest.cybersource.com";
 
         /// <summary>
         /// This is standalone code that show cases how to generate headers for CyberSource REST API - POST and GET calls.
         /// This sample code has sample Mercahnt credentails (testrest) with .p12(At same dir level) that you can also use for testing.
         /// CyberSource Business Center - https://ebc2test.cybersource.com/ebc2/
         /// Instructions on generating your own .P12 from CyberSource Business Center - https://developer.cybersource.com/api/developer-guides/dita-gettingstarted/authentication/createCertSharedKey.html
-        /// Also,To understand details about CyberSource JWT headers, please check Authentication guide - https://developer.cybersource.com/api/developer-guides/dita-gettingstarted/authentication/GenerateHeader/jwtTokenAuthentication.html 
-        /// This is the main method for the console application.
-        /// This sample app demonstrates calling the CyberSource REST API to fetch report and charge a credit card 
+        /// Also,To understand details about CyberSource JWT headers, please check Authentication guide - https://developer.cybersource.com/api/developer-guides/dita-gettingstarted/authentication/GenerateHeader/jwtTokenAuthentication.html
+        /// This sample app demonstrates calling the CyberSource REST API to fetch report and charge a credit card
         /// including building the JWT token for API authentication
         /// </summary>
-        /// <param name="args"></param>
-        static void Main(string[] args)
+        public static void Run()
         {
-            Console.WriteLine("Calling CyberSource to Authorize a Credit Card ...");
-
             RunAsync().Wait();
-
         }
-
 
         /// <summary>
         /// This method defines the API requests and then makes the individual calls to complete the payment transactions.
         /// </summary>
-        /// <returns></returns>
-        static async Task RunAsync()
+        /// <returns>Task</returns>
+        public static async Task RunAsync()
         {
             try
             {
@@ -83,74 +76,80 @@ namespace CybsJWTSample
                 "  }\n" +
                 "}";
                 var statusCode = await CallCyberSourceAPI(request);
-                Console.WriteLine(string.Format("Created (HTTP Status = {0})", (int)statusCode));
+                Console.WriteLine(string.Format("STATUS : CREATED (HTTP Status = {0})", (int)statusCode));
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message);
+                Console.WriteLine("ERROR : " + e.Message);
             }
-            Console.WriteLine("Press Return to end...");
-            Console.ReadLine();
         }
 
         /// <summary>
         /// This demonstrates what a generic API request helper method would look like.
         /// </summary>
-        /// <param name="request"></param>
-        /// <returns></returns>
-        
-        static async Task<TaskStatus> CallCyberSourceAPI(String request)
+        /// <param name="request">Request to send to API endpoint<</param>
+        /// <returns>Task</returns>
+        public static async Task<TaskStatus> CallCyberSourceAPI(string request)
         {
             TaskStatus responseCode;
-            // GET Call - Reporting API.
-            using(var client = new HttpClient())
-            {
-                var jwtToken = GenerateJWT(request, "GET");
-                Console.Write("jwtToken :" + jwtToken);
-                client.DefaultRequestHeaders
-                    .Accept
-                    .Add(new MediaTypeWithQualityHeaderValue("application/hal+json"));//ACCEPT header
-                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", jwtToken);
 
-                using (var r = await client.GetAsync(new Uri("https://apitest.cybersource.com/reporting/v3/reports?startTime=2018-10-01T00:00:00.0Z&endTime=2018-10-30T23:59:59.0Z&timeQueryType=executedTime&reportMimeType=application/xml")))
-                {
-                    string result = await r.Content.ReadAsStringAsync();
-                    Console.Write("GetResponse :" + result);
-                }
-            }
-            
-            //POST Call
+            // HTTP GET request
             using (var client = new HttpClient())
             {
+                string resource = "/reporting/v3/reports?startTime=2018-10-01T00:00:00.0Z&endTime=2018-10-30T23:59:59.0Z&timeQueryType=executedTime&reportMimeType=application/xml";
+
+                Console.WriteLine("\nSample 1: GET call - CyberSource Reporting API");
+                Console.WriteLine(" -- RequestURL -- ");
+                Console.WriteLine("\tURL : " + "https://" + requestHost + resource);
+
+                var jwtToken = GenerateJWT(request, "GET");
+                client.DefaultRequestHeaders
+                    .Accept
+                    .Add(new MediaTypeWithQualityHeaderValue("application/hal+json")); // ACCEPT header
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", jwtToken);
+
+                using (var r = await client.GetAsync(new Uri("https://" + requestHost + resource)))
+                {
+                    string result = await r.Content.ReadAsStringAsync();
+                    Console.WriteLine("\n -- Response Message --\n\n" + result);
+                }
+            }
+
+            // HTTP POST request
+            using (var client = new HttpClient())
+            {
+                string resource = "/pts/v2/payments";
+
+                Console.WriteLine("\n\nSample 2: POST call - CyberSource Payments API - Authorize a Credit Card");
+                Console.WriteLine(" -- RequestURL -- ");
+                Console.WriteLine("\tURL : " + "https://" + requestHost + resource);
+
                 var jwtToken = GenerateJWT(request, "POST");
 
                 StringContent content = new StringContent(request);
                 content.Headers.ContentType = new MediaTypeHeaderValue("application/json"); // Content-Type header
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", jwtToken);
 
-                var response = await client.PostAsync("https://apitest.cybersource.com/pts/v2/payments",
-                    content);
-                responseCode = (TaskStatus) response.StatusCode;
+                var response = await client.PostAsync("https://" + requestHost + resource, content);
+                responseCode = (TaskStatus)response.StatusCode;
                 string responseContent = await response.Content.ReadAsStringAsync();
-                Console.Write("POSTResponse :" + responseContent);
+                Console.WriteLine("\n -- Response Message --\n\n" + responseContent + "\n");
             }
+
             return responseCode;
         }
-
 
         /// <summary>
         /// This method demonstrates the creation of the JWT Authentication credential
         /// Takes Request Paylaod and Http method(GET/POST) as input.
         /// </summary>
-        /// <param name="request"></param>
-        /// <param name="method"></param> 
-        /// <returns></returns>
-        
-        static String GenerateJWT(String request, String method)
+        /// <param name="request">Value from which to generate JWT</param>
+        /// <param name="method">The HTTP Verb that is needed for generating the credential</param>
+        /// <returns>String containing the JWT Authentication credential</returns>
+        public static string GenerateJWT(string request, string method)
         {
-            
-            String digest;
-            String token = "TOKEN_PLACEHOLDER";
+            string digest;
+            string token = "TOKEN_PLACEHOLDER";
 
             try
             {
@@ -160,32 +159,38 @@ namespace CybsJWTSample
                     byte[] payloadBytes = sha256Hash.ComputeHash(Encoding.ASCII.GetBytes(request));
                     digest = Convert.ToBase64String(payloadBytes);
                 }
-                
-                Console.Write("Method:: " + method);
+
+                Console.WriteLine("\tMethod : " + method);
+
                 // Create the JWT payload (aka claimset / JWTBody)
                 string jwtBody = "0";
-                if(method.Equals("POST"))
-                    jwtBody = "{\n            \"digest\":\"" + digest + "\", \"digestAlgorithm\":\"SHA-256\", \"iat\":\"" + DateTime.Now.ToUniversalTime().ToString("r") + "\"}";
-                else if (method.Equals("GET"))
-                    jwtBody = "{ \"iat\":\"" + DateTime.Now.ToUniversalTime().ToString("r") + "\"}";
 
-                Console.WriteLine("JWT BODY : " + jwtBody);
+                if (method.Equals("POST"))
+                {
+                    jwtBody = "{\n\"digest\":\"" + digest + "\", \"digestAlgorithm\":\"SHA-256\", \"iat\":\"" + DateTime.Now.ToUniversalTime().ToString("r") + "\"}";
+                }
+                else if (method.Equals("GET"))
+                {
+                    jwtBody = "{\"iat\":\"" + DateTime.Now.ToUniversalTime().ToString("r") + "\"}";
+                }
+
+                Console.WriteLine("\tJWT BODY : " + jwtBody);
 
                 // P12 certificate public key is sent in the header and the private key is used to sign the token
-                X509Certificate2 x5Cert = new X509Certificate2("..\\..\\testrest.p12", merchantID);
-                
-                //Extracting Public Key from .p12 file
+                X509Certificate2 x5Cert = new X509Certificate2(Path.Combine($"Resource", $"testrest.p12"), merchantID);
+
+                // Extracting Public Key from .p12 file
                 string x5cPublicKey = Convert.ToBase64String(x5Cert.RawData);
-                
-                //Extracting Private Key from .p12 file
-                var privateKey = RSACertificateExtensions.GetRSAPrivateKey(x5Cert);
-                
-                //Extracting serialNumber 
-                String serialNumber = null;
-                String serialNumberPrefix = "SERIALNUMBER=";
-                
-                String principal = x5Cert.Subject;
-                
+
+                // Extracting Private Key from .p12 file
+                var privateKey = x5Cert.GetRSAPrivateKey();
+
+                // Extracting serialNumber
+                string serialNumber = null;
+                string serialNumberPrefix = "SERIALNUMBER=";
+
+                string principal = x5Cert.Subject;
+
                 int beg = principal.IndexOf(serialNumberPrefix);
                 if (beg >= 0)
                 {
@@ -194,35 +199,35 @@ namespace CybsJWTSample
                     {
                         x5cBase64List = principal.Length;
                     }
-                    serialNumber = principal.Substring(serialNumberPrefix.Length,
-                        x5cBase64List - serialNumberPrefix.Length);
+
+                    serialNumber = principal.Substring(serialNumberPrefix.Length, x5cBase64List - serialNumberPrefix.Length);
                 }
-                
-                // Create the JWT Header custom fields 
-                var x5cList = new List<String>()
+
+                // Create the JWT Header custom fields
+                var x5cList = new List<string>()
                 {
                     x5cPublicKey
                 };
                 var cybsHeaders = new Dictionary<string, object>()
                 {
                     { "v-c-merchant-id", merchantID },
-                    { "x5c", x5cList },
-					{ "kid", serialNumber }
+                    { "x5c", x5cList } // ,
+                    // { "kid", serialNumber }
                 };
 
-                // JWT token is Header plus the Body plus the Signature of the Header & Body 
+                // JWT token is Header plus the Body plus the Signature of the Header & Body
                 // Here the Jose-JWT helper library (https://github.com/dvsekhvalnov/jose-jwt) is used create the JWT
                 token = Jose.JWT.Encode(jwtBody, privateKey, Jose.JwsAlgorithm.RS256, cybsHeaders);
-                
-                // Writing Generated Token to file.    
-                File.WriteAllText("..\\..\\..\\jwsToken.txt", token);
+
+                // Writing Generated Token to file.
+                File.WriteAllText(Path.Combine($"Resource", $"jwsToken.txt"), token);
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Oops : " + ex.ToString());
+                Console.WriteLine("ERROR : " + ex.ToString());
             }
 
-            Console.WriteLine("TOKEN : " + token);
+            Console.WriteLine(" -- Token --\n\n" + token + "\n");
             return token;
         }
     }
