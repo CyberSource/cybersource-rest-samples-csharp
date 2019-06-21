@@ -17,7 +17,8 @@ install:
 
 before_script:
     - MSBuild.exe cybersource-rest-samples-csharp.sln
-    - dir src
+    - cd src
     
 script:
-    - cd src && SampleCode.exe RunAll
+    - dir
+    - SampleCode.exe RunAll
