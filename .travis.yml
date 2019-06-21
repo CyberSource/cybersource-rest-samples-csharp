@@ -20,5 +20,5 @@ before_script:
     - dir src
     
 script:
-    - cd ./src
+    - cd src
     - SampleCode.exe RunAll
