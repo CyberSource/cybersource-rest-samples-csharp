@@ -43,7 +43,7 @@
       <HintPath>..\packages\CyberSource.Authentication.0.0.0.4\lib\AuthenticationSdk.dll</HintPath>
     </Reference>
     <Reference Include="cybersource-rest-client-dotnet">
-      <HintPath>..\packages\CyberSource.Rest.Client.0.0.0.7\lib\cybersource-rest-client-dotnet.dll</HintPath>
+      <HintPath>..\packages\CyberSource.Rest.Client.0.0.0.8\lib\cybersource-rest-client-dotnet.dll</HintPath>
     </Reference>
     <Reference Include="FlexServerSDK, Version=0.2.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\CyberSource.Flex.Server.0.2.1\lib\FlexServerSDK.dll</HintPath>
@@ -105,6 +105,12 @@
     <Compile Include="Samples\Flex\CoreServices\GenerateKey.cs" />
     <Compile Include="Configuration.cs" />
     <Compile Include="Samples\Flex\CoreServices\TokenizeCard.cs" />
+    <Compile Include="Samples\PayerAuthentication\CoreServices\AuthenticationWithNewAccount.cs" />
+    <Compile Include="Samples\PayerAuthentication\CoreServices\AuthenticationWithNoRedirect.cs" />
+    <Compile Include="Samples\PayerAuthentication\CoreServices\CheckPayerAuthEnrollment.cs" />
+    <Compile Include="Samples\PayerAuthentication\CoreServices\EnrollWithTravelInformation.cs" />
+    <Compile Include="Samples\PayerAuthentication\CoreServices\PendingAuthenticationWithUnknownPath.cs" />
+    <Compile Include="Samples\PayerAuthentication\CoreServices\ValidateAuthenticationResults.cs" />
     <Compile Include="Samples\Payments\CoreServices\CapturePayment.cs" />
     <Compile Include="Samples\Payments\CoreServices\ProcessAuthorizationReversal.cs" />
     <Compile Include="Samples\Payments\CoreServices\ProcessCredit.cs" />
