@@ -215,8 +215,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Authentication
                 var cybsHeaders = new Dictionary<string, object>()
                 {
                     { "v-c-merchant-id", merchantID },
-                    { "x5c", x5cList } // ,
-                    // { "kid", serialNumber }
+                    { "x5c", x5cList } 
                 };
 
                 // JWT token is Header plus the Body plus the Signature of the Header & Body
