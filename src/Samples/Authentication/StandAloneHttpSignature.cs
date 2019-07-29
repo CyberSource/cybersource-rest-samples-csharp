@@ -1,56 +1,40 @@
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.IO;
-using System.Linq;
-using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Security.AccessControl;
 using System.Security.Cryptography;
-using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
 
-namespace httpSignature
+namespace Cybersource_rest_samples_dotnet.Samples.Authentication
 {
-    class Program
+    public class StandAloneHttpSignature
     {
-        static HttpClient client = new HttpClient();
+        // Try with your own credentaials
+        // Get Key ID, Secret Key and Merchant Id from EBC portal
+        private static string merchantID = "testrest";
+        private static string merchantKeyId = "08c94330-f618-42a3-b09d-e1e43be5efda";
+        private static string merchantsecretKey = "yBJxy6LjM2TmcPGu+GaJrHtkke25fPpUX+UY6/L/1tE=";
+        private static string requestHost = "apitest.cybersource.com";
 
-        /* Try with your own credentaials
-         * get  Key ID, Secret Key and Merchant Id from EBC portal*/
-        static String merchantID = "testrest";
-        static String merchantKeyId = "08c94330-f618-42a3-b09d-e1e43be5efda";
-        static String merchantsecretKey = "yBJxy6LjM2TmcPGu+GaJrHtkke25fPpUX+UY6/L/1tE=";
-        static String requestHost = "apitest.cybersource.com";
-
-        /* <summary>
-         * This is the main method for the console application.
-         * This Example illustrate two tests - HTTP get and post method with Cybersource Payments API.
-         * Each test will caluate HTTP Signature Digest and Authenticate Cybersource Payments API using HTTP Client 
-         * </summary>
-         * <param name="args"></param> */
-        static void Main(string[] args)
+        /// <summary>
+        /// This Example illustrate two tests - HTTP get and post method with Cybersource Payments API.
+        /// Each test will caluate HTTP Signature Digest and Authenticate Cybersource Payments API using HTTP Client
+        /// CyberSource Business Center - https://ebc2test.cybersource.com/ebc2/
+        /// </summary>
+        public static void Run()
         {
             RunAsync().Wait();
-
         }
 
-        /* <summary>
-         * This method defines the API requests and then makes the individual calls to complete the payment transactions.
-         * </summary>
-         * <returns></returns> */
-        static async Task RunAsync()
+        /// <summary>
+        /// This method defines the API requests and then makes the individual calls to complete the payment transactions.
+        /// </summary>
+        /// <returns>Task</returns>
+        public static async Task RunAsync()
         {
             try
             {
-                //string readText = File.ReadAllText("..\\request.json", Encoding.getEncoding("UTF-8"));
-                //Console.OutputEncoding = Encoding.UTF8;
-                //Console.WriteLine("readText1::" + readText);
-
-
                 string body = "{\n" +
                 "  \"clientReferenceInformation\": {\n" +
                 "    \"code\": \"TC50171_3\"\n" +
@@ -86,185 +70,182 @@ namespace httpSignature
                 "  }\n" +
                 "}";
                 var statusCode = await CallCyberSourceAPI(body);
-                Console.WriteLine(string.Format("Created (HTTP Status = {0})", (int)statusCode));
+                Console.WriteLine(string.Format("\nSTATUS : CREATED (HTTP Status = {0})", (int)statusCode));
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
             }
-            Console.WriteLine("Press Return to end...");
-            Console.ReadLine();
         }
 
         /// <summary>
         /// This demonstrates what a generic API request helper method would look like.
         /// </summary>
-        /// <param name="request"></param>
-        /// <returns></returns>
-        static async Task<TaskStatus> CallCyberSourceAPI(String request)
+        /// <param name="request">Request to send to API endpoint</param>
+        /// <returns>Task</returns>
+        public static async Task<TaskStatus> CallCyberSourceAPI(string request)
         {
             TaskStatus responseCode;
-            // HTTP get request
+
+            // HTTP GET request
             using (var client = new HttpClient())
             {
-
                 string resource = "/reporting/v3/reports?startTime=2018-10-01T00:00:00.0Z&endTime=2018-10-30T23:59:59.0Z&timeQueryType=executedTime&reportMimeType=application/xml";
 
                 /* Add Request Header :: "v-c-merchant-id" set value to Cybersource Merchant ID or v-c-merchant-id
-                 * This ID can be found on EBC portal */
+                 * This ID can be found on EBC portal.
+                 */
                 client.DefaultRequestHeaders.Add("v-c-merchant-id", merchantID);
 
                 /* Add Request Header :: "Date" The date and time that the message was originated from.
-                 * "HTTP-date" format as defined by RFC7231. */
-                String gmtDateTime = DateTime.Now.ToUniversalTime().ToString("r");
+                 * "HTTP-date" format as defined by RFC7231.
+                 */
+                string gmtDateTime = DateTime.Now.ToUniversalTime().ToString("r");
                 client.DefaultRequestHeaders.Add("Date", gmtDateTime);
 
                 /* Add Request Header :: "Host"
                  * Sandbox Host: apitest.cybersource.com
-                 * Production Host: api.cybersource.com */
+                 * Production Host: api.cybersource.com
+                 */
                 client.DefaultRequestHeaders.Add("Host", requestHost);
 
                 /* Add Request Header :: "Signature"
                  * Signature header contains keyId, algorithm, headers and signature as paramters
-                 * method getSignatureHeader() has more details */
-                StringBuilder signature = GenerateSignature(request, "", "", gmtDateTime, "get", resource);
+                 * method getSignatureHeader() has more details
+                 */
+                StringBuilder signature = GenerateSignature(request, string.Empty, string.Empty, gmtDateTime, "get", resource);
                 client.DefaultRequestHeaders.Add("Signature", signature.ToString());
 
-                Console.Write("\n Sample1: GET call - CyberSource Reporting API");
-                Console.Write("\n RequestURL -- ");
-                Console.Write("\nURL : " + "https://" + requestHost + resource);
-                Console.Write("\nMethod:: " + "get");
-                Console.Write("\n\n -- HTTP Header -- ");
-                Console.Write("\nv-c-merchant-id :" + merchantID);
-                Console.Write("\nDate :" + gmtDateTime);
-                Console.Write("\nHost :" + requestHost);
-                Console.Write("\nSignature :" + signature.ToString());
-                Console.Write("\n\n -- Response Message -- ");
+                Console.WriteLine("\nSample 1: GET call - CyberSource Reporting API");
+                Console.WriteLine(" -- RequestURL -- ");
+                Console.WriteLine("\tURL : " + "https://" + requestHost + resource);
+                Console.WriteLine("\tMethod : GET");
+                Console.WriteLine(" -- HTTP Headers -- ");
+                Console.WriteLine("\tv-c-merchant-id : " + merchantID);
+                Console.WriteLine("\tDate : " + gmtDateTime);
+                Console.WriteLine("\tHost : " + requestHost);
+                Console.WriteLine("\tSignature : " + signature.ToString());
+                Console.WriteLine("\n -- Response Message --\n");
 
                 using (var r = await client.GetAsync(new Uri("https://" + requestHost + resource)))
                 {
                     string result = await r.Content.ReadAsStringAsync();
-                    Console.Write(result);
+                    Console.WriteLine(result);
                     responseCode = (TaskStatus)r.StatusCode;
                 }
             }
 
-            //POST Call
+            // HTTP POST request
             using (var client = new HttpClient())
             {
                 string resource = "/pts/v2/payments";
                 StringContent content = new StringContent(request);
-                Console.WriteLine("REQUEST2::" + await content.ReadAsStringAsync());
 
                 content.Headers.ContentType = new MediaTypeHeaderValue("application/json"); // content-type header
 
                 /* Add Request Header :: "v-c-merchant-id" set value to Cybersource Merchant ID or v-c-merchant-id
-                 * This ID can be found on EBC portal */
+                 * This ID can be found on EBC portal
+                 */
                 client.DefaultRequestHeaders.Add("v-c-merchant-id", merchantID);
 
                 /* Add Request Header :: "Date" The date and time that the message was originated from.
-                 * "HTTP-date" format as defined by RFC7231. */
-                String gmtDateTime = DateTime.Now.ToUniversalTime().ToString("r");
+                 * "HTTP-date" format as defined by RFC7231.
+                 */
+                string gmtDateTime = DateTime.Now.ToUniversalTime().ToString("r");
                 client.DefaultRequestHeaders.Add("Date", gmtDateTime);
 
                 /* Add Request Header :: "Host"
                  * Sandbox Host: apitest.cybersource.com
-                 * Production Host: api.cybersource.com */
+                 * Production Host: api.cybersource.com
+                 */
                 client.DefaultRequestHeaders.Add("Host", requestHost);
 
                 /* Add Request Header :: "Digest"
-                 * Digest is SHA-256 hash of payload that is BASE64 encoded */
+                 * Digest is SHA-256 hash of payload that is BASE64 encoded
+                 */
                 var digest = GenerateDigest(request);
                 client.DefaultRequestHeaders.Add("Digest", digest);
 
-
                 /* Add Request Header :: "Signature"
                  * Signature header contains keyId, algorithm, headers and signature as paramters
-                 * method getSignatureHeader() has more details */
-                StringBuilder signature = GenerateSignature(request, digest, "", gmtDateTime, "post", resource);
+                 * method getSignatureHeader() has more details
+                 */
+                StringBuilder signature = GenerateSignature(request, digest, string.Empty, gmtDateTime, "post", resource);
                 client.DefaultRequestHeaders.Add("Signature", signature.ToString());
 
-                Console.Write("\n\n\n Sample2: POST call - CyberSource Payments API - Authorize a Credit Card");
-             
-                Console.Write("\n RequestURL -- ");
-                Console.Write("\nURL : " + "https://" + requestHost + resource);
-                Console.Write("\nMethod:: " + "post");
-                Console.Write("\nRequest Payload:: \n" + request);
-                Console.Write("\n\n -- HTTP Header -- ");
-                Console.Write("\nv-c-merchant-id :" + merchantID);
-                Console.Write("\nDate :" + gmtDateTime);
-                Console.Write("\nHost :" + requestHost);
-                Console.Write("\nDigest :" + digest);
-                Console.Write("\nSignature :" + signature.ToString());
-                Console.Write("\n\n -- Response Message -- ");
+                Console.WriteLine("\n\nSample 2: POST call - CyberSource Payments API - Authorize a Credit Card");
+                Console.WriteLine(" -- RequestURL -- ");
+                Console.WriteLine("\tURL : " + "https://" + requestHost + resource);
+                Console.WriteLine("\tMethod : POST");
+                Console.WriteLine(" -- Request Payload --\n" + request);
+                Console.WriteLine("\n -- HTTP Headers -- ");
+                Console.WriteLine("\tv-c-merchant-id : " + merchantID);
+                Console.WriteLine("\tDate : " + gmtDateTime);
+                Console.WriteLine("\tHost : " + requestHost);
+                Console.WriteLine("\tDigest : " + digest);
+                Console.WriteLine("\tSignature : " + signature.ToString());
+                Console.WriteLine("\n -- Response Message --\n");
 
-                var response = await client.PostAsync("https://" + requestHost + resource,
-                    content);
+                var response = await client.PostAsync("https://" + requestHost + resource, content);
                 responseCode = (TaskStatus)response.StatusCode;
                 string responsecontent = await response.Content.ReadAsStringAsync();
-                Console.Write(responsecontent);
+                Console.WriteLine(responsecontent);
             }
+
             return responseCode;
         }
 
-
         /// <summary>
-        /// This method return Digest value which is SHA-256 hash of payload that is BASE64 encoded 
+        /// This method return Digest value which is SHA-256 hash of payload that is BASE64 encoded
         /// </summary>
-        /// <param name="request"></param>
-        /// <param name="method"></param> 
-        /// <returns></returns>
-
-        static String GenerateDigest(String request)
+        /// <param name="request">Value from which to generate digest</param>
+        /// <returns>String referring to a digest</returns>
+        public static string GenerateDigest(string request)
         {
-            String digest = "DIGEST_PLACEHOLDER";
-   
+            string digest = "DIGEST_PLACEHOLDER";
+
             try
             {
-                // Generate the Digest 
+                // Generate the Digest
                 using (SHA256 sha256Hash = SHA256.Create())
                 {
                     byte[] payloadBytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(request));
                     digest = Convert.ToBase64String(payloadBytes);
                     digest = "SHA-256=" + digest;
                 }
-
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Oops : " + ex.ToString());
+                Console.WriteLine("ERROR : " + ex.ToString());
             }
 
             return digest;
         }
 
-        /* This method returns value for paramter Signature which is then passed to Signature header
-         * paramter 'Signature' is calucated based on below key values and then signed with SECRET KEY -
-         * host: Sandbox (apitest.cybersource.com) or Production (api.cybersource.com) hostname
-         * date: "HTTP-date" format as defined by RFC7231.
-         * (request-target): Should be in format of httpMethod: path
-              Example: "post /pts/v2/payments"
-         * Digest: Only needed for POST calls.
-              digestString = BASE64( HMAC-SHA256 ( Payload ));
-              Digest: “SHA-256=“ + digestString;
-         * v-c-merchant-id: set value to Cybersource Merchant ID
-              This ID can be found on EBC portal*/
-
-        static StringBuilder GenerateSignature(String request, String digest, String keyid, String gmtDateTime,  String method, string resource)
+        // This method returns value for paramter Signature which is then passed to Signature header
+        // paramter 'Signature' is calucated based on below key values and then signed with SECRET KEY -
+        // host: Sandbox (apitest.cybersource.com) or Production (api.cybersource.com) hostname
+        // date: "HTTP-date" format as defined by RFC7231.
+        // (request-target): Should be in format of httpMethod: path
+        //    Example: "post /pts/v2/payments"
+        // Digest: Only needed for POST calls.
+        //    digestString = BASE64( HMAC-SHA256 ( Payload ));
+        //    Digest: “SHA-256=“ + digestString;
+        // v-c-merchant-id: set value to Cybersource Merchant ID
+        //    This ID can be found on EBC portal
+        public static StringBuilder GenerateSignature(string request, string digest, string keyid, string gmtDateTime, string method, string resource)
         {
             StringBuilder signatureHeaderValue = new StringBuilder();
-            String algorithm = "HmacSHA256";
-            String postHeaders = "host date (request-target) digest v-c-merchant-id";
-            String getHeaders = "host date (request-target) v-c-merchant-id";
-            String url = "https://"+ requestHost + resource;
-            String getRequestTarget = method + " "+resource;
-            String postRequestTarget = method + " " +resource;
-            
+            string algorithm = "HmacSHA256";
+            string postHeaders = "host date (request-target) digest v-c-merchant-id";
+            string getHeaders = "host date (request-target) v-c-merchant-id";
+            string url = "https://" + requestHost + resource;
+            string getRequestTarget = method + " " + resource;
+            string postRequestTarget = method + " " + resource;
+
             try
             {
-
-                // Generate the Signature       
-
+                // Generate the Signature
                 StringBuilder signatureString = new StringBuilder();
                 signatureString.Append('\n');
                 signatureString.Append("host");
@@ -277,7 +258,9 @@ namespace httpSignature
                 signatureString.Append('\n');
                 signatureString.Append("(request-target)");
                 signatureString.Append(": ");
-                if (method.Equals("post")) {
+
+                if (method.Equals("post"))
+                {
                     signatureString.Append(postRequestTarget);
                     signatureString.Append('\n');
                     signatureString.Append("digest");
@@ -285,56 +268,61 @@ namespace httpSignature
                     signatureString.Append(digest);
                 }
                 else
+                {
                     signatureString.Append(getRequestTarget);
+                }
+
                 signatureString.Append('\n');
                 signatureString.Append("v-c-merchant-id");
                 signatureString.Append(": ");
                 signatureString.Append(merchantID);
                 signatureString.Remove(0, 1);
-                
-                byte[] signatureByteString = System.Text.Encoding.UTF8.GetBytes(signatureString.ToString());
+
+                byte[] signatureByteString = Encoding.UTF8.GetBytes(signatureString.ToString());
 
                 byte[] decodedKey = Convert.FromBase64String(merchantsecretKey);
 
                 HMACSHA256 aKeyId = new HMACSHA256(decodedKey);
 
-                byte[] hashmessage  = aKeyId.ComputeHash(signatureByteString);
-                String base64EncodedSignature = Convert.ToBase64String(hashmessage);
-        
+                byte[] hashmessage = aKeyId.ComputeHash(signatureByteString);
+                string base64EncodedSignature = Convert.ToBase64String(hashmessage);
+
                 signatureHeaderValue.Append("keyid=\"" + merchantKeyId + "\"");
-                signatureHeaderValue.Append(", algorithm=\""+ algorithm + "\"");
-                if (method.Equals("post")){
+                signatureHeaderValue.Append(", algorithm=\"" + algorithm + "\"");
+
+                if (method.Equals("post"))
+                {
                     signatureHeaderValue.Append(", headers=\"" + postHeaders + "\"");
                 }
                 else if (method.Equals("get"))
                 {
                     signatureHeaderValue.Append(", headers=\"" + getHeaders + "\"");
                 }
+
                 signatureHeaderValue.Append(", signature=\"" + base64EncodedSignature + "\"");
 
-                
-                // Writing Generated Token to file.    
-                File.WriteAllText("..\\signatureHeaderValue.txt", signatureHeaderValue.ToString());
+                // Writing Generated Token to file.
+                File.WriteAllText(@".\Resource\" + "signatureHeaderValue.txt", signatureHeaderValue.ToString());
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Oops : " + ex.ToString());
+                Console.WriteLine("ERROR : " + ex.ToString());
             }
 
             return signatureHeaderValue;
         }
 
-   
-        /*converts byte to encrypted string*/
+        // Converts byte to encrypted string
         public static string ByteToString(byte[] buff)
         {
-            string sbinary = "";
+            string sbinary = string.Empty;
 
             for (int i = 0; i < buff.Length; i++)
             {
                 sbinary += buff[i].ToString("X2"); // hex format
             }
-            return (sbinary);
+
+            return sbinary;
         }
     }
 }

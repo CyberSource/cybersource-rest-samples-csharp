@@ -1,10 +1,24 @@
-language:
-    csharp
+os: 
+    windows
+    
+language: 
+    cpp
+  
+before_install:
+    - powershell -c "Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope LocalMachine"
+    - powershell -c "Import-Module PackageManagement; Install-PackageProvider Nuget"
+    - powershell -c "Import-Module PackageManagement; Register-PackageSource -Name NuGetOrg -Location https://www.nuget.org/api/v2 -ProviderName NuGet"
+    - powershell -c "Import-Module PackageManagement; Install-Package -Source NuGetOrg -Name NuGet.CommandLine -Force -ExcludeVersion -Destination C:\tools"
+    - export PATH="c:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools\MSBuild\15.0\Bin":$PATH
+    - export PATH="c:\tools\NuGet.CommandLine\tools":$PATH
 
 install:
     - nuget restore cybersource-rest-samples-csharp.sln
+
+before_script:
+    - MSBuild.exe cybersource-rest-samples-csharp.sln
+    - cd src
     
 script:
-    - xbuild ./src/SampleCode.csproj
-    - chmod a+x ./src/SampleCode.exe
-    - ./src/SampleCode.exe RunAll
+    - dir
+    - ./SampleCode.exe RunAll
