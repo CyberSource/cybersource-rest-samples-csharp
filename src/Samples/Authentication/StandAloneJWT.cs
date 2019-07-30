@@ -73,7 +73,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Authentication
                 "}";
                 var statusCode = await CallCyberSourceAPI(request);
 
-                if (statusCode == 0)
+                if ((int)statusCode >= 200 && (int)statusCode <= 299)
                 {
                     Console.WriteLine(string.Format("STATUS : SUCCESS (HTTP Status = {0})", (int)statusCode));
                 }

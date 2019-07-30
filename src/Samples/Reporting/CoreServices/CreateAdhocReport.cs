@@ -21,7 +21,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Reporting.CoreServices
                         "Request.TransactionDate",
                         "Request.MerchantID"
                     },
-                    ReportMimeType = RequestBody.ReportMimeTypeEnum.ApplicationXml,
+                    ReportMimeType = "application/xml",
                     ReportName = Utilities.RandomString(17),
                     Timezone = "GMT",
                     ReportStartTime = DateTime.ParseExact("2018-09-01T12:00:00Z", "yyyy-MM-ddTHH:mm:ssZ", CultureInfo.InvariantCulture),
@@ -31,7 +31,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Reporting.CoreServices
                 var reportPreferencesObj = new Reportingv3reportsReportPreferences()
                 {
                     SignedAmounts = true,
-                    FieldNameConvention = Reportingv3reportsReportPreferences.FieldNameConventionEnum.SOAPI
+                    FieldNameConvention = "SOAPI"
                 };
 
                 requestObj.ReportPreferences = reportPreferencesObj;

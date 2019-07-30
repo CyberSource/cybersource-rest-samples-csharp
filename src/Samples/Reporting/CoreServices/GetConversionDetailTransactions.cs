@@ -16,7 +16,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Reporting.CoreServices
                 var configDictionary = new Configuration().GetConfiguration();
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
                 var apiInstance = new ConversionDetailsApi(clientConfig);
-                var organizationId = "testrest";
+                string organizationId = null; //  "testrest";
 
                 var result = apiInstance.GetConversionDetail(startTime, endTime, organizationId);
                 Console.WriteLine(result);

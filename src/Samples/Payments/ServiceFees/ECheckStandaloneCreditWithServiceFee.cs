@@ -26,10 +26,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments.ServiceFees
             requestObj.ProcessingInformation = processingInformation;
 
             var v2PaymentsOrderInformationObj = new Ptsv2paymentsidrefundsOrderInformation();
-            var v2paymentsOrderInformationBillToCompany = new Ptsv2paymentsOrderInformationBillToCompany
-            {
-                Name = "Visa"
-            };
+            var v2paymentsOrderInformationBillToCompany = "Visa";
             var v2PaymentsOrderInformationBillToObj = new Ptsv2paymentsidcapturesOrderInformationBillTo
             {
                 Country = "US",
