@@ -17,7 +17,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TMS.CoreServices
             (
                 ExpirationMonth: "09",
                 ExpirationYear: "2022",
-                Type: TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedCard.TypeEnum.Visa
+                Type: "visa"
             );
 
             requestObj.Card = cardObj;

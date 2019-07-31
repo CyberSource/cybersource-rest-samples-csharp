@@ -14,10 +14,10 @@ namespace Cybersource_rest_samples_dotnet.Samples.Reporting.CoreServices
 
             var request = new RequestBody1(
                 ReportDefinitionName: "TransactionRequestClass",
-                ReportMimeType: RequestBody1.ReportMimeTypeEnum.ApplicationXml,
+                ReportMimeType: "application/xml",
                 ReportFields: new List<string>() {"Request.RequestID", "Request.TransactionDate", "Request.MerchantID"},
                 ReportName: reportName,
-                ReportFrequency: RequestBody1.ReportFrequencyEnum.WEEKLY,
+                ReportFrequency: "WEEKLY",
                 Timezone: "GMT",
                 StartTime: "0115",
                 StartDay: 1);

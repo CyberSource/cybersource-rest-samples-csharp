@@ -60,7 +60,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.DecisionManager.CoreServices
             var personalIdentification = new List<Ptsv2paymentsBuyerInformationPersonalIdentification>();
 
             var personalIdentification0 = new Ptsv2paymentsBuyerInformationPersonalIdentification();
-            personalIdentification0.Type = Ptsv2paymentsBuyerInformationPersonalIdentification.TypeEnum.CPF;
+            personalIdentification0.Type = "CPF";
             personalIdentification0.Id = "1a23apwe98";
             personalIdentification.Add(personalIdentification0);
 

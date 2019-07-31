@@ -69,8 +69,17 @@ namespace Cybersource_rest_samples_dotnet.Samples.Authentication
                 "    }\n" +
                 "  }\n" +
                 "}";
+
                 var statusCode = await CallCyberSourceAPI(body);
-                Console.WriteLine(string.Format("\nSTATUS : CREATED (HTTP Status = {0})", (int)statusCode));
+
+                if ((int)statusCode >= 200 && (int)statusCode <= 299)
+                {
+                    Console.WriteLine(string.Format("STATUS : SUCCESS (HTTP Status = {0})", (int)statusCode));
+                }
+                else
+                {
+                    Console.WriteLine(string.Format("STATUS : ERROR (HTTP Status = {0})", (int)statusCode));
+                }
             }
             catch (Exception e)
             {
