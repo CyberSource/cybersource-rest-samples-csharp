@@ -7,7 +7,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TransactionSearch.CoreServices
     {
         public static void Run()
         {
-            var id = "1310577b-0d78-40a6-8185-acf77d29ed1e";
+            var id = "a50bdca7-8f76-499a-b5a6-be2df06afe1b";
 
             try
             {
