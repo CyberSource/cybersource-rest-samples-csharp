@@ -42,9 +42,8 @@
     <Reference Include="AuthenticationSdk">
       <HintPath>..\packages\CyberSource.Authentication.0.0.0.4\lib\AuthenticationSdk.dll</HintPath>
     </Reference>
-    <Reference Include="cybersource-rest-client-dotnet, Version=0.0.0.8, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\cybersource-rest-client-dotnet\bin\Debug\cybersource-rest-client-dotnet.dll</HintPath>
+    <Reference Include="cybersource-rest-client-dotnet">
+      <HintPath>..\packages\CyberSource.Rest.Client.0.0.0.9\lib\cybersource-rest-client-dotnet.dll</HintPath>
     </Reference>
     <Reference Include="FlexServerSDK, Version=0.2.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\CyberSource.Flex.Server.0.2.1\lib\FlexServerSDK.dll</HintPath>
