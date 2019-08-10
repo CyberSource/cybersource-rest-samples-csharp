@@ -23,7 +23,7 @@ namespace RoadRunner
 
         public IEnumerable<object[]> GetData(MethodInfo methodInfo)
         {
-            string jsonContent = File.ReadAllText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "executor2.json"));
+            string jsonContent = File.ReadAllText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "executor.json"));
             var roads = JObject.Parse(jsonContent);
 
             Assembly assembly = Assembly.LoadFile(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "SampleCode.dll"));
