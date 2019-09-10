@@ -19,15 +19,6 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments.CoreServices
 
             requestObj.ClientReferenceInformation = clientReferenceInformationObj;
 
-            var pointOfSaleInformationObj = new Ptsv2paymentsidcapturesPointOfSaleInformation
-            {
-                CardPresent = false,
-                CatLevel = "6",
-                TerminalCapability = "4"
-            };
-
-            requestObj.PointOfSaleInformation = pointOfSaleInformationObj;
-
             var orderInformationObj = new Ptsv2paymentsidcapturesOrderInformation();
 
             var billToObj = new Ptsv2paymentsidcapturesOrderInformationBillTo

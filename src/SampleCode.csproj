@@ -142,6 +142,7 @@
     <Compile Include="Samples\Reporting\CoreServices\GetConversionDetailTransactions.cs" />
     <Compile Include="Samples\Reporting\CoreServices\GetNetfundingInformationForAccountOrMerchant.cs" />
     <Compile Include="Samples\Reporting\CoreServices\GetNotificationOfChanges.cs" />
+    <Compile Include="Samples\Reporting\CoreServices\GetPaymentBatchSummaryData.cs" />
     <Compile Include="Samples\Reporting\CoreServices\GetPurchaseAndRefundDetails.cs" />
     <Compile Include="Samples\Reporting\CoreServices\GetReportBasedOnReportid.cs" />
     <Compile Include="Samples\Reporting\CoreServices\GetReportDefinition.cs" />
@@ -161,6 +162,7 @@
     <Compile Include="Samples\TMS\CoreServices\UpdatePaymentInstrument.cs" />
     <Compile Include="Samples\TransactionBatches\CoreServices\GetIndividualBatchFile.cs" />
     <Compile Include="Samples\TransactionBatches\CoreServices\GetListOfBatchFiles.cs" />
+    <Compile Include="Samples\TransactionBatches\CoreServices\GetTransactionDetailsForGivenBatchId.cs" />
     <Compile Include="Samples\TransactionDetails\CoreServices\RetrieveTransaction.cs" />
     <Compile Include="Samples\TransactionSearch\CoreServices\CreateSearchRequest.cs" />
     <Compile Include="Samples\TransactionSearch\CoreServices\GetSearchResults.cs" />
