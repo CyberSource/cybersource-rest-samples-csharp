@@ -1,11 +1,12 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\MSTest.TestAdapter.1.4.0\build\net45\MSTest.TestAdapter.props" Condition="Exists('..\packages\MSTest.TestAdapter.1.4.0\build\net45\MSTest.TestAdapter.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{4CF837FF-237D-4B5B-B922-71CCC654D718}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Cybersource_rest_samples_dotnet</RootNamespace>
     <AssemblyName>SampleCode</AssemblyName>
@@ -42,8 +43,9 @@
     <Reference Include="AuthenticationSdk">
       <HintPath>..\packages\CyberSource.Authentication.0.0.0.4\lib\AuthenticationSdk.dll</HintPath>
     </Reference>
-    <Reference Include="cybersource-rest-client-dotnet">
-      <HintPath>..\packages\CyberSource.Rest.Client.0.0.0.11\lib\cybersource-rest-client-dotnet.dll</HintPath>
+    <Reference Include="cybersource-rest-client-dotnet, Version=0.0.0.10, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\CyberSource.Rest.Client.0.0.0.10\lib\cybersource-rest-client-dotnet.dll</HintPath>
     </Reference>
     <Reference Include="FlexServerSDK, Version=0.2.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\CyberSource.Flex.Server.0.2.1\lib\FlexServerSDK.dll</HintPath>
@@ -81,7 +83,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Api.cs" />
     <Compile Include="AuthenticationData\Configuration.cs" />
     <Compile Include="AuthenticationData\RequestData.cs" />
     <Compile Include="Samples\Authentication\CallHttpMethods\DeleteMethod.cs" />
@@ -117,7 +118,6 @@
     <Compile Include="Samples\Payments\CoreServices\VoidCredit.cs" />
     <Compile Include="Samples\Payments\CoreServices\VoidPayment.cs" />
     <Compile Include="Samples\Payments\CoreServices\VoidRefund.cs" />
-    <Compile Include="SampleCode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Samples\Payments\ElectronicCheck\ProcessEcheckCredit.cs" />
     <Compile Include="Samples\Payments\ElectronicCheck\ProcessEcheckPayment.cs" />
@@ -142,7 +142,6 @@
     <Compile Include="Samples\Reporting\CoreServices\GetConversionDetailTransactions.cs" />
     <Compile Include="Samples\Reporting\CoreServices\GetNetfundingInformationForAccountOrMerchant.cs" />
     <Compile Include="Samples\Reporting\CoreServices\GetNotificationOfChanges.cs" />
-    <Compile Include="Samples\Reporting\CoreServices\GetPaymentBatchSummaryData.cs" />
     <Compile Include="Samples\Reporting\CoreServices\GetPurchaseAndRefundDetails.cs" />
     <Compile Include="Samples\Reporting\CoreServices\GetReportBasedOnReportid.cs" />
     <Compile Include="Samples\Reporting\CoreServices\GetReportDefinition.cs" />
@@ -162,7 +161,6 @@
     <Compile Include="Samples\TMS\CoreServices\UpdatePaymentInstrument.cs" />
     <Compile Include="Samples\TransactionBatches\CoreServices\GetIndividualBatchFile.cs" />
     <Compile Include="Samples\TransactionBatches\CoreServices\GetListOfBatchFiles.cs" />
-    <Compile Include="Samples\TransactionBatches\CoreServices\GetTransactionDetailsForGivenBatchId.cs" />
     <Compile Include="Samples\TransactionDetails\CoreServices\RetrieveTransaction.cs" />
     <Compile Include="Samples\TransactionSearch\CoreServices\CreateSearchRequest.cs" />
     <Compile Include="Samples\TransactionSearch\CoreServices\GetSearchResults.cs" />
@@ -200,6 +198,14 @@
     <Content Include="lib\ApiSdk.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\MSTest.TestAdapter.1.4.0\build\net45\MSTest.TestAdapter.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MSTest.TestAdapter.1.4.0\build\net45\MSTest.TestAdapter.props'))" />
+    <Error Condition="!Exists('..\packages\MSTest.TestAdapter.1.4.0\build\net45\MSTest.TestAdapter.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MSTest.TestAdapter.1.4.0\build\net45\MSTest.TestAdapter.targets'))" />
+  </Target>
+  <Import Project="..\packages\MSTest.TestAdapter.1.4.0\build\net45\MSTest.TestAdapter.targets" Condition="Exists('..\packages\MSTest.TestAdapter.1.4.0\build\net45\MSTest.TestAdapter.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
