@@ -9,7 +9,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TransactionBatches.CoreService
         {
             try
             {
-                var id = "Owcyk6pl";
+                var id = "12345";
 
                 var configDictionary = new Configuration().GetConfiguration();
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);

@@ -10,8 +10,8 @@ namespace Cybersource_rest_samples_dotnet.Samples.TransactionBatches.CoreService
         {
             try
             {
-                var startTime = DateTime.ParseExact("2018-08-11T22:47:57Z", "yyyy-MM-ddTHH:mm:ssZ", CultureInfo.InvariantCulture);
-                var endTime = DateTime.ParseExact("2018-10-29T22:47:57Z", "yyyy-MM-ddTHH:mm:ssZ", CultureInfo.InvariantCulture);
+                var startTime = DateTime.ParseExact("2019-08-11T22:47:57Z", "yyyy-MM-ddTHH:mm:ssZ", CultureInfo.InvariantCulture);
+                var endTime = DateTime.ParseExact("2019-08-29T22:47:57Z", "yyyy-MM-ddTHH:mm:ssZ", CultureInfo.InvariantCulture);
 
                 var configDictionary = new Configuration().GetConfiguration();
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
