@@ -117,23 +117,29 @@ namespace RoadRunner
                                         }
                                     }
 
-                                    if (string.IsNullOrEmpty(road["Assertions"]["httpStatus"].ToString()))
+                                    if (road["Assertions"]["httpStatus"] != null && string.IsNullOrEmpty(road["Assertions"]["httpStatus"].ToString()))
                                     {
                                         // get http status from sample code
                                     }
 
-                                    // check the assertions and build the test data.
-                                    foreach (var field in road["Assertions"]["requiredFields"])
+                                    if (road["Assertions"]["requiredFields"] != null)
                                     {
-                                        var actualValue = Find(jsonResponse, field.ToString());
-                                        data.Add(new AssertionData(true, actualValue != null, field + " - is a required field, but not present in the response."));
+                                        // check the assertions and build the test data.
+                                        foreach (var field in road["Assertions"]["requiredFields"])
+                                        {
+                                            var actualValue = Find(jsonResponse, field.ToString());
+                                            data.Add(new AssertionData(true, actualValue != null, field + " - is a required field, but not present in the response."));
+                                        }
                                     }
 
-                                    // check the assertions and build the test data.
-                                    foreach (var expectedField in road["Assertions"]["expectedValues"])
+                                    if (road["Assertions"]["expectedValues"] != null)
                                     {
-                                        var actualValue = Find(jsonResponse, expectedField["field"].ToString());
-                                        data.Add(new AssertionData(expectedField["value"], actualValue, "Actual value of \"" + expectedField["field"] + "\" field doesn't match Expected value in the response."));
+                                        // check the assertions and build the test data.
+                                        foreach (var expectedField in road["Assertions"]["expectedValues"])
+                                        {
+                                            var actualValue = Find(jsonResponse, expectedField["field"].ToString());
+                                            data.Add(new AssertionData(expectedField["value"], actualValue, "Actual value of \"" + expectedField["field"] + "\" field doesn't match Expected value in the response."));
+                                        }
                                     }
                                 }
                                 catch(Exception ex)
