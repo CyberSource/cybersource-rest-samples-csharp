@@ -3,6 +3,7 @@ using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
+using System.Threading;
 
 namespace RoadRunner
 {
@@ -41,7 +42,7 @@ namespace RoadRunner
 
             try
             {
-                var sampleCodeName = road["sampleClassNames"]["csharp"];
+                string sampleCodeName = road["sampleClassNames"]["csharp"].ToString();
                 var storedFields = road["storedResponseFields"].ToObject<List<string>>();
 
                 // remove the old input fields from map.
@@ -54,19 +55,17 @@ namespace RoadRunner
 
                 var dependentFields = road["dependentFieldMapping"].ToObject<List<string>>();
 
-                object[] inputFields = new object[dependentFields.Count];
+                List<object> inputFields = new List<object>();
 
                 bool callSampleCode = true;
 
-                int it = 0;
-				
-				if(uniqueName.Contains("Token_Management"))
+                if(sampleCodeName.Contains("Token_Management"))
                 {
-                    inputFields[it++] = "93B32398-AD51-4CC2-A682-EA3E93614EB1";
+                    inputFields.Add("93B32398-AD51-4CC2-A682-EA3E93614EB1");
                 }
-                else if(uniqueName.Contains("GetReportDefinition"))
+                else if(sampleCodeName.Contains("GetReportDefinition"))
                 {
-                    inputFields[it++] = "TransactionRequestClass";
+                    inputFields.Add("TransactionRequestClass");
                 }
 
                 // check if required i/p fields are present in the map.
@@ -74,7 +73,7 @@ namespace RoadRunner
                 {
                     if (globalMap.ContainsKey(dependentSampleCode + field))
                     {
-                        inputFields[it++] = globalMap[dependentSampleCode + field];
+                        inputFields.Add(globalMap[dependentSampleCode + field]);
                     }
                     else
                     {
@@ -82,10 +81,10 @@ namespace RoadRunner
                         callSampleCode = false;
                     }
                 }
-				
-				if (uniqueName.Contains("RetrieveTransaction") || uniqueName.Contains("DeleteInstrumentIdentifier") || uniqueName.Contains("RetrieveAvailableReports"))
+
+                if (sampleCodeName.Contains("Retrieve") || sampleCodeName.Contains("Delete"))
                 {
-                    Thread.Sleep(20000);
+                    Thread.Sleep(15000);
                 }
 
                 // sample code isn't run if the required i/p fields aren't provided.
@@ -111,7 +110,7 @@ namespace RoadRunner
                             }
                             else
                             {
-                                result = mInfo.Invoke(classInstance, inputFields);
+                                result = mInfo.Invoke(classInstance, inputFields.ToArray());
                             }
 
                             if (result != null)
@@ -156,7 +155,7 @@ namespace RoadRunner
                                         }
                                     }
                                 }
-                                catch(Exception ex)
+                                catch (Exception ex)
                                 {
                                     data.Add(new AssertionData(true, false, "Sample Code was run, but an exception occured in road runner. Exception is - " + ex.Message));
                                 }
@@ -177,7 +176,7 @@ namespace RoadRunner
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 data.Add(new AssertionData(true, false, "Sample Code wasn't run as an exception occured in road runner. Exception is - " + ex.Message));
             }
