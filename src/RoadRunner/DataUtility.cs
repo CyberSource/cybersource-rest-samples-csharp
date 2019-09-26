@@ -59,6 +59,15 @@ namespace RoadRunner
                 bool callSampleCode = true;
 
                 int it = 0;
+				
+				if(uniqueName.Contains("Token_Management"))
+                {
+                    inputFields[it++] = "93B32398-AD51-4CC2-A682-EA3E93614EB1";
+                }
+                else if(uniqueName.Contains("GetReportDefinition"))
+                {
+                    inputFields[it++] = "TransactionRequestClass";
+                }
 
                 // check if required i/p fields are present in the map.
                 foreach (var field in dependentFields)
@@ -72,6 +81,11 @@ namespace RoadRunner
                         data.Add(new AssertionData(true, false, "Sample code wasn't executed as the dependent field \"" + field + "\" wasn't passed."));
                         callSampleCode = false;
                     }
+                }
+				
+				if (uniqueName.Contains("RetrieveTransaction") || uniqueName.Contains("DeleteInstrumentIdentifier") || uniqueName.Contains("RetrieveAvailableReports"))
+                {
+                    Thread.Sleep(20000);
                 }
 
                 // sample code isn't run if the required i/p fields aren't provided.
