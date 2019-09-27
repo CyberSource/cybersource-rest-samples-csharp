@@ -82,7 +82,7 @@ namespace RoadRunner
                     }
                 }
 
-                if (sampleCodeName.Contains("Retrieve") || sampleCodeName.Contains("Delete"))
+                if ((sampleCodeName.Contains("Retrieve") || sampleCodeName.Contains("Delete")) && dependentSampleCode != "")
                 {
                     Thread.Sleep(15000);
                 }
