@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.645
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleCode", "src\SampleCode.csproj", "{4CF837FF-237D-4B5B-B922-71CCC654D718}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cybersource-rest-client-dotnet", "..\cybersource-rest-client-dotnet\cybersource-rest-client-dotnet.csproj", "{DBBD2CE3-38E4-45B1-9BE6-21A0E290BF56}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{4CF837FF-237D-4B5B-B922-71CCC654D718}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4CF837FF-237D-4B5B-B922-71CCC654D718}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4CF837FF-237D-4B5B-B922-71CCC654D718}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DBBD2CE3-38E4-45B1-9BE6-21A0E290BF56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBBD2CE3-38E4-45B1-9BE6-21A0E290BF56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBBD2CE3-38E4-45B1-9BE6-21A0E290BF56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBBD2CE3-38E4-45B1-9BE6-21A0E290BF56}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

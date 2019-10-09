@@ -12,7 +12,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Reporting.CoreServices
         {
             const string reportName = "testrest_subcription_v1";
 
-            var request = new RequestBody1(
+            var request = new CreateReportSubscriptionRequest(
                 ReportDefinitionName: "TransactionRequestClass",
                 ReportMimeType: "application/xml",
                 ReportFields: new List<string>() {"Request.RequestID", "Request.TransactionDate", "Request.MerchantID"},

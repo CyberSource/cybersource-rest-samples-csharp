@@ -21,7 +21,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.SecureFileShare.CoreServices
                 // This can be either a relative path or an absolute path
                 const string downloadFilePath = @".\Resource\" + fileName;
 
-                var fileId = "VFJSUmVwb3J0LTc4NTVkMTNmLTkzOTgtNTExMy1lMDUzLWEyNTg4ZTBhNzE5Mi5jc3YtMjAxOC0xMC0yMA==";
+                var fileId = "dGVzdHJlc3Rfc3ViY3JpcHRpb25fdjI5ODktOTMwYWU5MmItOTcxMy00N2U4LWUwNTMtYTI1ODhlMGFjZDNjLnhtbC0yMDE5LTA5LTMw";
                 var organizationId = "testrest";
 
                 var configDictionary = new Configuration().GetConfiguration();

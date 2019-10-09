@@ -12,7 +12,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Reporting.CoreServices
         {
             try
             {
-                var requestObj = new RequestBody
+                var requestObj = new CreateAdhocReportRequest
                 {
                     ReportDefinitionName = "TransactionRequestClass",
                     ReportFields = new List<string>()
