@@ -15,7 +15,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TransactionSearch.CoreServices
                     Save = false,
                     Name = "TSS search",
                     Timezone = "America/Chicago",
-                    Query = "paymentInformation.card.number:4111111111111111",
+                    Query = "clientReferenceInformation.code:TC50171_3 AND submitTimeUtc:[NOW/DAY-7DAYS TO NOW/DAY+1DAY}",
                     Offset = 0,
                     Limit = 10,
                     Sort = "id:asc, submitTimeUtc:asc"
