@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\MSTest.TestAdapter.1.4.0\build\net45\MSTest.TestAdapter.props" Condition="Exists('..\packages\MSTest.TestAdapter.1.4.0\build\net45\MSTest.TestAdapter.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -45,7 +44,7 @@
     </Reference>
     <Reference Include="cybersource-rest-client-dotnet, Version=0.0.0.10, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\CyberSource.Rest.Client.0.0.0.10\lib\cybersource-rest-client-dotnet.dll</HintPath>
+      <HintPath>..\packages\CyberSource.Rest.Client.0.0.0.12\lib\cybersource-rest-client-dotnet.dll</HintPath>
     </Reference>
     <Reference Include="FlexServerSDK, Version=0.2.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\CyberSource.Flex.Server.0.2.1\lib\FlexServerSDK.dll</HintPath>
@@ -83,89 +82,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Api.cs" />
     <Compile Include="AuthenticationData\Configuration.cs" />
     <Compile Include="AuthenticationData\RequestData.cs" />
-    <Compile Include="Samples\Authentication\CallHttpMethods\DeleteMethod.cs" />
-    <Compile Include="Samples\Authentication\CallHttpMethods\GetMethod.cs" />
-    <Compile Include="Samples\Authentication\CallHttpMethods\GetObjectMethod.cs" />
-    <Compile Include="Samples\Authentication\CallHttpMethods\PostMethod.cs" />
-    <Compile Include="Samples\Authentication\CallHttpMethods\PostObjectMethod.cs" />
-    <Compile Include="Samples\Authentication\CallHttpMethods\PutMethod.cs" />
-    <Compile Include="Samples\Authentication\GenerateHttpRequestHeaders\DeleteGenerateHeaders.cs" />
-    <Compile Include="Samples\Authentication\GenerateHttpRequestHeaders\GetGenerateHeaders.cs" />
-    <Compile Include="Samples\Authentication\GenerateHttpRequestHeaders\PostGenerateHeaders.cs" />
-    <Compile Include="Samples\Authentication\GenerateHttpRequestHeaders\PutGenerateHeaders.cs" />
-    <Compile Include="Samples\Authentication\StandAloneHttpSignature.cs" />
-    <Compile Include="Samples\Authentication\StandAloneJWT.cs" />
-    <Compile Include="Samples\DecisionManager\CoreServices\CreateDecisionManagerCase.cs" />
-    <Compile Include="Samples\DecisionManager\CoreServices\DecisionProfileReject.cs" />
-    <Compile Include="Samples\DecisionManager\CoreServices\DmWithBuyerInformation.cs" />
-    <Compile Include="Samples\DecisionManager\CoreServices\DmWithDeviceInformation.cs" />
-    <Compile Include="Samples\DecisionManager\CoreServices\DmWithMerchantDefinedInformation.cs" />
-    <Compile Include="Samples\DecisionManager\CoreServices\DmWithShippingInformation.cs" />
-    <Compile Include="Samples\DecisionManager\CoreServices\DmWithTravelInformation.cs" />
-    <Compile Include="Samples\DecisionManager\CoreServices\ScoreExceedsThreshold.cs" />
-    <Compile Include="Samples\Flex\CoreServices\GenerateKey.cs" />
     <Compile Include="Configuration.cs" />
-    <Compile Include="Samples\Flex\CoreServices\TokenizeCard.cs" />
-    <Compile Include="Samples\Payments\CoreServices\CapturePayment.cs" />
-    <Compile Include="Samples\Payments\CoreServices\ProcessAuthorizationReversal.cs" />
-    <Compile Include="Samples\Payments\CoreServices\ProcessCredit.cs" />
-    <Compile Include="Samples\Payments\CoreServices\ProcessPayment.cs" />
-    <Compile Include="Samples\Payments\CoreServices\RefundCapture.cs" />
-    <Compile Include="Samples\Payments\CoreServices\RefundPayment.cs" />
-    <Compile Include="Samples\Payments\CoreServices\VoidCapture.cs" />
-    <Compile Include="Samples\Payments\CoreServices\VoidCredit.cs" />
-    <Compile Include="Samples\Payments\CoreServices\VoidPayment.cs" />
-    <Compile Include="Samples\Payments\CoreServices\VoidRefund.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Samples\Payments\ElectronicCheck\ProcessEcheckCredit.cs" />
-    <Compile Include="Samples\Payments\ElectronicCheck\ProcessEcheckPayment.cs" />
-    <Compile Include="Samples\Payments\ElectronicCheck\RefundEcheckPayment.cs" />
-    <Compile Include="Samples\Payments\ElectronicCheck\VoidEcheckCredit.cs" />
-    <Compile Include="Samples\Payments\ElectronicCheck\VoidECheckPaymentRefund.cs" />
-    <Compile Include="Samples\Payments\ServiceFees\CapturePaymentWithServiceFee.cs" />
-    <Compile Include="Samples\Payments\ServiceFees\CreditWithServiceFee.cs" />
-    <Compile Include="Samples\Payments\ServiceFees\ECheckStandaloneCreditWithServiceFee.cs" />
-    <Compile Include="Samples\Payments\ServiceFees\ProcessAuthorizationReversalWithServiceFee.cs" />
-    <Compile Include="Samples\Payments\ServiceFees\ProcessEcheckCreditWithServiceFee.cs" />
-    <Compile Include="Samples\Payments\ServiceFees\ProcessEcheckPaymentWithServiceFee.cs" />
-    <Compile Include="Samples\Payments\ServiceFees\ProcessPaymentWithServiceFee.cs" />
-    <Compile Include="Samples\Payments\ServiceFees\VoidCreditWithServiceFee.cs" />
-    <Compile Include="Samples\Payments\ServiceFees\VoidStandaloneEcheckCreditWithServiceFee.cs" />
-    <Compile Include="Samples\Payouts\CoreServices\ProcessPayout.cs" />
-    <Compile Include="Samples\Reporting\CoreServices\CreateAdhocReport.cs" />
-    <Compile Include="Samples\Reporting\CoreServices\CreateReportSubscriptionForReportNameByOrganization.cs" />
-    <Compile Include="Samples\Reporting\CoreServices\DeleteSubscriptionOfReportNameByOrganization.cs" />
-    <Compile Include="Samples\Reporting\CoreServices\DownloadReport.cs" />
-    <Compile Include="Samples\Reporting\CoreServices\GetAllSubscriptions.cs" />
-    <Compile Include="Samples\Reporting\CoreServices\GetConversionDetailTransactions.cs" />
-    <Compile Include="Samples\Reporting\CoreServices\GetNetfundingInformationForAccountOrMerchant.cs" />
-    <Compile Include="Samples\Reporting\CoreServices\GetNotificationOfChanges.cs" />
-    <Compile Include="Samples\Reporting\CoreServices\GetPurchaseAndRefundDetails.cs" />
-    <Compile Include="Samples\Reporting\CoreServices\GetReportBasedOnReportid.cs" />
-    <Compile Include="Samples\Reporting\CoreServices\GetReportDefinition.cs" />
-    <Compile Include="Samples\Reporting\CoreServices\GetReportingResourceInformation.cs" />
-    <Compile Include="Samples\Reporting\CoreServices\GetSubscriptionForReportName.cs" />
-    <Compile Include="Samples\Reporting\CoreServices\RetrieveAvailableReports.cs" />
-    <Compile Include="Samples\SecureFileShare\CoreServices\DownloadFileWithFileIdentifier.cs" />
-    <Compile Include="Samples\SecureFileShare\CoreServices\GetListOfFiles.cs" />
-    <Compile Include="Samples\TMS\CoreServices\CreateInstrumentIdentifier.cs" />
-    <Compile Include="Samples\TMS\CoreServices\CreatePaymentInstrument.cs" />
-    <Compile Include="Samples\TMS\CoreServices\DeleteInstrumentIdentifier.cs" />
-    <Compile Include="Samples\TMS\CoreServices\DeletePaymentInstrument.cs" />
-    <Compile Include="Samples\TMS\CoreServices\RetrieveAllPaymentInstruments.cs" />
-    <Compile Include="Samples\TMS\CoreServices\RetrieveInstrumentIdentifier.cs" />
-    <Compile Include="Samples\TMS\CoreServices\RetrievePaymentInstrument.cs" />
-    <Compile Include="Samples\TMS\CoreServices\UpdateInstrumentIdentifier.cs" />
-    <Compile Include="Samples\TMS\CoreServices\UpdatePaymentInstrument.cs" />
-    <Compile Include="Samples\TransactionBatches\CoreServices\GetIndividualBatchFile.cs" />
-    <Compile Include="Samples\TransactionBatches\CoreServices\GetListOfBatchFiles.cs" />
-    <Compile Include="Samples\TransactionDetails\CoreServices\RetrieveTransaction.cs" />
-    <Compile Include="Samples\TransactionSearch\CoreServices\CreateSearchRequest.cs" />
-    <Compile Include="Samples\TransactionSearch\CoreServices\GetSearchResults.cs" />
-    <Compile Include="Samples\UserManagement\CoreServices\GetUserInformation.cs" />
-    <Compile Include="Utilities.cs" />
+    <Compile Include="SampleCode.cs" />
+    <Compile Include="Samples\**" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -198,14 +121,6 @@
     <Content Include="lib\ApiSdk.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\packages\MSTest.TestAdapter.1.4.0\build\net45\MSTest.TestAdapter.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MSTest.TestAdapter.1.4.0\build\net45\MSTest.TestAdapter.props'))" />
-    <Error Condition="!Exists('..\packages\MSTest.TestAdapter.1.4.0\build\net45\MSTest.TestAdapter.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MSTest.TestAdapter.1.4.0\build\net45\MSTest.TestAdapter.targets'))" />
-  </Target>
-  <Import Project="..\packages\MSTest.TestAdapter.1.4.0\build\net45\MSTest.TestAdapter.targets" Condition="Exists('..\packages\MSTest.TestAdapter.1.4.0\build\net45\MSTest.TestAdapter.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

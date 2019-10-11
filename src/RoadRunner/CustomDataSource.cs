@@ -47,7 +47,7 @@ namespace RoadRunner
                     // iterator to give unique test case name 
                     i += 1;
 
-                    yield return new object[] { new TestData("Test_" + i + "_" + uniqueName, data.ToArray()) };
+                    yield return new object[] { new TestData("Test_" + i + "-" + uniqueName, data.ToArray()) };
                 }
             }
         }

@@ -3,6 +3,7 @@ using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
+using System.Threading;
 
 namespace RoadRunner
 {
@@ -13,17 +14,27 @@ namespace RoadRunner
             var split = field.Split('.');
             foreach (var s in split)
             {
-                if (response[s] is JObject)
+                bool accessingArrayField = s.Contains("[");
+                var temp = s.Split('[')[0];
+                if (accessingArrayField)
                 {
-                    response = response[s].ToObject<JObject>();
+                    if (response[temp][0] is JObject)
+                    {
+                        response = response[temp][0].ToObject<JObject>();
+                    }
+                }
+                else if (response[temp] is JObject)
+                {
+                    response = response[temp].ToObject<JObject>();
                 }
                 else
                 {
-                    return response[s];
+                    return response[temp];
                 }
             }
             return null;
         }
+
 
         public static List<AssertionData> GetTestAssertionDataFromRoads(JToken road, Dictionary<string, string> globalMap, string uniqueName, Assembly assembly)
         {
@@ -31,7 +42,7 @@ namespace RoadRunner
 
             try
             {
-                var sampleCodeName = road["sampleClassNames"]["csharp"];
+                string sampleCodeName = road["sampleClassNames"]["csharp"].ToString();
                 var storedFields = road["storedResponseFields"].ToObject<List<string>>();
 
                 // remove the old input fields from map.
@@ -44,24 +55,36 @@ namespace RoadRunner
 
                 var dependentFields = road["dependentFieldMapping"].ToObject<List<string>>();
 
-                object[] inputFields = new object[dependentFields.Count];
+                List<object> inputFields = new List<object>();
 
                 bool callSampleCode = true;
 
-                int it = 0;
+                if(sampleCodeName.Contains("Token_Management"))
+                {
+                    inputFields.Add("93B32398-AD51-4CC2-A682-EA3E93614EB1");
+                }
+                else if(sampleCodeName.Contains("GetReportDefinition"))
+                {
+                    inputFields.Add("TransactionRequestClass");
+                }
 
                 // check if required i/p fields are present in the map.
                 foreach (var field in dependentFields)
                 {
                     if (globalMap.ContainsKey(dependentSampleCode + field))
                     {
-                        inputFields[it++] = globalMap[dependentSampleCode + field];
+                        inputFields.Add(globalMap[dependentSampleCode + field]);
                     }
                     else
                     {
                         data.Add(new AssertionData(true, false, "Sample code wasn't executed as the dependent field \"" + field + "\" wasn't passed."));
                         callSampleCode = false;
                     }
+                }
+
+                if ((sampleCodeName.Contains("Retrieve") || sampleCodeName.Contains("Delete")) && dependentSampleCode != "")
+                {
+                    Thread.Sleep(15000);
                 }
 
                 // sample code isn't run if the required i/p fields aren't provided.
@@ -87,39 +110,59 @@ namespace RoadRunner
                             }
                             else
                             {
-                                result = mInfo.Invoke(classInstance, inputFields);
+                                result = mInfo.Invoke(classInstance, inputFields.ToArray());
                             }
 
-                            var resultJson = JsonConvert.SerializeObject(result);
-                            var jsonResponse = JObject.Parse(resultJson);
-
-                            // Convert the response to json, this is to parse it.
-                            foreach (var field in storedFields)
+                            if (result != null)
                             {
-                                var value = Find(jsonResponse, field);
-                                if (value != null)
+                                try
                                 {
-                                    globalMap.Add(uniqueName + field, value.ToString());
+                                    var resultJson = JsonConvert.SerializeObject(result);
+                                    var jsonResponse = JObject.Parse(resultJson);
+
+                                    // Convert the response to json, this is to parse it.
+                                    foreach (var field in storedFields)
+                                    {
+                                        var value = Find(jsonResponse, field);
+                                        if (value != null)
+                                        {
+                                            globalMap.Add(uniqueName + field, value.ToString());
+                                        }
+                                    }
+
+                                    if (road["Assertions"]["httpStatus"] != null && string.IsNullOrEmpty(road["Assertions"]["httpStatus"].ToString()))
+                                    {
+                                        // get http status from sample code
+                                    }
+
+                                    if (road["Assertions"]["requiredFields"] != null)
+                                    {
+                                        // check the assertions and build the test data.
+                                        foreach (var field in road["Assertions"]["requiredFields"])
+                                        {
+                                            var actualValue = Find(jsonResponse, field.ToString());
+                                            data.Add(new AssertionData(true, actualValue != null, field + " - is a required field, but not present in the response."));
+                                        }
+                                    }
+
+                                    if (road["Assertions"]["expectedValues"] != null)
+                                    {
+                                        // check the assertions and build the test data.
+                                        foreach (var expectedField in road["Assertions"]["expectedValues"])
+                                        {
+                                            var actualValue = Find(jsonResponse, expectedField["field"].ToString());
+                                            data.Add(new AssertionData(expectedField["value"], actualValue, "Actual value of \"" + expectedField["field"] + "\" field doesn't match Expected value in the response."));
+                                        }
+                                    }
+                                }
+                                catch (Exception ex)
+                                {
+                                    data.Add(new AssertionData(true, false, "Sample Code was run, but an exception occured in road runner. Exception is - " + ex.Message));
                                 }
                             }
-
-                            if (string.IsNullOrEmpty(road["Assertions"]["httpStatus"].ToString()))
+                            else
                             {
-                                // get http status from sample code
-                            }
-
-                            // check the assertions and build the test data.
-                            foreach (var field in road["Assertions"]["requiredFields"])
-                            {
-                                var actualValue = Find(jsonResponse, field.ToString());
-                                data.Add(new AssertionData(true, actualValue != null, field + " - is a required field, but not present in the response."));
-                            }
-
-                            // check the assertions and build the test data.
-                            foreach (var expectedField in road["Assertions"]["expectedValues"])
-                            {
-                                var actualValue = Find(jsonResponse, expectedField["field"].ToString());
-                                data.Add(new AssertionData(expectedField["value"], actualValue, "Actual value of \"" + expectedField["field"] + "\" field doesn't match Expected value in the response."));
+                                data.Add(new AssertionData(true, false, "Sample Code was run, but an exception occured during sample code execution."));
                             }
                         }
                         else
@@ -133,9 +176,9 @@ namespace RoadRunner
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                data.Add(new AssertionData(true, false, "Exception occured, due to which Sample Code wasn't run. Exception is - " + ex.Message));
+                data.Add(new AssertionData(true, false, "Sample Code wasn't run as an exception occured in road runner. Exception is - " + ex.Message));
             }
 
             // return the data which has the assertions.
