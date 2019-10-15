@@ -26,7 +26,7 @@ namespace RoadRunner
             string jsonContent = File.ReadAllText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "executor.json"));
             var roads = JObject.Parse(jsonContent);
 
-            Assembly assembly = Assembly.LoadFile(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "SampleCode.dll"));
+            Assembly assembly = Assembly.LoadFile(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "SampleCode.exe"));
 
             Dictionary<string, string> globalMap = new Dictionary<string, string>();
 

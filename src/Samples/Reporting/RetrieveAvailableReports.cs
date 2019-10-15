@@ -11,8 +11,8 @@ namespace Cybersource_rest_samples_dotnet.Samples.Reporting
         public static ReportingV3ReportsGet200Response Run()
         {
             string organizationId = null;
-            var startTime = DateTime.ParseExact("2018-10-01T00:00:00Z", "yyyy-MM-ddTHH:mm:ssZ", CultureInfo.InvariantCulture);
-            var endTime = DateTime.ParseExact("2018-10-30T23:59:59Z", "yyyy-MM-ddTHH:mm:ssZ", CultureInfo.InvariantCulture);
+            var startTime = DateTime.ParseExact("2019-10-01T00:00:00Z", "yyyy-MM-ddTHH:mm:ssZ", CultureInfo.InvariantCulture);
+            var endTime = DateTime.ParseExact("2019-10-05T23:59:59Z", "yyyy-MM-ddTHH:mm:ssZ", CultureInfo.InvariantCulture);
             string timeQueryType = "executedTime";
             string reportMimeType = "application/xml";
             string reportFrequency = null;

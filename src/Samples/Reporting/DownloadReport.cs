@@ -11,8 +11,8 @@ namespace Cybersource_rest_samples_dotnet.Samples.Reporting
         public static void Run()
         {
             string organizationId = "testrest";
-            var reportDate = DateTime.ParseExact("2018-09-30", "yyyy-MM-dd", CultureInfo.InvariantCulture);
-            string reportName = "Demo_Report";
+            var reportDate = DateTime.ParseExact("2019-09-05", "yyyy-MM-dd", CultureInfo.InvariantCulture);
+            string reportName = "testrest_subcription_v2989";
             try
             {
                 var configDictionary = new Configuration().GetConfiguration();
