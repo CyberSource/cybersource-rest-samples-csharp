@@ -40,14 +40,10 @@
       <HintPath>lib\ApiSdk.dll</HintPath>
     </Reference>
     <Reference Include="AuthenticationSdk">
-      <HintPath>..\packages\CyberSource.Authentication.0.0.0.4\lib\AuthenticationSdk.dll</HintPath>
+      <HintPath>..\packages\CyberSource.Authentication.0.0.0.5\lib\AuthenticationSdk.dll</HintPath>
     </Reference>
     <Reference Include="cybersource-rest-client-dotnet">
-      <HintPath>..\packages\CyberSource.Rest.Client.0.0.0.12\lib\cybersource-rest-client-dotnet.dll</HintPath>
-    </Reference>
-    <Reference Include="FlexServerSDK, Version=0.2.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\CyberSource.Flex.Server.0.2.1\lib\FlexServerSDK.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>..\packages\CyberSource.Rest.Client.0.0.1.1\lib\cybersource-rest-client-dotnet.dll</HintPath>
     </Reference>
     <Reference Include="jose-jwt">
       <HintPath>..\packages\jose-jwt.2.4.0\lib\net461\jose-jwt.dll</HintPath>
