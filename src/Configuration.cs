@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.IO;
 
 namespace Cybersource_rest_samples_dotnet
 {
@@ -9,22 +10,18 @@ namespace Cybersource_rest_samples_dotnet
 
         public Dictionary<string, string> GetConfiguration()
         {
-            _configurationDictionary.Add("authenticationType", "HTTP_SIGNATURE");
-            _configurationDictionary.Add("merchantID", "testrest");
-            _configurationDictionary.Add("merchantsecretKey", "yBJxy6LjM2TmcPGu+GaJrHtkke25fPpUX+UY6/L/1tE=");
-            _configurationDictionary.Add("merchantKeyId", "08c94330-f618-42a3-b09d-e1e43be5efda");
-            _configurationDictionary.Add("keysDirectory", "Resource");
-            _configurationDictionary.Add("keyFilename", "testrest");
-            _configurationDictionary.Add("runEnvironment", "cybersource.environment.sandbox");
-            _configurationDictionary.Add("keyAlias", "testrest");
-            _configurationDictionary.Add("keyPass", "testrest");
-            _configurationDictionary.Add("enableLog", "FALSE");
             _configurationDictionary.Add("logDirectory", string.Empty);
             _configurationDictionary.Add("logFileName", string.Empty);
-            _configurationDictionary.Add("logFileMaxSize", "5242880");
-            _configurationDictionary.Add("timeout", "300000");
             _configurationDictionary.Add("proxyAddress", string.Empty);
             _configurationDictionary.Add("proxyPort", string.Empty);
+
+            string[] input = File.ReadAllLines("Configuration.txt");
+            string[] keyValueArray;
+            foreach (string i in input)
+            {
+                keyValueArray = i.Split(',');
+                _configurationDictionary.Add(keyValueArray[0], keyValueArray[1]);
+            }
 
             return _configurationDictionary;
         }

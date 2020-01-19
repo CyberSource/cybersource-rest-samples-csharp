@@ -1,0 +1,12 @@
+authenticationType,JWT
+merchantID,testrest
+merchantsecretKey,yBJxy6LjM2TmcPGu+GaJrHtkke25fPpUX+UY6/L/1tE=
+merchantKeyId,08c94330-f618-42a3-b09d-e1e43be5efda
+keysDirectory,Resource
+keyFilename,testrest
+runEnvironment,cybersource.environment.sandbox
+keyAlias,testrest
+keyPass,testrest
+enableLog,FALSE
+logFileMaxSize,5242880
+timeout,300000
