@@ -39,7 +39,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TMS.CoreServices
 
             requestObj.BillTo = billToObj;
 
-            var instrumentIdentifierObj = new TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedInstrumentIdentifier();
+            var instrumentIdentifierObj = new Tmsv1paymentinstrumentsInstrumentIdentifier();
 
             var cardObj2 = new TmsV1InstrumentIdentifiersPost200ResponseCard
             {
