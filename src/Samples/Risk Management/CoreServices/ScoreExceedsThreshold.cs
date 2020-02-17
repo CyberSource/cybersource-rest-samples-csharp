@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using CyberSource.Api;
 using CyberSource.Model;
 
-namespace Cybersource_rest_samples_dotnet.Samples.DecisionManager.CoreServices
+namespace Cybersource_rest_samples_dotnet.Samples.Risk_Management.CoreServices
 {
     public class ScoreExceedsThreshold
     {
