@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using CyberSource.Api;
 using CyberSource.Model;
 
-namespace Cybersource_rest_samples_dotnet.Samples.DecisionManager.CoreServices
+namespace Cybersource_rest_samples_dotnet.Samples.Risk_Management.CoreServices
 {
-    public class DmWithDeviceInformation
+    public class DmWithMerchantDefinedInformation
     {
         public static RiskV1DecisionsPost201Response Run()
         {
@@ -53,14 +53,19 @@ namespace Cybersource_rest_samples_dotnet.Samples.DecisionManager.CoreServices
 
             requestObj.OrderInformation = orderInformation;
 
-            var deviceInformation = new Riskv1decisionsDeviceInformation();
+            var merchantDefinedInformation = new List<Riskv1decisionsMerchantDefinedInformation>();
 
-            deviceInformation.CookiesAccepted = "yes";
-            deviceInformation.IpAddress = "64.124.61.215";
-            deviceInformation.HostName = "host.com";
-            deviceInformation.HttpBrowserEmail = "xyz@gmail.com";
-            deviceInformation.UserAgent = "Chrome";
-            requestObj.DeviceInformation = deviceInformation;
+            var merchantDefinedInformation0 = new Riskv1decisionsMerchantDefinedInformation();
+            merchantDefinedInformation0.Key = "1";
+            merchantDefinedInformation0.Value = "Test";
+            merchantDefinedInformation.Add(merchantDefinedInformation0);
+
+            var merchantDefinedInformation1 = new Riskv1decisionsMerchantDefinedInformation();
+            merchantDefinedInformation1.Key = "2";
+            merchantDefinedInformation1.Value = "Test2";
+            merchantDefinedInformation.Add(merchantDefinedInformation1);
+
+            requestObj.MerchantDefinedInformation = merchantDefinedInformation;
 
             try
             {

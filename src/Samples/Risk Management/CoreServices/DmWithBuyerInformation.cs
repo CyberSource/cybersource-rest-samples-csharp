@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using CyberSource.Api;
 using CyberSource.Model;
 
-namespace Cybersource_rest_samples_dotnet.Samples.DecisionManager.CoreServices
+namespace Cybersource_rest_samples_dotnet.Samples.Risk_Management.CoreServices
 {
-    public class DecisionProfileReject
+    public class DmWithBuyerInformation
     {
         public static RiskV1DecisionsPost201Response Run()
         {
@@ -53,14 +53,18 @@ namespace Cybersource_rest_samples_dotnet.Samples.DecisionManager.CoreServices
 
             requestObj.OrderInformation = orderInformation;
 
-            var riskInformation = new Riskv1decisionsRiskInformation();
+            var buyerInformation = new Riskv1decisionsBuyerInformation();
 
-            var profile = new Riskv1decisionsRiskInformationProfile();
+            buyerInformation.HashedPassword = "";
+            buyerInformation.DateOfBirth = "1998-05-05";
+            var personalIdentification = new List<Ptsv2paymentsBuyerInformationPersonalIdentification>();
 
-            profile.Name = "profile2";
-            riskInformation.Profile = profile;
+            var personalIdentification0 = new Ptsv2paymentsBuyerInformationPersonalIdentification();
+            personalIdentification0.Type = "CPF";
+            personalIdentification0.Id = "1a23apwe98";
+            personalIdentification.Add(personalIdentification0);
 
-            requestObj.RiskInformation = riskInformation;
+            requestObj.BuyerInformation = buyerInformation;
 
             try
             {

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using CyberSource.Api;
 using CyberSource.Model;
 
-namespace Cybersource_rest_samples_dotnet.Samples.DecisionManager.CoreServices
+namespace Cybersource_rest_samples_dotnet.Samples.Risk_Management.CoreServices
 {
-    public class DmWithTravelInformation
+    public class DmWithShippingInformation
     {
         public static RiskV1DecisionsPost201Response Run()
         {
@@ -38,6 +38,19 @@ namespace Cybersource_rest_samples_dotnet.Samples.DecisionManager.CoreServices
             amountDetails.TotalAmount = "144.14";
             orderInformation.AmountDetails = amountDetails;
 
+            var shipTo = new Riskv1decisionsOrderInformationShipTo();
+
+            shipTo.Address1 = "96, powers street";
+            shipTo.Address2 = "";
+            shipTo.AdministrativeArea = "KA";
+            shipTo.Country = "INDIA";
+            shipTo.Locality = "Clearwater milford";
+            shipTo.FirstName = "James";
+            shipTo.LastName = "Smith";
+            shipTo.PhoneNumber = "7606160717";
+            shipTo.PostalCode = "560056";
+            orderInformation.ShipTo = shipTo;
+
             var billTo = new Riskv1decisionsOrderInformationBillTo();
 
             billTo.Address1 = "96, powers street";
@@ -52,27 +65,6 @@ namespace Cybersource_rest_samples_dotnet.Samples.DecisionManager.CoreServices
             orderInformation.BillTo = billTo;
 
             requestObj.OrderInformation = orderInformation;
-
-            var travelInformation = new Riskv1decisionsTravelInformation();
-
-            travelInformation.CompleteRoute = "SFO-JFK:JFK-BLR";
-            travelInformation.DepartureTime = "2011-03-20 11:30pm GMT";
-            travelInformation.JourneyType = "One way";
-            var legs = new List<Riskv1decisionsTravelInformationLegs>();
-
-            var legs0 = new Riskv1decisionsTravelInformationLegs();
-            legs0.Origination = "SFO";
-            legs0.Destination = "JFK";
-            legs.Add(legs0);
-
-            var legs1 = new Riskv1decisionsTravelInformationLegs();
-            legs1.Origination = "JFK";
-            legs1.Destination = "BLR";
-            legs.Add(legs1);
-
-            travelInformation.Legs = legs;
-
-            requestObj.TravelInformation = travelInformation;
 
             try
             {

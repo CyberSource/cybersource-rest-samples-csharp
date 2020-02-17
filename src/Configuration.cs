@@ -23,8 +23,11 @@ namespace Cybersource_rest_samples_dotnet
             _configurationDictionary.Add("logFileName", string.Empty);
             _configurationDictionary.Add("logFileMaxSize", "5242880");
             _configurationDictionary.Add("timeout", "300000");
-            _configurationDictionary.Add("proxyAddress", string.Empty);
-            _configurationDictionary.Add("proxyPort", string.Empty);
+            // _configurationDictionary.Add("proxyAddress", string.Empty);
+            // _configurationDictionary.Add("proxyPort", string.Empty);
+            // _configurationDictionary.Add("proxyUsername", string.Empty);
+            // _configurationDictionary.Add("proxyPassword", string.Empty);
+
 
             return _configurationDictionary;
         }

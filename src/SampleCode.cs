@@ -223,7 +223,13 @@ namespace Cybersource_rest_samples_dotnet
 
             foreach (var dir in dirList)
             {
-                var dirModified = dir.Replace(' ', '_');
+                var dirModified = dir;
+
+                if (!dir.Contains("Risk Management"))
+                {
+                    dirModified = dir.Replace(' ', '_');
+                }
+
                 dirModified = dirModified.Substring(PathOfSamplesFolder.Length + 1);
                 dirModified = dirModified.Replace(@"/", ".");
                 dirModified = dirModified.Replace(@"\", ".");

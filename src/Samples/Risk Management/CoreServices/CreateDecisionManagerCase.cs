@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using CyberSource.Api;
 using CyberSource.Model;
 
-namespace Cybersource_rest_samples_dotnet.Samples.DecisionManager.CoreServices
+namespace Cybersource_rest_samples_dotnet.Samples.Risk_Management.CoreServices
 {
-    public class ScoreExceedsThreshold
+    public class CreateDecisionManagerCase
     {
         public static RiskV1DecisionsPost201Response Run()
         {
@@ -37,19 +37,6 @@ namespace Cybersource_rest_samples_dotnet.Samples.DecisionManager.CoreServices
             amountDetails.Currency = "USD";
             amountDetails.TotalAmount = "144.14";
             orderInformation.AmountDetails = amountDetails;
-
-            var shipTo = new Riskv1decisionsOrderInformationShipTo();
-
-            shipTo.Address1 = "96, powers street";
-            shipTo.Address2 = "";
-            shipTo.AdministrativeArea = "KA";
-            shipTo.Country = "INDIA";
-            shipTo.Locality = "Clearwater milford";
-            shipTo.FirstName = "James";
-            shipTo.LastName = "Smith";
-            shipTo.PhoneNumber = "7606160717";
-            shipTo.PostalCode = "560056";
-            orderInformation.ShipTo = shipTo;
 
             var billTo = new Riskv1decisionsOrderInformationBillTo();
 
