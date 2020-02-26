@@ -5,7 +5,7 @@ using System.Globalization;
 using CyberSource.Api;
 using CyberSource.Model;
 
-namespace Cybersource_rest_samples_dotnet.Samples.Risk_Management
+namespace Cybersource_rest_samples_dotnet.Samples.RiskManagement
 {
     public class MultipleSanctionLists
     {

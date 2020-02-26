@@ -5,9 +5,9 @@ using System.Globalization;
 using CyberSource.Api;
 using CyberSource.Model;
 
-namespace Cybersource_rest_samples_dotnet.Samples.Risk_Management
+namespace Cybersource_rest_samples_dotnet.Samples.RiskManagement
 {
-    public class MultipleLineItems
+    public class CanadianBillingDetails
     {
         public static RiskV1AddressVerificationsPost201Response Run()
         {
@@ -18,14 +18,14 @@ namespace Cybersource_rest_samples_dotnet.Samples.Risk_Management
                 Comments: clientReferenceInformationComments
            );
 
-            string orderInformationBillToAddress1 = "12301 research st";
-            string orderInformationBillToAddress2 = "1";
-            string orderInformationBillToAddress3 = "2";
-            string orderInformationBillToAddress4 = "3";
-            string orderInformationBillToAdministrativeArea = "TX";
-            string orderInformationBillToCountry = "US";
-            string orderInformationBillToLocality = "Austin";
-            string orderInformationBillToPostalCode = "78759";
+            string orderInformationBillToAddress1 = "1650 Burton Ave";
+            string orderInformationBillToAddress2 = "";
+            string orderInformationBillToAddress3 = "";
+            string orderInformationBillToAddress4 = "";
+            string orderInformationBillToAdministrativeArea = "BC";
+            string orderInformationBillToCountry = "CA";
+            string orderInformationBillToLocality = "VICTORIA";
+            string orderInformationBillToPostalCode = "V8T 2N6";
             Riskv1addressverificationsOrderInformationBillTo orderInformationBillTo = new Riskv1addressverificationsOrderInformationBillTo(
                 Address1: orderInformationBillToAddress1,
                 Address2: orderInformationBillToAddress2,
@@ -37,32 +37,13 @@ namespace Cybersource_rest_samples_dotnet.Samples.Risk_Management
                 PostalCode: orderInformationBillToPostalCode
            );
 
-            string orderInformationShipToAddress1 = "PO Box 9088";
-            string orderInformationShipToAddress2 = "";
-            string orderInformationShipToAddress3 = "";
-            string orderInformationShipToAddress4 = "";
-            string orderInformationShipToAdministrativeArea = "California";
-            string orderInformationShipToCountry = "US";
-            string orderInformationShipToLocality = "San Jose";
-            string orderInformationShipToPostalCode = "95132";
-            Riskv1addressverificationsOrderInformationShipTo orderInformationShipTo = new Riskv1addressverificationsOrderInformationShipTo(
-                Address1: orderInformationShipToAddress1,
-                Address2: orderInformationShipToAddress2,
-                Address3: orderInformationShipToAddress3,
-                Address4: orderInformationShipToAddress4,
-                AdministrativeArea: orderInformationShipToAdministrativeArea,
-                Country: orderInformationShipToCountry,
-                Locality: orderInformationShipToLocality,
-                PostalCode: orderInformationShipToPostalCode
-           );
-
 
             List <Riskv1addressverificationsOrderInformationLineItems> orderInformationLineItems = new List <Riskv1addressverificationsOrderInformationLineItems>();
             string orderInformationLineItemsUnitPrice1 = "120.50";
             int orderInformationLineItemsQuantity1 = 3;
             string orderInformationLineItemsProductSKU1 = "9966223";
             string orderInformationLineItemsProductName1 = "headset";
-            string orderInformationLineItemsProductCode1 = "electronix";
+            string orderInformationLineItemsProductCode1 = "electronic";
             orderInformationLineItems.Add(new Riskv1addressverificationsOrderInformationLineItems(
                 UnitPrice: orderInformationLineItemsUnitPrice1,
                 Quantity: orderInformationLineItemsQuantity1,
@@ -71,26 +52,12 @@ namespace Cybersource_rest_samples_dotnet.Samples.Risk_Management
                 ProductCode: orderInformationLineItemsProductCode1
            ));
 
-            string orderInformationLineItemsUnitPrice2 = "10.50";
-            int orderInformationLineItemsQuantity2 = 2;
-            string orderInformationLineItemsProductSKU2 = "9966226";
-            string orderInformationLineItemsProductName2 = "wwrdf";
-            string orderInformationLineItemsProductCode2 = "electronic";
-            orderInformationLineItems.Add(new Riskv1addressverificationsOrderInformationLineItems(
-                UnitPrice: orderInformationLineItemsUnitPrice2,
-                Quantity: orderInformationLineItemsQuantity2,
-                ProductSKU: orderInformationLineItemsProductSKU2,
-                ProductName: orderInformationLineItemsProductName2,
-                ProductCode: orderInformationLineItemsProductCode2
-           ));
-
             Riskv1addressverificationsOrderInformation orderInformation = new Riskv1addressverificationsOrderInformation(
                 BillTo: orderInformationBillTo,
-                ShipTo: orderInformationShipTo,
                 LineItems: orderInformationLineItems
            );
 
-            string buyerInformationMerchantCustomerId = "QWERTY";
+            string buyerInformationMerchantCustomerId = "ABCD";
             Riskv1addressverificationsBuyerInformation buyerInformation = new Riskv1addressverificationsBuyerInformation(
                 MerchantCustomerId: buyerInformationMerchantCustomerId
            );

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using CyberSource.Api;
 using CyberSource.Model;
 
-namespace Cybersource_rest_samples_dotnet.Samples.Risk_Management.CoreServices
+namespace Cybersource_rest_samples_dotnet.Samples.RiskManagement.CoreServices
 {
-    public class DmWithShippingInformation
+    public class ScoreExceedsThreshold
     {
         public static RiskV1DecisionsPost201Response Run()
         {

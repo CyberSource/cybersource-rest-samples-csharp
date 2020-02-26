@@ -5,9 +5,9 @@ using System.Globalization;
 using CyberSource.Api;
 using CyberSource.Model;
 
-namespace Cybersource_rest_samples_dotnet.Samples.Risk_Management
+namespace Cybersource_rest_samples_dotnet.Samples.RiskManagement
 {
-    public class ComplianceStatusCompleted
+    public class NoCompanyName
     {
         public static RiskV1ExportComplianceInquiriesPost201Response Run()
         {
@@ -64,32 +64,10 @@ namespace Cybersource_rest_samples_dotnet.Samples.Risk_Management
                 MerchantCustomerId: buyerInformationMerchantCustomerId
            );
 
-            string exportComplianceInformationAddressOperator = "and";
-            string exportComplianceInformationWeightsAddress = "abc";
-            string exportComplianceInformationWeightsCompany = "def";
-            string exportComplianceInformationWeightsName = "adb";
-            Riskv1exportcomplianceinquiriesExportComplianceInformationWeights exportComplianceInformationWeights = new Riskv1exportcomplianceinquiriesExportComplianceInformationWeights(
-                Address: exportComplianceInformationWeightsAddress,
-                Company: exportComplianceInformationWeightsCompany,
-                Name: exportComplianceInformationWeightsName
-           );
-
-
-            List <string> exportComplianceInformationSanctionLists = new List <string>();
-            exportComplianceInformationSanctionLists.Add("abc");
-            exportComplianceInformationSanctionLists.Add("acc");
-            exportComplianceInformationSanctionLists.Add("bac");
-            Riskv1exportcomplianceinquiriesExportComplianceInformation exportComplianceInformation = new Riskv1exportcomplianceinquiriesExportComplianceInformation(
-                AddressOperator: exportComplianceInformationAddressOperator,
-                Weights: exportComplianceInformationWeights,
-                SanctionLists: exportComplianceInformationSanctionLists
-           );
-
             var requestObj = new ValidateExportComplianceRequest(
                 ClientReferenceInformation: clientReferenceInformation,
                 OrderInformation: orderInformation,
-                BuyerInformation: buyerInformation,
-                ExportComplianceInformation: exportComplianceInformation
+                BuyerInformation: buyerInformation
            );
 
             try

@@ -5,24 +5,19 @@ using System.Globalization;
 using CyberSource.Api;
 using CyberSource.Model;
 
-namespace Cybersource_rest_samples_dotnet.Samples.Risk_Management
+namespace Cybersource_rest_samples_dotnet.Samples.RiskManagement
 {
-    public class FraudMarking
+    public class RemoveFromHistory
     {
         public static RiskV1UpdatePost201Response Run()
         {
             string id = "5825489395116729903003";
             string riskInformationMarkingDetailsNotes = "Adding this transaction as suspect";
             string riskInformationMarkingDetailsReason = "suspected";
-
-            List <string> riskInformationMarkingDetailsFieldsIncluded = new List <string>();
-            riskInformationMarkingDetailsFieldsIncluded.Add("customer_email");
-            riskInformationMarkingDetailsFieldsIncluded.Add("customer_phone");
-            string riskInformationMarkingDetailsAction = "add";
+            string riskInformationMarkingDetailsAction = "hide";
             Riskv1decisionsidmarkingRiskInformationMarkingDetails riskInformationMarkingDetails = new Riskv1decisionsidmarkingRiskInformationMarkingDetails(
                 Notes: riskInformationMarkingDetailsNotes,
                 Reason: riskInformationMarkingDetailsReason,
-                FieldsIncluded: riskInformationMarkingDetailsFieldsIncluded,
                 Action: riskInformationMarkingDetailsAction
            );
 

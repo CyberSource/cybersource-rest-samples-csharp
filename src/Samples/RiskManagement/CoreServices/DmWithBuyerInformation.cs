@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using CyberSource.Api;
 using CyberSource.Model;
 
-namespace Cybersource_rest_samples_dotnet.Samples.Risk_Management.CoreServices
+namespace Cybersource_rest_samples_dotnet.Samples.RiskManagement.CoreServices
 {
-    public class DmWithMerchantDefinedInformation
+    public class DmWithBuyerInformation
     {
         public static RiskV1DecisionsPost201Response Run()
         {
@@ -53,19 +53,18 @@ namespace Cybersource_rest_samples_dotnet.Samples.Risk_Management.CoreServices
 
             requestObj.OrderInformation = orderInformation;
 
-            var merchantDefinedInformation = new List<Riskv1decisionsMerchantDefinedInformation>();
+            var buyerInformation = new Riskv1decisionsBuyerInformation();
 
-            var merchantDefinedInformation0 = new Riskv1decisionsMerchantDefinedInformation();
-            merchantDefinedInformation0.Key = "1";
-            merchantDefinedInformation0.Value = "Test";
-            merchantDefinedInformation.Add(merchantDefinedInformation0);
+            buyerInformation.HashedPassword = "";
+            buyerInformation.DateOfBirth = "1998-05-05";
+            var personalIdentification = new List<Ptsv2paymentsBuyerInformationPersonalIdentification>();
 
-            var merchantDefinedInformation1 = new Riskv1decisionsMerchantDefinedInformation();
-            merchantDefinedInformation1.Key = "2";
-            merchantDefinedInformation1.Value = "Test2";
-            merchantDefinedInformation.Add(merchantDefinedInformation1);
+            var personalIdentification0 = new Ptsv2paymentsBuyerInformationPersonalIdentification();
+            personalIdentification0.Type = "CPF";
+            personalIdentification0.Id = "1a23apwe98";
+            personalIdentification.Add(personalIdentification0);
 
-            requestObj.MerchantDefinedInformation = merchantDefinedInformation;
+            requestObj.BuyerInformation = buyerInformation;
 
             try
             {

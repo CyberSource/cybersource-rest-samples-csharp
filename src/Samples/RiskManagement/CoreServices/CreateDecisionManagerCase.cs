@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using CyberSource.Api;
 using CyberSource.Model;
 
-namespace Cybersource_rest_samples_dotnet.Samples.Risk_Management.CoreServices
+namespace Cybersource_rest_samples_dotnet.Samples.RiskManagement.CoreServices
 {
-    public class DmWithBuyerInformation
+    public class CreateDecisionManagerCase
     {
         public static RiskV1DecisionsPost201Response Run()
         {
@@ -52,19 +52,6 @@ namespace Cybersource_rest_samples_dotnet.Samples.Risk_Management.CoreServices
             orderInformation.BillTo = billTo;
 
             requestObj.OrderInformation = orderInformation;
-
-            var buyerInformation = new Riskv1decisionsBuyerInformation();
-
-            buyerInformation.HashedPassword = "";
-            buyerInformation.DateOfBirth = "1998-05-05";
-            var personalIdentification = new List<Ptsv2paymentsBuyerInformationPersonalIdentification>();
-
-            var personalIdentification0 = new Ptsv2paymentsBuyerInformationPersonalIdentification();
-            personalIdentification0.Type = "CPF";
-            personalIdentification0.Id = "1a23apwe98";
-            personalIdentification.Add(personalIdentification0);
-
-            requestObj.BuyerInformation = buyerInformation;
 
             try
             {

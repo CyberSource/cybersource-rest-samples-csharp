@@ -5,13 +5,13 @@ using System.Globalization;
 using CyberSource.Api;
 using CyberSource.Model;
 
-namespace Cybersource_rest_samples_dotnet.Samples.Risk_Management
+namespace Cybersource_rest_samples_dotnet.Samples.RiskManagement
 {
-    public class ListManagement
+    public class AddDuplicateInformation
     {
         public static RiskV1UpdatePost201Response Run()
         {
-            string type = "negative";
+            string type = "positive";
             string orderInformationAddressAddress1 = "1234 Sample St.";
             string orderInformationAddressAddress2 = "Mountain View";
             string orderInformationAddressLocality = "California";
@@ -27,8 +27,12 @@ namespace Cybersource_rest_samples_dotnet.Samples.Risk_Management
                 PostalCode: orderInformationAddressPostalCode
            );
 
-            string orderInformationBillToEmail = "test@example.com";
+            string orderInformationBillToFirstName = "John";
+            string orderInformationBillToLastName = "Doe";
+            string orderInformationBillToEmail = "nobody@example.com";
             Riskv1liststypeentriesOrderInformationBillTo orderInformationBillTo = new Riskv1liststypeentriesOrderInformationBillTo(
+                FirstName: orderInformationBillToFirstName,
+                LastName: orderInformationBillToLastName,
                 Email: orderInformationBillToEmail
            );
 

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using CyberSource.Api;
 using CyberSource.Model;
 
-namespace Cybersource_rest_samples_dotnet.Samples.Risk_Management.CoreServices
+namespace Cybersource_rest_samples_dotnet.Samples.RiskManagement.CoreServices
 {
-    public class DecisionProfileReject
+    public class DmWithDeviceInformation
     {
         public static RiskV1DecisionsPost201Response Run()
         {
@@ -53,14 +53,14 @@ namespace Cybersource_rest_samples_dotnet.Samples.Risk_Management.CoreServices
 
             requestObj.OrderInformation = orderInformation;
 
-            var riskInformation = new Riskv1decisionsRiskInformation();
+            var deviceInformation = new Riskv1decisionsDeviceInformation();
 
-            var profile = new Riskv1decisionsRiskInformationProfile();
-
-            profile.Name = "profile2";
-            riskInformation.Profile = profile;
-
-            requestObj.RiskInformation = riskInformation;
+            deviceInformation.CookiesAccepted = "yes";
+            deviceInformation.IpAddress = "64.124.61.215";
+            deviceInformation.HostName = "host.com";
+            deviceInformation.HttpBrowserEmail = "xyz@gmail.com";
+            deviceInformation.UserAgent = "Chrome";
+            requestObj.DeviceInformation = deviceInformation;
 
             try
             {

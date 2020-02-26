@@ -1,13 +1,13 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 
 using CyberSource.Api;
 using CyberSource.Model;
 
-namespace Cybersource_rest_samples_dotnet.Samples.Risk_Management
+namespace Cybersource_rest_samples_dotnet.Samples.RiskManagement
 {
-    public class VerifyCustomerAddress
+    public class MultipleLineItems
     {
         public static RiskV1AddressVerificationsPost201Response Run()
         {
@@ -37,14 +37,14 @@ namespace Cybersource_rest_samples_dotnet.Samples.Risk_Management
                 PostalCode: orderInformationBillToPostalCode
            );
 
-            string orderInformationShipToAddress1 = "1715 oaks apt # 7";
-            string orderInformationShipToAddress2 = " ";
+            string orderInformationShipToAddress1 = "PO Box 9088";
+            string orderInformationShipToAddress2 = "";
             string orderInformationShipToAddress3 = "";
             string orderInformationShipToAddress4 = "";
-            string orderInformationShipToAdministrativeArea = "WI";
+            string orderInformationShipToAdministrativeArea = "California";
             string orderInformationShipToCountry = "US";
-            string orderInformationShipToLocality = "SUPERIOR";
-            string orderInformationShipToPostalCode = "29681";
+            string orderInformationShipToLocality = "San Jose";
+            string orderInformationShipToPostalCode = "95132";
             Riskv1addressverificationsOrderInformationShipTo orderInformationShipTo = new Riskv1addressverificationsOrderInformationShipTo(
                 Address1: orderInformationShipToAddress1,
                 Address2: orderInformationShipToAddress2,
@@ -62,7 +62,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Risk_Management
             int orderInformationLineItemsQuantity1 = 3;
             string orderInformationLineItemsProductSKU1 = "9966223";
             string orderInformationLineItemsProductName1 = "headset";
-            string orderInformationLineItemsProductCode1 = "electronic";
+            string orderInformationLineItemsProductCode1 = "electronix";
             orderInformationLineItems.Add(new Riskv1addressverificationsOrderInformationLineItems(
                 UnitPrice: orderInformationLineItemsUnitPrice1,
                 Quantity: orderInformationLineItemsQuantity1,
@@ -71,13 +71,26 @@ namespace Cybersource_rest_samples_dotnet.Samples.Risk_Management
                 ProductCode: orderInformationLineItemsProductCode1
            ));
 
+            string orderInformationLineItemsUnitPrice2 = "10.50";
+            int orderInformationLineItemsQuantity2 = 2;
+            string orderInformationLineItemsProductSKU2 = "9966226";
+            string orderInformationLineItemsProductName2 = "wwrdf";
+            string orderInformationLineItemsProductCode2 = "electronic";
+            orderInformationLineItems.Add(new Riskv1addressverificationsOrderInformationLineItems(
+                UnitPrice: orderInformationLineItemsUnitPrice2,
+                Quantity: orderInformationLineItemsQuantity2,
+                ProductSKU: orderInformationLineItemsProductSKU2,
+                ProductName: orderInformationLineItemsProductName2,
+                ProductCode: orderInformationLineItemsProductCode2
+           ));
+
             Riskv1addressverificationsOrderInformation orderInformation = new Riskv1addressverificationsOrderInformation(
                 BillTo: orderInformationBillTo,
                 ShipTo: orderInformationShipTo,
                 LineItems: orderInformationLineItems
            );
 
-            string buyerInformationMerchantCustomerId = "ABCD";
+            string buyerInformationMerchantCustomerId = "QWERTY";
             Riskv1addressverificationsBuyerInformation buyerInformation = new Riskv1addressverificationsBuyerInformation(
                 MerchantCustomerId: buyerInformationMerchantCustomerId
            );

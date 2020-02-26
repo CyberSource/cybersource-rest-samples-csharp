@@ -5,9 +5,9 @@ using System.Globalization;
 using CyberSource.Api;
 using CyberSource.Model;
 
-namespace Cybersource_rest_samples_dotnet.Samples.Risk_Management
+namespace Cybersource_rest_samples_dotnet.Samples.RiskManagement
 {
-    public class AddressMatchNotFound
+    public class ApartmentNumberMissingOrNotFound
     {
         public static RiskV1AddressVerificationsPost201Response Run()
         {
@@ -18,12 +18,12 @@ namespace Cybersource_rest_samples_dotnet.Samples.Risk_Management
                 Comments: clientReferenceInformationComments
            );
 
-            string orderInformationBillToAddress1 = "Apt C ";
+            string orderInformationBillToAddress1 = "6th 4th ave";
             string orderInformationBillToAddress2 = "";
-            string orderInformationBillToAdministrativeArea = "California";
+            string orderInformationBillToAdministrativeArea = "NY";
             string orderInformationBillToCountry = "US";
-            string orderInformationBillToLocality = "Glendale";
-            string orderInformationBillToPostalCode = "91204";
+            string orderInformationBillToLocality = "rensslaer";
+            string orderInformationBillToPostalCode = "12144";
             Riskv1addressverificationsOrderInformationBillTo orderInformationBillTo = new Riskv1addressverificationsOrderInformationBillTo(
                 Address1: orderInformationBillToAddress1,
                 Address2: orderInformationBillToAddress2,
@@ -33,8 +33,24 @@ namespace Cybersource_rest_samples_dotnet.Samples.Risk_Management
                 PostalCode: orderInformationBillToPostalCode
            );
 
+
+            List <Riskv1addressverificationsOrderInformationLineItems> orderInformationLineItems = new List <Riskv1addressverificationsOrderInformationLineItems>();
+            string orderInformationLineItemsUnitPrice1 = "120.50";
+            int orderInformationLineItemsQuantity1 = 3;
+            string orderInformationLineItemsProductSKU1 = "996633";
+            string orderInformationLineItemsProductName1 = "qwerty";
+            string orderInformationLineItemsProductCode1 = "handling";
+            orderInformationLineItems.Add(new Riskv1addressverificationsOrderInformationLineItems(
+                UnitPrice: orderInformationLineItemsUnitPrice1,
+                Quantity: orderInformationLineItemsQuantity1,
+                ProductSKU: orderInformationLineItemsProductSKU1,
+                ProductName: orderInformationLineItemsProductName1,
+                ProductCode: orderInformationLineItemsProductCode1
+           ));
+
             Riskv1addressverificationsOrderInformation orderInformation = new Riskv1addressverificationsOrderInformation(
-                BillTo: orderInformationBillTo
+                BillTo: orderInformationBillTo,
+                LineItems: orderInformationLineItems
            );
 
             var requestObj = new VerifyCustomerAddressRequest(

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using CyberSource.Api;
 using CyberSource.Model;
 
-namespace Cybersource_rest_samples_dotnet.Samples.Risk_Management.CoreServices
+namespace Cybersource_rest_samples_dotnet.Samples.RiskManagement.CoreServices
 {
-    public class CreateDecisionManagerCase
+    public class DmWithTravelInformation
     {
         public static RiskV1DecisionsPost201Response Run()
         {
@@ -52,6 +52,27 @@ namespace Cybersource_rest_samples_dotnet.Samples.Risk_Management.CoreServices
             orderInformation.BillTo = billTo;
 
             requestObj.OrderInformation = orderInformation;
+
+            var travelInformation = new Riskv1decisionsTravelInformation();
+
+            travelInformation.CompleteRoute = "SFO-JFK:JFK-BLR";
+            travelInformation.DepartureTime = "2011-03-20 11:30pm GMT";
+            travelInformation.JourneyType = "One way";
+            var legs = new List<Riskv1decisionsTravelInformationLegs>();
+
+            var legs0 = new Riskv1decisionsTravelInformationLegs();
+            legs0.Origination = "SFO";
+            legs0.Destination = "JFK";
+            legs.Add(legs0);
+
+            var legs1 = new Riskv1decisionsTravelInformationLegs();
+            legs1.Origination = "JFK";
+            legs1.Destination = "BLR";
+            legs.Add(legs1);
+
+            travelInformation.Legs = legs;
+
+            requestObj.TravelInformation = travelInformation;
 
             try
             {

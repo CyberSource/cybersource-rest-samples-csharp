@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using CyberSource.Api;
 using CyberSource.Model;
 
-namespace Cybersource_rest_samples_dotnet.Samples.Risk_Management.CoreServices
+namespace Cybersource_rest_samples_dotnet.Samples.RiskManagement.CoreServices
 {
-    public class DmWithDeviceInformation
+    public class DmWithShippingInformation
     {
         public static RiskV1DecisionsPost201Response Run()
         {
@@ -38,6 +38,19 @@ namespace Cybersource_rest_samples_dotnet.Samples.Risk_Management.CoreServices
             amountDetails.TotalAmount = "144.14";
             orderInformation.AmountDetails = amountDetails;
 
+            var shipTo = new Riskv1decisionsOrderInformationShipTo();
+
+            shipTo.Address1 = "96, powers street";
+            shipTo.Address2 = "";
+            shipTo.AdministrativeArea = "KA";
+            shipTo.Country = "INDIA";
+            shipTo.Locality = "Clearwater milford";
+            shipTo.FirstName = "James";
+            shipTo.LastName = "Smith";
+            shipTo.PhoneNumber = "7606160717";
+            shipTo.PostalCode = "560056";
+            orderInformation.ShipTo = shipTo;
+
             var billTo = new Riskv1decisionsOrderInformationBillTo();
 
             billTo.Address1 = "96, powers street";
@@ -52,15 +65,6 @@ namespace Cybersource_rest_samples_dotnet.Samples.Risk_Management.CoreServices
             orderInformation.BillTo = billTo;
 
             requestObj.OrderInformation = orderInformation;
-
-            var deviceInformation = new Riskv1decisionsDeviceInformation();
-
-            deviceInformation.CookiesAccepted = "yes";
-            deviceInformation.IpAddress = "64.124.61.215";
-            deviceInformation.HostName = "host.com";
-            deviceInformation.HttpBrowserEmail = "xyz@gmail.com";
-            deviceInformation.UserAgent = "Chrome";
-            requestObj.DeviceInformation = deviceInformation;
 
             try
             {

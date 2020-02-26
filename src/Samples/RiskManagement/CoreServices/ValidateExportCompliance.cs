@@ -1,18 +1,18 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
 
 using CyberSource.Api;
 using CyberSource.Model;
 
-namespace Cybersource_rest_samples_dotnet.Samples.Risk_Management
+namespace Cybersource_rest_samples_dotnet.Samples.RiskManagement
 {
-    public class ExportComplianceInformationProvided
+    public class ValidateExportCompliance
     {
         public static RiskV1ExportComplianceInquiriesPost201Response Run()
         {
             string clientReferenceInformationCode = "verification example";
-            string clientReferenceInformationComments = "Export -fields";
+            string clientReferenceInformationComments = "Export-basic";
             Riskv1addressverificationsClientReferenceInformation clientReferenceInformation = new Riskv1addressverificationsClientReferenceInformation(
                 Code: clientReferenceInformationCode,
                 Comments: clientReferenceInformationComments
@@ -73,29 +73,9 @@ namespace Cybersource_rest_samples_dotnet.Samples.Risk_Management
                 LineItems: orderInformationLineItems
            );
 
-            string exportComplianceInformationAddressOperator = "and";
-            string exportComplianceInformationWeightsAddress = "low";
-            string exportComplianceInformationWeightsCompany = "exact";
-            string exportComplianceInformationWeightsName = "exact";
-            Riskv1exportcomplianceinquiriesExportComplianceInformationWeights exportComplianceInformationWeights = new Riskv1exportcomplianceinquiriesExportComplianceInformationWeights(
-                Address: exportComplianceInformationWeightsAddress,
-                Company: exportComplianceInformationWeightsCompany,
-                Name: exportComplianceInformationWeightsName
-           );
-
-
-            List <string> exportComplianceInformationSanctionLists = new List <string>();
-            exportComplianceInformationSanctionLists.Add("Bureau Of Industry and Security");
-            Riskv1exportcomplianceinquiriesExportComplianceInformation exportComplianceInformation = new Riskv1exportcomplianceinquiriesExportComplianceInformation(
-                AddressOperator: exportComplianceInformationAddressOperator,
-                Weights: exportComplianceInformationWeights,
-                SanctionLists: exportComplianceInformationSanctionLists
-           );
-
             var requestObj = new ValidateExportComplianceRequest(
                 ClientReferenceInformation: clientReferenceInformation,
-                OrderInformation: orderInformation,
-                ExportComplianceInformation: exportComplianceInformation
+                OrderInformation: orderInformation
            );
 
             try

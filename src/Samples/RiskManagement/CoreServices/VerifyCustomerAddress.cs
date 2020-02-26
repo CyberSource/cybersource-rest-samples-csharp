@@ -1,13 +1,13 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
 
 using CyberSource.Api;
 using CyberSource.Model;
 
-namespace Cybersource_rest_samples_dotnet.Samples.Risk_Management
+namespace Cybersource_rest_samples_dotnet.Samples.RiskManagement
 {
-    public class ShippingDetailsNotUSOrCanada
+    public class VerifyCustomerAddress
     {
         public static RiskV1AddressVerificationsPost201Response Run()
         {
@@ -37,13 +37,13 @@ namespace Cybersource_rest_samples_dotnet.Samples.Risk_Management
                 PostalCode: orderInformationBillToPostalCode
            );
 
-            string orderInformationShipToAddress1 = "4R.ILHA TERCEIRA,232-R/C-ESQ";
+            string orderInformationShipToAddress1 = "1715 oaks apt # 7";
             string orderInformationShipToAddress2 = " ";
             string orderInformationShipToAddress3 = "";
             string orderInformationShipToAddress4 = "";
             string orderInformationShipToAdministrativeArea = "WI";
-            string orderInformationShipToCountry = "PT";
-            string orderInformationShipToLocality = "Carcavelos";
+            string orderInformationShipToCountry = "US";
+            string orderInformationShipToLocality = "SUPERIOR";
             string orderInformationShipToPostalCode = "29681";
             Riskv1addressverificationsOrderInformationShipTo orderInformationShipTo = new Riskv1addressverificationsOrderInformationShipTo(
                 Address1: orderInformationShipToAddress1,

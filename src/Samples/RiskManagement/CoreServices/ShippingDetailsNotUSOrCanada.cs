@@ -5,9 +5,9 @@ using System.Globalization;
 using CyberSource.Api;
 using CyberSource.Model;
 
-namespace Cybersource_rest_samples_dotnet.Samples.Risk_Management
+namespace Cybersource_rest_samples_dotnet.Samples.RiskManagement
 {
-    public class CanadianBillingDetails
+    public class ShippingDetailsNotUSOrCanada
     {
         public static RiskV1AddressVerificationsPost201Response Run()
         {
@@ -18,14 +18,14 @@ namespace Cybersource_rest_samples_dotnet.Samples.Risk_Management
                 Comments: clientReferenceInformationComments
            );
 
-            string orderInformationBillToAddress1 = "1650 Burton Ave";
-            string orderInformationBillToAddress2 = "";
-            string orderInformationBillToAddress3 = "";
-            string orderInformationBillToAddress4 = "";
-            string orderInformationBillToAdministrativeArea = "BC";
-            string orderInformationBillToCountry = "CA";
-            string orderInformationBillToLocality = "VICTORIA";
-            string orderInformationBillToPostalCode = "V8T 2N6";
+            string orderInformationBillToAddress1 = "12301 research st";
+            string orderInformationBillToAddress2 = "1";
+            string orderInformationBillToAddress3 = "2";
+            string orderInformationBillToAddress4 = "3";
+            string orderInformationBillToAdministrativeArea = "TX";
+            string orderInformationBillToCountry = "US";
+            string orderInformationBillToLocality = "Austin";
+            string orderInformationBillToPostalCode = "78759";
             Riskv1addressverificationsOrderInformationBillTo orderInformationBillTo = new Riskv1addressverificationsOrderInformationBillTo(
                 Address1: orderInformationBillToAddress1,
                 Address2: orderInformationBillToAddress2,
@@ -35,6 +35,25 @@ namespace Cybersource_rest_samples_dotnet.Samples.Risk_Management
                 Country: orderInformationBillToCountry,
                 Locality: orderInformationBillToLocality,
                 PostalCode: orderInformationBillToPostalCode
+           );
+
+            string orderInformationShipToAddress1 = "4R.ILHA TERCEIRA,232-R/C-ESQ";
+            string orderInformationShipToAddress2 = " ";
+            string orderInformationShipToAddress3 = "";
+            string orderInformationShipToAddress4 = "";
+            string orderInformationShipToAdministrativeArea = "WI";
+            string orderInformationShipToCountry = "PT";
+            string orderInformationShipToLocality = "Carcavelos";
+            string orderInformationShipToPostalCode = "29681";
+            Riskv1addressverificationsOrderInformationShipTo orderInformationShipTo = new Riskv1addressverificationsOrderInformationShipTo(
+                Address1: orderInformationShipToAddress1,
+                Address2: orderInformationShipToAddress2,
+                Address3: orderInformationShipToAddress3,
+                Address4: orderInformationShipToAddress4,
+                AdministrativeArea: orderInformationShipToAdministrativeArea,
+                Country: orderInformationShipToCountry,
+                Locality: orderInformationShipToLocality,
+                PostalCode: orderInformationShipToPostalCode
            );
 
 
@@ -54,6 +73,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Risk_Management
 
             Riskv1addressverificationsOrderInformation orderInformation = new Riskv1addressverificationsOrderInformation(
                 BillTo: orderInformationBillTo,
+                ShipTo: orderInformationShipTo,
                 LineItems: orderInformationLineItems
            );
 
