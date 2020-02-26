@@ -10,7 +10,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payouts.CoreServices
         {
             var requestObj = new OctCreatePaymentRequest();
 
-            var clientReferenceInformationObj = new Ptsv2payoutsClientReferenceInformation
+            var clientReferenceInformationObj = new PtsV2IncrementalAuthorizationPatch201ResponseClientReferenceInformation
             {
                 Code = "33557799"
             };

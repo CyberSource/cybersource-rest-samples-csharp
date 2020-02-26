@@ -40,10 +40,10 @@
       <HintPath>lib\ApiSdk.dll</HintPath>
     </Reference>
     <Reference Include="AuthenticationSdk">
-      <HintPath>..\packages\CyberSource.Authentication.0.0.0.5\lib\AuthenticationSdk.dll</HintPath>
+      <HintPath>..\packages\CyberSource.Authentication.0.0.0.6\lib\AuthenticationSdk.dll</HintPath>
     </Reference>
     <Reference Include="cybersource-rest-client-dotnet">
-      <HintPath>..\packages\CyberSource.Rest.Client.0.0.1.1\lib\cybersource-rest-client-dotnet.dll</HintPath>
+      <HintPath>..\packages\CyberSource.Rest.Client.0.0.1.2\lib\cybersource-rest-client-dotnet.dll</HintPath>
     </Reference>
     <Reference Include="jose-jwt">
       <HintPath>..\packages\jose-jwt.2.4.0\lib\net461\jose-jwt.dll</HintPath>
@@ -92,6 +92,13 @@
     <Compile Include="Samples\Authentication\GenerateHttpRequestHeaders\PutGenerateHeaders.cs" />
     <Compile Include="Samples\Authentication\StandAloneHttpSignature.cs" />
     <Compile Include="Samples\Authentication\StandAloneJWT.cs" />
+    <Compile Include="Samples\Reporting\CoreServices\CreateStandardOrClassicSubscription.cs" />
+    <Compile Include="Samples\Risk Management\CoreServices\ListManagement.cs" />
+    <Compile Include="Samples\Risk Management\CoreServices\AddDuplicateInformation.cs" />
+    <Compile Include="Samples\Risk Management\CoreServices\AddressMatchNotFound.cs" />
+    <Compile Include="Samples\Risk Management\CoreServices\ApartmentNumberMissingOrNotFound.cs" />
+    <Compile Include="Samples\Risk Management\CoreServices\CanadianBillingDetails.cs" />
+    <Compile Include="Samples\Risk Management\CoreServices\ComplianceStatusCompleted.cs" />
     <Compile Include="Samples\Risk Management\CoreServices\CreateDecisionManagerCase.cs" />
     <Compile Include="Samples\Risk Management\CoreServices\DecisionProfileReject.cs" />
     <Compile Include="Samples\Risk Management\CoreServices\DmWithBuyerInformation.cs" />
@@ -99,6 +106,12 @@
     <Compile Include="Samples\Risk Management\CoreServices\DmWithMerchantDefinedInformation.cs" />
     <Compile Include="Samples\Risk Management\CoreServices\DmWithShippingInformation.cs" />
     <Compile Include="Samples\Risk Management\CoreServices\DmWithTravelInformation.cs" />
+    <Compile Include="Samples\Risk Management\CoreServices\ExportComplianceInformationProvided.cs" />
+    <Compile Include="Samples\Risk Management\CoreServices\FraudMarking.cs" />
+    <Compile Include="Samples\Risk Management\CoreServices\MultipleLineItems.cs" />
+    <Compile Include="Samples\Risk Management\CoreServices\MultipleSanctionLists.cs" />
+    <Compile Include="Samples\Risk Management\CoreServices\NoCompanyName.cs" />
+    <Compile Include="Samples\Risk Management\CoreServices\RemoveFromHistory.cs" />
     <Compile Include="Samples\Risk Management\CoreServices\ScoreExceedsThreshold.cs" />
     <Compile Include="Samples\Flex\CoreServices\GenerateKey.cs" />
     <Compile Include="Configuration.cs" />
@@ -145,6 +158,9 @@
     <Compile Include="Samples\Reporting\CoreServices\GetReportingResourceInformation.cs" />
     <Compile Include="Samples\Reporting\CoreServices\GetSubscriptionForReportName.cs" />
     <Compile Include="Samples\Reporting\CoreServices\RetrieveAvailableReports.cs" />
+    <Compile Include="Samples\Risk Management\CoreServices\ShippingDetailsNotUSOrCanada.cs" />
+    <Compile Include="Samples\Risk Management\CoreServices\ValidateExportCompliance.cs" />
+    <Compile Include="Samples\Risk Management\CoreServices\VerifyCustomerAddress.cs" />
     <Compile Include="Samples\SecureFileShare\CoreServices\DownloadFileWithFileIdentifier.cs" />
     <Compile Include="Samples\SecureFileShare\CoreServices\GetListOfFiles.cs" />
     <Compile Include="Samples\TMS\CoreServices\CreateInstrumentIdentifier.cs" />
