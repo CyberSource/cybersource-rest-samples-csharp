@@ -55,7 +55,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.RiskManagement.CoreServices
 
             var riskInformation = new Riskv1decisionsRiskInformation();
 
-            var profile = new Riskv1decisionsRiskInformationProfile();
+            var profile = new Ptsv2paymentsRiskInformationProfile();
 
             profile.Name = "profile2";
             riskInformation.Profile = profile;

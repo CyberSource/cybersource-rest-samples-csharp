@@ -15,7 +15,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Reporting.CoreServices
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
                 var apiInstance = new ReportDefinitionsApi(clientConfig);
 
-                var result = apiInstance.GetResourceV2Info(organizationId);
+                var result = apiInstance.GetResourceV2Info(organizationId: organizationId);
                 Console.WriteLine(result);
             }
             catch (Exception e)

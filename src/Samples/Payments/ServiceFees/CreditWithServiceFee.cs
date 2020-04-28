@@ -22,7 +22,6 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments.ServiceFees
             requestObj.ClientReferenceInformation = v2PaymentsClientReferenceInformationObj;
 
             var v2PaymentsOrderInformationObj = new Ptsv2paymentsidrefundsOrderInformation();
-            var v2paymentsOrderInformationBillToCompany = "Visa";
             var v2PaymentsOrderInformationBillToObj = new Ptsv2paymentsidcapturesOrderInformationBillTo
                                         {
                                                                     Country = "US",
@@ -35,7 +34,6 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments.ServiceFees
                                                                     AdministrativeArea = "CA",
                                                                     Email = "test@cybs.com"
                                         };
-            v2PaymentsOrderInformationBillToObj.Company = v2paymentsOrderInformationBillToCompany;
             v2PaymentsOrderInformationObj.BillTo = v2PaymentsOrderInformationBillToObj;
 
             var v2PaymentsOrderInformationAmountDetailsObj = new Ptsv2paymentsidcapturesOrderInformationAmountDetails
