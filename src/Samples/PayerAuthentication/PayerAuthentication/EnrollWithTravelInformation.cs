@@ -78,7 +78,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.PayerAuthentication
 
 
             List <Riskv1authenticationsTravelInformationLegs> travelInformationLegs = new List <Riskv1authenticationsTravelInformationLegs>();
-            string travelInformationLegsDestination1 = "DEFGH";
+            string travelInformationLegsDestination1 = "DEF";
             string travelInformationLegsCarrierCode1 = "UA";
             string travelInformationLegsDepartureDate1 = "2019-01-01";
             travelInformationLegs.Add(new Riskv1authenticationsTravelInformationLegs(
@@ -87,7 +87,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.PayerAuthentication
                 DepartureDate: travelInformationLegsDepartureDate1
            ));
 
-            string travelInformationLegsDestination2 = "RESD";
+            string travelInformationLegsDestination2 = "RES";
             string travelInformationLegsCarrierCode2 = "AS";
             string travelInformationLegsDepartureDate2 = "2019-02-21";
             travelInformationLegs.Add(new Riskv1authenticationsTravelInformationLegs(
