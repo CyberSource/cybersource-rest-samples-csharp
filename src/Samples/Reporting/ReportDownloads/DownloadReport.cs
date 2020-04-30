@@ -19,14 +19,14 @@ namespace Cybersource_rest_samples_dotnet.Samples.Reporting
             string organizationId = "testrest";
             var reportDate = DateTime.ParseExact("2018-09-30", "yyyy-MM-dd", CultureInfo.InvariantCulture);
             string reportName = "testrest_subcription_v2989";
-            string reportTime = "00:00:00Z";
+
             try
             {
                 var configDictionary = new Configuration().GetConfiguration();
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new ReportDownloadsApi(clientConfig);
-                var content = apiInstance.DownloadReportWithHttpInfo(reportDate, reportName, organizationId, reportTime);
+                var content = apiInstance.DownloadReportWithHttpInfo(reportDate, reportName, organizationId);
 
                 // START : FILE DOWNLOAD FUNCTIONALITY
                 File.WriteAllText(downloadFilePath, CreateXml(content.Data));

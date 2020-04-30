@@ -63,7 +63,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.RiskManagement
            );
 
             string riskInformationProfileName = "profile2";
-            Riskv1decisionsRiskInformationProfile riskInformationProfile = new Riskv1decisionsRiskInformationProfile(
+            Ptsv2paymentsRiskInformationProfile riskInformationProfile = new Ptsv2paymentsRiskInformationProfile(
                 Name: riskInformationProfileName
            );
 

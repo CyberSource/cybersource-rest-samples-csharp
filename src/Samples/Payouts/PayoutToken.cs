@@ -12,7 +12,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payouts
         public static PtsV2PayoutsPost201Response Run()
         {
             string clientReferenceInformationCode = "111111113";
-            PtsV2IncrementalAuthorizationPatch201ResponseClientReferenceInformation clientReferenceInformation = new PtsV2IncrementalAuthorizationPatch201ResponseClientReferenceInformation(
+            Ptsv2payoutsClientReferenceInformation clientReferenceInformation = new Ptsv2payoutsClientReferenceInformation(
                 Code: clientReferenceInformationCode
            );
 
