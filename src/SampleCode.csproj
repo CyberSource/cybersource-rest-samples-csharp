@@ -42,6 +42,9 @@
     <Reference Include="AuthenticationSdk">
       <HintPath>..\packages\CyberSource.Authentication.0.0.0.7\lib\AuthenticationSdk.dll</HintPath>
     </Reference>
+    <Reference Include="cybersource-rest-client-dotnet">
+      <HintPath>..\packages\CyberSource.Rest.Client.0.0.1.4\lib\cybersource-rest-client-dotnet.dll</HintPath>
+    </Reference>
     <Reference Include="cybersource-rest-client-dotnet, Version=0.0.1.3, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\cybersource-rest-client-dotnet\bin\Release\cybersource-rest-client-dotnet.dll</HintPath>
