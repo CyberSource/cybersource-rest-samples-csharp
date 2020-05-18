@@ -43,7 +43,11 @@
       <HintPath>..\packages\CyberSource.Authentication.0.0.0.7\lib\AuthenticationSdk.dll</HintPath>
     </Reference>
     <Reference Include="cybersource-rest-client-dotnet">
-      <HintPath>..\packages\CyberSource.Rest.Client.0.0.1.3\lib\cybersource-rest-client-dotnet.dll</HintPath>
+      <HintPath>..\packages\CyberSource.Rest.Client.0.0.1.4\lib\cybersource-rest-client-dotnet.dll</HintPath>
+    </Reference>
+    <Reference Include="cybersource-rest-client-dotnet, Version=0.0.1.3, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\cybersource-rest-client-dotnet\bin\Release\cybersource-rest-client-dotnet.dll</HintPath>
     </Reference>
     <Reference Include="jose-jwt">
       <HintPath>..\packages\jose-jwt.2.4.0\lib\net461\jose-jwt.dll</HintPath>
@@ -92,6 +96,50 @@
     <Compile Include="Samples\Authentication\GenerateHttpRequestHeaders\PutGenerateHeaders.cs" />
     <Compile Include="Samples\Authentication\StandAloneHttpSignature.cs" />
     <Compile Include="Samples\Authentication\StandAloneJWT.cs" />
+    <Compile Include="Samples\Payments\CoreServices\AmericanExpressDirectEMVWithContactRead.cs" />
+    <Compile Include="Samples\Payments\CoreServices\AuthorizationSkipDecisionManagerForSingleTransaction.cs" />
+    <Compile Include="Samples\Payments\CoreServices\AuthorizationUsingSwipedTrackData.cs" />
+    <Compile Include="Samples\Payments\CoreServices\AuthorizationWithCaptureSale.cs" />
+    <Compile Include="Samples\Payments\CoreServices\AuthorizationWithDecisionManager.cs" />
+    <Compile Include="Samples\Payments\CoreServices\AuthorizationWithDecisionManagerBuyerInformation.cs" />
+    <Compile Include="Samples\Payments\CoreServices\AuthorizationWithDecisionManagerDeviceInformation.cs" />
+    <Compile Include="Samples\Payments\CoreServices\AuthorizationWithDecisionManagerMerchantDefinedInformation.cs" />
+    <Compile Include="Samples\Payments\CoreServices\AuthorizationWithDecisionManagerCustomSetup.cs" />
+    <Compile Include="Samples\Payments\CoreServices\AuthorizationWithDecisionManagerShippingInformation.cs" />
+    <Compile Include="Samples\Payments\CoreServices\AuthorizationWithDecisionManagerTravelInformation.cs" />
+    <Compile Include="Samples\Payments\CoreServices\AuthorizationWithDMAcceptPAEnroll.cs" />
+    <Compile Include="Samples\Payments\CoreServices\AuthorizationWithDMRejectPAEnroll.cs" />
+    <Compile Include="Samples\Payments\CoreServices\AuthorizationWithDMReviewPAEnroll.cs" />
+    <Compile Include="Samples\Payments\CoreServices\AuthorizationWithPAEnrollAuthenticationNeeded.cs" />
+    <Compile Include="Samples\Payments\CoreServices\AuthorizationWithPayerAuthValidation.cs" />
+    <Compile Include="Samples\Payments\CoreServices\CaptureOfAuthorizationThatUsedSwipedTrackData.cs" />
+    <Compile Include="Samples\Payments\CoreServices\CyberSourceMPOSEMV.cs" />
+    <Compile Include="Samples\Payments\CoreServices\DigitalPaymentGooglePay.cs" />
+    <Compile Include="Samples\Payments\CoreServices\DigitalPaymentsApplePay.cs" />
+    <Compile Include="Samples\Payments\CoreServices\ElectronicCheckDebits.cs" />
+    <Compile Include="Samples\Payments\CoreServices\ElectronicCheckStandAloneCredits.cs" />
+    <Compile Include="Samples\Payments\CoreServices\LevelIIData.cs" />
+    <Compile Include="Samples\Payments\CoreServices\LevelIIIData.cs" />
+    <Compile Include="Samples\Payments\CoreServices\PartialAuthorization.cs" />
+    <Compile Include="Samples\Payments\CoreServices\PaymentNetworkTokenization.cs" />
+    <Compile Include="Samples\Payments\CoreServices\PaymentWithPaymentInstrumentToken.cs" />
+    <Compile Include="Samples\Payments\CoreServices\RestaurantAuthorization.cs" />
+    <Compile Include="Samples\Payments\CoreServices\RestaurantCaptureWithGratuity.cs" />
+    <Compile Include="Samples\Payments\CoreServices\SaleUsingEMVTechnologyWithContactlessForAcquirer.cs" />
+    <Compile Include="Samples\Payments\CoreServices\SaleUsingEMVTechnologyWithContactlessReadForAcquirer.cs" />
+    <Compile Include="Samples\Payments\CoreServices\SaleUsingEMVTechnologyWithContactlessReadForCTV.cs" />
+    <Compile Include="Samples\Payments\CoreServices\SaleUsingEMVTechnologyWithContactReadForCTV.cs" />
+    <Compile Include="Samples\Payments\CoreServices\SaleUsingEMVTechnologyWithContactReadOneForAcquirer.cs" />
+    <Compile Include="Samples\Payments\CoreServices\SaleUsingEMVTechnologyWithContactReadTwoForAcquirer.cs" />
+    <Compile Include="Samples\Payments\CoreServices\SaleUsingKeyedDataForAcquirer.cs" />
+    <Compile Include="Samples\Payments\CoreServices\SaleUsingKeyedDataForCTV.cs" />
+    <Compile Include="Samples\Payments\CoreServices\SaleUsingKeyedDataWithBalanceInquiry.cs" />
+    <Compile Include="Samples\Payments\CoreServices\SaleUsingSwipedTrackDataForAcquirer.cs" />
+    <Compile Include="Samples\Payments\CoreServices\SaleUsingSwipedTrackDataForCTV.cs" />
+    <Compile Include="Samples\Payments\CoreServices\ServiceFeesWithCreditCardTransaction.cs" />
+    <Compile Include="Samples\Payments\CoreServices\SimpleAuthorizationInternet.cs" />
+    <Compile Include="Samples\Payments\CoreServices\Swiped.cs" />
+    <Compile Include="Samples\Payments\CoreServices\ZeroDollarAuthorization.cs" />
     <Compile Include="Samples\Reporting\CoreServices\CreateStandardOrClassicSubscription.cs" />
     <Compile Include="Samples\RiskManagement\CoreServices\ListManagement.cs" />
     <Compile Include="Samples\RiskManagement\CoreServices\AddDuplicateInformation.cs" />

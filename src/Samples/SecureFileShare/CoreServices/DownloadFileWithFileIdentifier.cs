@@ -21,12 +21,13 @@ namespace Cybersource_rest_samples_dotnet.Samples.SecureFileShare.CoreServices
                 // This can be either a relative path or an absolute path
                 const string downloadFilePath = @".\Resource\" + fileName;
 
-                var fileId = "dGVzdHJlc3Rfc3ViY3JpcHRpb25fdjI5ODktOTMwYWU5MmItOTcxMy00N2U4LWUwNTMtYTI1ODhlMGFjZDNjLnhtbC0yMDE5LTA5LTMw";
+                var fileId = "dGVzdHJlc3Rfc3ViY3JpcHRpb25fdjI5ODktYTM3ZmI2ZjUtM2QzYi0wOGVhLWUwNTMtYTI1ODhlMGFkOTJjLnhtbC0yMDIwLTA0LTMw";
                 var organizationId = "testrest";
 
                 var configDictionary = new Configuration().GetConfiguration();
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
                 var apiInstance = new SecureFileShareApi(clientConfig);
+                apiInstance.Configuration.ApiClient.AcceptHeader = "text/csv";
 
                 var content = apiInstance.GetFileWithHttpInfo(fileId, organizationId);
 

@@ -10,8 +10,8 @@ namespace Cybersource_rest_samples_dotnet.Samples.SecureFileShare.CoreServices
         {
             try
             {
-                var startDate = DateTime.ParseExact("2018-10-20", "yyyy-MM-dd", CultureInfo.InvariantCulture);
-                var endDate = DateTime.ParseExact("2018-10-30", "yyyy-MM-dd", CultureInfo.InvariantCulture);
+                var startDate = DateTime.ParseExact("2020-04-20", "yyyy-MM-dd", CultureInfo.InvariantCulture);
+                var endDate = DateTime.ParseExact("2020-04-30", "yyyy-MM-dd", CultureInfo.InvariantCulture);
                 var organizationId = "testrest";
 
                 var configDictionary = new Configuration().GetConfiguration();
