@@ -27,8 +27,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.SecureFileShare.CoreServices
                 var configDictionary = new Configuration().GetConfiguration();
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
                 var apiInstance = new SecureFileShareApi(clientConfig);
-                apiInstance.Configuration.ApiClient.AcceptHeader = "text/csv";
-
+                
                 var content = apiInstance.GetFileWithHttpInfo(fileId, organizationId);
 
                 File.WriteAllText(downloadFilePath, CreateXml(content.Data));

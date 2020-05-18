@@ -12,7 +12,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.RiskManagement.CoreServices
     {
         public static RiskV1DecisionsPost201Response Run()
         {
-            var requestObj = new CreateBundledDecisionManagerCaseRequest();
+            var requestObj = new CreateDecisionManagerCaseRequest();
 
             var clientReferenceInformation = new Riskv1decisionsClientReferenceInformation();
 
@@ -68,7 +68,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.RiskManagement.CoreServices
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
                 var apiInstance = new DecisionManagerApi(clientConfig);
 
-                var result = apiInstance.CreateBundledDecisionManagerCase(requestObj);
+                var result = apiInstance.CreateDecisionManagerCase(requestObj);
                 Console.WriteLine(result);
                 return result;
             }
