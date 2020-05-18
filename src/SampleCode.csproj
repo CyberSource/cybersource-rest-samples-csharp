@@ -98,8 +98,6 @@
     <Compile Include="Samples\Authentication\StandAloneJWT.cs" />
     <Compile Include="Samples\Payments\CoreServices\AmericanExpressDirectEMVWithContactRead.cs" />
     <Compile Include="Samples\Payments\CoreServices\AuthorizationSkipDecisionManagerForSingleTransaction.cs" />
-    <Compile Include="Samples\Payments\CoreServices\AuthorizationUsingBluefinPCIPPEForAcquirer.cs" />
-    <Compile Include="Samples\Payments\CoreServices\AuthorizationUsingBluefinPCIPPEForCTV.cs" />
     <Compile Include="Samples\Payments\CoreServices\AuthorizationUsingSwipedTrackData.cs" />
     <Compile Include="Samples\Payments\CoreServices\AuthorizationWithCaptureSale.cs" />
     <Compile Include="Samples\Payments\CoreServices\AuthorizationWithDecisionManager.cs" />
@@ -115,13 +113,10 @@
     <Compile Include="Samples\Payments\CoreServices\AuthorizationWithPAEnrollAuthenticationNeeded.cs" />
     <Compile Include="Samples\Payments\CoreServices\AuthorizationWithPayerAuthValidation.cs" />
     <Compile Include="Samples\Payments\CoreServices\CaptureOfAuthorizationThatUsedSwipedTrackData.cs" />
-    <Compile Include="Samples\Payments\CoreServices\CreditUsingBluefinPCIPPEForAcquirer.cs" />
-    <Compile Include="Samples\Payments\CoreServices\CreditUsingBluefinPCIPPEForCTV.cs" />
     <Compile Include="Samples\Payments\CoreServices\CyberSourceMPOSEMV.cs" />
     <Compile Include="Samples\Payments\CoreServices\DigitalPaymentGooglePay.cs" />
     <Compile Include="Samples\Payments\CoreServices\DigitalPaymentsApplePay.cs" />
     <Compile Include="Samples\Payments\CoreServices\ElectronicCheckDebits.cs" />
-    <Compile Include="Samples\Payments\CoreServices\ElectronicCheckDebitsWithPaymentInstrumentToken.cs" />
     <Compile Include="Samples\Payments\CoreServices\ElectronicCheckStandAloneCredits.cs" />
     <Compile Include="Samples\Payments\CoreServices\LevelIIData.cs" />
     <Compile Include="Samples\Payments\CoreServices\LevelIIIData.cs" />
