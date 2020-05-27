@@ -96,21 +96,32 @@
     <Compile Include="Samples\Authentication\StandAloneJWT.cs" />
     <Compile Include="Samples\Flex\KeyGeneration\GenerateKey.cs" />
     <Compile Include="Samples\Flex\Tokenization\FlexTokenizeCard.cs" />
-    <Compile Include="Samples\PayerAuthentication\PayerAuthentication\AuthenticationWithNewAccount.cs" />
-    <Compile Include="Samples\PayerAuthentication\PayerAuthentication\AuthenticationWithNORedirect.cs" />
-    <Compile Include="Samples\PayerAuthentication\PayerAuthentication\EnrollWithPendingAuthentication.cs" />
-    <Compile Include="Samples\PayerAuthentication\PayerAuthentication\EnrollWithTravelInformation.cs" />
-    <Compile Include="Samples\PayerAuthentication\PayerAuthentication\PendingAuthenticationWithUnknownPath.cs" />
-    <Compile Include="Samples\PayerAuthentication\PayerAuthentication\ValidateAuthenticationResults.cs" />
+    <Compile Include="Samples\Invoicing\InvoiceSettings\GetInvoiceSettings.cs" />
+    <Compile Include="Samples\Invoicing\InvoiceSettings\UpdateInvoiceSettings.cs" />
+    <Compile Include="Samples\Invoicing\Invoices\CreateAndSendInvoiceImmediately.cs" />
+    <Compile Include="Samples\Invoicing\Invoices\CreateDraftInvoice.cs" />
+    <Compile Include="Samples\Invoicing\Invoices\CreateInvoiceAndAssignItSpecificInvoiceNumber.cs" />
+    <Compile Include="Samples\Invoicing\Invoices\CreateInvoiceWithoutSendingIt.cs" />
+    <Compile Include="Samples\Invoicing\Invoices\GetInvoiceDetails.cs" />
+    <Compile Include="Samples\PayerAuthentication\AuthenticationWithNewAccount.cs" />
+    <Compile Include="Samples\PayerAuthentication\AuthenticationWithNORedirect.cs" />
+    <Compile Include="Samples\PayerAuthentication\EnrollWithPendingAuthentication.cs" />
+    <Compile Include="Samples\PayerAuthentication\EnrollWithTravelInformation.cs" />
+    <Compile Include="Samples\PayerAuthentication\PendingAuthenticationWithUnknownPath.cs" />
+    <Compile Include="Samples\PayerAuthentication\ValidateAuthenticationResults.cs" />
     <Compile Include="Samples\Payments\Capture\CapturePayment.cs" />
     <Compile Include="Samples\Payments\Capture\CapturePaymentServiceFee.cs" />
     <Compile Include="Samples\Payments\Credit\Credit.cs" />
     <Compile Include="Samples\Payments\Credit\ElectronicCheckStandAloneCredits.cs" />
     <Compile Include="Samples\Payments\Credit\ServiceFeesCredit.cs" />
+    <Compile Include="Samples\Payments\Payments\AuthorizationCaptureForTimeoutVoidFlow.cs" />
+    <Compile Include="Samples\Payments\Payments\AuthorizationForIncrementalAuthorizationFlow.cs" />
+    <Compile Include="Samples\Payments\Payments\AuthorizationForTimeoutReversalFlow.cs" />
     <Compile Include="Samples\Payments\Payments\CyberSourceMPOSEMV.cs" />
     <Compile Include="Samples\Payments\Payments\DigitalPaymentGooglePay.cs" />
     <Compile Include="Samples\Payments\Payments\DigitalPaymentsApplePay.cs" />
     <Compile Include="Samples\Payments\Payments\ElectronicCheckDebits.cs" />
+    <Compile Include="Samples\Payments\Payments\IncrementalAuthorization.cs" />
     <Compile Include="Samples\Payments\Payments\LevelIIData.cs" />
     <Compile Include="Samples\Payments\Payments\LevelIIIData.cs" />
     <Compile Include="Samples\Payments\Payments\PartialAuthorization.cs" />
@@ -124,6 +135,8 @@
     <Compile Include="Samples\Payments\Refund\RefundPayment.cs" />
     <Compile Include="Samples\Payments\Reversal\ProcessAuthorizationReversal.cs" />
     <Compile Include="Samples\Payments\Reversal\ServiceFeesAuthorizationReversal.cs" />
+    <Compile Include="Samples\Payments\Reversal\TimeoutReversal.cs" />
+    <Compile Include="Samples\Payments\Void\TimeoutVoid.cs" />
     <Compile Include="Samples\Payments\Void\VoidCapture.cs" />
     <Compile Include="Samples\Payments\Void\VoidCredit.cs" />
     <Compile Include="Samples\Payments\Void\VoidPayment.cs" />
@@ -218,6 +231,7 @@
     <None Include="Resource\request_reversals.json" />
     <None Include="Resource\request_void.json" />
     <None Include="Resource\testrest.p12" />
+    <None Include="Resource\testrest_cpctv.p12" />
     <None Include="Resource\TRRReport.json" />
   </ItemGroup>
   <ItemGroup>
