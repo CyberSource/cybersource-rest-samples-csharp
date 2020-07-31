@@ -43,9 +43,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\CyberSource.Authentication.0.0.0.7\lib\AuthenticationSdk.dll</HintPath>
     </Reference>
-    <Reference Include="cybersource-rest-client-dotnet, Version=0.0.1.3, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="cybersource-rest-client-dotnet, Version=0.0.1.5, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\CyberSource.Rest.Client.0.0.1.3\lib\cybersource-rest-client-dotnet.dll</HintPath>
+      <HintPath>..\packages\CyberSource.Rest.Client.0.0.1.5\lib\cybersource-rest-client-dotnet.dll</HintPath>
     </Reference>
     <Reference Include="jose-jwt">
       <HintPath>..\packages\jose-jwt.2.4.0\lib\net461\jose-jwt.dll</HintPath>
@@ -82,6 +82,7 @@
     <Compile Include="Api.cs" />
     <Compile Include="AuthenticationData\Configuration.cs" />
     <Compile Include="AuthenticationData\RequestData.cs" />
+    <Compile Include="Resource\NumericUtility.cs" />
     <Compile Include="Samples\Authentication\CallHttpMethods\DeleteMethod.cs" />
     <Compile Include="Samples\Authentication\CallHttpMethods\GetMethod.cs" />
     <Compile Include="Samples\Authentication\CallHttpMethods\GetObjectMethod.cs" />
@@ -94,8 +95,7 @@
     <Compile Include="Samples\Authentication\GenerateHttpRequestHeaders\PutGenerateHeaders.cs" />
     <Compile Include="Samples\Authentication\StandAloneHttpSignature.cs" />
     <Compile Include="Samples\Authentication\StandAloneJWT.cs" />
-    <Compile Include="Samples\Flex\KeyGeneration\GenerateKey.cs" />
-    <Compile Include="Samples\Flex\Tokenization\FlexTokenizeCard.cs" />
+    <Compile Include="Samples\FlexMicroform\GenerateKey.cs" />
     <Compile Include="Samples\Invoicing\InvoiceSettings\GetInvoiceSettings.cs" />
     <Compile Include="Samples\Invoicing\InvoiceSettings\UpdateInvoiceSettings.cs" />
     <Compile Include="Samples\Invoicing\Invoices\CreateAndSendInvoiceImmediately.cs" />
@@ -105,31 +105,80 @@
     <Compile Include="Samples\Invoicing\Invoices\GetInvoiceDetails.cs" />
     <Compile Include="Samples\PayerAuthentication\AuthenticationWithNewAccount.cs" />
     <Compile Include="Samples\PayerAuthentication\AuthenticationWithNORedirect.cs" />
+    <Compile Include="Samples\PayerAuthentication\EnrollWithCustomerIdAsPaymentInformation.cs" />
     <Compile Include="Samples\PayerAuthentication\EnrollWithPendingAuthentication.cs" />
+    <Compile Include="Samples\PayerAuthentication\EnrollWithTransientToken.cs" />
     <Compile Include="Samples\PayerAuthentication\EnrollWithTravelInformation.cs" />
     <Compile Include="Samples\PayerAuthentication\PendingAuthenticationWithUnknownPath.cs" />
+    <Compile Include="Samples\PayerAuthentication\SetupCompletionWithCardNumber.cs" />
+    <Compile Include="Samples\PayerAuthentication\SetupCompletionWithFlexTransientToken.cs" />
+    <Compile Include="Samples\PayerAuthentication\SetupCompletionWithFluidDataValueAndPaymentSolution.cs" />
+    <Compile Include="Samples\PayerAuthentication\SetupCompletionWithSecureStorageToken.cs" />
+    <Compile Include="Samples\PayerAuthentication\SetupCompletionWithTMSToken.cs" />
+    <Compile Include="Samples\PayerAuthentication\SetupCompletionWithTokenizedCard.cs" />
+    <Compile Include="Samples\PayerAuthentication\SetupCompletionWithVisaCheckout.cs" />
     <Compile Include="Samples\PayerAuthentication\ValidateAuthenticationResults.cs" />
+    <Compile Include="Samples\Payments\Capture\CaptureOfAuthorizationThatUsedSwipedTrackData.cs" />
     <Compile Include="Samples\Payments\Capture\CapturePayment.cs" />
     <Compile Include="Samples\Payments\Capture\CapturePaymentServiceFee.cs" />
+    <Compile Include="Samples\Payments\Capture\RestaurantCaptureWithGratuity.cs" />
     <Compile Include="Samples\Payments\Credit\Credit.cs" />
+    <Compile Include="Samples\Payments\Credit\CreditUsingBluefinPCIP2PEForCardPresentEnabledAcquirer.cs" />
+    <Compile Include="Samples\Payments\Credit\CreditUsingBluefinPCIP2PEWithVisaPlatformConnect.cs" />
+    <Compile Include="Samples\Payments\Credit\CreditWithCustomerPaymentInstrumentAndShippingAddressTokenId.cs" />
+    <Compile Include="Samples\Payments\Credit\CreditWithCustomerTokenId.cs" />
+    <Compile Include="Samples\Payments\Credit\CreditWithInstrumentIdentifierTokenId.cs" />
     <Compile Include="Samples\Payments\Credit\ElectronicCheckStandAloneCredits.cs" />
     <Compile Include="Samples\Payments\Credit\ServiceFeesCredit.cs" />
+    <Compile Include="Samples\Payments\Payments\AmericanExpressDirectEMVWithContactRead.cs" />
     <Compile Include="Samples\Payments\Payments\AuthorizationCaptureForTimeoutVoidFlow.cs" />
     <Compile Include="Samples\Payments\Payments\AuthorizationForIncrementalAuthorizationFlow.cs" />
     <Compile Include="Samples\Payments\Payments\AuthorizationForTimeoutReversalFlow.cs" />
-    <Compile Include="Samples\Payments\Payments\CyberSourceMPOSEMV.cs" />
+    <Compile Include="Samples\Payments\Payments\AuthorizationSkipDecisionManagerForSingleTransaction.cs" />
+    <Compile Include="Samples\Payments\Payments\AuthorizationUsingBluefinPCIP2PEWithVisaPlatformConnect.cs" />
+    <Compile Include="Samples\Payments\Payments\AuthorizationUsingSwipedTrackData.cs" />
+    <Compile Include="Samples\Payments\Payments\AuthorizationWithCaptureSale.cs" />
+    <Compile Include="Samples\Payments\Payments\AuthorizationWithCustomerPaymentInstrumentAndShippingAddressTokenId.cs" />
+    <Compile Include="Samples\Payments\Payments\AuthorizationWithCustomerTokenCreation.cs" />
+    <Compile Include="Samples\Payments\Payments\AuthorizationWithCustomerTokenId.cs" />
+    <Compile Include="Samples\Payments\Payments\AuthorizationWithDecisionManager.cs" />
+    <Compile Include="Samples\Payments\Payments\AuthorizationWithDecisionManagerBuyerInformation.cs" />
+    <Compile Include="Samples\Payments\Payments\AuthorizationWithDecisionManagerCustomSetup.cs" />
+    <Compile Include="Samples\Payments\Payments\AuthorizationWithDecisionManagerDeviceInformation.cs" />
+    <Compile Include="Samples\Payments\Payments\AuthorizationWithDecisionManagerMerchantDefinedInformation.cs" />
+    <Compile Include="Samples\Payments\Payments\AuthorizationWithDecisionManagerShippingInformation.cs" />
+    <Compile Include="Samples\Payments\Payments\AuthorizationWithDecisionManagerTravelInformation.cs" />
+    <Compile Include="Samples\Payments\Payments\AuthorizationWithDMAcceptPAEnroll.cs" />
+    <Compile Include="Samples\Payments\Payments\AuthorizationWithDMRejectPAEnroll.cs" />
+    <Compile Include="Samples\Payments\Payments\AuthorizationWithDMReviewPAEnroll.cs" />
+    <Compile Include="Samples\Payments\Payments\AuthorizationWithLegacyToken.cs" />
+    <Compile Include="Samples\Payments\Payments\AuthorizationWithPAEnrollAuthenticationNeeded.cs" />
+    <Compile Include="Samples\Payments\Payments\AuthorizationWithPayerAuthValidation.cs" />
     <Compile Include="Samples\Payments\Payments\DigitalPaymentGooglePay.cs" />
     <Compile Include="Samples\Payments\Payments\DigitalPaymentsApplePay.cs" />
     <Compile Include="Samples\Payments\Payments\ElectronicCheckDebits.cs" />
+    <Compile Include="Samples\Payments\Payments\ElectronicCheckDebitsWithLegacyToken.cs" />
     <Compile Include="Samples\Payments\Payments\IncrementalAuthorization.cs" />
     <Compile Include="Samples\Payments\Payments\LevelIIData.cs" />
     <Compile Include="Samples\Payments\Payments\LevelIIIData.cs" />
     <Compile Include="Samples\Payments\Payments\PartialAuthorization.cs" />
     <Compile Include="Samples\Payments\Payments\PaymentNetworkTokenization.cs" />
-    <Compile Include="Samples\Payments\Payments\PaymentWithPaymentInstrumentToken.cs" />
+    <Compile Include="Samples\Payments\Payments\PaymentWithFlexToken.cs" />
+    <Compile Include="Samples\Payments\Payments\RestaurantAuthorization.cs" />
+    <Compile Include="Samples\Payments\Payments\SaleUsingEMVTechnologyWithContactless.cs" />
+    <Compile Include="Samples\Payments\Payments\SaleUsingEMVTechnologyWithContactlessReadForCardPresentEnabledAcquirer.cs" />
+    <Compile Include="Samples\Payments\Payments\SaleUsingEMVTechnologyWithContactlessReadWithVisaPlatformConnect.cs" />
+    <Compile Include="Samples\Payments\Payments\SaleUsingEMVTechnologyWithContactReadOneForCardPresentEnabledAcquirer.cs" />
+    <Compile Include="Samples\Payments\Payments\SaleUsingEMVTechnologyWithContactReadTwoForCardPresentEnabledAcquirer.cs" />
+    <Compile Include="Samples\Payments\Payments\SaleUsingEMVTechnologyWithContactReadWithVisaPlatformConnect.cs" />
+    <Compile Include="Samples\Payments\Payments\SaleUsingKeyedDataForCardPresentEnabledAcquirer.cs" />
+    <Compile Include="Samples\Payments\Payments\SaleUsingKeyedDataWithBalanceInquiry.cs" />
+    <Compile Include="Samples\Payments\Payments\SaleUsingKeyedDataWithVisaPlatformConnect.cs" />
+    <Compile Include="Samples\Payments\Payments\SaleUsingSwipedTrackDataForCardPresentEnabledAcquirer.cs" />
+    <Compile Include="Samples\Payments\Payments\SaleUsingSwipedTrackDataWithVisaPlatformConnect.cs" />
     <Compile Include="Samples\Payments\Payments\ServiceFeesWithCreditCardTransaction.cs" />
     <Compile Include="Samples\Payments\Payments\SimpleAuthorizationInternet.cs" />
-    <Compile Include="Samples\Payments\Payments\SimpleAuthorizationRetail.cs" />
+    <Compile Include="Samples\Payments\Payments\Swiped.cs" />
     <Compile Include="Samples\Payments\Payments\ZeroDollarAuthorization.cs" />
     <Compile Include="Samples\Payments\Refund\RefundCapture.cs" />
     <Compile Include="Samples\Payments\Refund\RefundPayment.cs" />
@@ -184,18 +233,32 @@
     <Compile Include="Samples\RiskManagement\Verification\VerboseRequestWithAllFields.cs" />
     <Compile Include="Samples\SecureFileShare\DownloadFileWithFileIdentifier.cs" />
     <Compile Include="Samples\SecureFileShare\GetListOfFiles.cs" />
+    <Compile Include="Samples\TokenManagement\CustomerPaymentInstrument\CreateCustomerPaymentInstrumentBankAccount.cs" />
+    <Compile Include="Samples\TokenManagement\CustomerPaymentInstrument\CreateCustomerPaymentInstrumentCard.cs" />
+    <Compile Include="Samples\TokenManagement\CustomerPaymentInstrument\CreateCustomerPaymentInstrumentPinlessDebit.cs" />
+    <Compile Include="Samples\TokenManagement\CustomerPaymentInstrument\DeleteCustomerPaymentInstrument.cs" />
+    <Compile Include="Samples\TokenManagement\CustomerPaymentInstrument\ListPaymentInstrumentsForCustomer.cs" />
+    <Compile Include="Samples\TokenManagement\CustomerPaymentInstrument\RetrieveCustomerPaymentInstrument.cs" />
+    <Compile Include="Samples\TokenManagement\CustomerShippingAddress\CreateShippingAddress.cs" />
+    <Compile Include="Samples\TokenManagement\CustomerShippingAddress\DeleteCustomerShippingAddress.cs" />
+    <Compile Include="Samples\TokenManagement\CustomerShippingAddress\ListShippingAddressesForCustomer.cs" />
+    <Compile Include="Samples\TokenManagement\CustomerShippingAddress\RetrieveCustomerShippingAddress.cs" />
+    <Compile Include="Samples\TokenManagement\Customer\CreateCustomer.cs" />
+    <Compile Include="Samples\TokenManagement\Customer\DeleteCustomer.cs" />
+    <Compile Include="Samples\TokenManagement\Customer\RetrieveCustomer.cs" />
+    <Compile Include="Samples\TokenManagement\Customer\UpdateCustomer.cs" />
+    <Compile Include="Samples\TokenManagement\Customer\UpdateCustomersDefaultPaymentInstrument.cs" />
+    <Compile Include="Samples\TokenManagement\Customer\UpdateCustomersDefaultShippingAddress.cs" />
     <Compile Include="Samples\TokenManagement\InstrumentIdentifier\CreateInstrumentIdentifierBankAccount.cs" />
     <Compile Include="Samples\TokenManagement\InstrumentIdentifier\CreateInstrumentIdentifierCard.cs" />
     <Compile Include="Samples\TokenManagement\InstrumentIdentifier\CreateInstrumentIdentifierCardEnrollForNetworkToken.cs" />
     <Compile Include="Samples\TokenManagement\InstrumentIdentifier\DeleteInstrumentIdentifier.cs" />
-    <Compile Include="Samples\TokenManagement\InstrumentIdentifier\RetrieveAllPaymentInstruments.cs" />
+    <Compile Include="Samples\TokenManagement\InstrumentIdentifier\ListPaymentInstrumentsForInstrumentIdentifier.cs" />
     <Compile Include="Samples\TokenManagement\InstrumentIdentifier\RetrieveInstrumentIdentifier.cs" />
+    <Compile Include="Samples\TokenManagement\InstrumentIdentifier\UpdateInstrumentIdentifierPreviousTransactionId.cs" />
     <Compile Include="Samples\TokenManagement\PaymentInstrument\CreatePaymentInstrumentBankAccount.cs" />
     <Compile Include="Samples\TokenManagement\PaymentInstrument\CreatePaymentInstrumentCard.cs" />
-    <Compile Include="Samples\TokenManagement\PaymentInstrument\CreatePaymentInstrumentCardEnrollForNetworkToken.cs" />
-    <Compile Include="Samples\TokenManagement\PaymentInstrument\CreatePaymentInstrumentCardWithInstrumentIdentifierId.cs" />
     <Compile Include="Samples\TokenManagement\PaymentInstrument\CreatePaymentInstrumentPinlessDebit.cs" />
-    <Compile Include="Samples\TokenManagement\PaymentInstrument\CreatePaymentInstrumentTokenizedCard.cs" />
     <Compile Include="Samples\TokenManagement\PaymentInstrument\DeletePaymentInstrument.cs" />
     <Compile Include="Samples\TokenManagement\PaymentInstrument\RetrievePaymentInstrument.cs" />
     <Compile Include="Samples\TransactionBatches\GetIndividualBatchFile.cs" />
@@ -208,6 +271,11 @@
     <Compile Include="Configuration.cs" />
     <Compile Include="SampleCode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Samples\ValueAddedService\BasicTaxCalculationRequest.cs" />
+    <Compile Include="Samples\ValueAddedService\CommittedTaxCallRequest.cs" />
+    <Compile Include="Samples\ValueAddedService\CommittedTaxRefundCallRequest.cs" />
+    <Compile Include="Samples\ValueAddedService\TaxRefundRequest.cs" />
+    <Compile Include="Samples\ValueAddedService\VoidCommittedTaxCall.cs" />
     <Compile Include="Utilities.cs" />
   </ItemGroup>
   <ItemGroup>

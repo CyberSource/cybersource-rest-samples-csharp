@@ -13,15 +13,15 @@ namespace Cybersource_rest_samples_dotnet.Samples.Reporting
         {
             string reportDefinitionName = "TransactionRequestClass";
 
-            List <string> reportFields = new List <string>();
+            List<string> reportFields = new List<string>();
             reportFields.Add("Request.RequestID");
             reportFields.Add("Request.TransactionDate");
             reportFields.Add("Request.MerchantID");
             string reportMimeType = "application/xml";
             string reportName = "testrest_v2";
             string timezone = "GMT";
-            var reportStartTime = DateTime.Parse("2020-03-01T12:30:00.000+05:30");
-            var reportEndTime = DateTime.Parse("2020-03-02T12:30:00.000+05:30");
+            var reportStartTime = DateTime.Parse("2020-03-01T17:30:00.000+05:30");
+            var reportEndTime = DateTime.Parse("2020-03-02T17:30:00.000+05:30");
             bool reportPreferencesSignedAmounts = true;
             string reportPreferencesFieldNameConvention = "SOAPI";
             Reportingv3reportsReportPreferences reportPreferences = new Reportingv3reportsReportPreferences(

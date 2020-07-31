@@ -9,8 +9,6 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments
 {
     public class ElectronicCheckDebits
     {
-        public static bool CaptureTrueForProcessPayment { get; set; } = false;
-
         public static PtsV2PaymentsPost201Response Run()
         {
             string clientReferenceInformationCode = "TC50171_3";
@@ -18,16 +16,6 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments
                 Code: clientReferenceInformationCode
            );
 
-            bool processingInformationCapture = false;
-            if (CaptureTrueForProcessPayment)
-            {
-                processingInformationCapture = true;
-            }
-            string processingInformationCommerceIndicator = "internet";
-            Ptsv2paymentsProcessingInformation processingInformation = new Ptsv2paymentsProcessingInformation(
-                Capture: processingInformationCapture,
-                CommerceIndicator: processingInformationCommerceIndicator
-           );
 
             string paymentInformationBankAccountType = "C";
             string paymentInformationBankAccountNumber = "4100";
@@ -42,8 +30,14 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments
                 RoutingNumber: paymentInformationBankRoutingNumber
            );
 
+            string paymentInformationPaymentTypeName = "CHECK";
+            Ptsv2paymentsPaymentInformationPaymentType paymentInformationPaymentType = new Ptsv2paymentsPaymentInformationPaymentType(
+                Name: paymentInformationPaymentTypeName
+           );
+
             Ptsv2paymentsPaymentInformation paymentInformation = new Ptsv2paymentsPaymentInformation(
-                Bank: paymentInformationBank
+                Bank: paymentInformationBank,
+                PaymentType: paymentInformationPaymentType
            );
 
             string orderInformationAmountDetailsTotalAmount = "100";
@@ -79,7 +73,6 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments
 
             var requestObj = new CreatePaymentRequest(
                 ClientReferenceInformation: clientReferenceInformation,
-                ProcessingInformation: processingInformation,
                 PaymentInformation: paymentInformation,
                 OrderInformation: orderInformation
            );

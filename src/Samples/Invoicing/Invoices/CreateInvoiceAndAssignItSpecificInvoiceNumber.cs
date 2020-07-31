@@ -67,7 +67,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Invoicing
            );
 
 
-            List <Invoicingv2invoicesOrderInformationLineItems> orderInformationLineItems = new List <Invoicingv2invoicesOrderInformationLineItems>();
+            List<Invoicingv2invoicesOrderInformationLineItems> orderInformationLineItems = new List<Invoicingv2invoicesOrderInformationLineItems>();
             string orderInformationLineItemsProductSku1 = "P653727383";
             string orderInformationLineItemsProductName1 = "First line item's name";
             int orderInformationLineItemsQuantity1 = 21;

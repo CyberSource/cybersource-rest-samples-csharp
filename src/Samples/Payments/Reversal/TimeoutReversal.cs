@@ -12,10 +12,8 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments
         public static PtsV2PaymentsReversalsPost201Response Run()
         {
             AuthorizationForTimeoutReversalFlow.Run();
-            var clientReferenceInformationTransactionId = "231465978312";
-            string clientReferenceInformationCode = "TC50171_3";
+            var clientReferenceInformationTransactionId = SampleCode.TimeoutReversalTransactionId;
             Ptsv2paymentsClientReferenceInformation clientReferenceInformation = new Ptsv2paymentsClientReferenceInformation(
-                Code: clientReferenceInformationCode,
                 TransactionId: clientReferenceInformationTransactionId
            );
 

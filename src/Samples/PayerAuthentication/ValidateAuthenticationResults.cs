@@ -12,7 +12,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.PayerAuthentication
         public static RiskV1AuthenticationResultsPost201Response Run()
         {
             string clientReferenceInformationCode = "pavalidatecheck";
-            Riskv1authenticationsClientReferenceInformation clientReferenceInformation = new Riskv1authenticationsClientReferenceInformation(
+            Riskv1authenticationsetupsClientReferenceInformation clientReferenceInformation = new Riskv1authenticationsetupsClientReferenceInformation(
                 Code: clientReferenceInformationCode
            );
 
@@ -24,7 +24,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.PayerAuthentication
            );
 
 
-            List <Riskv1authenticationresultsOrderInformationLineItems> orderInformationLineItems = new List <Riskv1authenticationresultsOrderInformationLineItems>();
+            List<Riskv1authenticationresultsOrderInformationLineItems> orderInformationLineItems = new List<Riskv1authenticationresultsOrderInformationLineItems>();
             string orderInformationLineItemsUnitPrice1 = "10";
             int orderInformationLineItemsQuantity1 = 2;
             string orderInformationLineItemsTaxAmount1 = "32.40";
@@ -55,9 +55,11 @@ namespace Cybersource_rest_samples_dotnet.Samples.PayerAuthentication
            );
 
             string consumerAuthenticationInformationAuthenticationTransactionId = "PYffv9G3sa1e0CQr5fV0";
+            string consumerAuthenticationInformationResponseAccessToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI5YTAwYTYzMC0zNzFhLTExZTYtYTU5Ni1kZjQwZjUwMjAwNmMiLCJpYXQiOjE0NjY0NDk4MDcsImlzcyI6Ik1pZGFzLU5vRFYtS2V5IiwiUGF5bG9hZCI6eyJPcmRlckRldGFpbHMiOnsiT3JkZXJOdW1iZXIiOjE1NTc4MjAyMzY3LCJBbW91bnQiOiIxNTAwIiwiQ3VycmVudENvZGUiOiI4NDAiLCJUcmFuc2FjdGlvbklkIjoiOVVzaGVoRFFUcWh1SFk5SElqZTAifX0sIk9yZ1VuaXRJZCI6IjU2NGNkY2JjYjlmNjNmMGM0OGQ2Mzg3ZiIsIk9iamVjdGlmeVBheWxvYWQiOnRydWV9.eaU8LZJnMtY3mPl4vBXVCVUuyeSeAp8zoNaEOmKS4XY";
             string consumerAuthenticationInformationSignedPares = "eNqdmFmT4jgSgN+J4D90zD4yMz45PEFVhHzgA2zwjXnzhQ984Nvw61dAV1";
             Riskv1authenticationresultsConsumerAuthenticationInformation consumerAuthenticationInformation = new Riskv1authenticationresultsConsumerAuthenticationInformation(
                 AuthenticationTransactionId: consumerAuthenticationInformationAuthenticationTransactionId,
+                ResponseAccessToken: consumerAuthenticationInformationResponseAccessToken,
                 SignedPares: consumerAuthenticationInformationSignedPares
            );
 

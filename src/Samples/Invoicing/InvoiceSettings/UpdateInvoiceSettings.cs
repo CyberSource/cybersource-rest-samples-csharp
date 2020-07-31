@@ -22,12 +22,16 @@ namespace Cybersource_rest_samples_dotnet.Samples.Invoicing
                 BackgroundColor: invoiceSettingsInformationHeaderStyleBackgroundColor
            );
 
+            string invoiceSettingsInformationDeliveryLanguage = "en-US";
+            string invoiceSettingsInformationDefaultCurrencyCode = "USD";
             InvoicingV2InvoiceSettingsGet200ResponseInvoiceSettingsInformation invoiceSettingsInformation = new InvoicingV2InvoiceSettingsGet200ResponseInvoiceSettingsInformation(
                 MerchantLogo: invoiceSettingsInformationMerchantLogo,
                 MerchantDisplayName: invoiceSettingsInformationMerchantDisplayName,
                 CustomEmailMessage: invoiceSettingsInformationCustomEmailMessage,
                 EnableReminders: invoiceSettingsInformationEnableReminders,
-                HeaderStyle: invoiceSettingsInformationHeaderStyle
+                HeaderStyle: invoiceSettingsInformationHeaderStyle,
+                DeliveryLanguage: invoiceSettingsInformationDeliveryLanguage,
+                DefaultCurrencyCode: invoiceSettingsInformationDefaultCurrencyCode
            );
 
             var requestObj = new InvoiceSettingsRequest(

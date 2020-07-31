@@ -15,7 +15,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.RiskManagement
             string riskInformationMarkingDetailsNotes = "Adding this transaction as suspect";
             string riskInformationMarkingDetailsReason = "suspected";
 
-            List <string> riskInformationMarkingDetailsFieldsIncluded = new List <string>();
+            List<string> riskInformationMarkingDetailsFieldsIncluded = new List<string>();
             riskInformationMarkingDetailsFieldsIncluded.Add("customer_email");
             riskInformationMarkingDetailsFieldsIncluded.Add("customer_phone");
             string riskInformationMarkingDetailsAction = "add";

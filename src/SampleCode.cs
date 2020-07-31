@@ -29,6 +29,10 @@ namespace Cybersource_rest_samples_dotnet
         // NLog Logger object
         private static Logger logger;
 
+        public static string TimeoutVoidTransactionId { get; set; }
+
+        public static string TimeoutReversalTransactionId { get; set; }
+
         public static void Main(string[] args)
         {
             // initializing logger object

@@ -16,11 +16,6 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments
                 Code: clientReferenceInformationCode
            );
 
-            string processingInformationCommerceIndicator = "internet";
-            Ptsv2creditsProcessingInformation processingInformation = new Ptsv2creditsProcessingInformation(
-                CommerceIndicator: processingInformationCommerceIndicator
-           );
-
             string paymentInformationBankAccountType = "C";
             string paymentInformationBankAccountNumber = "4100";
             string paymentInformationBankAccountCheckNumber = "123456";
@@ -36,8 +31,14 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments
                 RoutingNumber: paymentInformationBankRoutingNumber
            );
 
+            string paymentInformationPaymentTypeName = "CHECK";
+            Ptsv2paymentsPaymentInformationPaymentType paymentInformationPaymentType = new Ptsv2paymentsPaymentInformationPaymentType(
+                Name: paymentInformationPaymentTypeName
+           );
+
             Ptsv2paymentsidrefundsPaymentInformation paymentInformation = new Ptsv2paymentsidrefundsPaymentInformation(
-                Bank: paymentInformationBank
+                Bank: paymentInformationBank,
+                PaymentType: paymentInformationPaymentType
            );
 
             string orderInformationAmountDetailsTotalAmount = "100";
@@ -75,7 +76,6 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments
 
             var requestObj = new CreateCreditRequest(
                 ClientReferenceInformation: clientReferenceInformation,
-                ProcessingInformation: processingInformation,
                 PaymentInformation: paymentInformation,
                 OrderInformation: orderInformation
            );

@@ -11,13 +11,14 @@ namespace Cybersource_rest_samples_dotnet.Samples.Reporting
     {
         public static ReportingV3ReportSubscriptionsGet200Response Run()
         {
+            string organizationId = null;
             try
             {
                 var configDictionary = new Configuration().GetConfiguration();
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new ReportSubscriptionsApi(clientConfig);
-                ReportingV3ReportSubscriptionsGet200Response result = apiInstance.GetAllSubscriptions();
+                ReportingV3ReportSubscriptionsGet200Response result = apiInstance.GetAllSubscriptions(organizationId);
                 Console.WriteLine(result);
                 return result;
             }

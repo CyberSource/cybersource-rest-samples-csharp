@@ -19,14 +19,14 @@ namespace Cybersource_rest_samples_dotnet.Samples.Reporting
             }
 
             string reportName = ReportNameToDelete;
-
+            string organizationId = null;
             try
             {
                 var configDictionary = new Configuration().GetConfiguration();
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new ReportSubscriptionsApi(clientConfig);
-                apiInstance.DeleteSubscription(reportName);
+                apiInstance.DeleteSubscription(reportName, organizationId);
                 ReportNameToDelete = null;
             }
             catch (Exception e)

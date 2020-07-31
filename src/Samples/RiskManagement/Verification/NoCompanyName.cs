@@ -47,7 +47,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.RiskManagement
            );
 
 
-            List <Riskv1exportcomplianceinquiriesOrderInformationLineItems> orderInformationLineItems = new List <Riskv1exportcomplianceinquiriesOrderInformationLineItems>();
+            List<Riskv1exportcomplianceinquiriesOrderInformationLineItems> orderInformationLineItems = new List<Riskv1exportcomplianceinquiriesOrderInformationLineItems>();
             string orderInformationLineItemsUnitPrice1 = "19.00";
             orderInformationLineItems.Add(new Riskv1exportcomplianceinquiriesOrderInformationLineItems(
                 UnitPrice: orderInformationLineItemsUnitPrice1

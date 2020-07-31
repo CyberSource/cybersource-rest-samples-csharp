@@ -19,7 +19,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TokenManagement
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new InstrumentIdentifierApi(clientConfig);
-                apiInstance.DeleteInstrumentIdentifier(profileid, tokenId);
+                apiInstance.DeleteInstrumentIdentifier(tokenId, profileid);
             }
             catch (Exception e)
             {

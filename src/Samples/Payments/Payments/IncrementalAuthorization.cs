@@ -12,17 +12,9 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments
         public static PtsV2IncrementalAuthorizationPatch201Response Run()
         {
             string id = AuthorizationForIncrementalAuthorizationFlow.Run().Id;
-            string clientReferenceInformationPartnerOriginalTransactionId = "12345";
-            string clientReferenceInformationPartnerDeveloperId = "12345";
-            string clientReferenceInformationPartnerSolutionId = "12345";
-            Ptsv2paymentsidClientReferenceInformationPartner clientReferenceInformationPartner = new Ptsv2paymentsidClientReferenceInformationPartner(
-                OriginalTransactionId: clientReferenceInformationPartnerOriginalTransactionId,
-                DeveloperId: clientReferenceInformationPartnerDeveloperId,
-                SolutionId: clientReferenceInformationPartnerSolutionId
-           );
-
+            string clientReferenceInformationCode = "TC50171_3";
             Ptsv2paymentsidClientReferenceInformation clientReferenceInformation = new Ptsv2paymentsidClientReferenceInformation(
-                Partner: clientReferenceInformationPartner
+                Code: clientReferenceInformationCode
            );
 
             bool processingInformationAuthorizationOptionsInitiatorStoredCredentialUsed = true;
@@ -38,7 +30,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments
                 AuthorizationOptions: processingInformationAuthorizationOptions
            );
 
-            string orderInformationAmountDetailsAdditionalAmount = "100";
+            string orderInformationAmountDetailsAdditionalAmount = "22.49";
             string orderInformationAmountDetailsCurrency = "USD";
             Ptsv2paymentsidOrderInformationAmountDetails orderInformationAmountDetails = new Ptsv2paymentsidOrderInformationAmountDetails(
                 AdditionalAmount: orderInformationAmountDetailsAdditionalAmount,
@@ -49,10 +41,12 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments
                 AmountDetails: orderInformationAmountDetails
            );
 
+            string merchantInformationTransactionLocalDateTime = "20191002080000";
             Ptsv2paymentsidMerchantInformation merchantInformation = new Ptsv2paymentsidMerchantInformation(
+                TransactionLocalDateTime: merchantInformationTransactionLocalDateTime
            );
 
-            string travelInformationDuration = "3";
+            string travelInformationDuration = "4";
             Ptsv2paymentsidTravelInformation travelInformation = new Ptsv2paymentsidTravelInformation(
                 Duration: travelInformationDuration
            );

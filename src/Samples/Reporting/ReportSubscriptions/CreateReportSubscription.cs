@@ -13,7 +13,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Reporting
         {
             string reportDefinitionName = "TransactionRequestClass";
 
-            List <string> reportFields = new List <string>();
+            List<string> reportFields = new List<string>();
             reportFields.Add("Request.RequestID");
             reportFields.Add("Request.TransactionDate");
             reportFields.Add("Request.MerchantID");

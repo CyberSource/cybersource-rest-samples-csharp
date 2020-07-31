@@ -23,10 +23,8 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments
                 processingInformationCapture = true;
             }
 
-            string processingInformationCommerceIndicator = "internet";
             Ptsv2paymentsProcessingInformation processingInformation = new Ptsv2paymentsProcessingInformation(
-                Capture: processingInformationCapture,
-                CommerceIndicator: processingInformationCommerceIndicator
+                Capture: processingInformationCapture
            );
 
             string paymentInformationCardNumber = "5555555555554444";

@@ -17,7 +17,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Reporting
             const string fileName = "DownloadedReport.csv";
             const string downloadFilePath = @".\Resource\" + fileName;
             string organizationId = "testrest";
-            var reportDate = DateTime.ParseExact("2018-09-30", "yyyy-MM-dd", CultureInfo.InvariantCulture);
+            var reportDate = DateTime.ParseExact("2020-05-03", "yyyy-MM-dd", CultureInfo.InvariantCulture);
             string reportName = "testrest_subcription_v2989";
 
             try

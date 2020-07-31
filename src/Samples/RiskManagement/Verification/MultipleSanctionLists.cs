@@ -59,7 +59,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.RiskManagement
            );
 
 
-            List <Riskv1exportcomplianceinquiriesOrderInformationLineItems> orderInformationLineItems = new List <Riskv1exportcomplianceinquiriesOrderInformationLineItems>();
+            List<Riskv1exportcomplianceinquiriesOrderInformationLineItems> orderInformationLineItems = new List<Riskv1exportcomplianceinquiriesOrderInformationLineItems>();
             string orderInformationLineItemsUnitPrice1 = "120.50";
             int orderInformationLineItemsQuantity1 = 3;
             string orderInformationLineItemsProductSKU1 = "610009";
@@ -102,7 +102,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.RiskManagement
            );
 
 
-            List <string> exportComplianceInformationSanctionLists = new List <string>();
+            List<string> exportComplianceInformationSanctionLists = new List<string>();
             exportComplianceInformationSanctionLists.Add("Bureau Of Industry and Security");
             exportComplianceInformationSanctionLists.Add("DOS_DTC");
             exportComplianceInformationSanctionLists.Add("AUSTRALIA");

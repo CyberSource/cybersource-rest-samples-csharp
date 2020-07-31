@@ -24,21 +24,17 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments
                 processingInformationCapture = true;
             }
 
-            string processingInformationCommerceIndicator = "internet";
             Ptsv2paymentsProcessingInformation processingInformation = new Ptsv2paymentsProcessingInformation(
-                Capture: processingInformationCapture,
-                CommerceIndicator: processingInformationCommerceIndicator
+                Capture: processingInformationCapture
            );
 
             string paymentInformationCardNumber = "4111111111111111";
             string paymentInformationCardExpirationMonth = "12";
             string paymentInformationCardExpirationYear = "2031";
-            string paymentInformationCardSecurityCode = "123";
             Ptsv2paymentsPaymentInformationCard paymentInformationCard = new Ptsv2paymentsPaymentInformationCard(
                 Number: paymentInformationCardNumber,
                 ExpirationMonth: paymentInformationCardExpirationMonth,
-                ExpirationYear: paymentInformationCardExpirationYear,
-                SecurityCode: paymentInformationCardSecurityCode
+                ExpirationYear: paymentInformationCardExpirationYear
            );
 
             Ptsv2paymentsPaymentInformation paymentInformation = new Ptsv2paymentsPaymentInformation(
@@ -55,7 +51,6 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments
             string orderInformationBillToFirstName = "John";
             string orderInformationBillToLastName = "Doe";
             string orderInformationBillToAddress1 = "1 Market St";
-            string orderInformationBillToAddress2 = "Address 2";
             string orderInformationBillToLocality = "san francisco";
             string orderInformationBillToAdministrativeArea = "CA";
             string orderInformationBillToPostalCode = "94105";
@@ -66,7 +61,6 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments
                 FirstName: orderInformationBillToFirstName,
                 LastName: orderInformationBillToLastName,
                 Address1: orderInformationBillToAddress1,
-                Address2: orderInformationBillToAddress2,
                 Locality: orderInformationBillToLocality,
                 AdministrativeArea: orderInformationBillToAdministrativeArea,
                 PostalCode: orderInformationBillToPostalCode,

@@ -16,17 +16,17 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments
                 Code: clientReferenceInformationCode
            );
 
-            string paymentInformationCustomerId = "7500BB199B4270EFE05340588D0AFCAD";
+            string paymentInformationCustomerId = "AB695DA801DD1BB6E05341588E0A3BDC";
             Ptsv2paymentsPaymentInformationCustomer paymentInformationCustomer = new Ptsv2paymentsPaymentInformationCustomer(
                 Id: paymentInformationCustomerId
            );
 
-            string paymentInformationPaymentInstrumentId = "7500BB199B4270EFE05340588D0AFCPI";
+            string paymentInformationPaymentInstrumentId = "AB6A54B982A6FCB6E05341588E0A3935";
             Ptsv2paymentsPaymentInformationPaymentInstrument paymentInformationPaymentInstrument = new Ptsv2paymentsPaymentInformationPaymentInstrument(
                 Id: paymentInformationPaymentInstrumentId
            );
 
-            string paymentInformationShippingAddressId = "7500BB199B4270EFE05340588D0AFCSA";
+            string paymentInformationShippingAddressId = "AB6A54B97C00FCB6E05341588E0A3935";
             Ptsv2paymentsPaymentInformationShippingAddress paymentInformationShippingAddress = new Ptsv2paymentsPaymentInformationShippingAddress(
                 Id: paymentInformationShippingAddressId
            );

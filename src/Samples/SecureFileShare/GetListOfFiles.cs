@@ -11,16 +11,17 @@ namespace Cybersource_rest_samples_dotnet.Samples.SecureFileShare
     {
         public static V1FileDetailsGet200Response Run()
         {
-            var startDate = DateTime.ParseExact("2020-01-20", "yyyy-MM-dd", CultureInfo.InvariantCulture);
-            var endDate = DateTime.ParseExact("2020-01-30", "yyyy-MM-dd", CultureInfo.InvariantCulture);
+            var startDate = DateTime.ParseExact("2020-03-20", "yyyy-MM-dd", CultureInfo.InvariantCulture);
+            var endDate = DateTime.ParseExact("2020-03-30", "yyyy-MM-dd", CultureInfo.InvariantCulture);
             string organizationId = "testrest";
+            string name = null;
             try
             {
                 var configDictionary = new Configuration().GetConfiguration();
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new SecureFileShareApi(clientConfig);
-                V1FileDetailsGet200Response result = apiInstance.GetFileDetail(startDate, endDate, organizationId);
+                V1FileDetailsGet200Response result = apiInstance.GetFileDetail(startDate, endDate, organizationId, name);
                 Console.WriteLine(result);
                 return result;
             }

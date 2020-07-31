@@ -12,7 +12,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.PayerAuthentication
         public static RiskV1AuthenticationsPost201Response Run()
         {
             string clientReferenceInformationCode = "cybs_test";
-            Riskv1authenticationsClientReferenceInformation clientReferenceInformation = new Riskv1authenticationsClientReferenceInformation(
+            Riskv1authenticationsetupsClientReferenceInformation clientReferenceInformation = new Riskv1authenticationsetupsClientReferenceInformation(
                 Code: clientReferenceInformationCode
            );
 
@@ -72,16 +72,16 @@ namespace Cybersource_rest_samples_dotnet.Samples.PayerAuthentication
            );
 
             string consumerAuthenticationInformationTransactionMode = "MOTO";
-            Riskv1authenticationsConsumerAuthenticationInformation consumerAuthenticationInformation = new Riskv1authenticationsConsumerAuthenticationInformation(
+            Riskv1decisionsConsumerAuthenticationInformation consumerAuthenticationInformation = new Riskv1decisionsConsumerAuthenticationInformation(
                 TransactionMode: consumerAuthenticationInformationTransactionMode
            );
 
 
-            List <Riskv1authenticationsTravelInformationLegs> travelInformationLegs = new List <Riskv1authenticationsTravelInformationLegs>();
+            List<Riskv1decisionsTravelInformationLegs> travelInformationLegs = new List<Riskv1decisionsTravelInformationLegs>();
             string travelInformationLegsDestination1 = "DEF";
             string travelInformationLegsCarrierCode1 = "UA";
             string travelInformationLegsDepartureDate1 = "2019-01-01";
-            travelInformationLegs.Add(new Riskv1authenticationsTravelInformationLegs(
+            travelInformationLegs.Add(new Riskv1decisionsTravelInformationLegs(
                 Destination: travelInformationLegsDestination1,
                 CarrierCode: travelInformationLegsCarrierCode1,
                 DepartureDate: travelInformationLegsDepartureDate1
@@ -90,7 +90,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.PayerAuthentication
             string travelInformationLegsDestination2 = "RES";
             string travelInformationLegsCarrierCode2 = "AS";
             string travelInformationLegsDepartureDate2 = "2019-02-21";
-            travelInformationLegs.Add(new Riskv1authenticationsTravelInformationLegs(
+            travelInformationLegs.Add(new Riskv1decisionsTravelInformationLegs(
                 Destination: travelInformationLegsDestination2,
                 CarrierCode: travelInformationLegsCarrierCode2,
                 DepartureDate: travelInformationLegsDepartureDate2
@@ -98,17 +98,17 @@ namespace Cybersource_rest_samples_dotnet.Samples.PayerAuthentication
 
             int travelInformationNumberOfPassengers = 2;
 
-            List <Riskv1authenticationsTravelInformationPassengers> travelInformationPassengers = new List <Riskv1authenticationsTravelInformationPassengers>();
+            List<Riskv1decisionsTravelInformationPassengers> travelInformationPassengers = new List<Riskv1decisionsTravelInformationPassengers>();
             string travelInformationPassengersFirstName1 = "Raj";
             string travelInformationPassengersLastName1 = "Charles";
-            travelInformationPassengers.Add(new Riskv1authenticationsTravelInformationPassengers(
+            travelInformationPassengers.Add(new Riskv1decisionsTravelInformationPassengers(
                 FirstName: travelInformationPassengersFirstName1,
                 LastName: travelInformationPassengersLastName1
            ));
 
             string travelInformationPassengersFirstName2 = "Potter";
             string travelInformationPassengersLastName2 = "Suhember";
-            travelInformationPassengers.Add(new Riskv1authenticationsTravelInformationPassengers(
+            travelInformationPassengers.Add(new Riskv1decisionsTravelInformationPassengers(
                 FirstName: travelInformationPassengersFirstName2,
                 LastName: travelInformationPassengersLastName2
            ));

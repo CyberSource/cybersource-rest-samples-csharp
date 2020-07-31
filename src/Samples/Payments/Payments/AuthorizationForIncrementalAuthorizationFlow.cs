@@ -129,7 +129,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments
             string travelInformationLodgingCheckInDate = "11062019";
             string travelInformationLodgingCheckOutDate = "11092019";
 
-            List <Ptsv2paymentsTravelInformationLodgingRoom> travelInformationLodgingRoom = new List <Ptsv2paymentsTravelInformationLodgingRoom>();
+            List<Ptsv2paymentsTravelInformationLodgingRoom> travelInformationLodgingRoom = new List<Ptsv2paymentsTravelInformationLodgingRoom>();
             string travelInformationLodgingRoomDailyRate1 = "1.50";
             int travelInformationLodgingRoomNumberOfNights1 = 5;
             travelInformationLodgingRoom.Add(new Ptsv2paymentsTravelInformationLodgingRoom(

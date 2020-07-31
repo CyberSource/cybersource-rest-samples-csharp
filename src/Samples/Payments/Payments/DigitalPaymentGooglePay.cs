@@ -23,11 +23,9 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments
             {
                 processingInformationCapture = true;
             }
-            string processingInformationCommerceIndicator = "internet";
             string processingInformationPaymentSolution = "012";
             Ptsv2paymentsProcessingInformation processingInformation = new Ptsv2paymentsProcessingInformation(
                 Capture: processingInformationCapture,
-                CommerceIndicator: processingInformationCommerceIndicator,
                 PaymentSolution: processingInformationPaymentSolution
            );
 

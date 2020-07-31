@@ -16,7 +16,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments
                 Code: clientReferenceInformationCode
            );
 
-            string paymentInformationCustomerId = "7500BB199B4270EFE05340588D0AFCAD";
+            string paymentInformationCustomerId = "AB695DA801DD1BB6E05341588E0A3BDC";
             Ptsv2paymentsPaymentInformationCustomer paymentInformationCustomer = new Ptsv2paymentsPaymentInformationCustomer(
                 Id: paymentInformationCustomerId
            );

@@ -23,11 +23,9 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments
             {
                 processingInformationCapture = true;
             }
-            string processingInformationCommerceIndicator = "internet";
             string processingInformationPaymentSolution = "001";
             Ptsv2paymentsProcessingInformation processingInformation = new Ptsv2paymentsProcessingInformation(
                 Capture: processingInformationCapture,
-                CommerceIndicator: processingInformationCommerceIndicator,
                 PaymentSolution: processingInformationPaymentSolution
            );
 
@@ -58,7 +56,6 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments
             string orderInformationBillToFirstName = "John";
             string orderInformationBillToLastName = "Deo";
             string orderInformationBillToAddress1 = "901 Metro Center Blvd";
-            string orderInformationBillToAddress2 = "Desk M3-5573";
             string orderInformationBillToLocality = "Foster City";
             string orderInformationBillToAdministrativeArea = "CA";
             string orderInformationBillToPostalCode = "94404";
@@ -69,7 +66,6 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments
                 FirstName: orderInformationBillToFirstName,
                 LastName: orderInformationBillToLastName,
                 Address1: orderInformationBillToAddress1,
-                Address2: orderInformationBillToAddress2,
                 Locality: orderInformationBillToLocality,
                 AdministrativeArea: orderInformationBillToAdministrativeArea,
                 PostalCode: orderInformationBillToPostalCode,

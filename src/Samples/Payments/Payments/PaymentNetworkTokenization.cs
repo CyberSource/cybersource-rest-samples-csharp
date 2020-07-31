@@ -23,7 +23,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments
                 processingInformationCapture = true;
             }
 
-            string processingInformationCommerceIndicator = "internet";
+            string processingInformationCommerceIndicator = "vbv";
             Ptsv2paymentsProcessingInformation processingInformation = new Ptsv2paymentsProcessingInformation(
                 Capture: processingInformationCapture,
                 CommerceIndicator: processingInformationCommerceIndicator

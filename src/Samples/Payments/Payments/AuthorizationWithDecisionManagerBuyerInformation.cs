@@ -64,7 +64,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments
 
             string buyerInformationDateOfBirth = "19980505";
 
-            List <Ptsv2paymentsBuyerInformationPersonalIdentification> buyerInformationPersonalIdentification = new List <Ptsv2paymentsBuyerInformationPersonalIdentification>();
+            List<Ptsv2paymentsBuyerInformationPersonalIdentification> buyerInformationPersonalIdentification = new List<Ptsv2paymentsBuyerInformationPersonalIdentification>();
             string buyerInformationPersonalIdentificationType1 = "CPF";
             string buyerInformationPersonalIdentificationId1 = "1a23apwe98";
             buyerInformationPersonalIdentification.Add(new Ptsv2paymentsBuyerInformationPersonalIdentification(

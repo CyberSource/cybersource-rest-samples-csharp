@@ -9,34 +9,34 @@ namespace Cybersource_rest_samples_dotnet.Samples.TokenManagement
 {
     public class CreatePaymentInstrumentBankAccount
     {
-        public static TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedPaymentInstruments Run()
+        public static Tmsv2customersEmbeddedDefaultPaymentInstrument Run()
         {
             var profileid = "93B32398-AD51-4CC2-A682-EA3E93614EB1";
 
             string bankAccountType = "savings";
-            TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedBankAccount bankAccount = new TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedBankAccount(
+            Tmsv2customersEmbeddedDefaultPaymentInstrumentBankAccount bankAccount = new Tmsv2customersEmbeddedDefaultPaymentInstrumentBankAccount(
                 Type: bankAccountType
            );
 
             string buyerInformationCompanyTaxID = "12345";
             string buyerInformationCurrency = "USD";
-            string buyerInformationDateOfBirth = "2000-12-13";
+            DateTime buyerInformationDateOfBirth = Convert.ToDateTime("2000-12-13");
 
-            List <TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedBuyerInformationPersonalIdentification> buyerInformationPersonalIdentification = new List <TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedBuyerInformationPersonalIdentification>();
+            List<Tmsv2customersEmbeddedDefaultPaymentInstrumentBuyerInformationPersonalIdentification> buyerInformationPersonalIdentification = new List<Tmsv2customersEmbeddedDefaultPaymentInstrumentBuyerInformationPersonalIdentification>();
             string buyerInformationPersonalIdentificationId1 = "57684432111321";
             string buyerInformationPersonalIdentificationType1 = "driver license";
             string buyerInformationPersonalIdentificationIssuedByAdministrativeArea1 = "CA";
-            TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedBuyerInformationIssuedBy buyerInformationPersonalIdentificationIssuedBy1 = new TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedBuyerInformationIssuedBy(
+            Tmsv2customersEmbeddedDefaultPaymentInstrumentBuyerInformationIssuedBy buyerInformationPersonalIdentificationIssuedBy1 = new Tmsv2customersEmbeddedDefaultPaymentInstrumentBuyerInformationIssuedBy(
                 AdministrativeArea: buyerInformationPersonalIdentificationIssuedByAdministrativeArea1
            );
 
-            buyerInformationPersonalIdentification.Add(new TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedBuyerInformationPersonalIdentification(
+            buyerInformationPersonalIdentification.Add(new Tmsv2customersEmbeddedDefaultPaymentInstrumentBuyerInformationPersonalIdentification(
                 Id: buyerInformationPersonalIdentificationId1,
                 Type: buyerInformationPersonalIdentificationType1,
                 IssuedBy: buyerInformationPersonalIdentificationIssuedBy1
            ));
 
-            TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedBuyerInformation buyerInformation = new TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedBuyerInformation(
+            Tmsv2customersEmbeddedDefaultPaymentInstrumentBuyerInformation buyerInformation = new Tmsv2customersEmbeddedDefaultPaymentInstrumentBuyerInformation(
                 CompanyTaxID: buyerInformationCompanyTaxID,
                 Currency: buyerInformationCurrency,
                 DateOfBirth: buyerInformationDateOfBirth,
@@ -44,22 +44,20 @@ namespace Cybersource_rest_samples_dotnet.Samples.TokenManagement
            );
 
             string billToFirstName = "John";
-            string billToLastName = "Smith";
-            string billToCompany = "Cybersource";
-            string billToAddress1 = "8310 Capital of Texas Highwas North";
-            string billToAddress2 = "Bluffstone Drive";
-            string billToLocality = "Austin";
-            string billToAdministrativeArea = "TX";
-            string billToPostalCode = "78731";
+            string billToLastName = "Doe";
+            string billToCompany = "CyberSource";
+            string billToAddress1 = "1 Market St";
+            string billToLocality = "San Francisco";
+            string billToAdministrativeArea = "CA";
+            string billToPostalCode = "94105";
             string billToCountry = "US";
-            string billToEmail = "john.smith@test.com";
-            string billToPhoneNumber = "+44 2890447951";
-            TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedBillTo billTo = new TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedBillTo(
+            string billToEmail = "test@cybs.com";
+            string billToPhoneNumber = "4158880000";
+            Tmsv2customersEmbeddedDefaultPaymentInstrumentBillTo billTo = new Tmsv2customersEmbeddedDefaultPaymentInstrumentBillTo(
                 FirstName: billToFirstName,
                 LastName: billToLastName,
                 Company: billToCompany,
                 Address1: billToAddress1,
-                Address2: billToAddress2,
                 Locality: billToLocality,
                 AdministrativeArea: billToAdministrativeArea,
                 PostalCode: billToPostalCode,
@@ -68,43 +66,25 @@ namespace Cybersource_rest_samples_dotnet.Samples.TokenManagement
                 PhoneNumber: billToPhoneNumber
            );
 
-            bool processingInformationBillPaymentProgramEnabled = true;
             string processingInformationBankTransferOptionsSeCCode = "WEB";
-            TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedProcessingInformationBankTransferOptions processingInformationBankTransferOptions = new TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedProcessingInformationBankTransferOptions(
+            Tmsv2customersEmbeddedDefaultPaymentInstrumentProcessingInformationBankTransferOptions processingInformationBankTransferOptions = new Tmsv2customersEmbeddedDefaultPaymentInstrumentProcessingInformationBankTransferOptions(
                 SECCode: processingInformationBankTransferOptionsSeCCode
            );
 
-            TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedProcessingInformation processingInformation = new TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedProcessingInformation(
-                BillPaymentProgramEnabled: processingInformationBillPaymentProgramEnabled,
+            Tmsv2customersEmbeddedDefaultPaymentInstrumentProcessingInformation processingInformation = new Tmsv2customersEmbeddedDefaultPaymentInstrumentProcessingInformation(
                 BankTransferOptions: processingInformationBankTransferOptions
            );
 
-            string merchantInformationMerchantDescriptorAlternateName = "Branch Name";
-            TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedMerchantInformationMerchantDescriptor merchantInformationMerchantDescriptor = new TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedMerchantInformationMerchantDescriptor(
-                AlternateName: merchantInformationMerchantDescriptorAlternateName
+            string instrumentIdentifierId = "A7A91A2CA872B272E05340588D0A0699";
+            Tmsv2customersEmbeddedDefaultPaymentInstrumentInstrumentIdentifier instrumentIdentifier = new Tmsv2customersEmbeddedDefaultPaymentInstrumentInstrumentIdentifier(
+                Id: instrumentIdentifierId
            );
 
-            TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedMerchantInformation merchantInformation = new TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedMerchantInformation(
-                MerchantDescriptor: merchantInformationMerchantDescriptor
-           );
-
-            string instrumentIdentifierBankAccountNumber = "4100";
-            string instrumentIdentifierBankAccountRoutingNumber = "071923284";
-            Tmsv1instrumentidentifiersBankAccount instrumentIdentifierBankAccount = new Tmsv1instrumentidentifiersBankAccount(
-                Number: instrumentIdentifierBankAccountNumber,
-                RoutingNumber: instrumentIdentifierBankAccountRoutingNumber
-           );
-
-            Tmsv1paymentinstrumentsInstrumentIdentifier instrumentIdentifier = new Tmsv1paymentinstrumentsInstrumentIdentifier(
-                BankAccount: instrumentIdentifierBankAccount
-           );
-
-            var requestObj = new CreatePaymentInstrumentRequest(
+            var requestObj = new PostPaymentInstrumentRequest(
                 BankAccount: bankAccount,
                 BuyerInformation: buyerInformation,
                 BillTo: billTo,
                 ProcessingInformation: processingInformation,
-                MerchantInformation: merchantInformation,
                 InstrumentIdentifier: instrumentIdentifier
            );
 
@@ -114,7 +94,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TokenManagement
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new PaymentInstrumentApi(clientConfig);
-                TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedPaymentInstruments result = apiInstance.CreatePaymentInstrument(profileid, requestObj);
+                Tmsv2customersEmbeddedDefaultPaymentInstrument result = apiInstance.PostPaymentInstrument(requestObj, profileid);
                 Console.WriteLine(result);
                 return result;
             }

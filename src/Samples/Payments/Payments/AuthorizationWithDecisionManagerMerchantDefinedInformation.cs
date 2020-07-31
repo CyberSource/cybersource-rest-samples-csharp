@@ -63,7 +63,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments
            );
 
 
-            List <Ptsv2paymentsMerchantDefinedInformation> merchantDefinedInformation = new List <Ptsv2paymentsMerchantDefinedInformation>();
+            List<Ptsv2paymentsMerchantDefinedInformation> merchantDefinedInformation = new List<Ptsv2paymentsMerchantDefinedInformation>();
             string merchantDefinedInformationKey1 = "1";
             string merchantDefinedInformationValue1 = "Test";
             merchantDefinedInformation.Add(new Ptsv2paymentsMerchantDefinedInformation(

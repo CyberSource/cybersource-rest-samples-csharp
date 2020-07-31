@@ -9,17 +9,17 @@ namespace Cybersource_rest_samples_dotnet.Samples.TokenManagement
 {
     public class CreateInstrumentIdentifierBankAccount
     {
-        public static TmsV1InstrumentIdentifiersPost200Response Run()
+        public static Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier Run()
         {
             var profileid = "93B32398-AD51-4CC2-A682-EA3E93614EB1";
             string bankAccountNumber = "4100";
             string bankAccountRoutingNumber = "071923284";
-            Tmsv1instrumentidentifiersBankAccount bankAccount = new Tmsv1instrumentidentifiersBankAccount(
+            Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifierBankAccount bankAccount = new Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifierBankAccount(
                 Number: bankAccountNumber,
                 RoutingNumber: bankAccountRoutingNumber
            );
 
-            var requestObj = new CreateInstrumentIdentifierRequest(
+            var requestObj = new PostInstrumentIdentifierRequest(
                 BankAccount: bankAccount
            );
 
@@ -29,7 +29,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TokenManagement
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new InstrumentIdentifierApi(clientConfig);
-                TmsV1InstrumentIdentifiersPost200Response result = apiInstance.CreateInstrumentIdentifier(profileid, requestObj);
+                Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier result = apiInstance.PostInstrumentIdentifier(requestObj, profileid);
                 Console.WriteLine(result);
                 return result;
             }

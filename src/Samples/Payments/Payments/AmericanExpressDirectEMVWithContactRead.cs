@@ -56,11 +56,11 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments
 
             string pointOfSaleInformationTrackData = "%B4111111111111111^TEST/CYBS         ^2012121019761100      00868000000?;";
 
-            List <string> pointOfSaleInformationCardholderVerificationMethod = new List <string>();
+            List<string> pointOfSaleInformationCardholderVerificationMethod = new List<string>();
             pointOfSaleInformationCardholderVerificationMethod.Add("pin");
             pointOfSaleInformationCardholderVerificationMethod.Add("signature");
 
-            List <string> pointOfSaleInformationTerminalInputCapability = new List <string>();
+            List<string> pointOfSaleInformationTerminalInputCapability = new List<string>();
             pointOfSaleInformationTerminalInputCapability.Add("contact");
             pointOfSaleInformationTerminalInputCapability.Add("contactless");
             pointOfSaleInformationTerminalInputCapability.Add("keyed");

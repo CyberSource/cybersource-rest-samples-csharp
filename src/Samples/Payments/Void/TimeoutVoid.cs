@@ -12,10 +12,8 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments
         public static PtsV2PaymentsVoidsPost201Response Run()
         {
             AuthorizationCaptureForTimeoutVoidFlow.Run();
-            string clientReferenceInformationCode = "TC50171_3";
-            string clientReferenceInformationTransactionId = "879564132897";
+            string clientReferenceInformationTransactionId = SampleCode.TimeoutVoidTransactionId;
             Ptsv2paymentsClientReferenceInformation clientReferenceInformation = new Ptsv2paymentsClientReferenceInformation(
-                Code: clientReferenceInformationCode,
                 TransactionId: clientReferenceInformationTransactionId
            );
 

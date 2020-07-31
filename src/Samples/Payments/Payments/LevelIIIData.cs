@@ -23,11 +23,9 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments
                 processingInformationCapture = true;
             }
 
-            string processingInformationCommerceIndicator = "internet";
             string processingInformationPurchaseLevel = "3";
             Ptsv2paymentsProcessingInformation processingInformation = new Ptsv2paymentsProcessingInformation(
                 Capture: processingInformationCapture,
-                CommerceIndicator: processingInformationCommerceIndicator,
                 PurchaseLevel: processingInformationPurchaseLevel
            );
 
@@ -77,7 +75,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments
            );
 
 
-            List <Ptsv2paymentsOrderInformationLineItems> orderInformationLineItems = new List <Ptsv2paymentsOrderInformationLineItems>();
+            List<Ptsv2paymentsOrderInformationLineItems> orderInformationLineItems = new List<Ptsv2paymentsOrderInformationLineItems>();
             string orderInformationLineItemsProductCode1 = "default";
             int orderInformationLineItemsQuantity1 = 10;
             string orderInformationLineItemsUnitPrice1 = "10.00";

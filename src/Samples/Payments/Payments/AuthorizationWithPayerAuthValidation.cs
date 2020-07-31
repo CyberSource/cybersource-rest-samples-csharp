@@ -17,7 +17,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments
            );
 
 
-            List <string> processingInformationActionList = new List <string>();
+            List<string> processingInformationActionList = new List<string>();
             processingInformationActionList.Add("VALIDATE_CONSUMER_AUTHENTICATION");
             bool processingInformationCapture = false;
             Ptsv2paymentsProcessingInformation processingInformation = new Ptsv2paymentsProcessingInformation(

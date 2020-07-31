@@ -17,10 +17,10 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments
            );
 
 
-            List <string> processingInformationActionList = new List <string>();
+            List<string> processingInformationActionList = new List<string>();
             processingInformationActionList.Add("TOKEN_CREATE");
 
-            List <string> processingInformationActionTokenTypes = new List <string>();
+            List<string> processingInformationActionTokenTypes = new List<string>();
             processingInformationActionTokenTypes.Add("customer");
             processingInformationActionTokenTypes.Add("paymentInstrument");
             processingInformationActionTokenTypes.Add("shippingAddress");

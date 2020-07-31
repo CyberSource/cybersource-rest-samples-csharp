@@ -12,7 +12,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.PayerAuthentication
         public static RiskV1AuthenticationsPost201Response Run()
         {
             string clientReferenceInformationCode = "cybs_test";
-            Riskv1authenticationsClientReferenceInformation clientReferenceInformation = new Riskv1authenticationsClientReferenceInformation(
+            Riskv1authenticationsetupsClientReferenceInformation clientReferenceInformation = new Riskv1authenticationsetupsClientReferenceInformation(
                 Code: clientReferenceInformationCode
            );
 
@@ -71,8 +71,10 @@ namespace Cybersource_rest_samples_dotnet.Samples.PayerAuthentication
                 MobilePhone: buyerInformationMobilePhone
            );
 
+            string consumerAuthenticationInformationReturnUrl = "http://localhost:8189/cart/enterprise/collect-term";
             string consumerAuthenticationInformationTransactionMode = "MOTO";
-            Riskv1authenticationsConsumerAuthenticationInformation consumerAuthenticationInformation = new Riskv1authenticationsConsumerAuthenticationInformation(
+            Riskv1decisionsConsumerAuthenticationInformation consumerAuthenticationInformation = new Riskv1decisionsConsumerAuthenticationInformation(
+                ReturnUrl: consumerAuthenticationInformationReturnUrl,
                 TransactionMode: consumerAuthenticationInformationTransactionMode
            );
 

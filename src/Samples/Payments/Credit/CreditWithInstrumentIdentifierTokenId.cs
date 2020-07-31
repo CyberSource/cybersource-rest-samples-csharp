@@ -25,7 +25,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments
                 Type: paymentInformationCardType
            );
 
-            string paymentInformationInstrumentIdentifierId = "7500BB199B4270EFE05340588D0AFCII";
+            string paymentInformationInstrumentIdentifierId = "7010000000016241111";
             Ptsv2paymentsPaymentInformationInstrumentIdentifier paymentInformationInstrumentIdentifier = new Ptsv2paymentsPaymentInformationInstrumentIdentifier(
                 Id: paymentInformationInstrumentIdentifierId
            );

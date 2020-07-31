@@ -66,7 +66,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.RiskManagement
             string travelInformationDepartureTime = "2011-03-20 11:30pm GMT";
             string travelInformationJourneyType = "One way";
 
-            List <Riskv1decisionsTravelInformationLegs> travelInformationLegs = new List <Riskv1decisionsTravelInformationLegs>();
+            List<Riskv1decisionsTravelInformationLegs> travelInformationLegs = new List<Riskv1decisionsTravelInformationLegs>();
             string travelInformationLegsOrigination1 = "SFO";
             string travelInformationLegsDestination1 = "JFK";
             travelInformationLegs.Add(new Riskv1decisionsTravelInformationLegs(
@@ -88,7 +88,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.RiskManagement
                 Legs: travelInformationLegs
            );
 
-            var requestObj = new CreateDecisionManagerCaseRequest(
+            var requestObj = new CreateBundledDecisionManagerCaseRequest(
                 ClientReferenceInformation: clientReferenceInformation,
                 PaymentInformation: paymentInformation,
                 OrderInformation: orderInformation,
@@ -101,7 +101,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.RiskManagement
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new DecisionManagerApi(clientConfig);
-                RiskV1DecisionsPost201Response result = apiInstance.CreateDecisionManagerCase(requestObj);
+                RiskV1DecisionsPost201Response result = apiInstance.CreateBundledDecisionManagerCase(requestObj);
                 Console.WriteLine(result);
                 return result;
             }

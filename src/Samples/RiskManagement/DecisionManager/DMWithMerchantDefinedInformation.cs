@@ -63,7 +63,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.RiskManagement
            );
 
 
-            List <Riskv1decisionsMerchantDefinedInformation> merchantDefinedInformation = new List <Riskv1decisionsMerchantDefinedInformation>();
+            List<Riskv1decisionsMerchantDefinedInformation> merchantDefinedInformation = new List<Riskv1decisionsMerchantDefinedInformation>();
             string merchantDefinedInformationKey1 = "1";
             string merchantDefinedInformationValue1 = "Test";
             merchantDefinedInformation.Add(new Riskv1decisionsMerchantDefinedInformation(
@@ -78,7 +78,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.RiskManagement
                 Value: merchantDefinedInformationValue2
            ));
 
-            var requestObj = new CreateDecisionManagerCaseRequest(
+            var requestObj = new CreateBundledDecisionManagerCaseRequest(
                 ClientReferenceInformation: clientReferenceInformation,
                 PaymentInformation: paymentInformation,
                 OrderInformation: orderInformation,
@@ -91,7 +91,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.RiskManagement
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new DecisionManagerApi(clientConfig);
-                RiskV1DecisionsPost201Response result = apiInstance.CreateDecisionManagerCase(requestObj);
+                RiskV1DecisionsPost201Response result = apiInstance.CreateBundledDecisionManagerCase(requestObj);
                 Console.WriteLine(result);
                 return result;
             }

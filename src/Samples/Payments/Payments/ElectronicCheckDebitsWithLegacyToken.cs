@@ -16,7 +16,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments
                 Code: clientReferenceInformationCode
            );
 
-            string paymentInformationLegacyTokenId = "7500BB199B4270EFE05340588D0AFCAD";
+            string paymentInformationLegacyTokenId = "AB7C01E66529EA42E05341588E0A22AD";
             Ptsv2paymentsPaymentInformationLegacyToken paymentInformationLegacyToken = new Ptsv2paymentsPaymentInformationLegacyToken(
                 Id: paymentInformationLegacyTokenId
            );

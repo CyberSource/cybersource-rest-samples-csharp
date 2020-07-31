@@ -1,6 +1,7 @@
 ﻿using System;
 using CyberSource.Api;
 using CyberSource.Model;
+using Cybersource_rest_samples_dotnet.Resource;
 
 namespace Cybersource_rest_samples_dotnet.Samples.Payments
 {
@@ -8,8 +9,9 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments
     {
         public static PtsV2PaymentsPost201Response Run()
         {
+            SampleCode.TimeoutVoidTransactionId = NumericUtility.LongRandom(1000, 1000000000 + 1);
             string clientReferenceInformationCode = "TC50171_3";
-            string clientReferenceInformationTransactionId = "879564132897";
+            string clientReferenceInformationTransactionId = SampleCode.TimeoutVoidTransactionId;
             Ptsv2paymentsClientReferenceInformation clientReferenceInformation = new Ptsv2paymentsClientReferenceInformation(
                 Code: clientReferenceInformationCode,
                 TransactionId: clientReferenceInformationTransactionId

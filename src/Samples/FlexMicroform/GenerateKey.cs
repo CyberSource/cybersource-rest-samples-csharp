@@ -11,18 +11,21 @@ namespace Cybersource_rest_samples_dotnet.Samples.Flex
     {
         public static FlexV1KeysPost200Response Run()
         {
-            string encryptionType = "None";
+            string encryptionType = "RsaOaep";
+            string targetOrigin = "https://www.test.com";
             var requestObj = new GeneratePublicKeyRequest(
-                EncryptionType: encryptionType
+                EncryptionType: encryptionType,
+                TargetOrigin: targetOrigin
            );
 
+            string format = "JWT";
             try
             {
                 var configDictionary = new Configuration().GetConfiguration();
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new KeyGenerationApi(clientConfig);
-                FlexV1KeysPost200Response result = apiInstance.GeneratePublicKey(requestObj);
+                FlexV1KeysPost200Response result = apiInstance.GeneratePublicKey(format, requestObj);
                 Console.WriteLine(result);
                 return result;
             }

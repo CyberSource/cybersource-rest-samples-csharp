@@ -12,7 +12,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.PayerAuthentication
         public static RiskV1AuthenticationsPost201Response Run()
         {
             string clientReferenceInformationCode = "UNKNOWN";
-            Riskv1authenticationsClientReferenceInformation clientReferenceInformation = new Riskv1authenticationsClientReferenceInformation(
+            Riskv1authenticationsetupsClientReferenceInformation clientReferenceInformation = new Riskv1authenticationsetupsClientReferenceInformation(
                 Code: clientReferenceInformationCode
            );
 

@@ -53,7 +53,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.RiskManagement
            );
 
 
-            List <Riskv1exportcomplianceinquiriesOrderInformationLineItems> orderInformationLineItems = new List <Riskv1exportcomplianceinquiriesOrderInformationLineItems>();
+            List<Riskv1exportcomplianceinquiriesOrderInformationLineItems> orderInformationLineItems = new List<Riskv1exportcomplianceinquiriesOrderInformationLineItems>();
             string orderInformationLineItemsUnitPrice1 = "120.50";
             int orderInformationLineItemsQuantity1 = 3;
             string orderInformationLineItemsProductSKU1 = "123456";
