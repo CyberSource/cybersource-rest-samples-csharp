@@ -4,6 +4,7 @@ using System.Globalization;
 
 using CyberSource.Api;
 using CyberSource.Model;
+using Cybersource_rest_samples_dotnet.Samples.Payments;
 
 namespace Cybersource_rest_samples_dotnet.Samples.TransactionDetails
 {
@@ -11,7 +12,9 @@ namespace Cybersource_rest_samples_dotnet.Samples.TransactionDetails
     {
         public static TssV2TransactionsGet200Response Run()
         {
-            string id = "5843582801906488504004";
+            string id = SimpleAuthorizationInternet.Run().Id;
+
+            System.Threading.Thread.Sleep(10000);
 
             try
             {

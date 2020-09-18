@@ -11,8 +11,8 @@ namespace Cybersource_rest_samples_dotnet.Samples.SecureFileShare
     {
         public static V1FileDetailsGet200Response Run()
         {
-            var startDate = DateTime.ParseExact("2020-03-20", "yyyy-MM-dd", CultureInfo.InvariantCulture);
-            var endDate = DateTime.ParseExact("2020-03-30", "yyyy-MM-dd", CultureInfo.InvariantCulture);
+            var startDate = DateTime.ParseExact("2020-07-20", "yyyy-MM-dd", CultureInfo.InvariantCulture);
+            var endDate = DateTime.ParseExact("2020-07-30", "yyyy-MM-dd", CultureInfo.InvariantCulture);
             string organizationId = "testrest";
             string name = null;
             try

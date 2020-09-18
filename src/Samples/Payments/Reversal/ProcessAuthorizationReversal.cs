@@ -11,6 +11,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments
     {
         public static PtsV2PaymentsReversalsPost201Response Run()
         {
+            SimpleAuthorizationInternet.CaptureTrueForProcessPayment = false;
             var id = SimpleAuthorizationInternet.Run().Id;
 
             string clientReferenceInformationCode = "TC50171_3";

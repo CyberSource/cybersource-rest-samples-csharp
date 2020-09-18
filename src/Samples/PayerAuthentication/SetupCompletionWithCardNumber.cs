@@ -19,7 +19,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.PayerAuthentication
             string paymentInformationCardType = "001";
             string paymentInformationCardExpirationMonth = "12";
             string paymentInformationCardExpirationYear = "2025";
-            string paymentInformationCardNumber = "4111111111111111";
+            string paymentInformationCardNumber = "4000000000000101";
             Riskv1authenticationsetupsPaymentInformationCard paymentInformationCard = new Riskv1authenticationsetupsPaymentInformationCard(
                 Type: paymentInformationCardType,
                 ExpirationMonth: paymentInformationCardExpirationMonth,

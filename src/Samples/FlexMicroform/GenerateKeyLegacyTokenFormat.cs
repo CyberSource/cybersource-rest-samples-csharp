@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
 
@@ -7,18 +7,18 @@ using CyberSource.Model;
 
 namespace Cybersource_rest_samples_dotnet.Samples.FlexMicroform
 {
-    public class GenerateKey
+    public class GenerateKeyLegacyTokenFormat
     {
         public static FlexV1KeysPost200Response Run()
         {
-            string encryptionType = "RsaOaep";
+            string encryptionType = "None";
             string targetOrigin = "https://www.test.com";
             var requestObj = new GeneratePublicKeyRequest(
                 EncryptionType: encryptionType,
                 TargetOrigin: targetOrigin
            );
 
-            string format = "JWT";
+            string format = "legacy";
             try
             {
                 var configDictionary = new Configuration().GetConfiguration();

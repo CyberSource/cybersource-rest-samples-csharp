@@ -45,7 +45,7 @@
     </Reference>
     <Reference Include="cybersource-rest-client-dotnet, Version=0.0.1.5, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\CyberSource.Rest.Client.0.0.1.5\lib\cybersource-rest-client-dotnet.dll</HintPath>
+      <HintPath>..\packages\CyberSource.Rest.Client.0.0.1.6\lib\cybersource-rest-client-dotnet.dll</HintPath>
     </Reference>
     <Reference Include="jose-jwt">
       <HintPath>..\packages\jose-jwt.2.4.0\lib\net461\jose-jwt.dll</HintPath>
@@ -95,7 +95,9 @@
     <Compile Include="Samples\Authentication\GenerateHttpRequestHeaders\PutGenerateHeaders.cs" />
     <Compile Include="Samples\Authentication\StandAloneHttpSignature.cs" />
     <Compile Include="Samples\Authentication\StandAloneJWT.cs" />
+    <Compile Include="Samples\FlexMicroform\FlexTokenizeCard.cs" />
     <Compile Include="Samples\FlexMicroform\GenerateKey.cs" />
+    <Compile Include="Samples\FlexMicroform\GenerateKeyLegacyTokenFormat.cs" />
     <Compile Include="Samples\Invoicing\InvoiceSettings\GetInvoiceSettings.cs" />
     <Compile Include="Samples\Invoicing\InvoiceSettings\UpdateInvoiceSettings.cs" />
     <Compile Include="Samples\Invoicing\Invoices\CreateAndSendInvoiceImmediately.cs" />
@@ -134,6 +136,7 @@
     <Compile Include="Samples\Payments\Payments\AuthorizationForIncrementalAuthorizationFlow.cs" />
     <Compile Include="Samples\Payments\Payments\AuthorizationForTimeoutReversalFlow.cs" />
     <Compile Include="Samples\Payments\Payments\AuthorizationSkipDecisionManagerForSingleTransaction.cs" />
+    <Compile Include="Samples\Payments\Payments\AuthorizationUsingBluefinPCIP2PEForCardPresentEnabledAcquirer.cs" />
     <Compile Include="Samples\Payments\Payments\AuthorizationUsingBluefinPCIP2PEWithVisaPlatformConnect.cs" />
     <Compile Include="Samples\Payments\Payments\AuthorizationUsingSwipedTrackData.cs" />
     <Compile Include="Samples\Payments\Payments\AuthorizationWithCaptureSale.cs" />
@@ -163,6 +166,7 @@
     <Compile Include="Samples\Payments\Payments\PartialAuthorization.cs" />
     <Compile Include="Samples\Payments\Payments\PaymentNetworkTokenization.cs" />
     <Compile Include="Samples\Payments\Payments\PaymentWithFlexToken.cs" />
+    <Compile Include="Samples\Payments\Payments\PaymentWithFlexTokenCreatePermanentTMSToken.cs" />
     <Compile Include="Samples\Payments\Payments\RestaurantAuthorization.cs" />
     <Compile Include="Samples\Payments\Payments\SaleUsingEMVTechnologyWithContactless.cs" />
     <Compile Include="Samples\Payments\Payments\SaleUsingEMVTechnologyWithContactlessReadForCardPresentEnabledAcquirer.cs" />

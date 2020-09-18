@@ -71,10 +71,8 @@ namespace Cybersource_rest_samples_dotnet.Samples.PayerAuthentication
                 MobilePhone: buyerInformationMobilePhone
            );
 
-            string consumerAuthenticationInformationReturnUrl = "http://localhost:8189/cart/enterprise/collect-term";
             string consumerAuthenticationInformationTransactionMode = "MOTO";
             Riskv1decisionsConsumerAuthenticationInformation consumerAuthenticationInformation = new Riskv1decisionsConsumerAuthenticationInformation(
-                ReturnUrl: consumerAuthenticationInformationReturnUrl,
                 TransactionMode: consumerAuthenticationInformationTransactionMode
            );
 
