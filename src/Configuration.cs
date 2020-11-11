@@ -10,25 +10,28 @@ namespace Cybersource_rest_samples_dotnet
         public Dictionary<string, string> GetConfiguration()
         {
             _configurationDictionary.Add("authenticationType", "HTTP_SIGNATURE");
-            _configurationDictionary.Add("merchantID", "testrest");
-            _configurationDictionary.Add("merchantsecretKey", "yBJxy6LjM2TmcPGu+GaJrHtkke25fPpUX+UY6/L/1tE=");
-            _configurationDictionary.Add("merchantKeyId", "08c94330-f618-42a3-b09d-e1e43be5efda");
+            _configurationDictionary.Add("merchantID", "merchannt998");
+            _configurationDictionary.Add("merchantsecretKey", "X+ynT3aTCD643tZgnEnnLD+sd5pplDGMw5vG5klPvVY=");
+            _configurationDictionary.Add("merchantKeyId", "7a7f20a6-1f7f-4780-9a79-3ff8acf7cc83");
             _configurationDictionary.Add("keysDirectory", "Resource");
-            _configurationDictionary.Add("keyFilename", "testrest");
+            _configurationDictionary.Add("keyFilename", "developercp");
             _configurationDictionary.Add("runEnvironment", "cybersource.environment.sandbox");
             _configurationDictionary.Add("keyAlias", "testrest");
-            _configurationDictionary.Add("keyPass", "testrest");
+            _configurationDictionary.Add("keyPass", "developercp");
             _configurationDictionary.Add("enableLog", "FALSE");
             _configurationDictionary.Add("logDirectory", string.Empty);
             _configurationDictionary.Add("logFileName", string.Empty);
             _configurationDictionary.Add("logFileMaxSize", "5242880");
             _configurationDictionary.Add("timeout", "300000");
+
+            // Configs related to meta key
+            _configurationDictionary.Add("portfolioID", "developercp");
+            _configurationDictionary.Add("useMetaKey", "TrUe");
+
             // _configurationDictionary.Add("proxyAddress", string.Empty);
             // _configurationDictionary.Add("proxyPort", string.Empty);
             // _configurationDictionary.Add("proxyUsername", string.Empty);
             // _configurationDictionary.Add("proxyPassword", string.Empty);
-
-
             return _configurationDictionary;
         }
 
