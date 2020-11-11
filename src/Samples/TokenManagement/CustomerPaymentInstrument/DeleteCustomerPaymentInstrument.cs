@@ -12,7 +12,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TokenManagement
         public static void Run()
         {
             string customerTokenId = "AB695DA801DD1BB6E05341588E0A3BDC";
-            string paymentInstrumentTokenId = CreateCustomerPaymentInstrumentCard.Run().Id;
+            string paymentInstrumentTokenId = CreateCustomerNonDefaultPaymentInstrumentCard.Run().Id;
             try
             {
                 var configDictionary = new Configuration().GetConfiguration();

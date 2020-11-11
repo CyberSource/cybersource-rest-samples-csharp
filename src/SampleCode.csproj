@@ -43,9 +43,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\CyberSource.Authentication.0.0.0.7\lib\AuthenticationSdk.dll</HintPath>
     </Reference>
-    <Reference Include="cybersource-rest-client-dotnet, Version=0.0.1.5, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="cybersource-rest-client-dotnet, Version=0.0.1.7, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\CyberSource.Rest.Client.0.0.1.6\lib\cybersource-rest-client-dotnet.dll</HintPath>
+      <HintPath>..\packages\CyberSource.Rest.Client.0.0.1.7\lib\cybersource-rest-client-dotnet.dll</HintPath>
     </Reference>
     <Reference Include="jose-jwt">
       <HintPath>..\packages\jose-jwt.2.4.0\lib\net461\jose-jwt.dll</HintPath>
@@ -153,6 +153,8 @@
     <Compile Include="Samples\Payments\Payments\AuthorizationWithDMAcceptPAEnroll.cs" />
     <Compile Include="Samples\Payments\Payments\AuthorizationWithDMRejectPAEnroll.cs" />
     <Compile Include="Samples\Payments\Payments\AuthorizationWithDMReviewPAEnroll.cs" />
+    <Compile Include="Samples\Payments\Payments\AuthorizationWithInstrumentIdentifierTokenCreation.cs" />
+    <Compile Include="Samples\Payments\Payments\AuthorizationWithInstrumentIdentifierTokenId.cs" />
     <Compile Include="Samples\Payments\Payments\AuthorizationWithLegacyToken.cs" />
     <Compile Include="Samples\Payments\Payments\AuthorizationWithPAEnrollAuthenticationNeeded.cs" />
     <Compile Include="Samples\Payments\Payments\AuthorizationWithPayerAuthValidation.cs" />
@@ -183,6 +185,7 @@
     <Compile Include="Samples\Payments\Payments\SimpleAuthorizationInternet.cs" />
     <Compile Include="Samples\Payments\Payments\Swiped.cs" />
     <Compile Include="Samples\Payments\Payments\ZeroDollarAuthorization.cs" />
+    <Compile Include="Samples\Payments\Refund\ElectronicCheckFollowonRefund.cs" />
     <Compile Include="Samples\Payments\Refund\RefundCapture.cs" />
     <Compile Include="Samples\Payments\Refund\RefundPayment.cs" />
     <Compile Include="Samples\Payments\Reversal\ProcessAuthorizationReversal.cs" />
@@ -236,13 +239,15 @@
     <Compile Include="Samples\RiskManagement\Verification\VerboseRequestWithAllFields.cs" />
     <Compile Include="Samples\SecureFileShare\DownloadFileWithFileIdentifier.cs" />
     <Compile Include="Samples\SecureFileShare\GetListOfFiles.cs" />
+    <Compile Include="Samples\TokenManagement\CustomerPaymentInstrument\CreateCustomerDefaultPaymentInstrumentCard.cs" />
+    <Compile Include="Samples\TokenManagement\CustomerPaymentInstrument\CreateCustomerNonDefaultPaymentInstrumentCard.cs" />
     <Compile Include="Samples\TokenManagement\CustomerPaymentInstrument\CreateCustomerPaymentInstrumentBankAccount.cs" />
-    <Compile Include="Samples\TokenManagement\CustomerPaymentInstrument\CreateCustomerPaymentInstrumentCard.cs" />
     <Compile Include="Samples\TokenManagement\CustomerPaymentInstrument\CreateCustomerPaymentInstrumentPinlessDebit.cs" />
     <Compile Include="Samples\TokenManagement\CustomerPaymentInstrument\DeleteCustomerPaymentInstrument.cs" />
     <Compile Include="Samples\TokenManagement\CustomerPaymentInstrument\ListPaymentInstrumentsForCustomer.cs" />
     <Compile Include="Samples\TokenManagement\CustomerPaymentInstrument\RetrieveCustomerPaymentInstrument.cs" />
-    <Compile Include="Samples\TokenManagement\CustomerShippingAddress\CreateShippingAddress.cs" />
+    <Compile Include="Samples\TokenManagement\CustomerShippingAddress\CreateCustomerDefaultShippingAddress.cs" />
+    <Compile Include="Samples\TokenManagement\CustomerShippingAddress\CreateCustomerNonDefaultShippingAddress.cs" />
     <Compile Include="Samples\TokenManagement\CustomerShippingAddress\DeleteCustomerShippingAddress.cs" />
     <Compile Include="Samples\TokenManagement\CustomerShippingAddress\ListShippingAddressesForCustomer.cs" />
     <Compile Include="Samples\TokenManagement\CustomerShippingAddress\RetrieveCustomerShippingAddress.cs" />
@@ -264,6 +269,7 @@
     <Compile Include="Samples\TokenManagement\PaymentInstrument\CreatePaymentInstrumentPinlessDebit.cs" />
     <Compile Include="Samples\TokenManagement\PaymentInstrument\DeletePaymentInstrument.cs" />
     <Compile Include="Samples\TokenManagement\PaymentInstrument\RetrievePaymentInstrument.cs" />
+    <Compile Include="Samples\TokenManagement\PaymentInstrument\UpdatePaymentInstrument.cs" />
     <Compile Include="Samples\TransactionBatches\GetIndividualBatchFile.cs" />
     <Compile Include="Samples\TransactionBatches\GetListOfBatchFiles.cs" />
     <Compile Include="Samples\TransactionBatches\GetTransactionDetailsForGivenBatchId.cs" />

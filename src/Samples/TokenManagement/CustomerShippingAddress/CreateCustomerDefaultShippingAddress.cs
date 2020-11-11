@@ -7,11 +7,12 @@ using CyberSource.Model;
 
 namespace Cybersource_rest_samples_dotnet.Samples.TokenManagement
 {
-    public class CreateShippingAddress
+    public class CreateCustomerDefaultShippingAddress
     {
         public static Tmsv2customersEmbeddedDefaultShippingAddress Run()
         {
             string customerTokenId = "AB695DA801DD1BB6E05341588E0A3BDC";
+            bool _default = true;
             string shipToFirstName = "John";
             string shipToLastName = "Doe";
             string shipToCompany = "CyberSource";
@@ -36,6 +37,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TokenManagement
            );
 
             var requestObj = new PostCustomerShippingAddressRequest(
+                _Default: _default,
                 ShipTo: shipTo
            );
 
