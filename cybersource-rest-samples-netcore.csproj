@@ -36,6 +36,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="CyberSource.Authentication.NetStandard" Version="0.0.1" />
+    <PackageReference Include="CyberSource.Rest.Client.NetStandard" Version="0.0.1" />
     <PackageReference Include="jose-jwt" Version="2.5.0" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="NLog" Version="4.7.4" />
@@ -48,14 +50,6 @@
   <ItemGroup>
     <Reference Include="ApiSdk">
       <HintPath>Source\lib\netstandard\ApiSdk.dll</HintPath>
-      <Private>true</Private>
-    </Reference>
-    <Reference Include="cybersource-rest-client-netstandard">
-      <HintPath>Source\lib\cybersource-rest-client-netstandard.dll</HintPath>
-      <Private>true</Private>
-    </Reference>
-    <Reference Include="Cybersource.Authentication.NetStandard">
-      <HintPath>Source\lib\Cybersource.Authentication.NetStandard.dll</HintPath>
       <Private>true</Private>
     </Reference>
   </ItemGroup>
