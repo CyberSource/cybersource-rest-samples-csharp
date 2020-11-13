@@ -1,9 +1,9 @@
 os: 
     windows
-    
+
 language: 
     cpp
-  
+
 before_install:
     - powershell -c "Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope LocalMachine"
     - powershell -c "Import-Module PackageManagement; Install-PackageProvider Nuget"
@@ -13,12 +13,13 @@ before_install:
     - export PATH="c:\tools\NuGet.CommandLine\tools":$PATH
 
 install:
+    - choco install dotnetcore-sdk
     - nuget restore cybersource-rest-samples-csharp.sln
 
 before_script:
     - MSBuild.exe cybersource-rest-samples-csharp.sln
-    - cd src
-    
+
 script:
-    - dir
-    - ./SampleCode.exe RunAll
+    - ./bin/Debug/net461/SampleCode.exe RunAll
+    - dotnet build cybersource-rest-samples-netcore.sln
+    - dotnet bin/Debug/netcoreapp3.1/SampleCodeNetCore.dll RunAll

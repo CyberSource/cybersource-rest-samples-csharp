@@ -181,7 +181,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Authentication
                 Console.WriteLine("\tJWT BODY : " + jwtBody);
 
                 // P12 certificate public key is sent in the header and the private key is used to sign the token
-                X509Certificate2 x5Cert = new X509Certificate2(Path.Combine($"Resource", $"testrest.p12"), merchantID, X509KeyStorageFlags.MachineKeySet);
+                X509Certificate2 x5Cert = new X509Certificate2(Path.Combine($"Source/Resource", $"testrest.p12"), merchantID, X509KeyStorageFlags.MachineKeySet);
 
                 // Extracting Public Key from .p12 file
                 string x5cPublicKey = Convert.ToBase64String(x5Cert.RawData);
@@ -223,7 +223,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Authentication
                 token = Jose.JWT.Encode(jwtBody, privateKey, Jose.JwsAlgorithm.RS256, cybsHeaders);
 
                 // Writing Generated Token to file.
-                File.WriteAllText(Path.Combine($"Resource", $"jwsToken.txt"), token);
+                File.WriteAllText(Path.Combine($"Source/Resource", $"jwsToken.txt"), token);
             }
             catch (Exception ex)
             {
