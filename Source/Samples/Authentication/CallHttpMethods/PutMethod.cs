@@ -6,30 +6,31 @@ using SampleCode.data;
 
 namespace Cybersource_rest_samples_dotnet.Samples.Authentication
 {
-    public class PostMethod
+    public class PutMethod
     {
-        // POST Request to Authorize the payment for a transaction.
-        // Transaction details provided in the JSON File are sent along with the Request as Request Body
-        private const string RequestTarget = "/pts/v2/payments/";
-        private const string RequestJsonFilePath = "Resource\\request_payments.json";
+        // PUT Request to Create Report Subscription for a report name by organization
+        // Report Details provided in the JSON File are sent along with the Request as Request Body
+        // Below request subscribes 'TRR Report' for Organization ID: testrest
+        private const string RequestTarget = "/reporting/v2/reportSubscriptions/TRRReport?organizationId=testrest";
+        private const string RequestJsonFilePath = "Source/Resource/TRRReport.json";
 
         public static void Run()
         {
             try
             {
+                // Setting up Merchant Config
                 var requestData = new RequestData();
 
-                // Setting up Merchant Config
                 var merchantConfig = new MerchantConfig
                 {
                     RequestTarget = RequestTarget,
-                    RequestType = Enumerations.RequestType.POST.ToString(),
+                    RequestType = Enumerations.RequestType.PUT.ToString(),
                     RequestJsonData = requestData.JsonFileData(RequestJsonFilePath)
                 };
 
                 // Call to the Controller of API_SDK
                 var apiController = new APIController(merchantConfig);
-                var response = apiController.PostPayment();
+                var response = apiController.PutPayment();
 
                 // printing the response details
                 if (response != null)

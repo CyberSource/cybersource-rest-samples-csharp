@@ -1,0 +1,70 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>SampleCodeNetCore</RootNamespace>
+    <AssemblyName>SampleCodeNetCore</AssemblyName>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>bin\Debug</OutputPath>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <OutputPath>bin\Release</OutputPath>
+    <DebugType>pdbonly</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="packages\**" />
+    <Compile Remove="Source\lib\net461\**" />
+    <Compile Remove="Source\Properties\**" />
+    <EmbeddedResource Remove="packages\**" />
+    <EmbeddedResource Remove="Source\lib\net461\**" />
+    <EmbeddedResource Remove="Source\Properties\**" />
+    <None Remove="packages\**" />
+    <None Remove="Source\lib\net461\**" />
+    <None Remove="Source\Properties\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="packages.config" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CyberSource.Authentication.NetStandard" Version="0.0.1" />
+    <PackageReference Include="CyberSource.Rest.Client.NetStandard" Version="0.0.1" />
+    <PackageReference Include="jose-jwt" Version="2.5.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="NLog" Version="4.7.4" />
+    <PackageReference Include="NLog.Schema" Version="4.7.4" />
+    <PackageReference Include="RestSharp" Version="106.11.5" />
+    <PackageReference Include="System.ComponentModel.Annotations" Version="4.7.0" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.7.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="ApiSdk">
+      <HintPath>Source\lib\netstandard\ApiSdk.dll</HintPath>
+      <Private>true</Private>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="NLog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+    <Exec Command="DEL /S /Q obj\Debug\*" />
+  </Target>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="DEL /S /Q obj\Debug\*" />
+  </Target>
+</Project>
