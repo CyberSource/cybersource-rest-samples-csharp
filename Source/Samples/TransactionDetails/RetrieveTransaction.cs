@@ -14,7 +14,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TransactionDetails
         {
             string id = SimpleAuthorizationInternet.Run().Id;
 
-            System.Threading.Thread.Sleep(10000);
+            System.Threading.Thread.Sleep(15000);
 
             try
             {
