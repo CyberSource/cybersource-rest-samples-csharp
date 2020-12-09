@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.645
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleCode", "src\SampleCode.csproj", "{4CF837FF-237D-4B5B-B922-71CCC654D718}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cybersource-rest-samples-csharp", "cybersource-rest-samples-csharp.csproj", "{97FF11A4-924D-4C87-A028-2AAF64655954}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{4CF837FF-237D-4B5B-B922-71CCC654D718}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4CF837FF-237D-4B5B-B922-71CCC654D718}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4CF837FF-237D-4B5B-B922-71CCC654D718}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4CF837FF-237D-4B5B-B922-71CCC654D718}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97FF11A4-924D-4C87-A028-2AAF64655954}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97FF11A4-924D-4C87-A028-2AAF64655954}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97FF11A4-924D-4C87-A028-2AAF64655954}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97FF11A4-924D-4C87-A028-2AAF64655954}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {95563D15-3D02-4AC0-9DFD-FE5A429F71AD}
+		SolutionGuid = {FB9CA784-6AD6-40A2-97AE-8F3EB809EBD3}
 	EndGlobalSection
 EndGlobal

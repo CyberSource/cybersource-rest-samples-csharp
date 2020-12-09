@@ -1,0 +1,2 @@
+Batch Files Detail Report,1.0,2020-01-30 to 2020-01-30,,,,,,,
+merchant_id,txn_batch_id,payment_processor,request_id,trans_ref_no,merchant_ref_number,ics_rflag,amount,currency,action
