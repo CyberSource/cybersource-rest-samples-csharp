@@ -27,12 +27,19 @@ namespace Cybersource_rest_samples_dotnet
             // Configs related to meta key
             _configurationDictionary.Add("portfolioID", string.Empty);
             _configurationDictionary.Add("useMetaKey", "false");
-			
+
+            // Configs related to OAuth
+            _configurationDictionary.Add("enableClientCert", "false");
+            _configurationDictionary.Add("clientCertDirectory", "Resource");
+            _configurationDictionary.Add("clientCertFile", "");
+            _configurationDictionary.Add("clientCertPassword", "");
+            _configurationDictionary.Add("clientId", "");
+            _configurationDictionary.Add("clientSecret", "");
+
             // _configurationDictionary.Add("proxyAddress", string.Empty);
             // _configurationDictionary.Add("proxyPort", string.Empty);
             // _configurationDictionary.Add("proxyUsername", string.Empty);
             // _configurationDictionary.Add("proxyPassword", string.Empty);
-
             return _configurationDictionary;
         }
 
@@ -60,6 +67,14 @@ namespace Cybersource_rest_samples_dotnet
             // Configs related to meta key
             _configurationDictionary.Add("portfolioID", string.Empty);
             _configurationDictionary.Add("useMetaKey", "false");
+
+            // Configs related to OAuth
+            _configurationDictionary.Add("enableClientCert", "false");
+            _configurationDictionary.Add("clientCertDirectory", "Resource");
+            _configurationDictionary.Add("clientCertFile", "");
+            _configurationDictionary.Add("clientCertPassword", "");
+            _configurationDictionary.Add("clientId", "");
+            _configurationDictionary.Add("clientSecret", "");
 
 
             return _configurationDictionary;
