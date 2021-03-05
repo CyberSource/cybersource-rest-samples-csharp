@@ -99,7 +99,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Authentication
             // HTTP GET request
             using (var client = new HttpClient())
             {
-                string resource = "/reporting/v3/reports?startTime=2018-10-01T00:00:00.0Z&endTime=2018-10-30T23:59:59.0Z&timeQueryType=executedTime&reportMimeType=application/xml";
+                string resource = "/reporting/v3/reports?startTime=2021-01-01T00:00:00.0Z&endTime=2021-01-02T23:59:59.0Z&timeQueryType=executedTime&reportMimeType=application/xml";
 
                 /* Add Request Header :: "v-c-merchant-id" set value to Cybersource Merchant ID or v-c-merchant-id
                  * This ID can be found on EBC portal.

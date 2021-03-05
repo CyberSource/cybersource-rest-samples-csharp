@@ -30,8 +30,22 @@ namespace Cybersource_rest_samples_dotnet.Samples.RiskManagement
                 MarkingDetails: riskInformationMarkingDetails
            );
 
+            string clientReferenceInformationCode = "12345";
+            string clientReferenceInformationPartnerDeveloperId = "1234";
+            string clientReferenceInformationPartnerSolutionId = "3321";
+            Riskv1decisionsClientReferenceInformationPartner clientReferenceInformationPartner = new Riskv1decisionsClientReferenceInformationPartner(
+                DeveloperId: clientReferenceInformationPartnerDeveloperId,
+                SolutionId: clientReferenceInformationPartnerSolutionId
+           );
+
+            Riskv1decisionsClientReferenceInformation clientReferenceInformation = new Riskv1decisionsClientReferenceInformation(
+                Code: clientReferenceInformationCode,
+                Partner: clientReferenceInformationPartner
+           );
+
             var requestObj = new FraudMarkingActionRequest(
-                RiskInformation: riskInformation
+                RiskInformation: riskInformation,
+                ClientReferenceInformation: clientReferenceInformation
            );
 
             try
