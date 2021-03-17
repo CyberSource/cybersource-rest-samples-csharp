@@ -28,14 +28,14 @@ namespace Cybersource_rest_samples_dotnet.Samples.Authentication
             if(createUsingAuthCode)
             {
                 // Create Access Token using Auth Code
-                code = "fHA73z";
+                code = "";
                 grantType = "authorization_code";
                 result = postAccessTokenFromAuthCode();
             }
             else {
                 // Create Access Token using Refresh Token
                 grantType = "refresh_token";
-                refreshToken = "eyJraWQiOiIxMGM2MTYxNzg2MzE2ZWMzMGJjZmI5ZDcyZGU4MzFjOSIsImFsZyI6IlJTMjU2In0.eyJqdGkiOiJmODFiM2M3ZC00YWMzLTQ2MDctYTIyYi00YzUwZjgyMjQwMDkiLCJzY29wZXMiOlsicGF5bWVudHNfd2l0aF9zdGFuZGFsb25lX2NyZWRpdCIsInBheW1lbnRzX3dpdGhvdXRfc3RhbmRhbG9uZV9jcmVkaXQiLCJ0cmFuc2FjdGlvbnMiXSwiaWF0IjoxNjExODE4NjQzNDUwLCJhc3NvY2lhdGVkX2lkIjoiZWJjMl9jYXNfb2F1dGh0cDIiLCJjbGllbnRfaWQiOiJCeW94NGp4VWk2IiwibWVyY2hhbnRfaWQiOiJjZ2syX3B1c2hfdGVzdHMiLCJleHBpcmVzX2luIjoxNjQzMzU0NjQzNDUwLCJ0b2tlbl90eXBlIjoicmVmcmVzaF90b2tlbiIsImdyYW50X3R5cGUiOiJhdXRob3JpemF0aW9uX2NvZGUiLCJncmFudF90aW1lIjoiMjAyMTAxMjcyMzIzIn0.SYZ62TFuukxrPqjiGVPBzs7BHaiTkDOO-Rqjzfl4rZi_hP0pkHSTograBFgLZ3GnWxNUzgXsU5zTGqF2nllI_j0kvMIWuST6xAoDyXRHlDfcM8MQYDI7CaJGVTFbJh1U_qzN6sUUlVhKpk_BXt_4LH03_11HiQHIwnZfTcNCoDrvlnO_xkRonrEipPJb6iMO3ZEv6Z8UBc0Q-L_nR6DhHlL5M3U-S-Fi7pusq5bOyUi38CW9nwAQo9A0F3PG8n0Scji2LatjGUB4Y5hTCiRWEbIoa49fQwq0hroi11o32YriQQnMqGaaH_bCq8NgLQabRv1I73I37443lW4w0Hoy-A";
+                refreshToken = "";
                 result = postAccessTokenFromRefreshToken();
             }
 
