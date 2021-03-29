@@ -45,8 +45,16 @@ namespace Cybersource_rest_samples_dotnet.Samples.RiskManagement
            );
 
             string clientReferenceInformationCode = "54323007";
+            string clientReferenceInformationPartnerDeveloperId = "7891234";
+            string clientReferenceInformationPartnerSolutionId = "89012345";
+            Riskv1decisionsClientReferenceInformationPartner clientReferenceInformationPartner = new Riskv1decisionsClientReferenceInformationPartner(
+                DeveloperId: clientReferenceInformationPartnerDeveloperId,
+                SolutionId: clientReferenceInformationPartnerSolutionId
+           );
+
             Riskv1decisionsClientReferenceInformation clientReferenceInformation = new Riskv1decisionsClientReferenceInformation(
-                Code: clientReferenceInformationCode
+                Code: clientReferenceInformationCode,
+                Partner: clientReferenceInformationPartner
            );
 
             string riskInformationMarkingDetailsAction = "add";

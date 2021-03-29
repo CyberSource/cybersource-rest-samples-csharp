@@ -12,8 +12,16 @@ namespace Cybersource_rest_samples_dotnet.Samples.PayerAuthentication
         public static RiskV1AuthenticationResultsPost201Response Run()
         {
             string clientReferenceInformationCode = "pavalidatecheck";
-            Riskv1authenticationsetupsClientReferenceInformation clientReferenceInformation = new Riskv1authenticationsetupsClientReferenceInformation(
-                Code: clientReferenceInformationCode
+            string clientReferenceInformationPartnerDeveloperId = "7891234";
+            string clientReferenceInformationPartnerSolutionId = "89012345";
+            Riskv1decisionsClientReferenceInformationPartner clientReferenceInformationPartner = new Riskv1decisionsClientReferenceInformationPartner(
+                DeveloperId: clientReferenceInformationPartnerDeveloperId,
+                SolutionId: clientReferenceInformationPartnerSolutionId
+           );
+
+            Riskv1decisionsClientReferenceInformation clientReferenceInformation = new Riskv1decisionsClientReferenceInformation(
+                Code: clientReferenceInformationCode,
+                Partner: clientReferenceInformationPartner
            );
 
             string orderInformationAmountDetailsCurrency = "USD";

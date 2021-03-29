@@ -12,8 +12,18 @@ namespace Cybersource_rest_samples_dotnet.Samples.RiskManagement
         public static RiskV1DecisionsPost201Response Run()
         {
             string clientReferenceInformationCode = "54323007";
+            string clientReferenceInformationComments = "decision manager case";
+            string clientReferenceInformationPartnerDeveloperId = "7891234";
+            string clientReferenceInformationPartnerSolutionId = "89012345";
+            Riskv1decisionsClientReferenceInformationPartner clientReferenceInformationPartner = new Riskv1decisionsClientReferenceInformationPartner(
+                DeveloperId: clientReferenceInformationPartnerDeveloperId,
+                SolutionId: clientReferenceInformationPartnerSolutionId
+           );
+
             Riskv1decisionsClientReferenceInformation clientReferenceInformation = new Riskv1decisionsClientReferenceInformation(
-                Code: clientReferenceInformationCode
+                Code: clientReferenceInformationCode,
+                Comments: clientReferenceInformationComments,
+                Partner: clientReferenceInformationPartner
            );
 
             string paymentInformationCardNumber = "4444444444444448";

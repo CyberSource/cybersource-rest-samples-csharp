@@ -11,8 +11,8 @@ namespace Cybersource_rest_samples_dotnet.Samples.Reporting
     {
         public static ReportingV3NetFundingsGet200Response Run()
         {
-            var startTime = DateTime.ParseExact("2019-08-01T00:00:00Z", "yyyy-MM-ddTHH:mm:ssZ", CultureInfo.InvariantCulture);
-            var endTime = DateTime.ParseExact("2019-09-01T23:59:59Z", "yyyy-MM-ddTHH:mm:ssZ", CultureInfo.InvariantCulture);
+            var startTime = DateTime.ParseExact("2021-01-01T00:00:00Z", "yyyy-MM-ddTHH:mm:ssZ", CultureInfo.InvariantCulture);
+            var endTime = DateTime.ParseExact("2021-01-02T23:59:59Z", "yyyy-MM-ddTHH:mm:ssZ", CultureInfo.InvariantCulture);
             string organizationId = "testrest";
             string groupName = null;
             try

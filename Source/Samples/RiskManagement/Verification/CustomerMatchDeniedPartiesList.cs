@@ -13,9 +13,17 @@ namespace Cybersource_rest_samples_dotnet.Samples.RiskManagement
         {
             string clientReferenceInformationCode = "verification example";
             string clientReferenceInformationComments = "Export-basic";
-            Riskv1addressverificationsClientReferenceInformation clientReferenceInformation = new Riskv1addressverificationsClientReferenceInformation(
+            string clientReferenceInformationPartnerDeveloperId = "7891234";
+            string clientReferenceInformationPartnerSolutionId = "89012345";
+            Riskv1decisionsClientReferenceInformationPartner clientReferenceInformationPartner = new Riskv1decisionsClientReferenceInformationPartner(
+                DeveloperId: clientReferenceInformationPartnerDeveloperId,
+                SolutionId: clientReferenceInformationPartnerSolutionId
+           );
+
+            Riskv1decisionsClientReferenceInformation clientReferenceInformation = new Riskv1decisionsClientReferenceInformation(
                 Code: clientReferenceInformationCode,
-                Comments: clientReferenceInformationComments
+                Comments: clientReferenceInformationComments,
+                Partner: clientReferenceInformationPartner
            );
 
             string orderInformationBillToAddress1 = "901 Metro Centre Blvd";

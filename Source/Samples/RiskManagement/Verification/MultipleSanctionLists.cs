@@ -13,7 +13,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.RiskManagement
         {
             string clientReferenceInformationCode = "verification example";
             string clientReferenceInformationComments = "All fields";
-            Riskv1addressverificationsClientReferenceInformation clientReferenceInformation = new Riskv1addressverificationsClientReferenceInformation(
+            Riskv1decisionsClientReferenceInformation clientReferenceInformation = new Riskv1decisionsClientReferenceInformation(
                 Code: clientReferenceInformationCode,
                 Comments: clientReferenceInformationComments
            );
