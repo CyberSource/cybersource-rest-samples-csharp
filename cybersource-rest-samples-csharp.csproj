@@ -41,9 +41,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>packages\CyberSource.Authentication.0.0.0.9\lib\AuthenticationSdk.dll</HintPath>
     </Reference>
-    <Reference Include="cybersource-rest-client-dotnet, Version=0.0.1.9, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="cybersource-rest-client-dotnet, Version=0.0.1.10, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>packages\CyberSource.Rest.Client.0.0.1.9\lib\cybersource-rest-client-dotnet.dll</HintPath>
+      <HintPath>packages\CyberSource.Rest.Client.0.0.1.10\lib\cybersource-rest-client-dotnet.dll</HintPath>
     </Reference>
     <Reference Include="jose-jwt">
       <HintPath>packages\jose-jwt.2.4.0\lib\net461\jose-jwt.dll</HintPath>
@@ -144,6 +144,7 @@
     <Compile Include="Source\Samples\Payments\Payments\AuthorizationWithCaptureSale.cs" />
     <Compile Include="Source\Samples\Payments\Payments\AuthorizationWithCustomerPaymentInstrumentAndShippingAddressTokenId.cs" />
     <Compile Include="Source\Samples\Payments\Payments\AuthorizationWithCustomerTokenCreation.cs" />
+    <Compile Include="Source\Samples\Payments\Payments\AuthorizationWithCustomerTokenDefaultPaymentInstrumentAndShippingAddressCreation.cs" />
     <Compile Include="Source\Samples\Payments\Payments\AuthorizationWithCustomerTokenId.cs" />
     <Compile Include="Source\Samples\Payments\Payments\AuthorizationWithDecisionManager.cs" />
     <Compile Include="Source\Samples\Payments\Payments\AuthorizationWithDecisionManagerBuyerInformation.cs" />
@@ -160,6 +161,7 @@
     <Compile Include="Source\Samples\Payments\Payments\AuthorizationWithLegacyToken.cs" />
     <Compile Include="Source\Samples\Payments\Payments\AuthorizationWithPAEnrollAuthenticationNeeded.cs" />
     <Compile Include="Source\Samples\Payments\Payments\AuthorizationWithPayerAuthValidation.cs" />
+    <Compile Include="Source\Samples\Payments\Payments\AuthorizationWithTMSTokenBypassingNetworkToken.cs" />
     <Compile Include="Source\Samples\Payments\Payments\DigitalPaymentGooglePay.cs" />
     <Compile Include="Source\Samples\Payments\Payments\DigitalPaymentsApplePay.cs" />
     <Compile Include="Source\Samples\Payments\Payments\ElectronicCheckDebits.cs" />
