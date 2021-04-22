@@ -9,7 +9,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TokenManagement
 {
     public class ListPaymentInstrumentsForCustomer
     {
-        public static PaymentInstrumentListForCustomer Run()
+        public static PaymentInstrumentList Run()
         {
             string customerTokenId = "AB695DA801DD1BB6E05341588E0A3BDC";
             string profileid = null;
@@ -21,7 +21,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TokenManagement
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new CustomerPaymentInstrumentApi(clientConfig);
-                PaymentInstrumentListForCustomer result = apiInstance.GetCustomerPaymentInstrumentsList(customerTokenId, profileid, offset, limit);
+                PaymentInstrumentList result = apiInstance.GetCustomerPaymentInstrumentsList(customerTokenId, profileid, offset, limit);
                 Console.WriteLine(result);
                 return result;
             }
