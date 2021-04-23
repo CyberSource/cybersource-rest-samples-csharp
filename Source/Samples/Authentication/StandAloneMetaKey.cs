@@ -14,7 +14,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Authentication
         // initialize dictionary object
         private static readonly Dictionary<string, string> _configurationDictionary = new Dictionary<string, string>();
 
-        public static Dictionary<string, string> GetConfiguration()
+        private static Dictionary<string, string> GetConfiguration()
         {
             _configurationDictionary.Add("authenticationType", "HTTP_SIGNATURE");
             _configurationDictionary.Add("merchantID", "merchannt998");
@@ -30,10 +30,10 @@ namespace Cybersource_rest_samples_dotnet.Samples.Authentication
 
         public static void Run()
         {
-            SimpleAuthorizationInternet();
+            SimplePaymentUsingMetaKey();
         }
 
-        public static PtsV2PaymentsPost201Response SimpleAuthorizationInternet()
+        public static PtsV2PaymentsPost201Response SimplePaymentUsingMetaKey()
         {
             string clientReferenceInformationCode = "TC50171_3";
             Ptsv2paymentsClientReferenceInformation clientReferenceInformation = new Ptsv2paymentsClientReferenceInformation(
