@@ -29,8 +29,6 @@ For the old run environments previously used, they should be replaced by the fol
 |`cybersource.environment.production`           |`api.cybersource.com`                           |
 |`cybersource.environment.mutualauth.sandbox`   |`api-matest.cybersource.com`                    |
 |`cybersource.environment.mutualauth.production`|`api-ma.cybersource.com`                        |
-|`bankofamerica.environment.sandbox`            |`apitest.merchant-services.bankofamerica.com`   |
-|`bankofamerica.environment.production`         |`api.merchant-services.bankofamerica.com`       |
 |`cybersource.in.environment.sandbox`           |`apitest.cybersource.com`                       |
 |`cybesource.in.environment.production`         |`api.in.cybersource.com`                        |
 |`cybesource.environment.mutualauth.sit`        |`pnrstage.ic3.com:8451`                         |
