@@ -17,13 +17,13 @@ namespace Cybersource_rest_samples_dotnet.Samples.Authentication
         private static Dictionary<string, string> GetConfiguration()
         {
             _configurationDictionary.Add("authenticationType", "HTTP_SIGNATURE");
-            _configurationDictionary.Add("merchantID", "merchannt998");
-            _configurationDictionary.Add("merchantsecretKey", "X+ynT3aTCD643tZgnEnnLD+sd5pplDGMw5vG5klPvVY=");
-            _configurationDictionary.Add("merchantKeyId", "7a7f20a6-1f7f-4780-9a79-3ff8acf7cc83");
+            _configurationDictionary.Add("merchantID", "");
+            _configurationDictionary.Add("merchantsecretKey", "");
+            _configurationDictionary.Add("merchantKeyId", "");
             _configurationDictionary.Add("runEnvironment", "cybersource.environment.sandbox");
 
             // Configs related to meta key
-            _configurationDictionary.Add("portfolioID", "developercp");
+            _configurationDictionary.Add("portfolioID", "");
             _configurationDictionary.Add("useMetaKey", "true");
             return _configurationDictionary;
         }
