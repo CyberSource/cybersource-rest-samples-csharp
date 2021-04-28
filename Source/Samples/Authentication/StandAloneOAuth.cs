@@ -8,12 +8,29 @@ using System.Threading.Tasks;
 
 namespace Cybersource_rest_samples_dotnet.Samples.Authentication
 {
+
     public class StandAloneOAuth
     {
-        private static string code = "";
-        private static string grantType = "";
-        private static string refreshToken = "";
-        private static string accessToken = "";
+        
+        private static Dictionary<string, string> GetConfiguration()
+        {
+            Dictionary<string, string> _configDictionary = new Dictionary<string, string>();
+            _configDictionary.Add("runEnvironment", "cybersource.environment.mutualauth.sandbox");
+
+            // Configs related to OAuth
+            _configDictionary.Add("enableClientCert", "true");
+            _configDictionary.Add("clientCertDirectory", "Source\\Resource");
+            _configDictionary.Add("clientCertFile", "");
+            _configDictionary.Add("clientCertPassword", "");
+            _configDictionary.Add("clientId", "");
+            _configDictionary.Add("clientSecret", "");
+            return _configDictionary;
+        }
+
+        private static string code;
+        private static string grantType;
+        private static string refreshToken;
+        private static string accessToken;
         private static Dictionary<string, string> configDictionary;
         public static bool createUsingAuthCode = false;
 
@@ -61,7 +78,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Authentication
             AccessTokenResponse result = null;
             try
             {
-                configDictionary = new Configuration().GetConfiguration();
+                configDictionary = GetConfiguration();
                 configDictionary["authenticationType"] = "Mutual_Auth";
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
@@ -90,7 +107,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Authentication
             AccessTokenResponse result = null;
             try
             {
-                configDictionary = new Configuration().GetConfiguration();
+                configDictionary = GetConfiguration();
                 configDictionary["authenticationType"] = "Mutual_Auth";
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
