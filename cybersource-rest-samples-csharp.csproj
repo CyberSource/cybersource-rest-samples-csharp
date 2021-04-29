@@ -41,9 +41,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>packages\CyberSource.Authentication.0.0.0.9\lib\AuthenticationSdk.dll</HintPath>
     </Reference>
-    <Reference Include="cybersource-rest-client-dotnet, Version=0.0.1.10, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="cybersource-rest-client-dotnet, Version=0.0.1.11, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>packages\CyberSource.Rest.Client.0.0.1.10\lib\cybersource-rest-client-dotnet.dll</HintPath>
+      <HintPath>packages\CyberSource.Rest.Client.0.0.1.11\lib\cybersource-rest-client-dotnet.dll</HintPath>
     </Reference>
     <Reference Include="jose-jwt">
       <HintPath>packages\jose-jwt.2.4.0\lib\net461\jose-jwt.dll</HintPath>
@@ -97,6 +97,7 @@
     <Compile Include="Source\Samples\Authentication\StandAloneHttpSignature.cs" />
     <Compile Include="Source\Samples\Authentication\StandAloneJWT.cs" />
     <Compile Include="Source\Samples\Authentication\StandAloneOAuth.cs" />
+	<Compile Include="Source\Samples\Authentication\StandAloneMetaKey.cs" />
     <Compile Include="Source\Samples\FlexMicroform\FlexTokenizeCard.cs" />
     <Compile Include="Source\Samples\FlexMicroform\GenerateKey.cs" />
     <Compile Include="Source\Samples\FlexMicroform\GenerateKeyLegacyTokenFormat.cs" />
