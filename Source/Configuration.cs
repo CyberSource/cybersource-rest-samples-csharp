@@ -15,7 +15,7 @@ namespace Cybersource_rest_samples_dotnet
             _configurationDictionary.Add("merchantKeyId", "08c94330-f618-42a3-b09d-e1e43be5efda");
             _configurationDictionary.Add("keysDirectory", "Resource");
             _configurationDictionary.Add("keyFilename", "testrest");
-            _configurationDictionary.Add("runEnvironment", "cybersource.environment.sandbox");
+            _configurationDictionary.Add("runEnvironment", "apitest.cybersource.com");
             _configurationDictionary.Add("keyAlias", "testrest");
             _configurationDictionary.Add("keyPass", "testrest");
             _configurationDictionary.Add("enableLog", "FALSE");
@@ -51,7 +51,7 @@ namespace Cybersource_rest_samples_dotnet
             _configurationDictionary.Add("merchantKeyId", "e547c3d3-16e4-444c-9313-2a08784b906a");
             _configurationDictionary.Add("keysDirectory", "Resource");
             _configurationDictionary.Add("keyFilename", "testrest_cpctv");
-            _configurationDictionary.Add("runEnvironment", "cybersource.environment.sandbox");
+            _configurationDictionary.Add("runEnvironment", "apitest.cybersource.com");
             _configurationDictionary.Add("keyAlias", "testrest_cpctv");
             _configurationDictionary.Add("keyPass", "testrest_cpctv");
             _configurationDictionary.Add("enableLog", "FALSE");
