@@ -15,7 +15,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Authentication
         private static Dictionary<string, string> GetConfiguration()
         {
             Dictionary<string, string> _configDictionary = new Dictionary<string, string>();
-            _configDictionary.Add("runEnvironment", "cybersource.environment.mutualauth.sandbox");
+            _configDictionary.Add("runEnvironment", "api-matest.cybersource.com");
 
             // Configs related to OAuth
             _configDictionary.Add("enableClientCert", "true");
