@@ -20,7 +20,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Authentication
             _configurationDictionary.Add("merchantID", "");
             _configurationDictionary.Add("merchantsecretKey", "");
             _configurationDictionary.Add("merchantKeyId", "");
-            _configurationDictionary.Add("runEnvironment", "cybersource.environment.sandbox");
+            _configurationDictionary.Add("runEnvironment", "apitest.cybersource.com");
 
             // Configs related to meta key
             _configurationDictionary.Add("portfolioID", "");

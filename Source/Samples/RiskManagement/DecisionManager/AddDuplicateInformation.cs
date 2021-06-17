@@ -45,7 +45,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.RiskManagement
            );
 
             string clientReferenceInformationCode = "54323007";
-            Riskv1decisionsClientReferenceInformation clientReferenceInformation = new Riskv1decisionsClientReferenceInformation(
+            Riskv1liststypeentriesClientReferenceInformation clientReferenceInformation = new Riskv1liststypeentriesClientReferenceInformation(
                 Code: clientReferenceInformationCode
            );
 
