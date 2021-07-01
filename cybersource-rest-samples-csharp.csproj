@@ -97,7 +97,7 @@
     <Compile Include="Source\Samples\Authentication\StandAloneHttpSignature.cs" />
     <Compile Include="Source\Samples\Authentication\StandAloneJWT.cs" />
     <Compile Include="Source\Samples\Authentication\StandAloneOAuth.cs" />
-	<Compile Include="Source\Samples\Authentication\StandAloneMetaKey.cs" />
+    <Compile Include="Source\Samples\Authentication\StandAloneMetaKey.cs" />
     <Compile Include="Source\Samples\FlexMicroform\FlexTokenizeCard.cs" />
     <Compile Include="Source\Samples\FlexMicroform\GenerateKey.cs" />
     <Compile Include="Source\Samples\FlexMicroform\GenerateKeyLegacyTokenFormat.cs" />
@@ -291,7 +291,9 @@
     <Compile Include="Source\Utilities.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="NLog.config" />
+    <None Include="NLog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Source\App.config">
       <SubType>Designer</SubType>
     </None>
