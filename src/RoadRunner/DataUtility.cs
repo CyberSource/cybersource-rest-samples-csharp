@@ -135,23 +135,13 @@ namespace RoadRunner
                                         // get http status from sample code
                                     }
 
-                                    if (road["Assertions"]["requiredFields"] != null)
+                                    if (storedFields != null)
                                     {
                                         // check the assertions and build the test data.
-                                        foreach (var field in road["Assertions"]["requiredFields"])
+                                        foreach (var field in storedFields)
                                         {
                                             var actualValue = Find(jsonResponse, field.ToString());
                                             data.Add(new AssertionData(true, actualValue != null, field + " - is a required field, but not present in the response."));
-                                        }
-                                    }
-
-                                    if (road["Assertions"]["expectedValues"] != null)
-                                    {
-                                        // check the assertions and build the test data.
-                                        foreach (var expectedField in road["Assertions"]["expectedValues"])
-                                        {
-                                            var actualValue = Find(jsonResponse, expectedField["field"].ToString());
-                                            data.Add(new AssertionData(expectedField["value"], actualValue, "Actual value of \"" + expectedField["field"] + "\" field doesn't match Expected value in the response."));
                                         }
                                     }
                                 }
