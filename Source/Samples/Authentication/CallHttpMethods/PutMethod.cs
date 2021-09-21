@@ -42,7 +42,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Authentication
             }
             catch (Exception e)
             {
-                ExceptionUtility.Exception(e.Message, e.StackTrace);
+                //ExceptionUtility.Exception(e.Message, e.StackTrace);
             }
         }
     }

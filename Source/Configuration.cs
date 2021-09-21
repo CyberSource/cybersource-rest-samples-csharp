@@ -13,7 +13,7 @@ namespace Cybersource_rest_samples_dotnet
             _configurationDictionary.Add("merchantID", "testrest");
             _configurationDictionary.Add("merchantsecretKey", "yBJxy6LjM2TmcPGu+GaJrHtkke25fPpUX+UY6/L/1tE=");
             _configurationDictionary.Add("merchantKeyId", "08c94330-f618-42a3-b09d-e1e43be5efda");
-            _configurationDictionary.Add("keysDirectory", "Resource");
+            _configurationDictionary.Add("keysDirectory", "Source\\Resource");
             _configurationDictionary.Add("keyFilename", "testrest");
             _configurationDictionary.Add("runEnvironment", "apitest.cybersource.com");
             _configurationDictionary.Add("keyAlias", "testrest");
