@@ -26,7 +26,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.PayerAuthentication
 
             string orderInformationAmountDetailsCurrency = "USD";
             string orderInformationAmountDetailsTotalAmount = "200.00";
-            Riskv1authenticationsOrderInformationAmountDetails orderInformationAmountDetails = new Riskv1authenticationsOrderInformationAmountDetails(
+            Riskv1authenticationresultsOrderInformationAmountDetails orderInformationAmountDetails = new Riskv1authenticationresultsOrderInformationAmountDetails(
                 Currency: orderInformationAmountDetailsCurrency,
                 TotalAmount: orderInformationAmountDetailsTotalAmount
            );
