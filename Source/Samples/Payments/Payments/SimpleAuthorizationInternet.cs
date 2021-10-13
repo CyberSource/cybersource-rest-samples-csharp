@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 
 using CyberSource.Api;
+using CyberSource.Client;
 using CyberSource.Model;
 
 namespace Cybersource_rest_samples_dotnet.Samples.Payments
@@ -90,6 +91,12 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments
                 PtsV2PaymentsPost201Response result = apiInstance.CreatePayment(requestObj);
                 Console.WriteLine(result);
                 return result;
+            }
+            catch(ApiException err)
+            {
+                Console.WriteLine("Error Code: " + err.ErrorCode);
+                Console.WriteLine("Error Message: " + err.Message);
+                return null;
             }
             catch (Exception e)
             {

@@ -66,7 +66,7 @@ To set your API credentials for an API request, configure the following informat
 
 * MetaKey Http
 
-  ```
+  ```lang-none
     authenticationType  = http_Signature
     merchantID          = your_child_merchant_id
     merchantKeyId       = your_metakey_serial_number
@@ -78,7 +78,7 @@ To set your API credentials for an API request, configure the following informat
 
 * MetaKey JWT
 
-  ```
+  ```lang-none
     authenticationType  = Jwt
     merchantID          = your_child_merchant_id
     keyAlias            = your_child_merchant_id
@@ -118,7 +118,7 @@ To set your API credentials for an API request, configure the following informat
   
   Note that `authenticationType` is set to `MutualAuth` only to generate the Access Token and the Refresh Token.
 
-    ```
+    ```lang-none
     authenticationType  = MutualAuth
     enableClientCert    = true
     clientCertDirectory = resources
@@ -130,7 +130,7 @@ To set your API credentials for an API request, configure the following informat
 
   Once the tokens are obtained, the `authenticationType` can then be set to `OAuth` to use the generated Access Token to send requests to other APIs.
 
-    ```
+    ```lang-none
     authenticationType  = OAuth
     enableClientCert    = true
     clientCertDirectory = resources
@@ -155,11 +155,11 @@ To set your API credentials for an API request, configure the following informat
 CyberSource maintains a complete sandbox environment for testing and development purposes. This sandbox environment is an exact duplicate of our production environment with the transaction authorization and settlement process simulated. By default, this SDK is configured to communicate with the sandbox environment. To switch to the production environment, set the appropriate environment constant in `Source\Configuration.cs` file.  For example:
 
 ```csharp
-// For TESTING use
-_configurationDictionary.Add("runEnvironment", "apitest.cybersource.com");
+    // For TESTING use
+    _configurationDictionary.Add("runEnvironment", "apitest.cybersource.com");
 
-// For PRODUCTION use
-// _configurationDictionary.Add("runEnvironment", "api.cybersource.com");
+    // For PRODUCTION use
+    // _configurationDictionary.Add("runEnvironment", "api.cybersource.com");
 ```
 
 To use OAuth, switch to OAuth enabled URLs
@@ -172,6 +172,14 @@ To use OAuth, switch to OAuth enabled URLs
 ```
 
 The [API Reference Guide](https://developer.cybersource.com/api/reference/api-reference.html) provides examples of what information is needed for a particular request and how that information would be formatted. Using those examples, you can easily determine what methods would be necessary to include that information in a request using this SDK.
+
+### Logging
+
+[![Generic badge](https://img.shields.io/badge/LOGGING-NEW-GREEN.svg)](https://shields.io/)
+
+Since v0.0.1.14, a new logging framework has been introduced in the SDK. This new logging framework makes use of NLog, and standardizes the logging so that it can be integrated with the logging in the client application.
+
+More information about this new logging framework can be found in this file : [Logging_Net461.md](Logging_Net461.md)
 
 ## License
 

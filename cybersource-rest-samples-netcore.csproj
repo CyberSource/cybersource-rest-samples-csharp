@@ -20,12 +20,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="logs\**" />
     <Compile Remove="packages\**" />
     <Compile Remove="Source\lib\net461\**" />
     <Compile Remove="Source\Properties\**" />
+    <EmbeddedResource Remove="logs\**" />
     <EmbeddedResource Remove="packages\**" />
     <EmbeddedResource Remove="Source\lib\net461\**" />
     <EmbeddedResource Remove="Source\Properties\**" />
+    <None Remove="logs\**" />
     <None Remove="packages\**" />
     <None Remove="Source\lib\net461\**" />
     <None Remove="Source\Properties\**" />

@@ -18,10 +18,6 @@ namespace Cybersource_rest_samples_dotnet
             _configurationDictionary.Add("runEnvironment", "apitest.cybersource.com");
             _configurationDictionary.Add("keyAlias", "testrest");
             _configurationDictionary.Add("keyPass", "testrest");
-            _configurationDictionary.Add("enableLog", "FALSE");
-            _configurationDictionary.Add("logDirectory", string.Empty);
-            _configurationDictionary.Add("logFileName", string.Empty);
-            _configurationDictionary.Add("logFileMaxSize", "5242880");
             _configurationDictionary.Add("timeout", "300000");
 
             // Configs related to meta key
@@ -54,10 +50,6 @@ namespace Cybersource_rest_samples_dotnet
             _configurationDictionary.Add("runEnvironment", "apitest.cybersource.com");
             _configurationDictionary.Add("keyAlias", "testrest_cpctv");
             _configurationDictionary.Add("keyPass", "testrest_cpctv");
-            _configurationDictionary.Add("enableLog", "FALSE");
-            _configurationDictionary.Add("logDirectory", string.Empty);
-            _configurationDictionary.Add("logFileName", string.Empty);
-            _configurationDictionary.Add("logFileMaxSize", "5242880");
             _configurationDictionary.Add("timeout", "300000");
             // _configurationDictionary.Add("proxyAddress", string.Empty);
             // _configurationDictionary.Add("proxyPort", string.Empty);

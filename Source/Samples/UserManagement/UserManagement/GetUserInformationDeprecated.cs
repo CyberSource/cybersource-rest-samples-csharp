@@ -28,6 +28,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.UserManagement
             catch (Exception e)
             {
                 Console.WriteLine("Exception on calling the API : " + e.Message);
+                Console.WriteLine(e.StackTrace);
                 return null;
             }
         }

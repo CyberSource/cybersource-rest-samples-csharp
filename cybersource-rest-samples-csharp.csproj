@@ -44,8 +44,8 @@
     <Reference Include="cybersource-rest-client-dotnet, Version=0.0.1.16, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>packages\CyberSource.Rest.Client.0.0.1.16\lib\cybersource-rest-client-dotnet.dll</HintPath>
-    </Reference>    
-	<Reference Include="jose-jwt">
+    </Reference>
+    <Reference Include="jose-jwt">
       <HintPath>packages\jose-jwt.2.4.0\lib\net461\jose-jwt.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
