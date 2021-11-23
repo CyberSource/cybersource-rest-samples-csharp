@@ -311,7 +311,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Authentication
                 signatureHeaderValue.Append(", signature=\"" + base64EncodedSignature + "\"");
 
                 // Writing Generated Token to file.
-                File.WriteAllText(@"./Source/Resource/" + "signatureHeaderValue.txt", signatureHeaderValue.ToString());
+                File.WriteAllText(@"../../../Source/Resource/" + "signatureHeaderValue.txt", signatureHeaderValue.ToString());
             }
             catch (Exception ex)
             {

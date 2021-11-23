@@ -21,6 +21,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TokenManagement
 
                 var apiInstance = new PaymentInstrumentApi(clientConfig);
                 apiInstance.DeletePaymentInstrument(tokenId, profileid);
+                Console.WriteLine($"Payment Instrument {tokenId} has been deleted.");
             }
             catch (Exception e)
             {

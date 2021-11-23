@@ -2,9 +2,6 @@
 using System.Collections.Generic;
 using CyberSource.Model;
 using CyberSource.Api;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Cybersource_rest_samples_dotnet.Samples.Authentication
 {

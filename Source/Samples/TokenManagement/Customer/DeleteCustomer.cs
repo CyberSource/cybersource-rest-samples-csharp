@@ -19,6 +19,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TokenManagement
 
                 var apiInstance = new CustomerApi(clientConfig);
                 apiInstance.DeleteCustomer(customerTokenId);
+                Console.WriteLine($"Customer {customerTokenId} has been deleted.");
             }
             catch (Exception e)
             {

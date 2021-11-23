@@ -40,6 +40,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TokenManagement
 
                 var apiInstance = new InstrumentIdentifierApi(clientConfig);
                 apiInstance.PatchInstrumentIdentifier(instrumentIdentifierTokenId, requestObj);
+                Console.WriteLine($"Instrument Identifier {instrumentIdentifierTokenId} has been updated with previous transaction ID.");
             }
             catch (Exception e)
             {

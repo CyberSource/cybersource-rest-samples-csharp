@@ -50,6 +50,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TokenManagement
 
                 var apiInstance = new InstrumentIdentifierApi(clientConfig);
                 apiInstance.PostInstrumentIdentifierEnrollment(instrumentIdentifierTokenId, requestObj, profileid);
+                Console.WriteLine($"Instrument Identifier for Network Tokenized Card {instrumentIdentifierTokenId} has been enrolled.");
             }
             catch (Exception e)
             {
