@@ -11,7 +11,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Authentication
         // Report Details provided in the JSON File are sent along with the Request as Request Body
         // Below request subscribes 'TRR Report' for Organization ID: testrest
         private const string RequestTarget = "/reporting/v2/reportSubscriptions/TRRReport?organizationId=testrest";
-        private const string RequestJsonFilePath = "Source/Resource/TRRReport.json";
+        private const string RequestJsonFilePath = "../../../Source/Resource/TRRReport.json";
 
         public static void Run()
         {

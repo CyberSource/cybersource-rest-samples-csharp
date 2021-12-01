@@ -11,7 +11,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Authentication
         // POST Request to Authorize the payment for a transaction.
         // Transaction details provided in the JSON File are sent along with the Request as Request Body
         private const string RequestTarget = "/pts/v2/payments/";
-        private const string RequestJsonFilePath = "Source/Resource/request_payments.json";
+        private const string RequestJsonFilePath = "../../../Source/Resource/request_payments.json";
 
         public static void Run()
         {

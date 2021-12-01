@@ -20,6 +20,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TokenManagement
 
                 var apiInstance = new InstrumentIdentifierApi(clientConfig);
                 apiInstance.DeleteInstrumentIdentifier(tokenId, profileid);
+                Console.WriteLine($"Instrument Identifier {tokenId} has been deleted.");
             }
             catch (Exception e)
             {
