@@ -170,6 +170,7 @@
     <Compile Include="Source\Samples\Payments\Payments\IncrementalAuthorization.cs" />
     <Compile Include="Source\Samples\Payments\Payments\LevelIIData.cs" />
     <Compile Include="Source\Samples\Payments\Payments\LevelIIIData.cs" />
+    <Compile Include="Source\Samples\Payments\Payments\ParallelAuth.cs" />
     <Compile Include="Source\Samples\Payments\Payments\PartialAuthorization.cs" />
     <Compile Include="Source\Samples\Payments\Payments\PaymentNetworkTokenization.cs" />
     <Compile Include="Source\Samples\Payments\Payments\PaymentWithFlexToken.cs" />
@@ -304,6 +305,7 @@
     </None>
     <None Include="NLog.xsd">
       <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="packages.config">
       <SubType>Designer</SubType>
