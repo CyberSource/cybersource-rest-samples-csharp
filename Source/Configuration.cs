@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
 
 namespace Cybersource_rest_samples_dotnet
 {
@@ -13,7 +15,7 @@ namespace Cybersource_rest_samples_dotnet
             _configurationDictionary.Add("merchantID", "testrest");
             _configurationDictionary.Add("merchantsecretKey", "yBJxy6LjM2TmcPGu+GaJrHtkke25fPpUX+UY6/L/1tE=");
             _configurationDictionary.Add("merchantKeyId", "08c94330-f618-42a3-b09d-e1e43be5efda");
-            _configurationDictionary.Add("keysDirectory", "Source\\Resource");
+            _configurationDictionary.Add("keysDirectory", Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\..\\Source\\Resource"));
             _configurationDictionary.Add("keyFilename", "testrest");
             _configurationDictionary.Add("runEnvironment", "apitest.cybersource.com");
             _configurationDictionary.Add("keyAlias", "testrest");
@@ -45,7 +47,7 @@ namespace Cybersource_rest_samples_dotnet
             _configurationDictionary.Add("merchantID", "testrest_cpctv");
             _configurationDictionary.Add("merchantsecretKey", "JXm4dqKYIxWofM1TIbtYY9HuYo7Cg1HPHxn29f6waRo=");
             _configurationDictionary.Add("merchantKeyId", "e547c3d3-16e4-444c-9313-2a08784b906a");
-            _configurationDictionary.Add("keysDirectory", "Resource");
+            _configurationDictionary.Add("keysDirectory", Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\..\\Source\\Resource"));
             _configurationDictionary.Add("keyFilename", "testrest_cpctv");
             _configurationDictionary.Add("runEnvironment", "apitest.cybersource.com");
             _configurationDictionary.Add("keyAlias", "testrest_cpctv");
