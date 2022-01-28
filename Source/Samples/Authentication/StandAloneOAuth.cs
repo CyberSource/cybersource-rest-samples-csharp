@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using CyberSource.Model;
 using CyberSource.Api;
+using System.IO;
 
 namespace Cybersource_rest_samples_dotnet.Samples.Authentication
 {
@@ -16,7 +17,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Authentication
 
             // Configs related to OAuth
             _configDictionary.Add("enableClientCert", "true");
-            _configDictionary.Add("clientCertDirectory", "Source\\Resource");
+            _configDictionary.Add("clientCertDirectory", Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Source\\Resource"));
             _configDictionary.Add("clientCertFile", "");
             _configDictionary.Add("clientCertPassword", "");
             _configDictionary.Add("clientId", "");

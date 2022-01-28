@@ -37,13 +37,13 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Source\lib\net461\ApiSdk.dll</HintPath>
     </Reference>
-    <Reference Include="AuthenticationSdk, Version=0.0.0.11, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="AuthenticationSdk">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>packages\CyberSource.Authentication.0.0.0.11\lib\AuthenticationSdk.dll</HintPath>
+      <HintPath>packages\CyberSource.Authentication.0.0.0.12\lib\AuthenticationSdk.dll</HintPath>
     </Reference>
-    <Reference Include="cybersource-rest-client-dotnet, Version=0.0.1.18, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="cybersource-rest-client-dotnet">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>packages\CyberSource.Rest.Client.0.0.1.18\lib\cybersource-rest-client-dotnet.dll</HintPath>
+      <HintPath>packages\CyberSource.Rest.Client.0.0.1.19\lib\cybersource-rest-client-dotnet.dll</HintPath>
     </Reference>
     <Reference Include="jose-jwt">
       <HintPath>packages\jose-jwt.2.4.0\lib\net461\jose-jwt.dll</HintPath>
@@ -170,6 +170,7 @@
     <Compile Include="Source\Samples\Payments\Payments\IncrementalAuthorization.cs" />
     <Compile Include="Source\Samples\Payments\Payments\LevelIIData.cs" />
     <Compile Include="Source\Samples\Payments\Payments\LevelIIIData.cs" />
+    <Compile Include="Source\Samples\Payments\Payments\ParallelAuth.cs" />
     <Compile Include="Source\Samples\Payments\Payments\PartialAuthorization.cs" />
     <Compile Include="Source\Samples\Payments\Payments\PaymentNetworkTokenization.cs" />
     <Compile Include="Source\Samples\Payments\Payments\PaymentWithFlexToken.cs" />
@@ -304,6 +305,7 @@
     </None>
     <None Include="NLog.xsd">
       <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="packages.config">
       <SubType>Designer</SubType>

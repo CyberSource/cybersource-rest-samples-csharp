@@ -26,7 +26,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments
            );
 
             string paymentInformationBankRoutingNumber = "071923284";
-            Ptsv2paymentsPaymentInformationBank paymentInformationBank = new Ptsv2paymentsPaymentInformationBank(
+            Ptsv2paymentsidrefundsPaymentInformationBank paymentInformationBank = new Ptsv2paymentsidrefundsPaymentInformationBank(
                 Account: paymentInformationBankAccount,
                 RoutingNumber: paymentInformationBankRoutingNumber
            );

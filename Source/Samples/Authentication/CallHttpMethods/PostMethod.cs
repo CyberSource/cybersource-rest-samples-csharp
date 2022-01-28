@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using ApiSdk.controller;
 using AuthenticationSdk.core;
 using AuthenticationSdk.util;
@@ -11,7 +12,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Authentication
         // POST Request to Authorize the payment for a transaction.
         // Transaction details provided in the JSON File are sent along with the Request as Request Body
         private const string RequestTarget = "/pts/v2/payments/";
-        private const string RequestJsonFilePath = "../../../Source/Resource/request_payments.json";
+        private static string RequestJsonFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../../Source/Resource/request_payments.json").ToString();
 
         public static void Run()
         {
