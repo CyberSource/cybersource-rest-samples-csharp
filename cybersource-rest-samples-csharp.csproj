@@ -37,17 +37,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Source\lib\net461\ApiSdk.dll</HintPath>
     </Reference>
-    <Reference Include="AuthenticationSdk">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>packages\CyberSource.Authentication.0.0.0.12\lib\AuthenticationSdk.dll</HintPath>
-    </Reference>
-    <Reference Include="cybersource-rest-client-dotnet">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>packages\CyberSource.Rest.Client.0.0.1.19\lib\cybersource-rest-client-dotnet.dll</HintPath>
-    </Reference>
     <Reference Include="jose-jwt">
       <HintPath>packages\jose-jwt.2.4.0\lib\net461\jose-jwt.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
@@ -55,6 +48,9 @@
     <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
       <HintPath>packages\NLog.4.5.10\lib\net45\NLog.dll</HintPath>
       <Private>True</Private>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>packages\NUnit.3.10.1\lib\net45\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="RestSharp, Version=106.12.0.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -170,7 +166,6 @@
     <Compile Include="Source\Samples\Payments\Payments\IncrementalAuthorization.cs" />
     <Compile Include="Source\Samples\Payments\Payments\LevelIIData.cs" />
     <Compile Include="Source\Samples\Payments\Payments\LevelIIIData.cs" />
-    <Compile Include="Source\Samples\Payments\Payments\ParallelAuth.cs" />
     <Compile Include="Source\Samples\Payments\Payments\PartialAuthorization.cs" />
     <Compile Include="Source\Samples\Payments\Payments\PaymentNetworkTokenization.cs" />
     <Compile Include="Source\Samples\Payments\Payments\PaymentWithFlexToken.cs" />
@@ -328,7 +323,16 @@
     <Content Include="Source\Resource\jwsToken.txt" />
     <Content Include="Source\Resource\signatureHeaderValue.txt" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\cybersource-rest-auth-dotnet\AuthenticationSdk\AuthenticationSdk\AuthenticationSdk.csproj">
+      <Project>{910f28d1-8bd0-4359-aacb-b96c04cf68e8}</Project>
+      <Name>AuthenticationSdk</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\cybersource-rest-client-dotnet\cybersource-rest-client-dotnet.csproj">
+      <Project>{8c08b6dc-4da0-4434-a6c5-709932dddde5}</Project>
+      <Name>cybersource-rest-client-dotnet</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>DEL /S /Q ..\..\..\obj\*</PostBuildEvent>

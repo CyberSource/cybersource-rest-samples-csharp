@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Threading.Tasks;
 using NLog;
 
 namespace Cybersource_rest_samples_dotnet
@@ -64,6 +65,40 @@ namespace Cybersource_rest_samples_dotnet
             logger.Trace("PROGRAM EXECUTION ENDS");
         }
 
+        public static async Task MultiThreadedTogglingCredentials()
+        {
+            int taskCount = 10;
+
+            List<Task> tasks = new List<Task>();
+            for (int i = 0; i < taskCount; i++)
+            {
+                string program = string.Empty;
+                tasks.Add(new Task(() =>
+                {
+                    for (int j = 0; j < taskCount; j++)
+                    {
+                        if (j % 2 == 0)
+                        {
+                            program = "SimpleAuthorizationInternet";
+                        }
+                        else
+                        {
+                            program = "IncrementalAuthorization";
+                        }
+
+                        RunSample(program);
+                    }
+                }));
+            }
+
+            foreach (var task in tasks)
+            {
+                task.Start();
+            }
+
+            await Task.WhenAll(tasks);
+        }
+
         public static void RunSample(string cmdLineArg = null)
         {
             try
@@ -86,6 +121,10 @@ namespace Cybersource_rest_samples_dotnet
                     }
 
                     Console.WriteLine("\n\nTotal number of Sample run : " + sampleCount);
+                }
+                else if (_sampleToRun.ToUpper().Contains("GAMWOR"))
+                {
+                    MultiThreadedTogglingCredentials();
                 }
                 else
                 {
