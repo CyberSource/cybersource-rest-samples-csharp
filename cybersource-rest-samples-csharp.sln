@@ -5,10 +5,6 @@ VisualStudioVersion = 16.0.31624.102
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cybersource-rest-samples-csharp", "cybersource-rest-samples-csharp.csproj", "{97FF11A4-924D-4C87-A028-2AAF64655954}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticationSdk", "..\cybersource-rest-auth-dotnet\AuthenticationSdk\AuthenticationSdk\AuthenticationSdk.csproj", "{910F28D1-8BD0-4359-AACB-B96C04CF68E8}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cybersource-rest-client-dotnet", "..\cybersource-rest-client-dotnet\cybersource-rest-client-dotnet.csproj", "{8C08B6DC-4DA0-4434-A6C5-709932DDDDE5}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,14 +15,6 @@ Global
 		{97FF11A4-924D-4C87-A028-2AAF64655954}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{97FF11A4-924D-4C87-A028-2AAF64655954}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{97FF11A4-924D-4C87-A028-2AAF64655954}.Release|Any CPU.Build.0 = Release|Any CPU
-		{910F28D1-8BD0-4359-AACB-B96C04CF68E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{910F28D1-8BD0-4359-AACB-B96C04CF68E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{910F28D1-8BD0-4359-AACB-B96C04CF68E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{910F28D1-8BD0-4359-AACB-B96C04CF68E8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8C08B6DC-4DA0-4434-A6C5-709932DDDDE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8C08B6DC-4DA0-4434-A6C5-709932DDDDE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8C08B6DC-4DA0-4434-A6C5-709932DDDDE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8C08B6DC-4DA0-4434-A6C5-709932DDDDE5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
