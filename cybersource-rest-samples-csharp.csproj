@@ -37,13 +37,11 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Source\lib\net461\ApiSdk.dll</HintPath>
     </Reference>
-    <Reference Include="AuthenticationSdk">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>packages\CyberSource.Authentication.0.0.0.13\lib\AuthenticationSdk.dll</HintPath>
+    <Reference Include="AuthenticationSdk, Version=0.0.0.14, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\CyberSource.Authentication.0.0.0.14\lib\AuthenticationSdk.dll</HintPath>
     </Reference>
-    <Reference Include="cybersource-rest-client-dotnet">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>packages\CyberSource.Rest.Client.0.0.1.22\lib\cybersource-rest-client-dotnet.dll</HintPath>
+    <Reference Include="cybersource-rest-client-dotnet, Version=0.0.1.23, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\CyberSource.Rest.Client.0.0.1.23\lib\cybersource-rest-client-dotnet.dll</HintPath>
     </Reference>
     <Reference Include="jose-jwt">
       <HintPath>packages\jose-jwt.2.4.0\lib\net461\jose-jwt.dll</HintPath>
