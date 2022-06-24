@@ -17,7 +17,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments
                 Code: clientReferenceInformationCode
            );
 
-			string processingInformationAuthorizationOptionsInitiatorStoredCredentialUsed = "true";
+			bool processingInformationAuthorizationOptionsInitiatorStoredCredentialUsed = true;
             Ptsv2paymentsidProcessingInformationAuthorizationOptionsInitiator processingInformationAuthorizationOptionsInitiator = new Ptsv2paymentsidProcessingInformationAuthorizationOptionsInitiator(
                 StoredCredentialUsed: processingInformationAuthorizationOptionsInitiatorStoredCredentialUsed
            );
