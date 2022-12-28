@@ -73,5 +73,40 @@ namespace Cybersource_rest_samples_dotnet
 
             return _configurationDictionary;
         }
+
+        public Dictionary<string, string> GetIntermediateConfiguration()
+        {
+            _configurationDictionary.Add("authenticationType", "HTTP_SIGNATURE");
+            _configurationDictionary.Add("merchantID", "testrest");
+            _configurationDictionary.Add("merchantsecretKey", "yBJxy6LjM2TmcPGu+GaJrHtkke25fPpUX+UY6/L/1tE=");
+            _configurationDictionary.Add("merchantKeyId", "08c94330-f618-42a3-b09d-e1e43be5efda");
+            _configurationDictionary.Add("keysDirectory", Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\..\\Source\\Resource"));
+            _configurationDictionary.Add("keyFilename", "testrest");
+            _configurationDictionary.Add("runEnvironment", "apitest.cybersource.com");
+            //new property has been added for user to configure the base path so that request can route the API calls via Azure Management URL.
+            //Example: If intermediate url is https://manage.windowsazure.com, then don't append the "https://" in property value.
+            _configurationDictionary.Add("intermediateHost", "manage.windowsazure.com");
+            _configurationDictionary.Add("keyAlias", "testrest");
+            _configurationDictionary.Add("keyPass", "testrest");
+            _configurationDictionary.Add("timeout", "300000");
+
+            // Configs related to meta key
+            _configurationDictionary.Add("portfolioID", string.Empty);
+            _configurationDictionary.Add("useMetaKey", "false");
+
+            // Configs related to OAuth
+            _configurationDictionary.Add("enableClientCert", "false");
+            _configurationDictionary.Add("clientCertDirectory", "Resource");
+            _configurationDictionary.Add("clientCertFile", "");
+            _configurationDictionary.Add("clientCertPassword", "");
+            _configurationDictionary.Add("clientId", "");
+            _configurationDictionary.Add("clientSecret", "");
+
+            // _configurationDictionary.Add("proxyAddress", string.Empty);
+            // _configurationDictionary.Add("proxyPort", string.Empty);
+            // _configurationDictionary.Add("proxyUsername", string.Empty);
+            // _configurationDictionary.Add("proxyPassword", string.Empty);
+            return _configurationDictionary;
+        }
     }
 }
