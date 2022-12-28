@@ -73,12 +73,12 @@ namespace Cybersource_rest_samples_dotnet.Samples.AzureIntermediateTesting
             try
             {
                 //adding additional headers for azure host
-                Dictionary<string, string> dict = new Dictionary<string, string>();
-                dict.Add("Ocp-Apim-Subscription-Key", "=fchgfchgvjhvjh5536hg");
-                dict.Add("Ocp-Apim-Trace", "dfgcjgvjkhbkjkjhnkjvjgchdxh");
+                Dictionary<string, string> additionalHeaders = new Dictionary<string, string>();
+                additionalHeaders.Add("Ocp-Apim-Subscription-Key", "=fchgfchgvjhvjh5536hg");
+                additionalHeaders.Add("Ocp-Apim-Trace", "dfgcjgvjkhbkjkjhnkjvjgchdxh");
 
                 var configDictionary = new Configuration().GetIntermediateConfiguration();
-                var clientConfig = new CyberSource.Client.Configuration(defaultHeader: dict, merchConfigDictObj: configDictionary);
+                var clientConfig = new CyberSource.Client.Configuration(defaultHeader: additionalHeaders, merchConfigDictObj: configDictionary);
 
                 var apiInstance = new CreditApi(clientConfig);
                 PtsV2CreditsPost201Response result = apiInstance.CreateCredit(requestObj);
