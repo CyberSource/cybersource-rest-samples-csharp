@@ -76,6 +76,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.AzureIntermediateTesting
                 Dictionary<string, string> additionalHeaders = new Dictionary<string, string>();
                 additionalHeaders.Add("Ocp-Apim-Subscription-Key", "=fchgfchgvjhvjh5536hg");
                 additionalHeaders.Add("Ocp-Apim-Trace", "dfgcjgvjkhbkjkjhnkjvjgchdxh");
+                additionalHeaders.Add("Host", "manage.windowsazure.com");
 
                 var configDictionary = new Configuration().GetIntermediateConfiguration();
                 var clientConfig = new CyberSource.Client.Configuration(defaultHeader: additionalHeaders, merchConfigDictObj: configDictionary);
