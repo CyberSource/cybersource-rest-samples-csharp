@@ -96,7 +96,7 @@
     <Compile Include="Source\Samples\Authentication\StandAloneJWT.cs" />
     <Compile Include="Source\Samples\Authentication\StandAloneOAuth.cs" />
     <Compile Include="Source\Samples\Authentication\StandAloneMetaKey.cs" />
-	<Compile Include="Source\Samples\AzureIntermediateTesting\SampleTestingForAzureIntermediateHost.cs" />
+    <Compile Include="Source\Samples\AzureIntermediateTesting\SampleTestingForAzureIntermediateHost.cs" />
     <Compile Include="Source\Samples\FlexMicroform\FlexTokenizeCard.cs" />
     <Compile Include="Source\Samples\FlexMicroform\GenerateKey.cs" />
     <Compile Include="Source\Samples\FlexMicroform\GenerateKeyLegacyTokenFormat.cs" />
