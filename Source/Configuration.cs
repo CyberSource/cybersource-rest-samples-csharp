@@ -84,8 +84,8 @@ namespace Cybersource_rest_samples_dotnet
             _configurationDictionary.Add("keyFilename", "testrest");
             _configurationDictionary.Add("runEnvironment", "apitest.cybersource.com");
             //new property has been added for user to configure the base path so that request can route the API calls via Azure Management URL.
-            //Example: If intermediate url is https://manage.windowsazure.com, then don't append the "https://" in property value.
-            _configurationDictionary.Add("intermediateHost", "manage.windowsazure.com");
+            //Example: If intermediate url is https://manage.windowsazure.com then in property input can be same url or manage.windowsazure.com.
+            _configurationDictionary.Add("intermediateHost", "https://manage.windowsazure.com");
             _configurationDictionary.Add("keyAlias", "testrest");
             _configurationDictionary.Add("keyPass", "testrest");
             _configurationDictionary.Add("timeout", "300000");
