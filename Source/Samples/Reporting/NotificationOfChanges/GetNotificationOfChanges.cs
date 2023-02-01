@@ -11,8 +11,8 @@ namespace Cybersource_rest_samples_dotnet.Samples.Reporting
     {
         public static ReportingV3NotificationofChangesGet200Response Run()
         {
-            var startTime = DateTime.ParseExact("2020-09-01T12:00:00Z", "yyyy-MM-ddTHH:mm:ssZ", CultureInfo.InvariantCulture);
-            var endTime = DateTime.ParseExact("2020-09-10T12:00:00Z", "yyyy-MM-ddTHH:mm:ssZ", CultureInfo.InvariantCulture);
+            var startTime = DateTime.ParseExact("2023-01-01T12:00:00Z", "yyyy-MM-ddTHH:mm:ssZ", CultureInfo.InvariantCulture);
+            var endTime = DateTime.ParseExact("2023-01-10T12:00:00Z", "yyyy-MM-ddTHH:mm:ssZ", CultureInfo.InvariantCulture);
             try
             {
                 var configDictionary = new Configuration().GetConfiguration();

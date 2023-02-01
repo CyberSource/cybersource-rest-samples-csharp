@@ -11,8 +11,8 @@ namespace Cybersource_rest_samples_dotnet.Samples.Reporting
     {
         public static ReportingV3PurchaseRefundDetailsGet200Response Run()
         {
-            var startTime = DateTime.ParseExact("2020-09-01T12:00:00Z", "yyyy-MM-ddTHH:mm:ssZ", CultureInfo.InvariantCulture);
-            var endTime = DateTime.ParseExact("2020-09-30T12:00:00Z", "yyyy-MM-ddTHH:mm:ssZ", CultureInfo.InvariantCulture);
+            var startTime = DateTime.ParseExact("2023-01-01T12:00:00Z", "yyyy-MM-ddTHH:mm:ssZ", CultureInfo.InvariantCulture);
+            var endTime = DateTime.ParseExact("2023-01-30T12:00:00Z", "yyyy-MM-ddTHH:mm:ssZ", CultureInfo.InvariantCulture);
             string organizationId = "testrest";
             string paymentSubtype = "VI";
             string viewBy = "requestDate";
