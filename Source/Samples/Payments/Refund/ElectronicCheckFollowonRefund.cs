@@ -14,7 +14,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments
             var id = ElectronicCheckDebits.Run().Id;
 
             string clientReferenceInformationCode = "TC50171_3";
-            Ptsv2paymentsClientReferenceInformation clientReferenceInformation = new Ptsv2paymentsClientReferenceInformation(
+            Ptsv2paymentsidrefundsClientReferenceInformation clientReferenceInformation = new Ptsv2paymentsidrefundsClientReferenceInformation(
                 Code: clientReferenceInformationCode
            );
 
@@ -22,7 +22,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments
            );
 
             string paymentInformationPaymentTypeName = "CHECK";
-            Ptsv2paymentsPaymentInformationPaymentType paymentInformationPaymentType = new Ptsv2paymentsPaymentInformationPaymentType(
+            Ptsv2paymentsidrefundsPaymentInformationPaymentType paymentInformationPaymentType = new Ptsv2paymentsidrefundsPaymentInformationPaymentType(
                 Name: paymentInformationPaymentTypeName
            );
 

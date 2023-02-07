@@ -32,7 +32,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments
            );
 
             string paymentInformationPaymentTypeName = "CHECK";
-            Ptsv2paymentsPaymentInformationPaymentType paymentInformationPaymentType = new Ptsv2paymentsPaymentInformationPaymentType(
+            Ptsv2paymentsidrefundsPaymentInformationPaymentType paymentInformationPaymentType = new Ptsv2paymentsidrefundsPaymentInformationPaymentType(
                 Name: paymentInformationPaymentTypeName
            );
 
