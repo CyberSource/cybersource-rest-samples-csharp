@@ -1,6 +1,6 @@
 # C# Sample Code for the CyberSource SDK
 
-[![Travis CI Status](https://travis-ci.org/CyberSource/cybersource-rest-samples-csharp.svg?branch=master)](https://travis-ci.org/CyberSource/cybersource-rest-samples-csharp)
+[![Build Status](https://app.travis-ci.com/CyberSource/cybersource-rest-samples-csharp.svg?branch=master)](https://app.travis-ci.com/CyberSource/cybersource-rest-samples-csharp)
 
 This repository contains two applications that demonstrate integration with the CyberSource REST APIs through our SDKs.
 
