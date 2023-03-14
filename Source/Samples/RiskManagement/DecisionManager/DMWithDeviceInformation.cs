@@ -18,7 +18,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.RiskManagement
 
             string paymentInformationCardNumber = "4444444444444448";
             string paymentInformationCardExpirationMonth = "12";
-            string paymentInformationCardExpirationYear = "2020";
+            string paymentInformationCardExpirationYear = "2025";
             Riskv1decisionsPaymentInformationCard paymentInformationCard = new Riskv1decisionsPaymentInformationCard(
                 Number: paymentInformationCardNumber,
                 ExpirationMonth: paymentInformationCardExpirationMonth,
