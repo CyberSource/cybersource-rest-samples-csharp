@@ -9,7 +9,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.FlexMicroform
 {
     public class GenerateKeyLegacyTokenFormat
     {
-        public static FlexV1KeysPost200Response Run()
+        /*public static FlexV1KeysPost200Response Run()
         {
             string encryptionType = "None";
             string targetOrigin = "https://www.test.com";
@@ -34,6 +34,6 @@ namespace Cybersource_rest_samples_dotnet.Samples.FlexMicroform
                 Console.WriteLine("Exception on calling the API : " + e.Message);
                 return null;
             }
-        }
+        } */
     }
 }
