@@ -39,7 +39,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="CyberSource.Authentication.NetStandard" Version="0.0.1.9" />
+    <PackageReference Include="CyberSource.Authentication.NetStandard" Version="0.0.1.10" />
     <PackageReference Include="CyberSource.Rest.Client.NetStandard" Version="0.0.1.22" />
     <PackageReference Include="jose-jwt" Version="2.5.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
