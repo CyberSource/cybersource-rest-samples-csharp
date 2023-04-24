@@ -95,7 +95,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.RiskManagement
             string exportComplianceInformationWeightsAddress = "low";
             string exportComplianceInformationWeightsCompany = "exact";
             string exportComplianceInformationWeightsName = "exact";
-            Riskv1exportcomplianceinquiriesExportComplianceInformationWeights exportComplianceInformationWeights = new Riskv1exportcomplianceinquiriesExportComplianceInformationWeights(
+            Ptsv2paymentsWatchlistScreeningInformationWeights exportComplianceInformationWeights = new Ptsv2paymentsWatchlistScreeningInformationWeights(
                 Address: exportComplianceInformationWeightsAddress,
                 Company: exportComplianceInformationWeightsCompany,
                 Name: exportComplianceInformationWeightsName
