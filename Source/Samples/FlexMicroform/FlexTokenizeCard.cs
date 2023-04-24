@@ -11,7 +11,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.FlexMicroform
 {
     public class FlexTokenizeCard
     {
-        public static FlexV1TokensPost200Response Run()
+       /* public static FlexV1TokensPost200Response Run()
         {
             var generateKeyResult = GenerateKeyLegacyTokenFormat.Run();
             string keyId = generateKeyResult.KeyId;
@@ -78,6 +78,6 @@ namespace Cybersource_rest_samples_dotnet.Samples.FlexMicroform
                 Console.WriteLine("Exception on calling the API : " + e.Message);
                 return null;
             }
-        }
+        } */
     }
 }

@@ -37,14 +37,17 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Source\lib\net461\ApiSdk.dll</HintPath>
     </Reference>
-    <Reference Include="AuthenticationSdk, Version=0.0.0.15, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\CyberSource.Authentication.0.0.0.15\lib\AuthenticationSdk.dll</HintPath>
+    <Reference Include="AuthenticationSdk, Version=0.0.0.16, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\CyberSource.Authentication.0.0.0.16\lib\AuthenticationSdk.dll</HintPath>
     </Reference>
-    <Reference Include="cybersource-rest-client-dotnet, Version=0.0.1.29, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\CyberSource.Rest.Client.0.0.1.29\lib\cybersource-rest-client-dotnet.dll</HintPath>
+    <Reference Include="cybersource-rest-client-dotnet, Version=0.0.1.30, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\CyberSource.Rest.Client.0.0.1.30\lib\cybersource-rest-client-dotnet.dll</HintPath>
     </Reference>
     <Reference Include="jose-jwt">
       <HintPath>packages\jose-jwt.2.4.0\lib\net461\jose-jwt.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Bcl.AsyncInterfaces.5.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -54,18 +57,42 @@
       <HintPath>packages\NLog.4.5.10\lib\net45\NLog.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="RestSharp, Version=106.12.0.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>packages\RestSharp.106.12.0\lib\net452\RestSharp.dll</HintPath>
+    <Reference Include="RestSharp, Version=108.0.3.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <HintPath>packages\RestSharp.108.0.3\lib\netstandard2.0\RestSharp.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.CompilerServices.Unsafe.5.0.0\lib\net45\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Text.Encodings.Web, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Text.Encodings.Web.5.0.0\lib\net461\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=5.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Text.Json.5.0.1\lib\net461\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
     <Reference Include="System.Transactions" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -96,6 +123,7 @@
     <Compile Include="Source\Samples\Authentication\StandAloneJWT.cs" />
     <Compile Include="Source\Samples\Authentication\StandAloneOAuth.cs" />
     <Compile Include="Source\Samples\Authentication\StandAloneMetaKey.cs" />
+    <Compile Include="Source\Samples\AzureIntermediateTesting\SampleTestingForAzureIntermediateHost.cs" />
     <Compile Include="Source\Samples\FlexMicroform\FlexTokenizeCard.cs" />
     <Compile Include="Source\Samples\FlexMicroform\GenerateKey.cs" />
     <Compile Include="Source\Samples\FlexMicroform\GenerateKeyLegacyTokenFormat.cs" />
@@ -292,6 +320,7 @@
     <Compile Include="Source\Samples\ValueAddedService\TaxRefundRequest.cs" />
     <Compile Include="Source\Samples\ValueAddedService\VoidCommittedTaxCall.cs" />
     <Compile Include="Source\Utilities.cs" />
+     <Compile Include="Source\Samples\UnifiedCheckout\GenerateUnifiedCheckout.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="NLog.config">
@@ -325,6 +354,7 @@
     <Content Include="Source\Resource\jwsToken.txt" />
     <Content Include="Source\Resource\signatureHeaderValue.txt" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>DEL /S /Q ..\..\..\obj\*</PostBuildEvent>
