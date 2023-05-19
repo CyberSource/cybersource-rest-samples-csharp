@@ -20,7 +20,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments
 
             string paymentInformationCardNumber = "4111111111111111";
             string paymentInformationCardExpirationMonth = "12";
-            string paymentInformationCardExpirationYear = "2021";
+            string paymentInformationCardExpirationYear = "2031";
             string paymentInformationCardType = "001";
             Ptsv2paymentsPaymentInformationCard paymentInformationCard = new Ptsv2paymentsPaymentInformationCard(
                 Number: paymentInformationCardNumber,

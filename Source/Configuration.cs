@@ -45,8 +45,8 @@ namespace Cybersource_rest_samples_dotnet
         {
             _configurationDictionary.Add("authenticationType", "HTTP_SIGNATURE");
             _configurationDictionary.Add("merchantID", "testrest_cpctv");
-            _configurationDictionary.Add("merchantsecretKey", "JXm4dqKYIxWofM1TIbtYY9HuYo7Cg1HPHxn29f6waRo=");
-            _configurationDictionary.Add("merchantKeyId", "e547c3d3-16e4-444c-9313-2a08784b906a");
+            _configurationDictionary.Add("merchantsecretKey", "zXKpCqMQPmOR/JRldSlkQUtvvIzOewUVqsUP0sBHpxQ=");
+            _configurationDictionary.Add("merchantKeyId", "964f2ecc-96f0-4432-a742-db0b44e6a73a");
             _configurationDictionary.Add("keysDirectory", Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\..\\Source\\Resource"));
             _configurationDictionary.Add("keyFilename", "testrest_cpctv");
             _configurationDictionary.Add("runEnvironment", "apitest.cybersource.com");
