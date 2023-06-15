@@ -160,6 +160,7 @@
     <Compile Include="Source\Samples\Payments\Credit\CreditWithInstrumentIdentifierTokenId.cs" />
     <Compile Include="Source\Samples\Payments\Credit\ElectronicCheckStandAloneCredits.cs" />
     <Compile Include="Source\Samples\Payments\Credit\PinDebitCreditUsingEMVTechnologyWithContactlessReadWithVisaPlatformConnect.cs" />
+    <Compile Include="Source\Samples\Payments\Credit\PinDebitCreditUsingSwipedTrackDataWithVisaPlatformConnect.cs" />
     <Compile Include="Source\Samples\Payments\Credit\ServiceFeesCredit.cs" />
     <Compile Include="Source\Samples\Payments\Payments\AmericanExpressDirectEMVWithContactRead.cs" />
     <Compile Include="Source\Samples\Payments\Payments\AuthorizationCaptureForTimeoutVoidFlow.cs" />
