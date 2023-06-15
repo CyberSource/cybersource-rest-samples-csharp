@@ -159,6 +159,7 @@
     <Compile Include="Source\Samples\Payments\Credit\CreditWithCustomerTokenId.cs" />
     <Compile Include="Source\Samples\Payments\Credit\CreditWithInstrumentIdentifierTokenId.cs" />
     <Compile Include="Source\Samples\Payments\Credit\ElectronicCheckStandAloneCredits.cs" />
+    <Compile Include="Source\Samples\Payments\Credit\PinDebitCreditUsingEMVTechnologyWithContactlessReadWithVisaPlatformConnect.cs" />
     <Compile Include="Source\Samples\Payments\Credit\ServiceFeesCredit.cs" />
     <Compile Include="Source\Samples\Payments\Payments\AmericanExpressDirectEMVWithContactRead.cs" />
     <Compile Include="Source\Samples\Payments\Payments\AuthorizationCaptureForTimeoutVoidFlow.cs" />
@@ -200,6 +201,8 @@
     <Compile Include="Source\Samples\Payments\Payments\PaymentNetworkTokenization.cs" />
     <Compile Include="Source\Samples\Payments\Payments\PaymentWithFlexToken.cs" />
     <Compile Include="Source\Samples\Payments\Payments\PaymentWithFlexTokenCreatePermanentTMSToken.cs" />
+    <Compile Include="Source\Samples\Payments\Payments\PinDebitPurchaseUsingEMVTechnologyWithContactlessReadWithVisaPlatformConnect.cs" />
+    <Compile Include="Source\Samples\Payments\Payments\PinDebitPurchaseUsingSwipedTrackDataWithVisaPlatformConnect.cs" />
     <Compile Include="Source\Samples\Payments\Payments\RestaurantAuthorization.cs" />
     <Compile Include="Source\Samples\Payments\Payments\SaleUsingEMVTechnologyWithContactless.cs" />
     <Compile Include="Source\Samples\Payments\Payments\SaleUsingEMVTechnologyWithContactlessReadForCardPresentEnabledAcquirer.cs" />
@@ -222,6 +225,7 @@
     <Compile Include="Source\Samples\Payments\Reversal\ProcessAuthorizationReversal.cs" />
     <Compile Include="Source\Samples\Payments\Reversal\ServiceFeesAuthorizationReversal.cs" />
     <Compile Include="Source\Samples\Payments\Reversal\TimeoutReversal.cs" />
+    <Compile Include="Source\Samples\Payments\Void\PinDebitPurchaseReversalVoid.cs" />
     <Compile Include="Source\Samples\Payments\Void\TimeoutVoid.cs" />
     <Compile Include="Source\Samples\Payments\Void\VoidCapture.cs" />
     <Compile Include="Source\Samples\Payments\Void\VoidCredit.cs" />
@@ -320,7 +324,7 @@
     <Compile Include="Source\Samples\ValueAddedService\TaxRefundRequest.cs" />
     <Compile Include="Source\Samples\ValueAddedService\VoidCommittedTaxCall.cs" />
     <Compile Include="Source\Utilities.cs" />
-     <Compile Include="Source\Samples\UnifiedCheckout\GenerateUnifiedCheckout.cs" />
+    <Compile Include="Source\Samples\UnifiedCheckout\GenerateUnifiedCheckout.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="NLog.config">
