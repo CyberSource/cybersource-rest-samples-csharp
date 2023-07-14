@@ -159,6 +159,7 @@
     <Compile Include="Source\Samples\Payments\Credit\CreditWithCustomerPaymentInstrumentAndShippingAddressTokenId.cs" />
     <Compile Include="Source\Samples\Payments\Credit\CreditWithCustomerTokenId.cs" />
     <Compile Include="Source\Samples\Payments\Credit\CreditWithInstrumentIdentifierTokenId.cs" />
+    <Compile Include="Source\Samples\Payments\Credit\EBTMerchandiseReturnCreditVoucherFromSNAP.cs" />
     <Compile Include="Source\Samples\Payments\Credit\ElectronicCheckStandAloneCredits.cs" />
     <Compile Include="Source\Samples\Payments\Credit\ServiceFeesCredit.cs" />
     <Compile Include="Source\Samples\Payments\Payments\AmericanExpressDirectEMVWithContactRead.cs" />
@@ -192,6 +193,9 @@
     <Compile Include="Source\Samples\Payments\Payments\AuthorizationWithTMSTokenBypassingNetworkToken.cs" />
     <Compile Include="Source\Samples\Payments\Payments\DigitalPaymentGooglePay.cs" />
     <Compile Include="Source\Samples\Payments\Payments\DigitalPaymentsApplePay.cs" />
+    <Compile Include="Source\Samples\Payments\Payments\EBTElectronicVoucherPurchaseFromSNAPAccountWithVisaPlatformConnect.cs" />
+    <Compile Include="Source\Samples\Payments\Payments\EBTPurchaseFromCashBenefitsAccountWithCashback.cs" />
+    <Compile Include="Source\Samples\Payments\Payments\EBTPurchaseFromSNAPAccountWithVisaPlatformConnect.cs" />
     <Compile Include="Source\Samples\Payments\Payments\ElectronicCheckDebits.cs" />
     <Compile Include="Source\Samples\Payments\Payments\ElectronicCheckDebitsWithLegacyToken.cs" />
     <Compile Include="Source\Samples\Payments\Payments\IncrementalAuthorization.cs" />
@@ -223,6 +227,7 @@
     <Compile Include="Source\Samples\Payments\Reversal\ProcessAuthorizationReversal.cs" />
     <Compile Include="Source\Samples\Payments\Reversal\ServiceFeesAuthorizationReversal.cs" />
     <Compile Include="Source\Samples\Payments\Reversal\TimeoutReversal.cs" />
+    <Compile Include="Source\Samples\Payments\Void\EBTReversalOfPurchaseFromSNAPAccount.cs" />
     <Compile Include="Source\Samples\Payments\Void\TimeoutVoid.cs" />
     <Compile Include="Source\Samples\Payments\Void\VoidCapture.cs" />
     <Compile Include="Source\Samples\Payments\Void\VoidCredit.cs" />
@@ -230,6 +235,13 @@
     <Compile Include="Source\Samples\Payments\Void\VoidRefund.cs" />
     <Compile Include="Source\Samples\Payouts\PayoutCardNotToken.cs" />
     <Compile Include="Source\Samples\Payouts\PayoutToken.cs" />
+    <Compile Include="Source\Samples\RecurringBillingSubscriptions\Plans\CreatePlan.cs" />
+    <Compile Include="Source\Samples\RecurringBillingSubscriptions\Plans\DeletePlan.cs" />
+    <Compile Include="Source\Samples\RecurringBillingSubscriptions\Plans\GetPlan.cs" />
+    <Compile Include="Source\Samples\RecurringBillingSubscriptions\Plans\UpdatePlan.cs" />
+    <Compile Include="Source\Samples\RecurringBillingSubscriptions\\Subscriptions\CreateSubscription.cs" />
+    <Compile Include="Source\Samples\RecurringBillingSubscriptions\\Subscriptions\GetSubscription.cs" />
+    <Compile Include="Source\Samples\RecurringBillingSubscriptions\\Subscriptions\UpdateSubscription.cs" />
     <Compile Include="Source\Samples\Reporting\ChargebackDetails\GetChargebackDetails.cs" />
     <Compile Include="Source\Samples\Reporting\ChargebackSummaries\GetChargebackSummaries.cs" />
     <Compile Include="Source\Samples\Reporting\ConversionDetails\GetConversionDetailTransactions.cs" />
@@ -321,7 +333,7 @@
     <Compile Include="Source\Samples\ValueAddedService\TaxRefundRequest.cs" />
     <Compile Include="Source\Samples\ValueAddedService\VoidCommittedTaxCall.cs" />
     <Compile Include="Source\Utilities.cs" />
-     <Compile Include="Source\Samples\UnifiedCheckout\GenerateUnifiedCheckout.cs" />
+    <Compile Include="Source\Samples\UnifiedCheckout\GenerateUnifiedCheckout.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="NLog.config">
