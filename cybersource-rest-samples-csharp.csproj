@@ -40,8 +40,8 @@
     <Reference Include="AuthenticationSdk, Version=0.0.0.16, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\CyberSource.Authentication.0.0.0.16\lib\AuthenticationSdk.dll</HintPath>
     </Reference>
-    <Reference Include="cybersource-rest-client-dotnet, Version=0.0.1.32, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\CyberSource.Rest.Client.0.0.1.32\lib\cybersource-rest-client-dotnet.dll</HintPath>
+    <Reference Include="cybersource-rest-client-dotnet, Version=0.0.1.33, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\CyberSource.Rest.Client.0.0.1.33\lib\cybersource-rest-client-dotnet.dll</HintPath>
     </Reference>
     <Reference Include="jose-jwt">
       <HintPath>packages\jose-jwt.2.4.0\lib\net461\jose-jwt.dll</HintPath>
@@ -124,6 +124,7 @@
     <Compile Include="Source\Samples\Authentication\StandAloneOAuth.cs" />
     <Compile Include="Source\Samples\Authentication\StandAloneMetaKey.cs" />
     <Compile Include="Source\Samples\AzureIntermediateTesting\SampleTestingForAzureIntermediateHost.cs" />
+    <Compile Include="Source\Samples\FlexMicroform\GenerateCaptureContext.cs" />
     <Compile Include="Source\Samples\FlexMicroform\FlexTokenizeCard.cs" />
     <Compile Include="Source\Samples\FlexMicroform\GenerateKey.cs" />
     <Compile Include="Source\Samples\FlexMicroform\GenerateKeyLegacyTokenFormat.cs" />
@@ -158,6 +159,7 @@
     <Compile Include="Source\Samples\Payments\Credit\CreditWithCustomerPaymentInstrumentAndShippingAddressTokenId.cs" />
     <Compile Include="Source\Samples\Payments\Credit\CreditWithCustomerTokenId.cs" />
     <Compile Include="Source\Samples\Payments\Credit\CreditWithInstrumentIdentifierTokenId.cs" />
+    <Compile Include="Source\Samples\Payments\Credit\EBTMerchandiseReturnCreditVoucherFromSNAP.cs" />
     <Compile Include="Source\Samples\Payments\Credit\ElectronicCheckStandAloneCredits.cs" />
     <Compile Include="Source\Samples\Payments\Credit\PinDebitCreditUsingEMVTechnologyWithContactlessReadWithVisaPlatformConnect.cs" />
     <Compile Include="Source\Samples\Payments\Credit\PinDebitCreditUsingSwipedTrackDataWithVisaPlatformConnect.cs" />
@@ -193,6 +195,9 @@
     <Compile Include="Source\Samples\Payments\Payments\AuthorizationWithTMSTokenBypassingNetworkToken.cs" />
     <Compile Include="Source\Samples\Payments\Payments\DigitalPaymentGooglePay.cs" />
     <Compile Include="Source\Samples\Payments\Payments\DigitalPaymentsApplePay.cs" />
+    <Compile Include="Source\Samples\Payments\Payments\EBTElectronicVoucherPurchaseFromSNAPAccountWithVisaPlatformConnect.cs" />
+    <Compile Include="Source\Samples\Payments\Payments\EBTPurchaseFromCashBenefitsAccountWithCashback.cs" />
+    <Compile Include="Source\Samples\Payments\Payments\EBTPurchaseFromSNAPAccountWithVisaPlatformConnect.cs" />
     <Compile Include="Source\Samples\Payments\Payments\ElectronicCheckDebits.cs" />
     <Compile Include="Source\Samples\Payments\Payments\ElectronicCheckDebitsWithLegacyToken.cs" />
     <Compile Include="Source\Samples\Payments\Payments\IncrementalAuthorization.cs" />
@@ -227,6 +232,7 @@
     <Compile Include="Source\Samples\Payments\Reversal\ServiceFeesAuthorizationReversal.cs" />
     <Compile Include="Source\Samples\Payments\Reversal\TimeoutReversal.cs" />
     <Compile Include="Source\Samples\Payments\Void\PinDebitPurchaseReversalVoid.cs" />
+    <Compile Include="Source\Samples\Payments\Void\EBTReversalOfPurchaseFromSNAPAccount.cs" />
     <Compile Include="Source\Samples\Payments\Void\TimeoutVoid.cs" />
     <Compile Include="Source\Samples\Payments\Void\VoidCapture.cs" />
     <Compile Include="Source\Samples\Payments\Void\VoidCredit.cs" />
@@ -234,6 +240,13 @@
     <Compile Include="Source\Samples\Payments\Void\VoidRefund.cs" />
     <Compile Include="Source\Samples\Payouts\PayoutCardNotToken.cs" />
     <Compile Include="Source\Samples\Payouts\PayoutToken.cs" />
+    <Compile Include="Source\Samples\RecurringBillingSubscriptions\Plans\CreatePlan.cs" />
+    <Compile Include="Source\Samples\RecurringBillingSubscriptions\Plans\DeletePlan.cs" />
+    <Compile Include="Source\Samples\RecurringBillingSubscriptions\Plans\GetPlan.cs" />
+    <Compile Include="Source\Samples\RecurringBillingSubscriptions\Plans\UpdatePlan.cs" />
+    <Compile Include="Source\Samples\RecurringBillingSubscriptions\\Subscriptions\CreateSubscription.cs" />
+    <Compile Include="Source\Samples\RecurringBillingSubscriptions\\Subscriptions\GetSubscription.cs" />
+    <Compile Include="Source\Samples\RecurringBillingSubscriptions\\Subscriptions\UpdateSubscription.cs" />
     <Compile Include="Source\Samples\Reporting\ChargebackDetails\GetChargebackDetails.cs" />
     <Compile Include="Source\Samples\Reporting\ChargebackSummaries\GetChargebackSummaries.cs" />
     <Compile Include="Source\Samples\Reporting\ConversionDetails\GetConversionDetailTransactions.cs" />
