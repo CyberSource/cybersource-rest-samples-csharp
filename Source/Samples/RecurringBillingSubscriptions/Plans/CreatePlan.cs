@@ -11,6 +11,9 @@ namespace Cybersource_rest_samples_dotnet.Samples.RecurringBillingSubscriptions
 	{
 		public static InlineResponse201 Run()
 		{
+            // Required to make the sample code ActivatePlan.cs work
+            string planStatus = "DRAFT";
+
 			string planInformationName = "Gold Plan";
 			string planInformationDescription = "New Gold Plan";
 			string planInformationBillingPeriodLength = "1";
@@ -29,7 +32,8 @@ namespace Cybersource_rest_samples_dotnet.Samples.RecurringBillingSubscriptions
 				Name: planInformationName,
 				Description: planInformationDescription,
 				BillingPeriod: planInformationBillingPeriod,
-				BillingCycles: planInformationBillingCycles
+				BillingCycles: planInformationBillingCycles,
+				Status: planStatus
 			);
 
 			string orderInformationAmountDetailsCurrency = "USD";
