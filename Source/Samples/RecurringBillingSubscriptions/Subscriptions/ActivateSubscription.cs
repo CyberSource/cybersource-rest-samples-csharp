@@ -14,7 +14,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.RecurringBillingSubscriptions
         {
             try
             {
-                var subscriptionId = "INSERT VALID SUBSCRIPTION ID HERE";
+                var subscriptionId = CancelSubscription.Run().Id;
                 var configDictionary = new Configuration().GetConfiguration();
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
