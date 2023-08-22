@@ -352,6 +352,9 @@
     <Compile Include="Source\Samples\ValueAddedService\VoidCommittedTaxCall.cs" />
     <Compile Include="Source\Utilities.cs" />
     <Compile Include="Source\Samples\UnifiedCheckout\GenerateUnifiedCheckout.cs" />
+    <Compile Include="Source\Samples\NetworkToken\NetworkToken.cs" />
+    <Compile Include="Source\Samples\NetworkToken\CreateInstrumentIdentifierEnrollForNetworkToken.cs" />
+    <Compile Include="Source\Samples\NetworkToken\PaymentCredentialsFromNetworkToken.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="NLog.config">
