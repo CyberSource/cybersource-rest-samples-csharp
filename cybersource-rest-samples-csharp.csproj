@@ -40,8 +40,8 @@
     <Reference Include="AuthenticationSdk, Version=0.0.0.16, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\CyberSource.Authentication.0.0.0.16\lib\AuthenticationSdk.dll</HintPath>
     </Reference>
-    <Reference Include="cybersource-rest-client-dotnet, Version=0.0.1.33, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\CyberSource.Rest.Client.0.0.1.33\lib\cybersource-rest-client-dotnet.dll</HintPath>
+    <Reference Include="cybersource-rest-client-dotnet, Version=0.0.1.34, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\CyberSource.Rest.Client.0.0.1.34\lib\cybersource-rest-client-dotnet.dll</HintPath>
     </Reference>
     <Reference Include="jose-jwt">
       <HintPath>packages\jose-jwt.2.4.0\lib\net461\jose-jwt.dll</HintPath>
