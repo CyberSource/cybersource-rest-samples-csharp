@@ -10,7 +10,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.RecurringBillingSubscriptions
 {
     public class GetSubscriptionCode
     {
-        public static InlineResponse20010 Run()
+        public static GetSubscriptionCodeResponse Run()
         {
             try
             {
