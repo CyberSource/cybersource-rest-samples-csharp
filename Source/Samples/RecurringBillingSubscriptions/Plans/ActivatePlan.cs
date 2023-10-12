@@ -10,7 +10,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.RecurringBillingSubscriptions
 {
     public class ActivatePlan
     {
-        public static InlineResponse2004 Run()
+        public static ActivateDeactivatePlanResponse Run()
         {
             try
             {

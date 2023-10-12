@@ -9,7 +9,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.RecurringBillingSubscriptions
 {
 	public class CreateSubscription
 	{
-		public static InlineResponse2011 Run()
+		public static CreateSubscriptionResponse Run()
 		{
 			string clientReferenceInformationCode = "TC501713";
 			string clientReferenceInformationPartnerDeveloperId = "ABCD1234";
@@ -68,7 +68,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.RecurringBillingSubscriptions
 				PaymentInformation: paymentInformation
 			);
 
-			InlineResponse2011 response = null;
+            CreateSubscriptionResponse response = null;
 			try
 			{
 				var configDictionary = new Configuration().GetConfiguration();

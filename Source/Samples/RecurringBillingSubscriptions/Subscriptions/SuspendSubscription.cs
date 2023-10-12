@@ -10,7 +10,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.RecurringBillingSubscriptions
 {
     public class SuspendSubscription
     {
-        public static InlineResponse2021 Run()
+        public static SuspendSubscriptionResponse Run()
         {
             try
             {

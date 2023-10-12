@@ -235,7 +235,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Authentication
         // paramter 'Signature' is calucated based on below key values and then signed with SECRET KEY -
         // host: Sandbox (apitest.cybersource.com) or Production (api.cybersource.com) hostname
         // date: "HTTP-date" format as defined by RFC7231.
-        // (request-target): Should be in format of httpMethod: path
+        // request-target: Should be in format of httpMethod: path
         //    Example: "post /pts/v2/payments"
         // Digest: Only needed for POST calls.
         //    digestString = BASE64( HMAC-SHA256 ( Payload ));
@@ -246,8 +246,8 @@ namespace Cybersource_rest_samples_dotnet.Samples.Authentication
         {
             StringBuilder signatureHeaderValue = new StringBuilder();
             string algorithm = "HmacSHA256";
-            string postHeaders = "host date (request-target) digest v-c-merchant-id";
-            string getHeaders = "host date (request-target) v-c-merchant-id";
+            string postHeaders = "host date request-target digest v-c-merchant-id";
+            string getHeaders = "host date request-target v-c-merchant-id";
             string url = "https://" + requestHost + resource;
             string getRequestTarget = method + " " + resource;
             string postRequestTarget = method + " " + resource;
@@ -265,7 +265,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Authentication
                 signatureString.Append(": ");
                 signatureString.Append(gmtDateTime);
                 signatureString.Append('\n');
-                signatureString.Append("(request-target)");
+                signatureString.Append("request-target");
                 signatureString.Append(": ");
 
                 if (method.Equals("post"))

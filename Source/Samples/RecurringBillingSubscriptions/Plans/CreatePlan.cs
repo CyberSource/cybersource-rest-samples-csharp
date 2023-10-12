@@ -9,7 +9,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.RecurringBillingSubscriptions
 {
 	public class CreatePlan
 	{
-		public static InlineResponse201 Run()
+		public static CreatePlanResponse Run()
 		{
             // Required to make the sample code ActivatePlan.cs work
             string planStatus = "DRAFT";
@@ -18,7 +18,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.RecurringBillingSubscriptions
 			string planInformationDescription = "New Gold Plan";
 			string planInformationBillingPeriodLength = "1";
 			string planInformationBillingPeriodUnit = "M";
-			InlineResponse200PlanInformationBillingPeriod planInformationBillingPeriod = new InlineResponse200PlanInformationBillingPeriod(
+            GetAllPlansResponsePlanInformationBillingPeriod planInformationBillingPeriod = new GetAllPlansResponsePlanInformationBillingPeriod(
 				Length: planInformationBillingPeriodLength,
 				Unit: planInformationBillingPeriodUnit
 			);
@@ -53,7 +53,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.RecurringBillingSubscriptions
 				PlanInformation: planInformation,
 				OrderInformation: orderInformation
 			);
-			InlineResponse201 response = null;
+            CreatePlanResponse response = null;
 			try
 			{
 				var configDictionary = new Configuration().GetConfiguration();

@@ -1,25 +1,24 @@
 ﻿using CyberSource.Api;
-using CyberSource.Model;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Cybersource_rest_samples_dotnet.Samples.RecurringBillingSubscriptions
+namespace Cybersource_rest_samples_dotnet.Samples.NetworkToken
 {
-    public class DeactivatePlan
+    public class PaymentCredentialsFromNetworkToken
     {
-        public static ActivateDeactivatePlanResponse Run()
+        public static string Run(string TokenId = null)
         {
+            var profileid = "93B32398-AD51-4CC2-A682-EA3E93614EB1";
+            if (null == TokenId)
+            {
+                TokenId = CreateInstrumentIdentifierEnrollForNetworkToken.Run().Id;
+            }
             try
             {
-                var planId = ActivatePlan.Run().Id;
                 var configDictionary = new Configuration().GetConfiguration();
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
-                var apiInstance = new PlansApi(clientConfig);
-                var result = apiInstance.DeactivatePlan(planId);
+                var apiInstance = new TokenApi(clientConfig);
+                var result = apiInstance.PostTokenPaymentCredentials(TokenId, profileid);
                 Console.WriteLine(result);
                 return result;
             }
