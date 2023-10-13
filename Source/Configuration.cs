@@ -34,6 +34,12 @@ namespace Cybersource_rest_samples_dotnet
             _configurationDictionary.Add("clientId", "");
             _configurationDictionary.Add("clientSecret", "");
 
+            /*
+             * PEM Key file path for decoding JWE Response Enter the folder path where the .pem file is located.
+             * It is optional property, require adding only during JWE decryption.
+            */
+            _configurationDictionary.Add("pemFileDirectory", Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\..\\Source\\Resource\\NetworkTokenCert.pem"));
+
             // _configurationDictionary.Add("proxyAddress", string.Empty);
             // _configurationDictionary.Add("proxyPort", string.Empty);
             // _configurationDictionary.Add("proxyUsername", string.Empty);

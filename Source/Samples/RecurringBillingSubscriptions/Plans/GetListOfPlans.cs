@@ -10,7 +10,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.RecurringBillingSubscriptions
 {
     public class GetListOfPlans
     {
-        public static InlineResponse200 Run()
+        public static GetAllPlansResponse Run()
         {
             int? offset = (int?)null;
             int? limit = (int?)null;

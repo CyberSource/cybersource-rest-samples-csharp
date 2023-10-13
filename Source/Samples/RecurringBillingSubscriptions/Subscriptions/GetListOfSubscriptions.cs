@@ -11,7 +11,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.RecurringBillingSubscriptions
 {
     public class GetListOfSubscriptions
     {
-        public static InlineResponse2006 Run()
+        public static GetAllSubscriptionsResponse Run()
         {
             int? offset = (int?)null;
             int? limit = (int?)null;

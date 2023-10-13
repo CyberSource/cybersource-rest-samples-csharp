@@ -15,7 +15,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.RecurringBillingSubscriptions
 			string planInformationDescription = "Updated Gold Plan";
 			string planInformationBillingPeriodLength = "2";
 			string planInformationBillingPeriodUnit = "W";
-			InlineResponse200PlanInformationBillingPeriod planInformationBillingPeriod = new InlineResponse200PlanInformationBillingPeriod(
+            GetAllPlansResponsePlanInformationBillingPeriod planInformationBillingPeriod = new GetAllPlansResponsePlanInformationBillingPeriod(
 				Length: planInformationBillingPeriodLength,
 				Unit: planInformationBillingPeriodUnit
 			);
@@ -44,13 +44,13 @@ namespace Cybersource_rest_samples_dotnet.Samples.RecurringBillingSubscriptions
 			string orderInformationAmountDetailsCurrency = "USD";
 			string orderInformationAmountDetailsBillingAmount = "11";
 			string orderInformationAmountDetailsSetupFee = "2";
-			InlineResponse200OrderInformationAmountDetails orderInformationAmountDetails = new InlineResponse200OrderInformationAmountDetails(
+            GetAllPlansResponseOrderInformationAmountDetails orderInformationAmountDetails = new GetAllPlansResponseOrderInformationAmountDetails(
 				Currency: orderInformationAmountDetailsCurrency,
 				BillingAmount: orderInformationAmountDetailsBillingAmount,
 				SetupFee: orderInformationAmountDetailsSetupFee
 			);
 
-			InlineResponse200OrderInformation orderInformation = new InlineResponse200OrderInformation(
+            GetAllPlansResponseOrderInformation orderInformation = new GetAllPlansResponseOrderInformation(
 				AmountDetails: orderInformationAmountDetails
 			);
 

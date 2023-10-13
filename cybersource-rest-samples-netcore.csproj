@@ -39,8 +39,8 @@
   </ItemGroup>
 
   <ItemGroup>
-	<PackageReference Include="CyberSource.Authentication.NetStandard" Version="0.0.1.10" />
-    <PackageReference Include="CyberSource.Rest.Client.NetStandard" Version="0.0.1.25" />
+    <PackageReference Include="CyberSource.Authentication.NetStandard" Version="0.0.1.11" />
+    <PackageReference Include="CyberSource.Rest.Client.NetStandard" Version="0.0.1.27" />
     <PackageReference Include="jose-jwt" Version="2.5.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="NLog" Version="5.0.0" />
