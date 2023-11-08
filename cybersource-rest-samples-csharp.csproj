@@ -109,6 +109,13 @@
     <Compile Include="Source\Properties\AssemblyInfo.cs" />
     <Compile Include="Source\Resource\NumericUtility.cs" />
     <Compile Include="Source\SampleCode.cs" />
+    <Compile Include="Source\Samples\AccountUpdater\AmexRegistrationCustomerTokenBatch.cs" />
+    <Compile Include="Source\Samples\AccountUpdater\AmexRegistrationInstrumentIdentifierTokenBatch.cs" />
+    <Compile Include="Source\Samples\AccountUpdater\ListBatches.cs" />
+    <Compile Include="Source\Samples\AccountUpdater\OneOffVisaMasterCardCustomerTokenBatch.cs" />
+    <Compile Include="Source\Samples\AccountUpdater\OneOffVisaMasterCardInstrumentIdentifierTokenBatch.cs" />
+    <Compile Include="Source\Samples\AccountUpdater\RetrieveBatchReport.cs" />
+    <Compile Include="Source\Samples\AccountUpdater\RetrieveBatchStatus.cs" />
     <Compile Include="Source\Samples\Authentication\CallHttpMethods\DeleteMethod.cs" />
     <Compile Include="Source\Samples\Authentication\CallHttpMethods\GetMethod.cs" />
     <Compile Include="Source\Samples\Authentication\CallHttpMethods\GetObjectMethod.cs" />
