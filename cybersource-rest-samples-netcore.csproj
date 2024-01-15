@@ -41,13 +41,14 @@
   <ItemGroup>
     <PackageReference Include="CyberSource.Authentication.NetStandard" Version="0.0.1.12" />
     <PackageReference Include="CyberSource.Rest.Client.NetStandard" Version="0.0.1.28" />
-    <PackageReference Include="jose-jwt" Version="2.5.0" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="jose-jwt" Version="4.1.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="NLog" Version="5.0.0" />
     <PackageReference Include="NLog.Schema" Version="5.0.0" />
     <PackageReference Include="RestSharp" Version="108.0.3" />
     <PackageReference Include="System.ComponentModel.Annotations" Version="4.7.0" />
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.7.0" />
+    <PackageReference Include="System.Runtime.Caching" Version="4.7.0" />
   </ItemGroup>
 
   <ItemGroup>
