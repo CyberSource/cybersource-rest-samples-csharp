@@ -40,8 +40,8 @@
     <Reference Include="AuthenticationSdk, Version=0.0.0.18, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\CyberSource.Authentication.0.0.0.18\lib\AuthenticationSdk.dll</HintPath>
     </Reference>
-    <Reference Include="cybersource-rest-client-dotnet, Version=0.0.1.36, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\CyberSource.Rest.Client.0.0.1.36\lib\cybersource-rest-client-dotnet.dll</HintPath>
+    <Reference Include="cybersource-rest-client-dotnet">
+      <HintPath>packages\CyberSource.Rest.Client.0.0.1.37\lib\cybersource-rest-client-dotnet.dll</HintPath>
     </Reference>
     <Reference Include="jose-jwt">
       <HintPath>packages\jose-jwt.2.4.0\lib\net461\jose-jwt.dll</HintPath>
@@ -55,7 +55,7 @@
     </Reference>
     <Reference Include="NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
       <HintPath>packages\NLog.5.0.0\lib\net46\NLog.dll</HintPath>
-	  <Private>True</Private>
+      <Private>True</Private>
     </Reference>
     <Reference Include="RestSharp, Version=108.0.3.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
       <HintPath>packages\RestSharp.108.0.3\lib\netstandard2.0\RestSharp.dll</HintPath>
@@ -357,6 +357,26 @@
     <Compile Include="Source\Samples\ValueAddedService\CommittedTaxRefundCallRequest.cs" />
     <Compile Include="Source\Samples\ValueAddedService\TaxRefundRequest.cs" />
     <Compile Include="Source\Samples\ValueAddedService\VoidCommittedTaxCall.cs" />
+    <Compile Include="Source\Samples\Webhooks\CreateNewWebhooks\CreateAlternativePaymentsNotificationWebhook.cs" />
+    <Compile Include="Source\Samples\Webhooks\CreateNewWebhooks\CreateDecisionManagerWebhook.cs" />
+    <Compile Include="Source\Samples\Webhooks\CreateNewWebhooks\CreateFraudManagementWebhook.cs" />
+    <Compile Include="Source\Samples\Webhooks\CreateNewWebhooks\CreateInvoicingWebhook.cs" />
+    <Compile Include="Source\Samples\Webhooks\CreateNewWebhooks\CreateOutageAndKeyExpirationNotificationWebhook.cs" />
+    <Compile Include="Source\Samples\Webhooks\CreateNewWebhooks\CreateRecurringBillingWebhook.cs" />
+    <Compile Include="Source\Samples\Webhooks\CreateNewWebhooks\CreateSecureAcceptanceWebhook.cs" />
+    <Compile Include="Source\Samples\Webhooks\CreateNewWebhooks\CreateTerminalManagementWebhook.cs" />
+    <Compile Include="Source\Samples\Webhooks\CreateNewWebhooks\CreateTokenManagementWebhook.cs" />
+    <Compile Include="Source\Samples\Webhooks\CreateNewWebhooks\CreateWebhookSymmetricKey.cs" />
+    <Compile Include="Source\Samples\Webhooks\CreateNewWebhooks\CreateWebhookUsingOAuthWithClientCredentials.cs" />
+    <Compile Include="Source\Samples\Webhooks\CreateNewWebhooks\CreateWebhookUsingOAuthWithJWT.cs" />
+    <Compile Include="Source\Samples\Webhooks\CreateNewWebhooks\FindProductsYouCanSubscribeTo.cs" />
+    <Compile Include="Source\Samples\Webhooks\CreateNewWebhooks\StoreOAuthCredentials.cs" />
+    <Compile Include="Source\Samples\Webhooks\ManageWebhooks\DeleteWebhookSubscription.cs" />
+    <Compile Include="Source\Samples\Webhooks\ManageWebhooks\GetDetailsOnSingleWebhook.cs" />
+    <Compile Include="Source\Samples\Webhooks\ManageWebhooks\ReplayFailedTransactionsBySetStartAndEndTime.cs" />
+    <Compile Include="Source\Samples\Webhooks\ManageWebhooks\ReplayFailedTransactionsInLast24Hours.cs" />
+    <Compile Include="Source\Samples\Webhooks\ManageWebhooks\ReplaySpecificListOfTransactions.cs" />
+    <Compile Include="Source\Samples\Webhooks\ManageWebhooks\UpdateWebhook.cs" />
     <Compile Include="Source\Utilities.cs" />
     <Compile Include="Source\Samples\UnifiedCheckout\GenerateUnifiedCheckout.cs" />
     <Compile Include="Source\Samples\NetworkToken\NetworkToken.cs" />
