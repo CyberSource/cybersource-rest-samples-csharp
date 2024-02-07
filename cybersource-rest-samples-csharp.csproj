@@ -37,25 +37,25 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Source\lib\net461\ApiSdk.dll</HintPath>
     </Reference>
-    <Reference Include="AuthenticationSdk, Version=0.0.0.18, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\CyberSource.Authentication.0.0.0.18\lib\AuthenticationSdk.dll</HintPath>
+    <Reference Include="AuthenticationSdk, Version=0.0.0.19, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\CyberSource.Authentication.0.0.0.19\lib\AuthenticationSdk.dll</HintPath>
     </Reference>
-    <Reference Include="cybersource-rest-client-dotnet, Version=0.0.1.36, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\CyberSource.Rest.Client.0.0.1.36\lib\cybersource-rest-client-dotnet.dll</HintPath>
+    <Reference Include="cybersource-rest-client-dotnet, Version=0.0.1.38, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\CyberSource.Rest.Client.0.0.1.38\lib\cybersource-rest-client-dotnet.dll</HintPath>
     </Reference>
     <Reference Include="jose-jwt">
-      <HintPath>packages\jose-jwt.2.4.0\lib\net461\jose-jwt.dll</HintPath>
+      <HintPath>packages\jose-jwt.4.1.0\lib\net461\jose-jwt.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.Bcl.AsyncInterfaces.5.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
       <HintPath>packages\NLog.5.0.0\lib\net46\NLog.dll</HintPath>
-	  <Private>True</Private>
+      <Private>True</Private>
     </Reference>
     <Reference Include="RestSharp, Version=108.0.3.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
       <HintPath>packages\RestSharp.108.0.3\lib\netstandard2.0\RestSharp.dll</HintPath>
