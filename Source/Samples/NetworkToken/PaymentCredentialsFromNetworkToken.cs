@@ -18,7 +18,8 @@ namespace Cybersource_rest_samples_dotnet.Samples.NetworkToken
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new TokenApi(clientConfig);
-                var result = apiInstance.PostTokenPaymentCredentials(TokenId, profileid);
+                var postPaymentCredentialsRequest = new PostPaymentCredentialsRequest();
+                var result = apiInstance.PostTokenPaymentCredentials(TokenId, postPaymentCredentialsRequest, profileid);
                 Console.WriteLine(result);
                 return result;
             }
