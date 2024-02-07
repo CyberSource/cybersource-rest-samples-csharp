@@ -31,8 +31,19 @@ namespace Cybersource_rest_samples_dotnet.Samples.PayerAuthentication
                 TotalAmount: orderInformationAmountDetailsTotalAmount
             );
 
+            List<Riskv1authenticationresultsOrderInformationLineItems> orderInformationLineItems = new List<Riskv1authenticationresultsOrderInformationLineItems>();
+            string orderInformationLineItemsUnitPrice1 = "10";
+            int orderInformationLineItemsQuantity1 = 2;
+            string orderInformationLineItemsTaxAmount1 = "32.40";
+            orderInformationLineItems.Add(new Riskv1authenticationresultsOrderInformationLineItems(
+                UnitPrice: orderInformationLineItemsUnitPrice1,
+                Quantity: orderInformationLineItemsQuantity1,
+                TaxAmount: orderInformationLineItemsTaxAmount1
+            ));
+
             Riskv1authenticationresultsOrderInformation orderInformation = new Riskv1authenticationresultsOrderInformation(
-                AmountDetails: orderInformationAmountDetails
+                AmountDetails: orderInformationAmountDetails,
+                LineItems: orderInformationLineItems
             );
 
             string paymentInformationCardType = "002";
@@ -51,8 +62,10 @@ namespace Cybersource_rest_samples_dotnet.Samples.PayerAuthentication
             );
 
             string consumerAuthenticationInformationAuthenticationTransactionId = "PYffv9G3sa1e0CQr5fV0";
+            string consumerAuthenticationInformationSignedPares = "eNqdmFmT4jgSgN+J4D90zD4yMz45PEFVhHzgA2zwjXnzhQ984Nvw61dAV1";
             Riskv1authenticationresultsConsumerAuthenticationInformation consumerAuthenticationInformation = new Riskv1authenticationresultsConsumerAuthenticationInformation(
-                AuthenticationTransactionId: consumerAuthenticationInformationAuthenticationTransactionId
+                AuthenticationTransactionId: consumerAuthenticationInformationAuthenticationTransactionId,
+                SignedPares: consumerAuthenticationInformationSignedPares
             );
 
             var requestObj = new ValidateRequest(
