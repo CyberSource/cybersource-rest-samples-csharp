@@ -1,4 +1,5 @@
 ﻿using CyberSource.Api;
+using CyberSource.Model;
 using System;
 
 namespace Cybersource_rest_samples_dotnet.Samples.NetworkToken
