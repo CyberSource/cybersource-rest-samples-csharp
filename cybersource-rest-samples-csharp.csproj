@@ -371,7 +371,9 @@
     <Compile Include="Source\Samples\Webhooks\CreateNewWebhooks\CreateWebhookUsingOAuthWithJWT.cs" />
     <Compile Include="Source\Samples\Webhooks\CreateNewWebhooks\FindProductsYouCanSubscribeTo.cs" />
     <Compile Include="Source\Samples\Webhooks\CreateNewWebhooks\StoreOAuthCredentials.cs" />
+    <Compile Include="Source\Samples\Webhooks\ManageWebhooks\CreateAsymmetricKey.cs" />
     <Compile Include="Source\Samples\Webhooks\ManageWebhooks\DeleteWebhookSubscription.cs" />
+    <Compile Include="Source\Samples\Webhooks\ManageWebhooks\GetDetailsOnAllCreatedWebhooks.cs" />
     <Compile Include="Source\Samples\Webhooks\ManageWebhooks\GetDetailsOnSingleWebhook.cs" />
     <Compile Include="Source\Samples\Webhooks\ManageWebhooks\ReplayFailedTransactionsBySetStartAndEndTime.cs" />
     <Compile Include="Source\Samples\Webhooks\ManageWebhooks\ReplayFailedTransactionsInLast24Hours.cs" />
