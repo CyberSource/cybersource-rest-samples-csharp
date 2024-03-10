@@ -19,7 +19,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.NetworkToken
             try
             {
                 // Step-I
-                Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier tmsv2CustomersEmbeddedDefaultPaymentInstrumentEmbedded = CreateInstrumentIdentifierEnrollForNetworkToken.Run();
+                TmsEmbeddedInstrumentIdentifier tmsv2CustomersEmbeddedDefaultPaymentInstrumentEmbedded = CreateInstrumentIdentifierEnrollForNetworkToken.Run();
 
                 //Step-II
                 var encodedResponse = PaymentCredentialsFromNetworkToken.Run(tmsv2CustomersEmbeddedDefaultPaymentInstrumentEmbedded.Id);

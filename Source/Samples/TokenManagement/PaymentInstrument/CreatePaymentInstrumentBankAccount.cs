@@ -67,11 +67,11 @@ namespace Cybersource_rest_samples_dotnet.Samples.TokenManagement
            );
 
             string processingInformationBankTransferOptionsSeCCode = "WEB";
-            Tmsv2customersEmbeddedDefaultPaymentInstrumentProcessingInformationBankTransferOptions processingInformationBankTransferOptions = new Tmsv2customersEmbeddedDefaultPaymentInstrumentProcessingInformationBankTransferOptions(
+            TmsPaymentInstrumentProcessingInfoBankTransferOptions processingInformationBankTransferOptions = new TmsPaymentInstrumentProcessingInfoBankTransferOptions(
                 SECCode: processingInformationBankTransferOptionsSeCCode
            );
 
-            Tmsv2customersEmbeddedDefaultPaymentInstrumentProcessingInformation processingInformation = new Tmsv2customersEmbeddedDefaultPaymentInstrumentProcessingInformation(
+            TmsPaymentInstrumentProcessingInfo processingInformation = new TmsPaymentInstrumentProcessingInfo(
                 BankTransferOptions: processingInformationBankTransferOptions
            );
 

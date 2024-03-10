@@ -18,7 +18,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TokenManagement
             string cardExpirationMonth = "12";
             string cardExpirationYear = "2031";
             string cardSecurityCode = "123";
-            Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifierCard card = new Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifierCard(
+            TmsEmbeddedInstrumentIdentifierCard card = new TmsEmbeddedInstrumentIdentifierCard(
                 ExpirationMonth: cardExpirationMonth,
                 ExpirationYear: cardExpirationYear,
                 SecurityCode: cardSecurityCode
@@ -29,7 +29,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TokenManagement
             string billToAdministrativeArea = "CA";
             string billToPostalCode = "94105";
             string billToCountry = "US";
-            Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifierBillTo billTo = new Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifierBillTo(
+            TmsEmbeddedInstrumentIdentifierBillTo billTo = new TmsEmbeddedInstrumentIdentifierBillTo(
                 Address1: billToAddress1,
                 Locality: billToLocality,
                 AdministrativeArea: billToAdministrativeArea,
