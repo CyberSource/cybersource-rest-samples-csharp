@@ -9,7 +9,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TokenManagement
 {
     public class CreateInstrumentIdentifierCardEnrollForNetworkToken
     {
-        public static Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier Run()
+        public static TmsEmbeddedInstrumentIdentifier Run()
         {
             var profileid = "93B32398-AD51-4CC2-A682-EA3E93614EB1";
             string type = "enrollable card";
@@ -17,7 +17,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TokenManagement
             string cardExpirationMonth = "12";
             string cardExpirationYear = "2031";
             string cardSecurityCode = "123";
-            Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifierCard card = new Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifierCard(
+            TmsEmbeddedInstrumentIdentifierCard card = new TmsEmbeddedInstrumentIdentifierCard(
                 Number: cardNumber,
                 ExpirationMonth: cardExpirationMonth,
                 ExpirationYear: cardExpirationYear,
@@ -29,7 +29,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TokenManagement
             string billToAdministrativeArea = "CA";
             string billToPostalCode = "94105";
             string billToCountry = "US";
-            Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifierBillTo billTo = new Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifierBillTo(
+            TmsEmbeddedInstrumentIdentifierBillTo billTo = new TmsEmbeddedInstrumentIdentifierBillTo(
                 Address1: billToAddress1,
                 Locality: billToLocality,
                 AdministrativeArea: billToAdministrativeArea,
@@ -49,7 +49,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TokenManagement
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new InstrumentIdentifierApi(clientConfig);
-                Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier result = apiInstance.PostInstrumentIdentifier(requestObj, profileid);
+                TmsEmbeddedInstrumentIdentifier result = apiInstance.PostInstrumentIdentifier(requestObj, profileid);
                 Console.WriteLine(result);
                 return result;
             }

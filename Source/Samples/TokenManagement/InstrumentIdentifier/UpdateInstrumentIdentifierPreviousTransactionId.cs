@@ -13,19 +13,19 @@ namespace Cybersource_rest_samples_dotnet.Samples.TokenManagement
         {
             string instrumentIdentifierTokenId = "7010000000016241111";
             string processingInformationAuthorizationOptionsInitiatorMerchantInitiatedTransactionPreviousTransactionId = "123456789012345";
-            Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifierProcessingInformationAuthorizationOptionsInitiatorMerchantInitiatedTransaction processingInformationAuthorizationOptionsInitiatorMerchantInitiatedTransaction = new Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifierProcessingInformationAuthorizationOptionsInitiatorMerchantInitiatedTransaction(
+            TmsAuthorizationOptionsInitiatorMerchantInitiatedTransaction processingInformationAuthorizationOptionsInitiatorMerchantInitiatedTransaction = new TmsAuthorizationOptionsInitiatorMerchantInitiatedTransaction(
                 PreviousTransactionId: processingInformationAuthorizationOptionsInitiatorMerchantInitiatedTransactionPreviousTransactionId
            );
 
-            Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifierProcessingInformationAuthorizationOptionsInitiator processingInformationAuthorizationOptionsInitiator = new Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifierProcessingInformationAuthorizationOptionsInitiator(
+            TmsAuthorizationOptionsInitiator processingInformationAuthorizationOptionsInitiator = new TmsAuthorizationOptionsInitiator(
                 MerchantInitiatedTransaction: processingInformationAuthorizationOptionsInitiatorMerchantInitiatedTransaction
            );
 
-            Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifierProcessingInformationAuthorizationOptions processingInformationAuthorizationOptions = new Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifierProcessingInformationAuthorizationOptions(
+            TmsAuthorizationOptions processingInformationAuthorizationOptions = new TmsAuthorizationOptions(
                 Initiator: processingInformationAuthorizationOptionsInitiator
            );
 
-            Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifierProcessingInformation processingInformation = new Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifierProcessingInformation(
+            TmsEmbeddedInstrumentIdentifierProcessingInformation processingInformation = new TmsEmbeddedInstrumentIdentifierProcessingInformation(
                 AuthorizationOptions: processingInformationAuthorizationOptions
            );
 
