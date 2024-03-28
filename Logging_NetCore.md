@@ -16,13 +16,11 @@ Refer this [document of NLog Configuration](https://nlog-project.org/config/) fo
 
 ## Setup
 
-In order to leverage the new logging framework, it is required to install the **`NLog.Config`** package into the .NET project. This can be done using the Package Manager, steps for which can be found on the [NuGet page for the package](https://www.nuget.org/packages/NLog.Config/).
+In order to leverage the new logging framework, it is required to install the **`NLog.Schema`**  package into the .NET project. This can be done using the Package Manager, steps for which can be found on the [NuGet page for the package](https://www.nuget.org/packages/NLog.Config/).
 
-When the **`NLog.Config`** package is installed, it will add two new files to the project &mdash; **`NLog.config`** and **`NLog.xsd`**.
+When the **`NLog.Schema`** package is installed, it will add new file to the project &mdash; **`NLog.xsd`**.
 
-<span style="color: red;">**Note that the package name is `NLog.Config` and the name of the newly added file is `NLog.config`.**</span>
-
-The **`Copy To Output Directory`** property of this `NLog.config` file needs to be set to **`Copy Always`**.
+Create and add the **`NLog.config`** file to main directory of your source project and sample for **`NLog.config`** file is given below:
 
 ## Sample NLog.config File
 
@@ -57,6 +55,16 @@ The **`Copy To Output Directory`** property of this `NLog.config` file needs to 
     <logger name="*" minlevel="Trace" writeTo="logconsole" />
   </rules>
 </nlog>
+```
+
+The **`Copy To Output Directory`** property of this `NLog.config` file needs to be set to **`Copy Always`**.
+Or this can be done by adding below lines to your **`Project.csproj`** file.
+```xml
+<ItemGroup>
+    <None Update="NLog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+</ItemGroup>
 ```
 
 ### Important Notes
