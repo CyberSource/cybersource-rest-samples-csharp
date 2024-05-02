@@ -9,7 +9,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TokenManagement
 {
     public class RetrieveCustomer
     {
-        public static TmsV2CustomersResponse Run()
+        public static PostCustomerRequest Run()
         {
             string customerTokenId = "AB695DA801DD1BB6E05341588E0A3BDC";
             try
@@ -18,7 +18,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TokenManagement
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new CustomerApi(clientConfig);
-                TmsV2CustomersResponse result = apiInstance.GetCustomer(customerTokenId);
+                PostCustomerRequest result = apiInstance.GetCustomer(customerTokenId);
                 Console.WriteLine(result);
                 return result;
             }

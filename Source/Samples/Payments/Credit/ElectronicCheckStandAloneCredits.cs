@@ -19,7 +19,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments
             string paymentInformationBankAccountType = "C";
             string paymentInformationBankAccountNumber = "4100";
             string paymentInformationBankAccountCheckNumber = "123456";
-            Ptsv2paymentsPaymentInformationBankAccount paymentInformationBankAccount = new Ptsv2paymentsPaymentInformationBankAccount(
+            Ptsv2paymentsidrefundsPaymentInformationBankAccount paymentInformationBankAccount = new Ptsv2paymentsidrefundsPaymentInformationBankAccount(
                 Type: paymentInformationBankAccountType,
                 Number: paymentInformationBankAccountNumber,
                 CheckNumber: paymentInformationBankAccountCheckNumber

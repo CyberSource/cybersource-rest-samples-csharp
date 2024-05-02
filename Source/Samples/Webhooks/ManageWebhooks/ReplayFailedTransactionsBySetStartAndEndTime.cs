@@ -33,7 +33,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Webhooks.ManageWebhooks
 				var configDictionary = new Configuration().GetConfiguration();
 				var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
-				var apiInstance = new ManageWebhooksApi(clientConfig);
+				var apiInstance = new ReplayWebhooksApi(clientConfig);
 				apiInstance.ReplayPreviousWebhooks(webhookId, requestObj);
 			}
 			catch (Exception e)

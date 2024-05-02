@@ -9,7 +9,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TokenManagement
 {
     public class CreateCustomerDefaultPaymentInstrumentCard
     {
-        public static Tmsv2customersEmbeddedDefaultPaymentInstrument Run()
+        public static PostCustomerPaymentInstrumentRequest Run()
         {
             string customerTokenId = "AB695DA801DD1BB6E05341588E0A3BDC";
             bool _default = true;
@@ -51,7 +51,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TokenManagement
            );
 
             var requestObj = new PostCustomerPaymentInstrumentRequest(
-                _Default: _default,
+                Default: _default,
                 Card: card,
                 BillTo: billTo,
                 InstrumentIdentifier: instrumentIdentifier
@@ -63,7 +63,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TokenManagement
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new CustomerPaymentInstrumentApi(clientConfig);
-                Tmsv2customersEmbeddedDefaultPaymentInstrument result = apiInstance.PostCustomerPaymentInstrument(customerTokenId, requestObj);
+                PostCustomerPaymentInstrumentRequest result = apiInstance.PostCustomerPaymentInstrument(customerTokenId, requestObj);
                 Console.WriteLine(result);
                 return result;
             }
