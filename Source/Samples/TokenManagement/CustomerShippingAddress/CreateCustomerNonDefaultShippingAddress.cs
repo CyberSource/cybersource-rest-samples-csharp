@@ -9,7 +9,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TokenManagement
 {
     public class CreateCustomerNonDefaultShippingAddress
     {
-        public static Tmsv2customersEmbeddedDefaultShippingAddress Run()
+        public static PostCustomerShippingAddressRequest Run()
         {
             string customerTokenId = "AB695DA801DD1BB6E05341588E0A3BDC";
             bool _default = false;
@@ -37,7 +37,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TokenManagement
            );
 
             var requestObj = new PostCustomerShippingAddressRequest(
-                _Default: _default,
+                Default: _default,
                 ShipTo: shipTo
            );
 
@@ -47,7 +47,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TokenManagement
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new CustomerShippingAddressApi(clientConfig);
-                Tmsv2customersEmbeddedDefaultShippingAddress result = apiInstance.PostCustomerShippingAddress(customerTokenId, requestObj);
+                PostCustomerShippingAddressRequest result = apiInstance.PostCustomerShippingAddress(customerTokenId, requestObj);
                 Console.WriteLine(result);
                 return result;
             }

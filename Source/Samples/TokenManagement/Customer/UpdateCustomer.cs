@@ -9,7 +9,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TokenManagement
 {
     public class UpdateCustomer
     {
-        public static TmsV2CustomersResponse Run()
+        public static PatchCustomerRequest Run()
         {
             string customerTokenId = "AB695DA801DD1BB6E05341588E0A3BDC";
             string buyerInformationMerchantCustomerID = "Your customer identifier";
@@ -45,7 +45,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TokenManagement
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new CustomerApi(clientConfig);
-                TmsV2CustomersResponse result = apiInstance.PatchCustomer(customerTokenId, requestObj);
+                PatchCustomerRequest result = apiInstance.PatchCustomer(customerTokenId, requestObj);
                 Console.WriteLine(result);
                 return result;
             }

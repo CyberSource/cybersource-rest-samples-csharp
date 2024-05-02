@@ -9,7 +9,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TokenManagement
 {
     public class CreatePaymentInstrumentCard
     {
-        public static Tmsv2customersEmbeddedDefaultPaymentInstrument Run()
+        public static PostPaymentInstrumentRequest Run()
         {
             var profileid = "93B32398-AD51-4CC2-A682-EA3E93614EB1";
 
@@ -63,7 +63,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TokenManagement
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new PaymentInstrumentApi(clientConfig);
-                Tmsv2customersEmbeddedDefaultPaymentInstrument result = apiInstance.PostPaymentInstrument(requestObj, profileid);
+                PostPaymentInstrumentRequest result = apiInstance.PostPaymentInstrument(requestObj, profileid);
                 Console.WriteLine(result);
                 return result;
             }

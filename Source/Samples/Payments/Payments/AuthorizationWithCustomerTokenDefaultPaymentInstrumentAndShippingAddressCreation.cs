@@ -104,12 +104,12 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments
 
             bool tokenInformationPaymentInstrument_default = true;
             Ptsv2paymentsTokenInformationPaymentInstrument tokenInformationPaymentInstrument = new Ptsv2paymentsTokenInformationPaymentInstrument(
-                _Default: tokenInformationPaymentInstrument_default
+                Default: tokenInformationPaymentInstrument_default
            );
 
             bool tokenInformationShippingAddress_default = true;
             Ptsv2paymentsTokenInformationShippingAddress tokenInformationShippingAddress = new Ptsv2paymentsTokenInformationShippingAddress(
-                _Default: tokenInformationShippingAddress_default
+                Default: tokenInformationShippingAddress_default
            );
 
             Ptsv2paymentsTokenInformation tokenInformation = new Ptsv2paymentsTokenInformation(

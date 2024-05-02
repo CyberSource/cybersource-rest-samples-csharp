@@ -19,10 +19,10 @@ namespace Cybersource_rest_samples_dotnet.Samples.NetworkToken
             try
             {
                 // Step-I
-                TmsEmbeddedInstrumentIdentifier tmsv2CustomersEmbeddedDefaultPaymentInstrumentEmbedded = CreateInstrumentIdentifierEnrollForNetworkToken.Run();
+                PostInstrumentIdentifierRequest createInstrumentIdentifierEnrollForNetworkTokenResponse = CreateInstrumentIdentifierEnrollForNetworkToken.Run();
 
                 //Step-II
-                var encodedResponse = PaymentCredentialsFromNetworkToken.Run(tmsv2CustomersEmbeddedDefaultPaymentInstrumentEmbedded.Id);
+                var encodedResponse = PaymentCredentialsFromNetworkToken.Run(createInstrumentIdentifierEnrollForNetworkTokenResponse.Id);
 
                 //Step-III
                 var result = JWEUtility.DecryptJWEResponse(encodedResponse, merchantConfig);

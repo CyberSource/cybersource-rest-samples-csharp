@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Globalization;
 
 using CyberSource.Api;
@@ -9,7 +10,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TokenManagement
 {
     public class CreateCustomer
     {
-        public static TmsV2CustomersResponse Run()
+        public static PostCustomerRequest Run()
         {
             string buyerInformationMerchantCustomerID = "Your customer identifier";
             string buyerInformationEmail = "test@cybs.com";
@@ -44,7 +45,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TokenManagement
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new CustomerApi(clientConfig);
-                TmsV2CustomersResponse result = apiInstance.PostCustomer(requestObj);
+                PostCustomerRequest result = apiInstance.PostCustomer(requestObj);
                 Console.WriteLine(result);
                 return result;
             }

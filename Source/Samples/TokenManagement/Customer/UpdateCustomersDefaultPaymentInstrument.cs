@@ -9,7 +9,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TokenManagement
 {
     public class UpdateCustomersDefaultPaymentInstrument
     {
-        public static TmsV2CustomersResponse Run()
+        public static PatchCustomerRequest Run()
         {
             string customerTokenId = "AB695DA801DD1BB6E05341588E0A3BDC";
             string defaultPaymentInstrumentId = "AB6A54B982A6FCB6E05341588E0A3935";
@@ -27,7 +27,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TokenManagement
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new CustomerApi(clientConfig);
-                TmsV2CustomersResponse result = apiInstance.PatchCustomer(customerTokenId, requestObj);
+                PatchCustomerRequest result = apiInstance.PatchCustomer(customerTokenId, requestObj);
                 Console.WriteLine(result);
                 return result;
             }

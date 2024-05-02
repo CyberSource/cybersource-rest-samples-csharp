@@ -9,7 +9,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TokenManagement
 {
     public class CreateInstrumentIdentifierBankAccount
     {
-        public static TmsEmbeddedInstrumentIdentifier Run()
+        public static PostInstrumentIdentifierRequest Run()
         {
             var profileid = "93B32398-AD51-4CC2-A682-EA3E93614EB1";
             string bankAccountNumber = "4100";
@@ -29,7 +29,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TokenManagement
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new InstrumentIdentifierApi(clientConfig);
-                TmsEmbeddedInstrumentIdentifier result = apiInstance.PostInstrumentIdentifier(requestObj, profileid);
+                PostInstrumentIdentifierRequest result = apiInstance.PostInstrumentIdentifier(requestObj, profileid);
                 Console.WriteLine(result);
                 return result;
             }
