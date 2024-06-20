@@ -5,3 +5,4 @@ cybersource-rest-samples-netcore.csproj.user
 .vs
 .idea/
 *.log
+.DS_Store
