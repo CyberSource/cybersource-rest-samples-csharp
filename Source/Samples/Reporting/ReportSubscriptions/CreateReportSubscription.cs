@@ -3,12 +3,20 @@ using System.Collections.Generic;
 using System.Globalization;
 
 using CyberSource.Api;
+using CyberSource.Client;
 using CyberSource.Model;
 
 namespace Cybersource_rest_samples_dotnet.Samples.Reporting
 {
     public class CreateReportSubscription
     {
+        public static void WriteLogAudit(int status)
+        {
+            var filePath = System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.ToString().Split('.');
+            var filename = filePath[filePath.Length - 1];
+            Console.WriteLine($"[Sample Code Testing] [{filename}] {status}");
+        }
+
         public static void Run()
         {
             string reportDefinitionName = "TransactionRequestClass";
@@ -42,13 +50,15 @@ namespace Cybersource_rest_samples_dotnet.Samples.Reporting
 
                 var apiInstance = new ReportSubscriptionsApi(clientConfig);
                 apiInstance.CreateSubscription(requestObj, organizationId);
+                WriteLogAudit(apiInstance.GetStatusCode());
 
                 DeleteSubscriptionOfReportNameByOrganization.ReportNameToDelete = reportName;
                 DeleteSubscriptionOfReportNameByOrganization.Run();
             }
-            catch (Exception e)
+            catch (ApiException e)
             {
                 Console.WriteLine("Exception on calling the API : " + e.Message);
+                WriteLogAudit(e.ErrorCode);
             }
         }
     }

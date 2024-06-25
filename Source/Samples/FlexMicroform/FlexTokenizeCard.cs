@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 
 using CyberSource.Api;
+using CyberSource.Client;
 using CyberSource.Model;
 using CyberSource.Utilities.Flex.Model;
 using CyberSource.Utilities.Flex.TokenVerification;
@@ -11,7 +12,14 @@ namespace Cybersource_rest_samples_dotnet.Samples.FlexMicroform
 {
     public class FlexTokenizeCard
     {
-       /* public static FlexV1TokensPost200Response Run()
+        /*public static void WriteLogAudit(int status)
+        {
+            var filePath = System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.ToString().Split('.');
+            var filename = filePath[filePath.Length - 1];
+            Console.WriteLine($"[Sample Code Testing] [{filename}] {status}");
+        }
+
+        public static FlexV1TokensPost200Response Run()
         {
             var generateKeyResult = GenerateKeyLegacyTokenFormat.Run();
             string keyId = generateKeyResult.KeyId;
@@ -71,11 +79,13 @@ namespace Cybersource_rest_samples_dotnet.Samples.FlexMicroform
                 var tokenVerificationResult = tokenVerifier.Verify(flexPublicKey, postParameters);
                 Console.WriteLine("TOKEN VERIFICATION : " + tokenVerificationResult);
 
+                WriteLogAudit(apiInstance.GetStatusCode());
                 return result;
             }
-            catch (Exception e)
+            catch (ApiException e)
             {
                 Console.WriteLine("Exception on calling the API : " + e.Message);
+                WriteLogAudit(e.ErrorCode);
                 return null;
             }
         } */
