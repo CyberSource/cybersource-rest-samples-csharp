@@ -12,7 +12,8 @@ namespace Cybersource_rest_samples_dotnet.Samples.Authentication
     {
         // Try with your own credentaials
         // Get Key ID, Secret Key and Merchant Id from EBC portal
-        private static string merchantID request-target= "testrest";
+        //private static string merchantID request-target= "testrest";
+        private static string merchantID = "testrest";
         private static string merchantKeyId = "08c94330-f618-42a3-b09d-e1e43be5efda";
         private static string merchantsecretKey = "yBJxy6LjM2TmcPGu+GaJrHtkke25fPpUX+UY6/L/1tE=";
         private static string requestHost = "apitest.cybersource.com";
