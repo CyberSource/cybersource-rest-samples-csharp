@@ -52,8 +52,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.PayerAuthentication
 
             Riskv1authenticationresultsOrderInformation orderInformation = new Riskv1authenticationresultsOrderInformation(
                 AmountDetails: orderInformationAmountDetails
-                // LineItems: orderInformationLineItems
-           );
+            );
 
             string paymentInformationCardType = "002";
             string paymentInformationCardExpirationMonth = "12";
