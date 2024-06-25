@@ -40,19 +40,19 @@ namespace Cybersource_rest_samples_dotnet.Samples.PayerAuthentication
            );
 
 
-            List<Riskv1authenticationresultsOrderInformationLineItems> orderInformationLineItems = new List<Riskv1authenticationresultsOrderInformationLineItems>();
-            string orderInformationLineItemsUnitPrice1 = "10";
-            int orderInformationLineItemsQuantity1 = 2;
-            string orderInformationLineItemsTaxAmount1 = "32.40";
-            orderInformationLineItems.Add(new Riskv1authenticationresultsOrderInformationLineItems(
-                UnitPrice: orderInformationLineItemsUnitPrice1,
-                Quantity: orderInformationLineItemsQuantity1,
-                TaxAmount: orderInformationLineItemsTaxAmount1
-           ));
+        //     List<Riskv1authenticationresultsOrderInformationLineItems> orderInformationLineItems = new List<Riskv1authenticationresultsOrderInformationLineItems>();
+        //     string orderInformationLineItemsUnitPrice1 = "10";
+        //     int orderInformationLineItemsQuantity1 = 2;
+        //     string orderInformationLineItemsTaxAmount1 = "32.40";
+        //     orderInformationLineItems.Add(new Riskv1authenticationresultsOrderInformationLineItems(
+        //         UnitPrice: orderInformationLineItemsUnitPrice1,
+        //         Quantity: orderInformationLineItemsQuantity1,
+        //         TaxAmount: orderInformationLineItemsTaxAmount1
+        //    ));
 
             Riskv1authenticationresultsOrderInformation orderInformation = new Riskv1authenticationresultsOrderInformation(
                 AmountDetails: orderInformationAmountDetails,
-                LineItems: orderInformationLineItems
+                // LineItems: orderInformationLineItems
            );
 
             string paymentInformationCardType = "002";
