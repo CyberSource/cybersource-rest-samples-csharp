@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using CyberSource.Model;
+using CyberSource.Client;
 using CyberSource.Api;
 using System.Linq;
 using System.Text;
@@ -13,6 +14,13 @@ namespace Cybersource_rest_samples_dotnet.Samples.Authentication
     {
         // initialize dictionary object
         private static readonly Dictionary<string, string> _configurationDictionary = new Dictionary<string, string>();
+
+        public static void WriteLogAudit(int status)
+        {
+            var filePath = System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.ToString().Split('.');
+            var filename = filePath[filePath.Length - 1];
+            Console.WriteLine($"[Sample Code Testing] [{filename}] {status}");
+        }
 
         private static Dictionary<string, string> GetConfiguration()
         {
@@ -107,11 +115,13 @@ namespace Cybersource_rest_samples_dotnet.Samples.Authentication
                 var apiInstance = new PaymentsApi(clientConfig);
                 PtsV2PaymentsPost201Response result = apiInstance.CreatePayment(requestObj);
                 Console.WriteLine(result);
+                WriteLogAudit(apiInstance.GetStatusCode());
                 return result;
             }
-            catch (Exception e)
+            catch (ApiException e)
             {
                 Console.WriteLine("Exception on calling the API : " + e.Message);
+                WriteLogAudit(e.ErrorCode);
                 return null;
             }
         }

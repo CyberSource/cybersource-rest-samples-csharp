@@ -3,12 +3,20 @@ using System.Collections.Generic;
 using System.Globalization;
 
 using CyberSource.Api;
+using CyberSource.Client;
 using CyberSource.Model;
 
 namespace Cybersource_rest_samples_dotnet.Samples.TokenManagement
 {
     public class ListPaymentInstrumentsForInstrumentIdentifier
     {
+        public static void WriteLogAudit(int status)
+        {
+            var filePath = System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.ToString().Split('.');
+            var filename = filePath[filePath.Length - 1];
+            Console.WriteLine($"[Sample Code Testing] [{filename}] {status}");
+        }
+
         public static PaymentInstrumentList1 Run()
         {
             string instrumentIdentifierTokenId = "7010000000016241111";
@@ -23,11 +31,13 @@ namespace Cybersource_rest_samples_dotnet.Samples.TokenManagement
                 var apiInstance = new InstrumentIdentifierApi(clientConfig);
                 PaymentInstrumentList1 result = apiInstance.GetInstrumentIdentifierPaymentInstrumentsList(instrumentIdentifierTokenId, profileid, offset, limit);
                 Console.WriteLine(result);
+                WriteLogAudit(apiInstance.GetStatusCode());
                 return result;
             }
-            catch (Exception e)
+            catch (ApiException e)
             {
                 Console.WriteLine("Exception on calling the API : " + e.Message);
+                WriteLogAudit(e.ErrorCode);
                 return null;
             }
         }

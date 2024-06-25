@@ -10,6 +10,13 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments
 {
     public class SimpleAuthorizationInternet
     {
+        public static void WriteLogAudit(int status)
+        {
+            var filePath = System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.ToString().Split('.');
+            var filename = filePath[filePath.Length - 1];
+            Console.WriteLine($"[Sample Code Testing] [{filename}] {status}");
+        }
+
         public static bool CaptureTrueForProcessPayment { get; set; } = false;
 
         public static PtsV2PaymentsPost201Response Run()
@@ -90,17 +97,15 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments
                 var apiInstance = new PaymentsApi(clientConfig);
                 PtsV2PaymentsPost201Response result = apiInstance.CreatePayment(requestObj);
                 Console.WriteLine(result);
+                WriteLogAudit(apiInstance.GetStatusCode());
                 return result;
             }
-            catch(ApiException err)
+            catch(ApiException e)
             {
-                Console.WriteLine("Error Code: " + err.ErrorCode);
-                Console.WriteLine("Error Message: " + err.Message);
-                return null;
-            }
-            catch (Exception e)
-            {
+                Console.WriteLine("Error Code: " + e.ErrorCode);
+                Console.WriteLine("Error Message: " + e.Message);
                 Console.WriteLine("Exception on calling the API : " + e.Message);
+                WriteLogAudit(e.ErrorCode);
                 return null;
             }
         }

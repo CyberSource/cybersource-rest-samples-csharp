@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using CyberSource.Model;
 using CyberSource.Api;
+using CyberSource.Client;
 using System.IO;
 
 namespace Cybersource_rest_samples_dotnet.Samples.Authentication
@@ -31,6 +32,13 @@ namespace Cybersource_rest_samples_dotnet.Samples.Authentication
         private static string accessToken;
         private static Dictionary<string, string> configDictionary;
         public static bool createUsingAuthCode = false;
+
+        public static void WriteLogAudit(int status)
+        {
+            var filePath = System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.ToString().Split('.');
+            var filename = filePath[filePath.Length - 1];
+            Console.WriteLine($"[Sample Code Testing] [{filename}] {status}");
+        }
 
         public static void Run()
         {
@@ -66,7 +74,8 @@ namespace Cybersource_rest_samples_dotnet.Samples.Authentication
                 configDictionary["authenticationType"] = "OAuth";
 
                 //Call Payments SampleCode using OAuth, Set Authentication to OAuth in Sample Code Configuration
-                SimpleAuthorizationInternet();
+                var resultCode = SimpleAuthorizationInternet();
+                WriteLogAudit(resultCode);
             }
 
         }
@@ -85,7 +94,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Authentication
                 GrantType: grantType,
                 ClientId: configDictionary["clientId"],
                 ClientSecret: configDictionary["clientSecret"]
-                );
+                 );
 
                 var apiInstance = new OAuthApi(clientConfig);
                 result = apiInstance.PostAccessTokenRequest(requestObj);
@@ -114,7 +123,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Authentication
                 GrantType: grantType,
                 ClientId: configDictionary["clientId"],
                 ClientSecret: configDictionary["clientSecret"]
-                );
+                 );
 
                 var apiInstance = new OAuthApi(clientConfig);
                 result = apiInstance.PostAccessTokenRequest(requestObj);
@@ -129,18 +138,18 @@ namespace Cybersource_rest_samples_dotnet.Samples.Authentication
             }
         }
 
-        public static PtsV2PaymentsPost201Response SimpleAuthorizationInternet()
+        public static int SimpleAuthorizationInternet()
         {
             string clientReferenceInformationCode = "TC50171_3";
             Ptsv2paymentsClientReferenceInformation clientReferenceInformation = new Ptsv2paymentsClientReferenceInformation(
                 Code: clientReferenceInformationCode
-           );
+            );
 
             bool processingInformationCapture = false;
 
             Ptsv2paymentsProcessingInformation processingInformation = new Ptsv2paymentsProcessingInformation(
                 Capture: processingInformationCapture
-           );
+            );
 
             string paymentInformationCardNumber = "4111111111111111";
             string paymentInformationCardExpirationMonth = "12";
@@ -149,18 +158,18 @@ namespace Cybersource_rest_samples_dotnet.Samples.Authentication
                 Number: paymentInformationCardNumber,
                 ExpirationMonth: paymentInformationCardExpirationMonth,
                 ExpirationYear: paymentInformationCardExpirationYear
-           );
+            );
 
             Ptsv2paymentsPaymentInformation paymentInformation = new Ptsv2paymentsPaymentInformation(
                 Card: paymentInformationCard
-           );
+            );
 
             string orderInformationAmountDetailsTotalAmount = "102.21";
             string orderInformationAmountDetailsCurrency = "USD";
             Ptsv2paymentsOrderInformationAmountDetails orderInformationAmountDetails = new Ptsv2paymentsOrderInformationAmountDetails(
                 TotalAmount: orderInformationAmountDetailsTotalAmount,
                 Currency: orderInformationAmountDetailsCurrency
-           );
+            );
 
             string orderInformationBillToFirstName = "John";
             string orderInformationBillToLastName = "Doe";
@@ -181,19 +190,19 @@ namespace Cybersource_rest_samples_dotnet.Samples.Authentication
                 Country: orderInformationBillToCountry,
                 Email: orderInformationBillToEmail,
                 PhoneNumber: orderInformationBillToPhoneNumber
-           );
+            );
 
             Ptsv2paymentsOrderInformation orderInformation = new Ptsv2paymentsOrderInformation(
                 AmountDetails: orderInformationAmountDetails,
                 BillTo: orderInformationBillTo
-           );
+            );
 
             var requestObj = new CreatePaymentRequest(
                 ClientReferenceInformation: clientReferenceInformation,
                 ProcessingInformation: processingInformation,
                 PaymentInformation: paymentInformation,
                 OrderInformation: orderInformation
-           );
+            );
 
             try
             {
@@ -202,12 +211,12 @@ namespace Cybersource_rest_samples_dotnet.Samples.Authentication
                 var apiInstance = new PaymentsApi(clientConfig);
                 PtsV2PaymentsPost201Response result = apiInstance.CreatePayment(requestObj);
                 Console.WriteLine(result);
-                return result;
+                return apiInstance.GetStatusCode();
             }
-            catch (Exception e)
+            catch (ApiException e)
             {
                 Console.WriteLine("Exception on calling the API : " + e.Message);
-                return null;
+                return e.ErrorCode;
             }
         }
     }

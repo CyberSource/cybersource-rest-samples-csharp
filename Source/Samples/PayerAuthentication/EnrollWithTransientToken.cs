@@ -3,12 +3,20 @@ using System.Collections.Generic;
 using System.Globalization;
 
 using CyberSource.Api;
+using CyberSource.Client;
 using CyberSource.Model;
 
 namespace Cybersource_rest_samples_dotnet.Samples.PayerAuthentication
 {
     public class EnrollWithTransientToken
     {
+        public static void WriteLogAudit(int status)
+        {
+            var filePath = System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.ToString().Split('.');
+            var filename = filePath[filePath.Length - 1];
+            Console.WriteLine($"[Sample Code Testing] [{filename}] {status}");
+        }
+
         public static RiskV1AuthenticationsPost201Response Run()
         {
             string clientReferenceInformationCode = "UNKNOWN";
@@ -70,11 +78,13 @@ namespace Cybersource_rest_samples_dotnet.Samples.PayerAuthentication
                 var apiInstance = new PayerAuthenticationApi(clientConfig);
                 RiskV1AuthenticationsPost201Response result = apiInstance.CheckPayerAuthEnrollment(requestObj);
                 Console.WriteLine(result);
+                WriteLogAudit(apiInstance.GetStatusCode());
                 return result;
             }
-            catch (Exception e)
+            catch (ApiException e)
             {
                 Console.WriteLine("Exception on calling the API : " + e.Message);
+                WriteLogAudit(e.ErrorCode);
                 return null;
             }
         }

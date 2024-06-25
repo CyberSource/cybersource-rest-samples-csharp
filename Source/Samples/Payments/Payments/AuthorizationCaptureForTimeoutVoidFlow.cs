@@ -1,5 +1,6 @@
 ﻿using System;
 using CyberSource.Api;
+using CyberSource.Client;
 using CyberSource.Model;
 using Cybersource_rest_samples_dotnet.Resource;
 
@@ -7,6 +8,13 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments
 {
     public class AuthorizationCaptureForTimeoutVoidFlow
     {
+        public static void WriteLogAudit(int status)
+        {
+            var filePath = System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.ToString().Split('.');
+            var filename = filePath[filePath.Length - 1];
+            Console.WriteLine($"[Sample Code Testing] [{filename}] {status}");
+        }
+
         public static PtsV2PaymentsPost201Response Run()
         {
             SampleCode.TimeoutVoidTransactionId = NumericUtility.LongRandom(1000, 1000000000 + 1);
@@ -90,11 +98,13 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments
                 var apiInstance = new PaymentsApi(clientConfig);
                 PtsV2PaymentsPost201Response result = apiInstance.CreatePayment(requestObj);
                 Console.WriteLine(result);
+                WriteLogAudit(apiInstance.GetStatusCode());
                 return result;
             }
-            catch (Exception e)
+            catch (ApiException e)
             {
                 Console.WriteLine("Exception on calling the API : " + e.Message);
+                WriteLogAudit(e.ErrorCode);
                 return null;
             }
         }
