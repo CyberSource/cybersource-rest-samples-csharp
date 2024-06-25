@@ -51,7 +51,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.PayerAuthentication
         //    ));
 
             Riskv1authenticationresultsOrderInformation orderInformation = new Riskv1authenticationresultsOrderInformation(
-                AmountDetails: orderInformationAmountDetails,
+                AmountDetails: orderInformationAmountDetails
                 // LineItems: orderInformationLineItems
            );
 
