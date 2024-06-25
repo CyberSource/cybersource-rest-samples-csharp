@@ -6,12 +6,20 @@ using System.Xml;
 using System.Xml.Serialization;
 
 using CyberSource.Api;
+using CyberSource.Client;
 using CyberSource.Model;
 
 namespace Cybersource_rest_samples_dotnet.Samples.TransactionBatches
 {
     public class GetTransactionDetailsForGivenBatchId
     {
+        public static void WriteLogAudit(int status)
+        {
+            var filePath = System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.ToString().Split('.');
+            var filename = filePath[filePath.Length - 1];
+            Console.WriteLine($"[Sample Code Testing] [{filename}] {status}");
+        }
+
         public static void Run()
         {
             var id = "12345";
@@ -33,15 +41,17 @@ namespace Cybersource_rest_samples_dotnet.Samples.TransactionBatches
 
                 Console.WriteLine("\nFile Downloaded at the following location : ");
                 Console.WriteLine($"{Path.GetFullPath(downloadFilePath)}\n");
+                WriteLogAudit(apiInstance.GetStatusCode());
                 // END : FILE DOWNLOAD FUNCTIONALITY
             }
             catch (FileNotFoundException)
             {
                 Console.WriteLine("File Not Found : Kindly verify the path.");
             }
-            catch (Exception e)
+            catch (ApiException e)
             {
                 Console.WriteLine("Exception on calling the API : " + e.Message);
+                WriteLogAudit(e.ErrorCode);
             }
         }
 

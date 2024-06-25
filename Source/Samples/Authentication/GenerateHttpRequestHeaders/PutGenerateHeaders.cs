@@ -11,6 +11,13 @@ namespace Cybersource_rest_samples_dotnet.Samples.Authentication
         // Report Details provided in the JSON File are sent along with the Request as Request Body
         // Below request subscribes 'TRR Report' for Organization ID: testrest
         private const string RequestTarget = "/reporting/v2/reportSubscriptions/TRRReport?organizationId=testrest";
+
+        public static void WriteLogAudit(int status)
+        {
+            var filePath = System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.ToString().Split('.');
+            var filename = filePath[filePath.Length - 1];
+            Console.WriteLine($"[Sample Code Testing] [{filename}] {status}");
+        }
         public static void Run()
         {
             string RequestJsonFilePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../../", "Source/Resource/TRRReport.json");
@@ -39,6 +46,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Authentication
                     Console.WriteLine("{0} {1}", "Host:", requestHeaders.HostName);
                     Console.WriteLine("{0} {1}", "digest:", requestHeaders.Digest);
                     Console.WriteLine("{0} {1}", "signature:", requestHeaders.SignatureParam);
+                    WriteLogAudit(200);
                 }
                 else if (string.Equals(merchantConfig.AuthenticationType, Enumerations.AuthenticationType.JWT.ToString(), StringComparison.OrdinalIgnoreCase))
                 {
@@ -46,12 +54,14 @@ namespace Cybersource_rest_samples_dotnet.Samples.Authentication
 
                     Console.WriteLine("{0} {1}", "Content-Type:", "application/json");
                     Console.WriteLine("{0} {1}", "Authorization:", requestHeaders.BearerToken);
+                    WriteLogAudit(200);
                 }
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
                 Console.WriteLine(e.StackTrace);
+                WriteLogAudit(400);
             }
         }
     }

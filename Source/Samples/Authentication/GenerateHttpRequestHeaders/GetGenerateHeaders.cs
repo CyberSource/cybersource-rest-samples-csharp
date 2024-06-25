@@ -10,6 +10,13 @@ namespace Cybersource_rest_samples_dotnet.Samples.Authentication
         // Below Request fetches the payment details of payment ID: 5289697403596987704107
         private const string RequestTarget = "/pts/v2/payments/5289697403596987704107";
 
+        public static void WriteLogAudit(int status)
+        {
+            var filePath = System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.ToString().Split('.');
+            var filename = filePath[filePath.Length - 1];
+            Console.WriteLine($"[Sample Code Testing] [{filename}] {status}");
+        }
+
         public static void Run()
         {
             try
@@ -33,6 +40,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Authentication
                     Console.WriteLine("{0} {1}", "Date:", requestHeaders.GmtDateTime);
                     Console.WriteLine("{0} {1}", "Host:", requestHeaders.HostName);
                     Console.WriteLine("{0} {1}", "signature:", requestHeaders.SignatureParam);
+                    WriteLogAudit(200);
                 }
                 else if (string.Equals(merchantConfig.AuthenticationType, Enumerations.AuthenticationType.JWT.ToString(), StringComparison.OrdinalIgnoreCase))
                 {
@@ -40,12 +48,14 @@ namespace Cybersource_rest_samples_dotnet.Samples.Authentication
 
                     Console.WriteLine("{0} {1}", "Accept:", "application/hal+json");
                     Console.WriteLine("{0} {1}", "Authorization:", requestHeaders.BearerToken);
+                    WriteLogAudit(200);
                 }
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
                 Console.WriteLine(e.StackTrace);
+                WriteLogAudit(400);
             }
         }
     }
