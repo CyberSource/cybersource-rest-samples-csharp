@@ -12,10 +12,18 @@ namespace Cybersource_rest_samples_dotnet.Samples.Authentication
     {
         // Try with your own credentaials
         // Get Key ID, Secret Key and Merchant Id from EBC portal
+        //private static string merchantID request-target= "testrest";
         private static string merchantID = "testrest";
         private static string merchantKeyId = "08c94330-f618-42a3-b09d-e1e43be5efda";
         private static string merchantsecretKey = "yBJxy6LjM2TmcPGu+GaJrHtkke25fPpUX+UY6/L/1tE=";
         private static string requestHost = "apitest.cybersource.com";
+
+        public static void WriteLogAudit(int status)
+        {
+            var filePath = System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.ToString().Split('.');
+            var filename = filePath[filePath.Length - 1];
+            Console.WriteLine($"[Sample Code Testing] [{filename}] {status}");
+        }
 
         /// <summary>
         /// This Example illustrate two tests - HTTP get and post method with Cybersource Payments API.
@@ -72,14 +80,16 @@ namespace Cybersource_rest_samples_dotnet.Samples.Authentication
 
                 var statusCode = await CallCyberSourceAPI(body);
 
-                if ((int)statusCode >= 200 && (int)statusCode <= 299)
+                if (statusCode >= 200 && statusCode <= 299)
                 {
-                    Console.WriteLine(string.Format("STATUS : SUCCESS (HTTP Status = {0})", (int)statusCode));
+                    Console.WriteLine(string.Format("STATUS : SUCCESS (HTTP Status = {0})", statusCode));
                 }
                 else
                 {
-                    Console.WriteLine(string.Format("STATUS : ERROR (HTTP Status = {0})", (int)statusCode));
+                    Console.WriteLine(string.Format("STATUS : ERROR (HTTP Status = {0})", statusCode));
                 }
+
+                WriteLogAudit(statusCode);
             }
             catch (Exception e)
             {
@@ -92,9 +102,9 @@ namespace Cybersource_rest_samples_dotnet.Samples.Authentication
         /// </summary>
         /// <param name="request">Request to send to API endpoint</param>
         /// <returns>Task</returns>
-        public static async Task<TaskStatus> CallCyberSourceAPI(string request)
+        public static async Task<int> CallCyberSourceAPI(string request)
         {
-            TaskStatus responseCode;
+            TaskStatus responseCodeGet, responseCodePost;
 
             // HTTP GET request
             using (var client = new HttpClient())
@@ -140,7 +150,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Authentication
                 {
                     string result = await r.Content.ReadAsStringAsync();
                     Console.WriteLine(result);
-                    responseCode = (TaskStatus)r.StatusCode;
+                    responseCodeGet = (TaskStatus)r.StatusCode;
                 }
             }
 
@@ -196,12 +206,19 @@ namespace Cybersource_rest_samples_dotnet.Samples.Authentication
                 Console.WriteLine("\n -- Response Message --\n");
 
                 var response = await client.PostAsync("https://" + requestHost + resource, content);
-                responseCode = (TaskStatus)response.StatusCode;
+                responseCodePost = (TaskStatus)response.StatusCode;
                 string responsecontent = await response.Content.ReadAsStringAsync();
                 Console.WriteLine(responsecontent);
             }
 
-            return responseCode;
+            if (((int)responseCodePost >= 200 && (int)responseCodePost <= 299) && ((int)responseCodePost >= 200 && (int)responseCodePost <= 299))
+            {
+                return 200;
+            }
+            else
+            {
+                return 400;
+            }
         }
 
         /// <summary>

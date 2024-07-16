@@ -3,13 +3,21 @@ using System.Collections.Generic;
 using System.Globalization;
 
 using CyberSource.Api;
+using CyberSource.Client;
 using CyberSource.Model;
 
 namespace Cybersource_rest_samples_dotnet.Samples.FlexMicroform
 {
-    public class GenerateKeyLegacyTokenFormat
+    /*public class GenerateKeyLegacyTokenFormat
     {
-        /*public static FlexV1KeysPost200Response Run()
+        public static void WriteLogAudit(int status)
+        {
+            var filePath = System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.ToString().Split('.');
+            var filename = filePath[filePath.Length - 1];
+            Console.WriteLine($"[Sample Code Testing] [{filename}] {status}");
+        }
+
+        public static FlexV1KeysPost200Response Run()
         {
             string encryptionType = "None";
             string targetOrigin = "https://www.test.com";
@@ -27,13 +35,16 @@ namespace Cybersource_rest_samples_dotnet.Samples.FlexMicroform
                 var apiInstance = new KeyGenerationApi(clientConfig);
                 FlexV1KeysPost200Response result = apiInstance.GeneratePublicKey(format, requestObj);
                 Console.WriteLine(result);
+                WriteLogAudit(apiInstance.GetStatusCode());
                 return result;
             }
-            catch (Exception e)
+            catch (ApiException e)
             {
                 Console.WriteLine("Exception on calling the API : " + e.Message);
+                WriteLogAudit(e.ErrorCode);
                 return null;
             }
-        } */
-    }
+        }
+    }*/
+
 }

@@ -3,12 +3,20 @@ using System.Collections.Generic;
 using System.Globalization;
 
 using CyberSource.Api;
+using CyberSource.Client;
 using CyberSource.Model;
 
 namespace Cybersource_rest_samples_dotnet.Samples.PayerAuthentication
 {
     public class ValidateAuthenticationResults
     {
+        public static void WriteLogAudit(int status)
+        {
+            var filePath = System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.ToString().Split('.');
+            var filename = filePath[filePath.Length - 1];
+            Console.WriteLine($"[Sample Code Testing] [{filename}] {status}");
+        }
+
         public static RiskV1AuthenticationResultsPost201Response Run()
         {
             string clientReferenceInformationCode = "pavalidatecheck";
@@ -17,19 +25,30 @@ namespace Cybersource_rest_samples_dotnet.Samples.PayerAuthentication
             Riskv1decisionsClientReferenceInformationPartner clientReferenceInformationPartner = new Riskv1decisionsClientReferenceInformationPartner(
                 DeveloperId: clientReferenceInformationPartnerDeveloperId,
                 SolutionId: clientReferenceInformationPartnerSolutionId
-            );
+           );
 
             Riskv1decisionsClientReferenceInformation clientReferenceInformation = new Riskv1decisionsClientReferenceInformation(
                 Code: clientReferenceInformationCode,
                 Partner: clientReferenceInformationPartner
-            );
+           );
 
             string orderInformationAmountDetailsCurrency = "USD";
             string orderInformationAmountDetailsTotalAmount = "200.00";
             Riskv1authenticationresultsOrderInformationAmountDetails orderInformationAmountDetails = new Riskv1authenticationresultsOrderInformationAmountDetails(
                 Currency: orderInformationAmountDetailsCurrency,
                 TotalAmount: orderInformationAmountDetailsTotalAmount
-            );
+           );
+
+
+        //     List<Riskv1authenticationresultsOrderInformationLineItems> orderInformationLineItems = new List<Riskv1authenticationresultsOrderInformationLineItems>();
+        //     string orderInformationLineItemsUnitPrice1 = "10";
+        //     int orderInformationLineItemsQuantity1 = 2;
+        //     string orderInformationLineItemsTaxAmount1 = "32.40";
+        //     orderInformationLineItems.Add(new Riskv1authenticationresultsOrderInformationLineItems(
+        //         UnitPrice: orderInformationLineItemsUnitPrice1,
+        //         Quantity: orderInformationLineItemsQuantity1,
+        //         TaxAmount: orderInformationLineItemsTaxAmount1
+        //    ));
 
             Riskv1authenticationresultsOrderInformation orderInformation = new Riskv1authenticationresultsOrderInformation(
                 AmountDetails: orderInformationAmountDetails
@@ -44,25 +63,25 @@ namespace Cybersource_rest_samples_dotnet.Samples.PayerAuthentication
                 ExpirationMonth: paymentInformationCardExpirationMonth,
                 ExpirationYear: paymentInformationCardExpirationYear,
                 Number: paymentInformationCardNumber
-            );
+           );
 
             Riskv1authenticationresultsPaymentInformation paymentInformation = new Riskv1authenticationresultsPaymentInformation(
                 Card: paymentInformationCard
-            );
+           );
 
             string consumerAuthenticationInformationAuthenticationTransactionId = "PYffv9G3sa1e0CQr5fV0";
             string consumerAuthenticationInformationSignedPares = "eNqdmFmT4jgSgN+J4D90zD4yMz45PEFVhHzgA2zwjXnzhQ984Nvw61dAV1";
             Riskv1authenticationresultsConsumerAuthenticationInformation consumerAuthenticationInformation = new Riskv1authenticationresultsConsumerAuthenticationInformation(
                 AuthenticationTransactionId: consumerAuthenticationInformationAuthenticationTransactionId,
                 SignedPares: consumerAuthenticationInformationSignedPares
-            );
+           );
 
             var requestObj = new ValidateRequest(
                 ClientReferenceInformation: clientReferenceInformation,
                 OrderInformation: orderInformation,
                 PaymentInformation: paymentInformation,
                 ConsumerAuthenticationInformation: consumerAuthenticationInformation
-            );
+           );
 
             try
             {
@@ -72,11 +91,13 @@ namespace Cybersource_rest_samples_dotnet.Samples.PayerAuthentication
                 var apiInstance = new PayerAuthenticationApi(clientConfig);
                 RiskV1AuthenticationResultsPost201Response result = apiInstance.ValidateAuthenticationResults(requestObj);
                 Console.WriteLine(result);
+                WriteLogAudit(apiInstance.GetStatusCode());
                 return result;
             }
-            catch (Exception e)
+            catch (ApiException e)
             {
                 Console.WriteLine("Exception on calling the API : " + e.Message);
+                WriteLogAudit(e.ErrorCode);
                 return null;
             }
         }

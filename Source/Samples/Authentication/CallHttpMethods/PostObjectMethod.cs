@@ -12,6 +12,13 @@ namespace Cybersource_rest_samples_dotnet.Samples.Authentication
         // Transaction details are sent along with the Request as Request Body
         private const string RequestTarget = "/pts/v2/payments/";
 
+        public static void WriteLogAudit(int status)
+        {
+            var filePath = System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.ToString().Split('.');
+            var filename = filePath[filePath.Length - 1];
+            Console.WriteLine($"[Sample Code Testing] [{filename}] {status}");
+        }
+
         public static void Run()
         {
             try
@@ -39,6 +46,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Authentication
                     Console.WriteLine("\n v-c-correlation-id:{0}", response.GetResponseHeaderValue(response.Headers, "v-c-correlation-id"));
                     Console.WriteLine("\n Response Code:{0}", response.StatusCode);
                     Console.WriteLine("\n Response Message:{0}", response.Data);
+                    WriteLogAudit(response.StatusCode);
                 }
             }
             catch (Exception e)
