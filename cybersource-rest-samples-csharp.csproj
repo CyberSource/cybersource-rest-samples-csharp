@@ -383,6 +383,14 @@
     <Compile Include="Source\Samples\NetworkToken\NetworkToken.cs" />
     <Compile Include="Source\Samples\NetworkToken\CreateInstrumentIdentifierEnrollForNetworkToken.cs" />
     <Compile Include="Source\Samples\NetworkToken\PaymentCredentialsFromNetworkToken.cs" />
+    <Compile Include="Source\Samples\BinLookup\BINLookupWithCard.cs" />
+    <Compile Include="Source\Samples\BinLookup\BINLookupWithHealthcareCard.cs" />
+    <Compile Include="Source\Samples\BinLookup\BINLookupWithNetworkToken.cs" />
+    <Compile Include="Source\Samples\BinLookup\BINLookupWithTMSCustomerID.cs" />
+    <Compile Include="Source\Samples\BinLookup\BINLookupWithTMSInstrumentIdentifier.cs" />
+    <Compile Include="Source\Samples\BinLookup\BINLookupWithTMSJtiTransientToken.cs" />
+    <Compile Include="Source\Samples\BinLookup\BINLookupWithTMSJWTTransientToken.cs" />
+    <Compile Include="Source\Samples\BinLookup\BINLookupWithTMSPaymentInstrument.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="NLog.config">
