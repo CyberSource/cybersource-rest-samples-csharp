@@ -9,7 +9,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Webhooks.ManageWebhooks
 {
 	public class GetDetailsOnAllCreatedWebhooks
 	{
-		public static List<InlineResponse2004> Run()
+		public static List<InlineResponse2003> Run()
 		{
 			// QUERY PARAMETERS
 			string organizationId = "testrest";
@@ -21,7 +21,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Webhooks.ManageWebhooks
 				var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
 				var apiInstance = new ManageWebhooksApi(clientConfig);
-				List<InlineResponse2004> result = apiInstance.GetWebhookSubscriptionsByOrg(organizationId, productId, eventType);
+				List<InlineResponse2003> result = apiInstance.GetWebhookSubscriptionsByOrg(organizationId, productId, eventType);
                 Console.WriteLine(result);
                 return result;
 			}
