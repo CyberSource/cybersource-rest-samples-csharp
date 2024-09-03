@@ -27,7 +27,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.PayerAuthentication
                 SolutionId: clientReferenceInformationPartnerSolutionId
            );
 
-            Riskv1decisionsClientReferenceInformation clientReferenceInformation = new Riskv1decisionsClientReferenceInformation(
+            Riskv1authenticationsetupsClientReferenceInformation clientReferenceInformation = new Riskv1authenticationsetupsClientReferenceInformation(
                 Code: clientReferenceInformationCode,
                 Partner: clientReferenceInformationPartner
            );

@@ -20,7 +20,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.PayerAuthentication
         public static RiskV1AuthenticationSetupsPost201Response Run()
         {
             string clientReferenceInformationCode = "cybs_test";
-            Riskv1decisionsClientReferenceInformation clientReferenceInformation = new Riskv1decisionsClientReferenceInformation(
+            Riskv1authenticationsetupsClientReferenceInformation clientReferenceInformation = new Riskv1authenticationsetupsClientReferenceInformation(
                 Code: clientReferenceInformationCode
            );
 

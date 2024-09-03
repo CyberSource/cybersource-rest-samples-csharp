@@ -27,7 +27,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.PayerAuthentication
                 SolutionId: clientReferenceInformationPartnerSolutionId
            );
 
-            Riskv1decisionsClientReferenceInformation clientReferenceInformation = new Riskv1decisionsClientReferenceInformation(
+            Riskv1authenticationsetupsClientReferenceInformation clientReferenceInformation = new Riskv1authenticationsetupsClientReferenceInformation(
                 Code: clientReferenceInformationCode,
                 Partner: clientReferenceInformationPartner
            );
@@ -71,7 +71,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.PayerAuthentication
             string paymentInformationCardExpirationMonth = "12";
             string paymentInformationCardExpirationYear = "2025";
             string paymentInformationCardNumber = "4000990000000004";
-            Riskv1authenticationsPaymentInformationCard paymentInformationCard = new Riskv1authenticationsPaymentInformationCard(
+            Riskv1authenticationsetupsPaymentInformationCard paymentInformationCard = new Riskv1authenticationsetupsPaymentInformationCard(
                 Type: paymentInformationCardType,
                 ExpirationMonth: paymentInformationCardExpirationMonth,
                 ExpirationYear: paymentInformationCardExpirationYear,

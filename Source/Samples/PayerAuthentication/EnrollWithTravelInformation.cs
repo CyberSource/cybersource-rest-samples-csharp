@@ -20,7 +20,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.PayerAuthentication
         public static RiskV1AuthenticationsPost201Response Run()
         {
             string clientReferenceInformationCode = "cybs_test";
-            Riskv1decisionsClientReferenceInformation clientReferenceInformation = new Riskv1decisionsClientReferenceInformation(
+            Riskv1authenticationsetupsClientReferenceInformation clientReferenceInformation = new Riskv1authenticationsetupsClientReferenceInformation(
                 Code: clientReferenceInformationCode
            );
 
@@ -63,7 +63,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.PayerAuthentication
             string paymentInformationCardExpirationMonth = "12";
             string paymentInformationCardExpirationYear = "2025";
             string paymentInformationCardNumber = "5200340000000015";
-            Riskv1authenticationsPaymentInformationCard paymentInformationCard = new Riskv1authenticationsPaymentInformationCard(
+            Riskv1authenticationsetupsPaymentInformationCard paymentInformationCard = new Riskv1authenticationsetupsPaymentInformationCard(
                 Type: paymentInformationCardType,
                 ExpirationMonth: paymentInformationCardExpirationMonth,
                 ExpirationYear: paymentInformationCardExpirationYear,
