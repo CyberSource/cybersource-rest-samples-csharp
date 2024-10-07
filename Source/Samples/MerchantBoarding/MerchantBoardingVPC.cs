@@ -95,7 +95,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.MerchantBoarding
             EnableInterchangeOptimization = false,
             EnableSplitShipment = false,
             VisaDelegatedAuthenticationId = "123457",
-            DomesticMerchantId = "123458",
+            DomesticMerchantId = false,
             CreditCardRefundLimitPercent = "2",
             BusinessCenterCreditCardRefundLimitPercent = "3",
             AllowCapturesGreaterThanAuthorizations = false,

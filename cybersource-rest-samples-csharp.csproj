@@ -105,6 +105,7 @@
     <Compile Include="Source\AuthenticationData\Configuration.cs" />
     <Compile Include="Source\AuthenticationData\RequestData.cs" />
     <Compile Include="Source\Configuration.cs" />
+    <Compile Include="Source\MerchantBoardingConfiguration.cs" />
     <Compile Include="Source\Properties\AssemblyInfo.cs" />
     <Compile Include="Source\Resource\NumericUtility.cs" />
     <Compile Include="Source\SampleCode.cs" />
@@ -145,6 +146,17 @@
     <Compile Include="Source\Samples\Invoicing\Invoices\GetListOfInvoices.cs" />
     <Compile Include="Source\Samples\Invoicing\Invoices\SendInvoice.cs" />
     <Compile Include="Source\Samples\Invoicing\Invoices\UpdateInvoice.cs" />
+    <Compile Include="Source\Samples\MerchantBoarding\CreateRegistration.cs" />
+    <Compile Include="Source\Samples\MerchantBoarding\MerchantBoardingAmexDirect.cs" />
+    <Compile Include="Source\Samples\MerchantBoarding\MerchantBoardingBarclays.cs" />
+    <Compile Include="Source\Samples\MerchantBoarding\MerchantBoardingBinLookUp.cs" />
+    <Compile Include="Source\Samples\MerchantBoarding\MerchantBoardingCUP.cs" />
+    <Compile Include="Source\Samples\MerchantBoarding\MerchantBoardingEFTPOS.cs" />
+    <Compile Include="Source\Samples\MerchantBoarding\MerchantBoardingFDIGlobal.cs" />
+    <Compile Include="Source\Samples\MerchantBoarding\MerchantBoardingGPX.cs" />
+    <Compile Include="Source\Samples\MerchantBoarding\MerchantBoardingSmartFDC.cs" />
+    <Compile Include="Source\Samples\MerchantBoarding\MerchantBoardingTSYS.cs" />
+    <Compile Include="Source\Samples\MerchantBoarding\MerchantBoardingVPC.cs" />
     <Compile Include="Source\Samples\PayerAuthentication\AuthenticationWithNewAccount.cs" />
     <Compile Include="Source\Samples\PayerAuthentication\AuthenticationWithNORedirect.cs" />
     <Compile Include="Source\Samples\PayerAuthentication\EnrollWithCustomerIdAsPaymentInformation.cs" />
@@ -203,6 +215,9 @@
     <Compile Include="Source\Samples\Payments\Payments\AuthorizationWithPAEnrollAuthenticationNeeded.cs" />
     <Compile Include="Source\Samples\Payments\Payments\AuthorizationWithPayerAuthValidation.cs" />
     <Compile Include="Source\Samples\Payments\Payments\AuthorizationWithTMSTokenBypassingNetworkToken.cs" />
+    <Compile Include="Source\Samples\Payments\Payments\CITInitiatingInstalmentSubscriptionUK.cs" />
+    <Compile Include="Source\Samples\Payments\Payments\CITInitiatingRecurringSubscription.cs" />
+    <Compile Include="Source\Samples\Payments\Payments\CITPlacingCredentialOnFile.cs" />
     <Compile Include="Source\Samples\Payments\Payments\DigitalPaymentGooglePay.cs" />
     <Compile Include="Source\Samples\Payments\Payments\DigitalPaymentsApplePay.cs" />
     <Compile Include="Source\Samples\Payments\Payments\EBTElectronicVoucherPurchaseFromSNAPAccountWithVisaPlatformConnect.cs" />
@@ -213,6 +228,11 @@
     <Compile Include="Source\Samples\Payments\Payments\IncrementalAuthorization.cs" />
     <Compile Include="Source\Samples\Payments\Payments\LevelIIData.cs" />
     <Compile Include="Source\Samples\Payments\Payments\LevelIIIData.cs" />
+    <Compile Include="Source\Samples\Payments\Payments\MITIndustryPracticeDelayedCharge3RIVisa.cs" />
+    <Compile Include="Source\Samples\Payments\Payments\MITIndustryPracticeResubmission.cs" />
+    <Compile Include="Source\Samples\Payments\Payments\MITInstalment.cs" />
+    <Compile Include="Source\Samples\Payments\Payments\MITRecurring.cs" />
+    <Compile Include="Source\Samples\Payments\Payments\MITUnscheduledCredentialOnFile.cs" />
     <Compile Include="Source\Samples\Payments\Payments\PartialAuthorization.cs" />
     <Compile Include="Source\Samples\Payments\Payments\PaymentNetworkTokenization.cs" />
     <Compile Include="Source\Samples\Payments\Payments\PaymentWithFlexToken.cs" />
