@@ -60,7 +60,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.PayerAuthentication
            );
 
             string paymentInformationCustomerCustomerId = "AB695DA801DD1BB6E05341588E0A3BDC";
-            Ptsv2paymentsPaymentInformationCustomer paymentInformationCustomer = new Ptsv2paymentsPaymentInformationCustomer(
+            Riskv1authenticationsPaymentInformationCustomer paymentInformationCustomer = new Riskv1authenticationsPaymentInformationCustomer(
                 CustomerId: paymentInformationCustomerCustomerId
            );
 
