@@ -29,7 +29,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.MerchantBoarding
             Boardingv1registrationsOrganizationInformation organizationInformation = new Boardingv1registrationsOrganizationInformation
             {
                 ParentOrganizationId = "apitester00",
-                Type = Boardingv1registrationsOrganizationInformation.TypeEnum.MERCHANT,
+                Type = "MERCHANT",
                 Configurable = true
             };
 

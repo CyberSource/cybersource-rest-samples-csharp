@@ -29,7 +29,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.MerchantBoarding
             Boardingv1registrationsOrganizationInformation organizationInformation = new Boardingv1registrationsOrganizationInformation
             {
             ParentOrganizationId = "apitester00",
-            Type = Boardingv1registrationsOrganizationInformation.TypeEnum.MERCHANT,
+            Type = "MERCHANT",
             Configurable = true
             };
 
@@ -87,7 +87,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.MerchantBoarding
             CardProcessingConfigCommon common = new CardProcessingConfigCommon
             {
             MerchantCategoryCode = "1799",
-            DefaultAuthTypeCode = CardProcessingConfigCommon.DefaultAuthTypeCodeEnum.FINAL,
+            DefaultAuthTypeCode = "FINAL",
             FoodAndConsumerServiceId = "1456",
             MasterCardAssignedId = "4567",
             SicCode = "1345",
