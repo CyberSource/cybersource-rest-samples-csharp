@@ -38,7 +38,7 @@
       <HintPath>Source\lib\net461\ApiSdk.dll</HintPath>
     </Reference>
     <Reference Include="AuthenticationSdk, Version=0.0.0.20, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\CyberSource.Authentication.0.0.0.20\lib\AuthenticationSdk.dll</HintPath>
+      <HintPath>packages\CyberSource.Authentication.0.0.0.21\lib\AuthenticationSdk.dll</HintPath>
     </Reference>
     <Reference Include="cybersource-rest-client-dotnet">
       <HintPath>packages\CyberSource.Rest.Client.0.0.1.46\lib\cybersource-rest-client-dotnet.dll</HintPath>
