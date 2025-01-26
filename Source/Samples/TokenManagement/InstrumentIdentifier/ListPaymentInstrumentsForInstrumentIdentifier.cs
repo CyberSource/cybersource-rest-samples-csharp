@@ -29,7 +29,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TokenManagement
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new InstrumentIdentifierApi(clientConfig);
-                PaymentInstrumentList1 result = apiInstance.GetInstrumentIdentifierPaymentInstrumentsList(instrumentIdentifierTokenId, profileid, offset, limit);
+                PaymentInstrumentList1 result = apiInstance.GetInstrumentIdentifierPaymentInstrumentsList(instrumentIdentifierTokenId, profileid, false, offset, limit);
                 Console.WriteLine(result);
                 WriteLogAudit(apiInstance.GetStatusCode());
                 return result;
