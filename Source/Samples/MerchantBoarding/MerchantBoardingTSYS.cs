@@ -29,7 +29,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.MerchantBoarding
             Boardingv1registrationsOrganizationInformation organizationInformation = new Boardingv1registrationsOrganizationInformation
             {
                 ParentOrganizationId = "apitester00",
-                Type = Boardingv1registrationsOrganizationInformation.TypeEnum.MERCHANT,
+                Type = "MERCHANT",
                 Configurable = true
             };
 
@@ -91,7 +91,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.MerchantBoarding
             {
                 MerchantCategoryCode = "5999",
                 ProcessLevel3Data = "ignored",
-                DefaultAuthTypeCode = CardProcessingConfigCommon.DefaultAuthTypeCodeEnum.FINAL,
+                DefaultAuthTypeCode = "FINAL",
                 EnablePartialAuth = false,
                 AmexVendorCode = "2233"
             };
@@ -143,7 +143,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.MerchantBoarding
             obj5.ChainNumber = "223344";
             obj5.BatchGroup = "vital_1130";
             obj5.EnhancedData = "disabled";
-            obj5.IndustryCode = CardProcessingConfigCommonProcessors.IndustryCodeEnum.D;
+            obj5.IndustryCode = "D";
             obj5.MerchantBinNumber = "765576";
             obj5.MerchantId = "834215123456";
             obj5.MerchantLocationNumber = "00001";

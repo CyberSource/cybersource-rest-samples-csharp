@@ -29,7 +29,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.MerchantBoarding
             Boardingv1registrationsOrganizationInformation organizationInformation = new Boardingv1registrationsOrganizationInformation
             {
             ParentOrganizationId = "apitester00",
-            Type = Boardingv1registrationsOrganizationInformation.TypeEnum.MERCHANT,
+            Type = "MERCHANT",
             Configurable = true
             };
 
@@ -133,7 +133,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.MerchantBoarding
             {
             MerchantId = "123456789101",
             TerminalId = "1231",
-            IndustryCode = CardProcessingConfigCommonProcessors.IndustryCodeEnum.D,
+            IndustryCode = "D",
             VitalNumber = "71234567",
             MerchantBinNumber = "123456",
             MerchantLocationNumber = "00001",
