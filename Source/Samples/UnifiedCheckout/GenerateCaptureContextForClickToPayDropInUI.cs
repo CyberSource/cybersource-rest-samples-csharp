@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
 
@@ -7,7 +7,7 @@ using CyberSource.Model;
 
 namespace Cybersource_rest_samples_dotnet.Samples.UnifiedCheckout
 {
-    public class GenerateUnifiedCheckout
+    public class GenerateCaptureContextForClickToPayDropInUI
     {
 
         public static void WriteLogAudit(int status)
@@ -43,12 +43,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.UnifiedCheckout
             allowedCardNetworks.Add("MEEZA");
 
             List<string> allowedPaymentTypes = new List<string>();
-            allowedPaymentTypes.Add("APPLEPAY");
-            allowedPaymentTypes.Add("CHECK");
             allowedPaymentTypes.Add("CLICKTOPAY");
-            allowedPaymentTypes.Add("GOOGLEPAY");
-            allowedPaymentTypes.Add("PANENTRY");
-            allowedPaymentTypes.Add("PAZE");
             string country = "US";
             string locale = "en_US";
             string captureMandateBillingType = "FULL";
