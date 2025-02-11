@@ -40,6 +40,11 @@ namespace Cybersource_rest_samples_dotnet
             */
             _configurationDictionary.Add("pemFileDirectory", Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\..\\Source\\Resource\\NetworkTokenCert.pem"));
 
+            /*
+             * Add the property if required to override the cybs default developerId in all request body 
+            */
+            _configurationDictionary.Add("defaultDeveloperId", "");
+
             // _configurationDictionary.Add("proxyAddress", string.Empty);
             // _configurationDictionary.Add("proxyPort", string.Empty);
             // _configurationDictionary.Add("proxyUsername", string.Empty);
