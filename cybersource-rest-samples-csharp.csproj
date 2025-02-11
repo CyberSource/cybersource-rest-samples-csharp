@@ -131,6 +131,8 @@
     <Compile Include="Source\Samples\Authentication\StandAloneOAuth.cs" />
     <Compile Include="Source\Samples\Authentication\StandAloneMetaKey.cs" />
     <Compile Include="Source\Samples\AzureIntermediateTesting\SampleTestingForAzureIntermediateHost.cs" />
+    <Compile Include="Source\Samples\FlexMicroform\GenerateCaptureContextAcceptCheck.cs" />
+    <Compile Include="Source\Samples\FlexMicroform\GenerateCaptureContextAcceptCard.cs" />
     <Compile Include="Source\Samples\FlexMicroform\GenerateCaptureContext.cs" />
     <Compile Include="Source\Samples\FlexMicroform\FlexTokenizeCard.cs" />
     <Compile Include="Source\Samples\FlexMicroform\GenerateKey.cs" />
@@ -370,6 +372,8 @@
     <Compile Include="Source\Samples\TransactionDetails\RetrieveTransaction.cs" />
     <Compile Include="Source\Samples\TransactionSearch\CreateSearchRequest.cs" />
     <Compile Include="Source\Samples\TransactionSearch\GetSearchResults.cs" />
+    <Compile Include="Source\Samples\UnifiedCheckout\GenerateUnifiedCheckoutCaptureContextPassingBillingShipping.cs" />
+    <Compile Include="Source\Samples\UnifiedCheckout\GenerateCaptureContextForClickToPayDropInUI.cs" />
     <Compile Include="Source\Samples\UserManagement\UserManagement\GetUserInformationDeprecated.cs" />
     <Compile Include="Source\Samples\ValueAddedService\BasicTaxCalculationRequest.cs" />
     <Compile Include="Source\Samples\ValueAddedService\CommittedTaxCallRequest.cs" />
