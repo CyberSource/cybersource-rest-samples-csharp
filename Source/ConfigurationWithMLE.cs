@@ -4,7 +4,7 @@ using System.IO;
 using System.Text;
 using Cybersource_rest_samples_dotnet.Samples.Payments;
 
-namespace SampleCodeNetCore.Source
+namespace Cybersource_rest_samples_dotnet
 {
     class ConfigurationWithMLE
     {
@@ -22,8 +22,8 @@ namespace SampleCodeNetCore.Source
 
         public Dictionary<string, string> GetConfiguration1()
         {
-            _configurationDictionary.Add("authenticationType", "JWT");
-            _configurationDictionary.Add("merchantID", "testrest");
+            _configurationDictionary.Add("authenticationType", "JWT"); //mle only supoort with JWT Auth Type
+            _configurationDictionary.Add("merchantID", "testrest"); 
             _configurationDictionary.Add("merchantsecretKey", "yBJxy6LjM2TmcPGu+GaJrHtkke25fPpUX+UY6/L/1tE=");
             _configurationDictionary.Add("merchantKeyId", "08c94330-f618-42a3-b09d-e1e43be5efda");
             _configurationDictionary.Add("keysDirectory", Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\..\\Source\\Resource"));
@@ -31,6 +31,8 @@ namespace SampleCodeNetCore.Source
             _configurationDictionary.Add("runEnvironment", "apitest.cybersource.com");
             _configurationDictionary.Add("keyAlias", "testrest");
             _configurationDictionary.Add("keyPass", "testrest");
+
+            //MLE configs
             _configurationDictionary.Add("useMLEGlobally", "true");     //globally MLE will be enabled for all the MLE supported APIs by Cybs in SDK
             _configurationDictionary.Add("mleKeyAlias", "CyberSource_SJC_US");      //this is optional paramter, not required to set the parameter/value if custom value is not required for MLE key alias. Default value is "CyberSource_SJC_US".
 
@@ -59,6 +61,8 @@ namespace SampleCodeNetCore.Source
             _configurationDictionary.Add("runEnvironment", "apitest.cybersource.com");
             _configurationDictionary.Add("keyAlias", "testrest");
             _configurationDictionary.Add("keyPass", "testrest");
+
+            //mle configs
             _configurationDictionary.Add("useMLEGlobally", "false");     //globally MLE will be disabled for all the MLE supported APIs by Cybs in SDK
             _configurationDictionary.Add("mleKeyAlias", "CyberSource_SJC_US");      //this is optional paramter, not required to set the parameter/value if custom value is not required for MLE key alias. Default value is "CyberSource_SJC_US".
 

@@ -5,7 +5,7 @@ using CyberSource.Api;
 using CyberSource.Client;
 using CyberSource.Model;
 
-namespace SampleCodeNetCore.Source.Samples.MLEFeature
+namespace Cybersource_rest_samples_dotnet.Samples.MLEFeature
 {
     class PaymentsWithMapToContol2
     {
@@ -25,7 +25,7 @@ namespace SampleCodeNetCore.Source.Samples.MLEFeature
             string clientReferenceInformationCode = "TC50171_3";
             Ptsv2paymentsClientReferenceInformation clientReferenceInformation = new Ptsv2paymentsClientReferenceInformation(
                 Code: clientReferenceInformationCode
-           );
+            );
 
             bool processingInformationCapture = false;
             if (CaptureTrueForProcessPayment)
@@ -35,7 +35,7 @@ namespace SampleCodeNetCore.Source.Samples.MLEFeature
 
             Ptsv2paymentsProcessingInformation processingInformation = new Ptsv2paymentsProcessingInformation(
                 Capture: processingInformationCapture
-           );
+            );
 
             string paymentInformationCardNumber = "4111111111111111";
             string paymentInformationCardExpirationMonth = "12";
@@ -44,18 +44,18 @@ namespace SampleCodeNetCore.Source.Samples.MLEFeature
                 Number: paymentInformationCardNumber,
                 ExpirationMonth: paymentInformationCardExpirationMonth,
                 ExpirationYear: paymentInformationCardExpirationYear
-           );
+            );
 
             Ptsv2paymentsPaymentInformation paymentInformation = new Ptsv2paymentsPaymentInformation(
                 Card: paymentInformationCard
-           );
+            );
 
             string orderInformationAmountDetailsTotalAmount = "102.21";
             string orderInformationAmountDetailsCurrency = "USD";
             Ptsv2paymentsOrderInformationAmountDetails orderInformationAmountDetails = new Ptsv2paymentsOrderInformationAmountDetails(
                 TotalAmount: orderInformationAmountDetailsTotalAmount,
                 Currency: orderInformationAmountDetailsCurrency
-           );
+            );
 
             string orderInformationBillToFirstName = "John";
             string orderInformationBillToLastName = "Doe";
@@ -76,19 +76,19 @@ namespace SampleCodeNetCore.Source.Samples.MLEFeature
                 Country: orderInformationBillToCountry,
                 Email: orderInformationBillToEmail,
                 PhoneNumber: orderInformationBillToPhoneNumber
-           );
+            );
 
             Ptsv2paymentsOrderInformation orderInformation = new Ptsv2paymentsOrderInformation(
                 AmountDetails: orderInformationAmountDetails,
                 BillTo: orderInformationBillTo
-           );
+            );
 
             var requestObj = new CreatePaymentRequest(
                 ClientReferenceInformation: clientReferenceInformation,
                 ProcessingInformation: processingInformation,
                 PaymentInformation: paymentInformation,
                 OrderInformation: orderInformation
-           );
+            );
 
             try
             {
