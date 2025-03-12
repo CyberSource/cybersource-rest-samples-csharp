@@ -95,7 +95,7 @@ namespace SampleCodeNetCore.Source.Samples.MLEFeature
 
             var configDictionary = new ConfigurationWithMLE().GetConfiguration1();
             var mapToControlMLE = new ConfigurationWithMLE().GetMapToControlMLE();
-            var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary, null);
+            var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
             var apiInstance = new PaymentsApi(clientConfig);
             PtsV2PaymentsPost201Response result = apiInstance.CreatePayment(requestObj);
