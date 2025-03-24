@@ -9,8 +9,9 @@ namespace Cybersource_rest_samples_dotnet.Samples.Webhooks.ManageWebhooks
 {
 	public class GetDetailsOnSingleWebhook
 	{
-		public static void Run(string webhookId)
+		public static void Run()
 		{
+			string webhookId = "";
 			try
 			{
 				var configDictionary = new Configuration().GetConfiguration();

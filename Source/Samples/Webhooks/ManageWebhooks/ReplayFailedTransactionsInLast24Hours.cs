@@ -9,8 +9,9 @@ namespace Cybersource_rest_samples_dotnet.Samples.Webhooks.ManageWebhooks
 {
 	public class ReplayFailedTransactionsInLast24Hours
 	{
-		public static void Run(string webhookId)
+		public static void Run()
 		{
+			string webhookId = "";
 			string byDeliveryStatusStatus = "FAILED";
 			int byDeliveryStatusHoursBack = 24;
 			string byDeliveryStatusProductId = "tokenManagement";

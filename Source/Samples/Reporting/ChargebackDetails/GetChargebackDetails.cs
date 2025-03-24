@@ -21,8 +21,8 @@ namespace Cybersource_rest_samples_dotnet.Samples.Reporting
         {
             // QUERY PARAMETERS
             string organizationId = "testrest";
-            var startTime = DateTime.ParseExact("2021-08-01T00:00:00Z", "yyyy-MM-ddTHH:mm:ssZ", CultureInfo.InvariantCulture);
-			var endTime = DateTime.ParseExact("2021-09-01T23:59:59Z", "yyyy-MM-ddTHH:mm:ssZ", CultureInfo.InvariantCulture);
+            var startTime = DateTime.ParseExact("2024-08-01T00:00:00Z", "yyyy-MM-ddTHH:mm:ssZ", CultureInfo.InvariantCulture);
+			var endTime = DateTime.ParseExact("2024-09-01T23:59:59Z", "yyyy-MM-ddTHH:mm:ssZ", CultureInfo.InvariantCulture);
 			try
 			{
                 var configDictionary = new Configuration().GetConfiguration();

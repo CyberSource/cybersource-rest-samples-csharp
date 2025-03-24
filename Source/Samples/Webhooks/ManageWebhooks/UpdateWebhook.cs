@@ -9,8 +9,9 @@ namespace Cybersource_rest_samples_dotnet.Samples.Webhooks.ManageWebhooks
 {
 	public class UpdateWebhook
 	{
-		public static void Run(string webhookId)
+		public static void Run()
 		{
+			string webhookId = "";
 			string name = "My Sample Webhook";
 			string description = "Update to my sample webhook";
 			string organizationId = "<INSERT ORGANIZATION ID HERE>";

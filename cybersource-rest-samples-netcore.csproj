@@ -39,15 +39,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="CyberSource.Rest.Client.NetStandard" Version="0.0.1.41" />
-    <PackageReference Include="CyberSource.Authentication.NetStandard" Version="0.0.1.15" />
+    <PackageReference Include="CyberSource.Authentication.NetStandard" Version="0.0.1.16" />
+    <PackageReference Include="CyberSource.Rest.Client.NetStandard" Version="0.0.1.42" />
     <PackageReference Include="jose-jwt" Version="4.1.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="NLog" Version="5.0.0" />
     <PackageReference Include="NLog.Schema" Version="5.0.0" />
     <PackageReference Include="RestSharp" Version="112.1.0" />
     <PackageReference Include="System.ComponentModel.Annotations" Version="4.7.0" />
-    <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.7.0" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="6.0.0" />
   </ItemGroup>
 
   <ItemGroup>

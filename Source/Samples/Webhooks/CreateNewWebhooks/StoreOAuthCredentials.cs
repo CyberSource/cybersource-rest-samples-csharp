@@ -9,7 +9,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Webhooks.CreateNewWebhooks
 {
 	public class StoreOAuthCredentials
 	{
-		public static void Run(string vCcorrelationId, string vCsenderOrganizationId, string vCpermissions)
+		public static void Run()
 		{
 			string clientRequestAction = "STORE";
 			string keyInformationProvider = "<INSERT ORGANIZATION ID HERE>";
@@ -19,6 +19,10 @@ namespace Cybersource_rest_samples_dotnet.Samples.Webhooks.CreateNewWebhooks
 			string keyInformationClientKeyId = "client username";
 			string keyInformationKey = "client secret";
 			string keyInformationExpiryDuration = "365";
+            string vCcorrelationId = null;
+            string vCsenderOrganizationId = null;
+            string vCpermissions = null;
+
 			Kmsegressv2keyssymKeyInformation keyInformation = new Kmsegressv2keyssymKeyInformation(
 				Provider: keyInformationProvider,
 				Tenant: keyInformationTenant,
