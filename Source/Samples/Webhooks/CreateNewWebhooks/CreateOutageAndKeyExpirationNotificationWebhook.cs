@@ -11,7 +11,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Webhooks.CreateNewWebhooks
 	{
 		public static void Run()
 		{
-			string name = "My Custom Webhook";
+			/*string name = "My Custom Webhook";
 			string description = "Sample Webhook from Developer Center";
 			string organizationId = "<INSERT ORGANIZATION ID HERE>";
 			string productId = "cns";
@@ -70,7 +70,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Webhooks.CreateNewWebhooks
 			catch (Exception e)
 			{
 				Console.WriteLine("Exception on calling the API : " + e.Message);
-			}
+			}*/
 		}
 	}
 }

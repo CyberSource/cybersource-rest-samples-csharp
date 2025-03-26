@@ -11,7 +11,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Webhooks.ManageWebhooks
 	{
 		public static void Run()
 		{
-			string webhookId = "";
+			/*string webhookId = "";
 			string name = "My Sample Webhook";
 			string description = "Update to my sample webhook";
 			string organizationId = "<INSERT ORGANIZATION ID HERE>";
@@ -51,7 +51,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Webhooks.ManageWebhooks
 			catch (Exception e)
 			{
 				Console.WriteLine("Exception on calling the API : " + e.Message);
-			}
+			}*/
 		}
 	}
 }

@@ -11,7 +11,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Webhooks.ManageWebhooks
 	{
 		public static void Run()
 		{
-			string webhookId = "";
+			/*string webhookId = "";
 			List <string> byTransactionTraceIdentifiers = new List <string>();
 			byTransactionTraceIdentifiers.Add("1f1d0bf4-9299-418d-99d8-faa3313829f1");
 			byTransactionTraceIdentifiers.Add("d19fb205-20e5-43a2-867e-bd0f574b771e");
@@ -33,7 +33,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Webhooks.ManageWebhooks
 			catch (Exception e)
 			{
 				Console.WriteLine("Exception on calling the API : " + e.Message);
-			}
+			}*/
 		}
 	}
 }

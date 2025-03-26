@@ -17,7 +17,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Webhooks.ManageWebhooks
 				var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
 				var apiInstance = new ManageWebhooksApi(clientConfig);
-				apiInstance.DeleteWebhookSubscription(webhookId);
+				//apiInstance.DeleteWebhookSubscription(webhookId);
 			}
 			catch (Exception e)
 			{

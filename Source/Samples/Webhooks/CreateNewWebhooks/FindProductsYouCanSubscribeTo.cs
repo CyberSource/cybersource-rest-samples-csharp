@@ -19,7 +19,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Webhooks.CreateNewWebhooks
 				var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
 				var apiInstance = new CreateNewWebhooksApi(clientConfig);
-				apiInstance.FindProductsToSubscribe(organizationId);
+				//apiInstance.FindProductsToSubscribe(organizationId);
 			}
 			catch (Exception e)
 			{
