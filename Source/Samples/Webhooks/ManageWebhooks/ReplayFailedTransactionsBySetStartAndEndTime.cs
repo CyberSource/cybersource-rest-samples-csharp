@@ -9,8 +9,9 @@ namespace Cybersource_rest_samples_dotnet.Samples.Webhooks.ManageWebhooks
 {
 	public class ReplayFailedTransactionsBySetStartAndEndTime
 	{
-		public static void Run(string webhookId)
+		public static void Run()
 		{
+			string webhookId = "";
 			string byDeliveryStatusStatus = "FAILED";
 			var byDeliveryStatusStartTime = DateTime.Parse("2021-01-01T15:05:52.284+05:30");
 			var byDeliveryStatusEndTime = DateTime.Parse("2021-01-02T03:05:52.284+05:30");

@@ -45,7 +45,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.RecurringBillingSubscriptions
 
 			string subscriptionInformationPlanId = "6868912495476705603955";
 			string subscriptionInformationName = "Subscription with PlanId";
-			string subscriptionInformationStartDate = "2024-06-11";
+			string subscriptionInformationStartDate = "2030-06-11";
 			Rbsv1subscriptionsSubscriptionInformation subscriptionInformation = new Rbsv1subscriptionsSubscriptionInformation(
 				PlanId: subscriptionInformationPlanId,
 				Name: subscriptionInformationName,

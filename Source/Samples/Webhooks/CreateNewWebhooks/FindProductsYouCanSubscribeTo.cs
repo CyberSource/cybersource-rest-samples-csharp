@@ -9,8 +9,10 @@ namespace Cybersource_rest_samples_dotnet.Samples.Webhooks.CreateNewWebhooks
 {
 	public class FindProductsYouCanSubscribeTo
 	{
-		public static void Run(string organizationId)
+		public static void Run()
 		{
+			string organizationId = "testrest";
+
 			try
 			{
 				var configDictionary = new Configuration().GetConfiguration();

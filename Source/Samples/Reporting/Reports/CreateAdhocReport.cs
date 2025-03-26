@@ -28,8 +28,8 @@ namespace Cybersource_rest_samples_dotnet.Samples.Reporting
             string reportMimeType = "application/xml";
             string reportName = "testrest_v2";
             string timezone = "GMT";
-            var reportStartTime = DateTime.Parse("2023-02-01T17:30:00.000+05:30");
-            var reportEndTime = DateTime.Parse("2023-02-02T17:30:00.000+05:30");
+            var reportStartTime = DateTime.Parse("2025-02-01T17:30:00.000+05:30");
+            var reportEndTime = DateTime.Parse("2025-02-02T17:30:00.000+05:30");
             bool reportPreferencesSignedAmounts = true;
             string reportPreferencesFieldNameConvention = "SOAPI";
             Reportingv3reportsReportPreferences reportPreferences = new Reportingv3reportsReportPreferences(

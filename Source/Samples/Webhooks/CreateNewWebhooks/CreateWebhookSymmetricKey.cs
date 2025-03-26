@@ -9,13 +9,17 @@ namespace Cybersource_rest_samples_dotnet.Samples.Webhooks.CreateNewWebhooks
 {
 	public class CreateWebhookSymmetricKey
 	{
-		public static void Run(string vCcorrelationId, string vCsenderOrganizationId, string vCpermissions)
+		public static void Run()
 		{
 			string clientRequestAction = "CREATE";
 			string keyInformationProvider = "nrtd";
 			string keyInformationTenant = "<INSERT ORGANIZATION ID HERE>";
 			string keyInformationKeyType = "sharedSecret";
 			string keyInformationOrganizationId = "<INSERT ORGANIZATION ID HERE>";
+			string vCcorrelationId = null;
+			string vCsenderOrganizationId = null;
+			string vCpermissions = null;
+
 			Kmsegressv2keyssymKeyInformation keyInformation = new Kmsegressv2keyssymKeyInformation(
 				Provider: keyInformationProvider,
 				Tenant: keyInformationTenant,
