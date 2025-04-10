@@ -11,7 +11,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Webhooks.CreateNewWebhooks
 	{
 		public static void Run()
 		{
-			string name = "My Custom Webhook";
+			/*string name = "My Custom Webhook";
 			string description = "Sample Webhook from Developer Center";
 			string organizationId = "<INSERT ORGANIZATION ID HERE>";
 			string productId = "customerInvoicing";
@@ -63,14 +63,14 @@ namespace Cybersource_rest_samples_dotnet.Samples.Webhooks.CreateNewWebhooks
 				RetryPolicy: retryPolicy,
 				SecurityPolicy: securityPolicy
 			);
-
+*/
 			try
 			{
 				var configDictionary = new Configuration().GetConfiguration();
 				var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
 				var apiInstance = new CreateNewWebhooksApi(clientConfig);
-				apiInstance.CreateWebhookSubscription(requestObj);
+                //apiInstance.CreateWebhookSubscription(requestObj);
 			}
 			catch (Exception e)
 			{

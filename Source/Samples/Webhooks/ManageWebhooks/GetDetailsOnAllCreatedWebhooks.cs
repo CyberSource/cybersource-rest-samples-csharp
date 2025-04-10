@@ -9,7 +9,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Webhooks.ManageWebhooks
 {
 	public class GetDetailsOnAllCreatedWebhooks
 	{
-		public static List<InlineResponse2003> Run()
+		/*public static List<InlineResponse2003> Run()
 		{
 			// QUERY PARAMETERS
 			string organizationId = "testrest";
@@ -30,6 +30,6 @@ namespace Cybersource_rest_samples_dotnet.Samples.Webhooks.ManageWebhooks
 				Console.WriteLine("Exception on calling the API : " + e.Message);
 				return null;
 			}
-		}
+		}*/
 	}
 }
