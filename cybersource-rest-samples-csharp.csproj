@@ -427,9 +427,6 @@
     <None Include="NLog.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Source\App.config">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="NLog.xsd">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
