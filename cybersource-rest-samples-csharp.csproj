@@ -377,6 +377,7 @@
     <Compile Include="Source\Samples\TransactionBatches\GetListOfBatchFiles.cs" />
     <Compile Include="Source\Samples\TransactionBatches\GetTransactionDetailsForGivenBatchId.cs" />
     <Compile Include="Source\Samples\TransactionDetails\RetrieveTransaction.cs" />
+    <Compile Include="Source\Samples\TransactionDetails\UploadTransactionBatch.cs" />
     <Compile Include="Source\Samples\TransactionSearch\CreateSearchRequest.cs" />
     <Compile Include="Source\Samples\TransactionSearch\GetSearchResults.cs" />
     <Compile Include="Source\Samples\UnifiedCheckout\GenerateUnifiedCheckoutCaptureContextPassingBillingShipping.cs" />
