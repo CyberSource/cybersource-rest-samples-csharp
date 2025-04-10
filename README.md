@@ -1,69 +1,53 @@
 # C# Sample Code for the CyberSource SDK
-[![Travis CI Status](https://travis-ci.org/CyberSource/cybersource-rest-samples-csharp.svg?branch=master)](https://travis-ci.org/CyberSource/cybersource-rest-samples-csharp)
 
-This repository contains working code samples which demonstrate C#/.NET integration with the CyberSource REST APIs through the [CyberSource .NET SDK](https://github.com/CyberSource/cybersource-rest-client-dotnet).
+[![Build Status](https://app.travis-ci.com/CyberSource/cybersource-rest-samples-csharp.svg?branch=master)](https://app.travis-ci.com/CyberSource/cybersource-rest-samples-csharp)
 
+This repository contains two applications that demonstrate integration with the CyberSource REST APIs through our SDKs.
 
-## Using the Sample Code
+## .NET Framework
 
-The samples are all completely independent and self-contained. You can analyze them to get an understanding of how a particular method works, or you can use the snippets as a starting point for your own project.
+The application `cybersource-rest-samples-csharp.sln` contains working code samples in a .NET 4.6.1 application which uses the [CyberSource .NET SDK](https://github.com/CyberSource/cybersource-rest-client-dotnet).
 
-### Requirements
-* .NET Framework 4.6.1
-* [CyberSource Account](https://developer.cybersource.com/api/developer-guides/dita-gettingstarted/registration.html)
-* [CyberSource API Keys](https://developer.cybersource.com/api/developer-guides/dita-gettingstarted/registration/createCertSharedKey.html)
+For a more detailed explanation of how to use this application, please refer to [README_Net461.md](./README_Net461.md).
 
-The samples are organized into categories and common usage examples.
+## .NET Core
 
+The application `cybersource-rest-samples-netcore.sln` contains working code samples in a .NET Core 3.1 application the [CyberSource .NET Standard SDK](https://github.com/CyberSource/cybersource-rest-client-dotnetstandard).
 
-### Running the Samples
-* Clone this repository:
-```
-    $ git clone https://github.com/CyberSource/cybersource-rest-samples-csharp.git
-```
-* Open the solution in Visual Studio and build:
+For a more detailed explanation of how to use this application, please refer to [README_NetCore.md](./README_NetCore.md).
 
-* Run the console app and select a sample to execute. 
+## Run Environments
 
-## Setting Your API Credentials
+The run environments that were supported in CyberSource .NET SDK and CyberSource .NET Standard SDK have been deprecated.
+Moving forward, the SDKs will only support the direct hostname as the run environment.
 
-To set your API credentials for an API request,Configure the following information in src/Configuration.cs file:
-  
-  * Http
+For the old run environments previously used, they should be replaced by the following hostnames:
 
-```
-   authenticationType  = http_Signature
-   merchantID 	       = your_merchant_id
-   merchantKeyId       = your_key_serial_number
-   merchantsecretKey   = your_key_shared_secret
-```
-  * Jwt
+|              Old Run Environment              |               New Hostname Value               |
+|-----------------------------------------------|------------------------------------------------|
+|`cybersource.environment.sandbox`              |`apitest.cybersource.com`                       |
+|`cybersource.environment.production`           |`api.cybersource.com`                           |
+|`cybersource.environment.mutualauth.sandbox`   |`api-matest.cybersource.com`                    |
+|`cybersource.environment.mutualauth.production`|`api-ma.cybersource.com`                        |
+|`cybersource.in.environment.sandbox`           |`apitest.cybersource.com`                       |
+|`cybesource.in.environment.production`         |`api.in.cybersource.com`                        |
 
-```
-   authenticationType  = Jwt
-   merchantID 	       = your_merchant_id
-   keyAlias	           = your_merchant_id
-   keyPassword	       = your_merchant_id
-   keyFileName         = your_merchant_id
-   keysDirectory       = Resource
-```
-
-## Switching between the sandbox environment and the production environment
-CyberSource maintains a complete sandbox environment for testing and development purposes. This sandbox environment is an exact
-duplicate of our production environment with the transaction authorization and settlement process simulated. By default, this SDK is 
-configured to communicate with the sandbox environment. To switch to the production environment, set the appropriate environment 
-constant in src/App.json file.  For example:
+For example, replace the following code in the Configuration file:
 
 ```csharp
 // For TESTING use
 _configurationDictionary.Add("runEnvironment", "cybersource.environment.sandbox");
+
 // For PRODUCTION use
 // _configurationDictionary.Add("runEnvironment", "cybersource.environment.production");
 ```
 
+with the following code:
 
-The [API Reference Guide](https://developer.cybersource.com/api/reference/api-reference.html) provides examples of what information is needed for a particular request and how that information would be formatted. Using those examples, you can easily determine what methods would be necessary to include that information in a request
-using this SDK.
+```csharp
+// For TESTING use
+_configurationDictionary.Add("runEnvironment", "apitest.cybersource.com");
 
- ## License
-This repository is distributed under a proprietary license.
+// For PRODUCTION use
+// _configurationDictionary.Add("runEnvironment", "api.cybersource.com");
+```
