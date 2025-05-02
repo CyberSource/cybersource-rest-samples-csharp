@@ -376,8 +376,8 @@
     <Compile Include="Source\Samples\TransactionBatches\GetIndividualBatchFile.cs" />
     <Compile Include="Source\Samples\TransactionBatches\GetListOfBatchFiles.cs" />
     <Compile Include="Source\Samples\TransactionBatches\GetTransactionDetailsForGivenBatchId.cs" />
+    <Compile Include="Source\Samples\TransactionBatches\UploadTransactionBatch.cs" />
     <Compile Include="Source\Samples\TransactionDetails\RetrieveTransaction.cs" />
-    <Compile Include="Source\Samples\TransactionDetails\UploadTransactionBatch.cs" />
     <Compile Include="Source\Samples\TransactionSearch\CreateSearchRequest.cs" />
     <Compile Include="Source\Samples\TransactionSearch\GetSearchResults.cs" />
     <Compile Include="Source\Samples\UnifiedCheckout\GenerateUnifiedCheckoutCaptureContextPassingBillingShipping.cs" />
@@ -447,6 +447,8 @@
     <None Include="Source\Resource\testrest.p12" />
     <None Include="Source\Resource\testrest_cpctv.p12" />
     <None Include="Source\Resource\TRRReport.json" />
+    <None Include="Source\Resource\batchapiTest.csv" />
+    <None Include="Source\Resource\qaebc2.p12" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Source\lib\net461\ApiSdk.dll" />
