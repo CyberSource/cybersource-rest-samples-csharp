@@ -67,9 +67,9 @@ namespace Cybersource_rest_samples_dotnet.Samples.Invoicing
                 TotalAmount: orderInformationAmountDetailsTotalAmount,
                 Currency: orderInformationAmountDetailsCurrency,
                 DiscountAmount: orderInformationAmountDetailsDiscountAmount,
-                DiscountPercent: orderInformationAmountDetailsDiscountPercent,
-                SubAmount: orderInformationAmountDetailsSubAmount,
-                MinimumPartialAmount: orderInformationAmountDetailsMinimumPartialAmount,
+                DiscountPercent: orderInformationAmountDetailsDiscountPercent.ToString(),
+                SubAmount: orderInformationAmountDetailsSubAmount.ToString(),
+                MinimumPartialAmount: orderInformationAmountDetailsMinimumPartialAmount.ToString(),
                 TaxDetails: orderInformationAmountDetailsTaxDetails,
                 Freight: orderInformationAmountDetailsFreight
            );

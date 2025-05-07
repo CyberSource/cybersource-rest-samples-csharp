@@ -10,7 +10,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Invoicing
 {
     public class CancelInvoice
     {
-        public static InvoicingV2InvoicesPost201Response Run()
+        public static InvoicingV2InvoicesCancel200Response Run()
         {
             try
             {
@@ -19,7 +19,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Invoicing
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new InvoicesApi(clientConfig);
-                InvoicingV2InvoicesPost201Response result = apiInstance.PerformCancelAction(invoiceId);
+                InvoicingV2InvoicesCancel200Response result = apiInstance.PerformCancelAction(invoiceId);
                 Console.WriteLine(result);
                 return result;
             }

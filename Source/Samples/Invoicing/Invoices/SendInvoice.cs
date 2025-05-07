@@ -10,7 +10,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Invoicing
 {
     public class SendInvoice
     {
-        public static InvoicingV2InvoicesPost201Response Run()
+        public static InvoicingV2InvoicesSend200Response Run()
         {
             try
             {
@@ -19,7 +19,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Invoicing
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new InvoicesApi(clientConfig);
-                InvoicingV2InvoicesPost201Response result = apiInstance.PerformSendAction(invoiceId);
+                InvoicingV2InvoicesSend200Response result = apiInstance.PerformSendAction(invoiceId);
                 Console.WriteLine(result);
                 return result;
             }
