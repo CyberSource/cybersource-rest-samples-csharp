@@ -14,7 +14,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.RecurringBillingSubscriptions
 			string clientReferenceInformationCode = "APGHU";
 			string clientReferenceInformationPartnerDeveloperId = "ABCD1234";
 			string clientReferenceInformationPartnerSolutionId = "GEF1234";
-			Riskv1decisionsClientReferenceInformationPartner clientReferenceInformationPartner = new Riskv1decisionsClientReferenceInformationPartner(
+			Rbsv1subscriptionsClientReferenceInformationPartner clientReferenceInformationPartner = new Rbsv1subscriptionsClientReferenceInformationPartner(
 				DeveloperId: clientReferenceInformationPartnerDeveloperId,
 				SolutionId: clientReferenceInformationPartnerSolutionId
 			);
