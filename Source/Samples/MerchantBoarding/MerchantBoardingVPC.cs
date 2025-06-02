@@ -204,16 +204,16 @@ namespace Cybersource_rest_samples_dotnet.Samples.MerchantBoarding
 
             PaymentsProductsVirtualTerminal virtualTerminal = new PaymentsProductsVirtualTerminal
             {
-            SubscriptionInformation = new PaymentsProductsPayerAuthenticationSubscriptionInformation { Enabled = true },
+            //SubscriptionInformation = new PaymentsProductsPayerAuthenticationSubscriptionInformation { Enabled = true },
             ConfigurationInformation = new PaymentsProductsVirtualTerminalConfigurationInformation { TemplateId = Guid.Parse("9FA1BB94-5119-48D3-B2E5-A81FD3C657B5") }
             };
             payments.VirtualTerminal = virtualTerminal;
 
-            PaymentsProductsTax customerInvoicing = new PaymentsProductsTax
-            {
-            SubscriptionInformation = new PaymentsProductsPayerAuthenticationSubscriptionInformation { Enabled = true }
-            };
-            payments.CustomerInvoicing = customerInvoicing;
+            //PaymentsProductsTax customerInvoicing = new PaymentsProductsTax
+            //{
+            //SubscriptionInformation = new PaymentsProductsPayerAuthenticationSubscriptionInformation { Enabled = true }
+            //};
+            //payments.CustomerInvoicing = customerInvoicing;
 
             selectedProducts.Payments = payments;
 
@@ -223,7 +223,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.MerchantBoarding
             CommerceSolutionsProducts commerceSolutions = new CommerceSolutionsProducts();
             CommerceSolutionsProductsTokenManagement tokenManagement = new CommerceSolutionsProductsTokenManagement
             {
-            SubscriptionInformation = new PaymentsProductsPayerAuthenticationSubscriptionInformation { Enabled = true },
+            //SubscriptionInformation = new PaymentsProductsPayerAuthenticationSubscriptionInformation { Enabled = true },
             ConfigurationInformation = new CommerceSolutionsProductsTokenManagementConfigurationInformation { TemplateId = Guid.Parse("D62BEE20-DCFD-4AA2-8723-BA3725958ABA") }
             };
             commerceSolutions.TokenManagement = tokenManagement;
@@ -233,13 +233,13 @@ namespace Cybersource_rest_samples_dotnet.Samples.MerchantBoarding
 
             PaymentsProductsTax transactionSearch = new PaymentsProductsTax
             {
-            SubscriptionInformation = new PaymentsProductsPayerAuthenticationSubscriptionInformation { Enabled = true }
+            //SubscriptionInformation = new PaymentsProductsPayerAuthenticationSubscriptionInformation { Enabled = true }
             };
             valueAddedServices.TransactionSearch = transactionSearch;
 
             PaymentsProductsTax reporting = new PaymentsProductsTax
             {
-            SubscriptionInformation = new PaymentsProductsPayerAuthenticationSubscriptionInformation { Enabled = true }
+            //SubscriptionInformation = new PaymentsProductsPayerAuthenticationSubscriptionInformation { Enabled = true }
             };
             valueAddedServices.Reporting = reporting;
 

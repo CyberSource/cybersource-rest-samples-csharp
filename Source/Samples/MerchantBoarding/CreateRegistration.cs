@@ -70,12 +70,12 @@ namespace Cybersource_rest_samples_dotnet.Samples.MerchantBoarding
 
             PaymentsProducts payments = new PaymentsProducts();
             PaymentsProductsPayerAuthentication payerAuthentication = new PaymentsProductsPayerAuthentication();
-            PaymentsProductsPayerAuthenticationSubscriptionInformation subscriptionInformation = new PaymentsProductsPayerAuthenticationSubscriptionInformation
-            {
-            Enabled = true
-            };
+            //PaymentsProductsPayerAuthenticationSubscriptionInformation subscriptionInformation = new PaymentsProductsPayerAuthenticationSubscriptionInformation
+            //{
+            //Enabled = true
+            //};
 
-            payerAuthentication.SubscriptionInformation = subscriptionInformation;
+            //payerAuthentication.SubscriptionInformation = subscriptionInformation;
 
             PaymentsProductsPayerAuthenticationConfigurationInformation configurationInformation = new PaymentsProductsPayerAuthenticationConfigurationInformation();
             PayerAuthConfig configurations = new PayerAuthConfig();
@@ -157,23 +157,23 @@ namespace Cybersource_rest_samples_dotnet.Samples.MerchantBoarding
             cardProcessing.ConfigurationInformation = configurationInformation2;
             payments.CardProcessing = cardProcessing;
 
-            PaymentsProductsVirtualTerminal virtualTerminal = new PaymentsProductsVirtualTerminal
-            {
-            SubscriptionInformation = new PaymentsProductsPayerAuthenticationSubscriptionInformation { Enabled = true }
-            };
+            //PaymentsProductsVirtualTerminal virtualTerminal = new PaymentsProductsVirtualTerminal
+            //{
+            //SubscriptionInformation = new PaymentsProductsPayerAuthenticationSubscriptionInformation { Enabled = true }
+            //};
 
-            payments.VirtualTerminal = virtualTerminal;
+            //payments.VirtualTerminal = virtualTerminal;
 
-            PaymentsProductsTax customerInvoicing = new PaymentsProductsTax
-            {
-            SubscriptionInformation = new PaymentsProductsPayerAuthenticationSubscriptionInformation { Enabled = true }
-            };
+            //PaymentsProductsTax customerInvoicing = new PaymentsProductsTax
+            //{
+            //SubscriptionInformation = new PaymentsProductsPayerAuthenticationSubscriptionInformation { Enabled = true }
+            //};
 
-            payments.CustomerInvoicing = customerInvoicing;
+            //payments.CustomerInvoicing = customerInvoicing;
 
             PaymentsProductsPayouts payouts = new PaymentsProductsPayouts
             {
-            SubscriptionInformation = new PaymentsProductsPayerAuthenticationSubscriptionInformation { Enabled = true }
+            //SubscriptionInformation = new PaymentsProductsPayerAuthenticationSubscriptionInformation { Enabled = true }
             };
 
             payments.Payouts = payouts;
@@ -183,7 +183,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.MerchantBoarding
             CommerceSolutionsProducts commerceSolutions = new CommerceSolutionsProducts();
             CommerceSolutionsProductsTokenManagement tokenManagement = new CommerceSolutionsProductsTokenManagement
             {
-            SubscriptionInformation = new PaymentsProductsPayerAuthenticationSubscriptionInformation { Enabled = true }
+            //SubscriptionInformation = new PaymentsProductsPayerAuthenticationSubscriptionInformation { Enabled = true }
             };
 
             commerceSolutions.TokenManagement = tokenManagement;
@@ -192,7 +192,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.MerchantBoarding
             RiskProducts risk = new RiskProducts();
             RiskProductsFraudManagementEssentials fraudManagementEssentials = new RiskProductsFraudManagementEssentials
             {
-            SubscriptionInformation = new PaymentsProductsPayerAuthenticationSubscriptionInformation { Enabled = true },
+            //SubscriptionInformation = new PaymentsProductsPayerAuthenticationSubscriptionInformation { Enabled = true },
             ConfigurationInformation = new RiskProductsFraudManagementEssentialsConfigurationInformation
             {
             TemplateId = Guid.Parse("E4EDB280-9DAC-4698-9EB9-9434D40FF60C")

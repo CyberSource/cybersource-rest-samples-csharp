@@ -168,11 +168,11 @@ namespace Cybersource_rest_samples_dotnet.Samples.MerchantBoarding
             payments.CardProcessing = cardProcessing;
 
             PaymentsProductsVirtualTerminal virtualTerminal = new PaymentsProductsVirtualTerminal();
-            PaymentsProductsPayerAuthenticationSubscriptionInformation subscriptionInformation2 = new PaymentsProductsPayerAuthenticationSubscriptionInformation
-            {
-                Enabled = true
-            };
-            virtualTerminal.SubscriptionInformation = subscriptionInformation2;
+            //PaymentsProductsPayerAuthenticationSubscriptionInformation subscriptionInformation2 = new PaymentsProductsPayerAuthenticationSubscriptionInformation
+            //{
+            //    Enabled = true
+            //};
+            //virtualTerminal.SubscriptionInformation = subscriptionInformation2;
 
             PaymentsProductsVirtualTerminalConfigurationInformation configurationInformation3 = new PaymentsProductsVirtualTerminalConfigurationInformation();
             Guid templateId2 = Guid.Parse("9FA1BB94-5119-48D3-B2E5-A81FD3C657B5");
@@ -181,11 +181,11 @@ namespace Cybersource_rest_samples_dotnet.Samples.MerchantBoarding
             payments.VirtualTerminal = virtualTerminal;
 
             PaymentsProductsTax customerInvoicing = new PaymentsProductsTax();
-            PaymentsProductsPayerAuthenticationSubscriptionInformation subscriptionInformation6 = new PaymentsProductsPayerAuthenticationSubscriptionInformation
-            {
-                Enabled = true
-            };
-            customerInvoicing.SubscriptionInformation = subscriptionInformation6;
+            //PaymentsProductsPayerAuthenticationSubscriptionInformation subscriptionInformation6 = new PaymentsProductsPayerAuthenticationSubscriptionInformation
+            //{
+            //    Enabled = true
+            //};
+            //customerInvoicing.SubscriptionInformation = subscriptionInformation6;
             payments.CustomerInvoicing = customerInvoicing;
             selectedProducts.Payments = payments;
 
@@ -195,11 +195,11 @@ namespace Cybersource_rest_samples_dotnet.Samples.MerchantBoarding
             CommerceSolutionsProducts commerceSolutions = new CommerceSolutionsProducts();
             CommerceSolutionsProductsTokenManagement tokenManagement = new CommerceSolutionsProductsTokenManagement();
 
-            PaymentsProductsPayerAuthenticationSubscriptionInformation subscriptionInformation7 = new PaymentsProductsPayerAuthenticationSubscriptionInformation
-            {
-                Enabled = true
-            };
-            tokenManagement.SubscriptionInformation = subscriptionInformation7;
+            //PaymentsProductsPayerAuthenticationSubscriptionInformation subscriptionInformation7 = new PaymentsProductsPayerAuthenticationSubscriptionInformation
+            //{
+            //    Enabled = true
+            //};
+            //tokenManagement.SubscriptionInformation = subscriptionInformation7;
             CommerceSolutionsProductsTokenManagementConfigurationInformation configurationInformation4 = new CommerceSolutionsProductsTokenManagementConfigurationInformation();
             Guid templateId3 = Guid.Parse("D62BEE20-DCFD-4AA2-8723-BA3725958ABA");
             configurationInformation4.TemplateId = templateId3;
@@ -209,19 +209,19 @@ namespace Cybersource_rest_samples_dotnet.Samples.MerchantBoarding
 
             ValueAddedServicesProducts valueAddedServices = new ValueAddedServicesProducts();
             PaymentsProductsTax transactionSearch = new PaymentsProductsTax();
-            PaymentsProductsPayerAuthenticationSubscriptionInformation subscriptionInformation8 = new PaymentsProductsPayerAuthenticationSubscriptionInformation
-            {
-                Enabled = true
-            };
-            transactionSearch.SubscriptionInformation = subscriptionInformation8;
+            //PaymentsProductsPayerAuthenticationSubscriptionInformation subscriptionInformation8 = new PaymentsProductsPayerAuthenticationSubscriptionInformation
+            //{
+            //    Enabled = true
+            //};
+            //transactionSearch.SubscriptionInformation = subscriptionInformation8;
 
             valueAddedServices.TransactionSearch = transactionSearch;
             PaymentsProductsTax reporting = new PaymentsProductsTax();
-            PaymentsProductsPayerAuthenticationSubscriptionInformation subscriptionInformation9 = new PaymentsProductsPayerAuthenticationSubscriptionInformation
-            {
-                Enabled = true
-            };
-            reporting.SubscriptionInformation = subscriptionInformation9;
+            //PaymentsProductsPayerAuthenticationSubscriptionInformation subscriptionInformation9 = new PaymentsProductsPayerAuthenticationSubscriptionInformation
+            //{
+            //    Enabled = true
+            //};
+            //reporting.SubscriptionInformation = subscriptionInformation9;
             valueAddedServices.Reporting = reporting;
 
             selectedProducts.ValueAddedServices = valueAddedServices;

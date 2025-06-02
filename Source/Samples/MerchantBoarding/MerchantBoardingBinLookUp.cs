@@ -76,12 +76,12 @@ namespace Cybersource_rest_samples_dotnet.Samples.MerchantBoarding
 
             CommerceSolutionsProducts commerceSolutions = new CommerceSolutionsProducts();
             CommerceSolutionsProductsBinLookup binLookup = new CommerceSolutionsProductsBinLookup();
-            PaymentsProductsPayerAuthenticationSubscriptionInformation subscriptionInformation = new PaymentsProductsPayerAuthenticationSubscriptionInformation
-            {
-                Enabled = true
-            };
+            //PaymentsProductsPayerAuthenticationSubscriptionInformation subscriptionInformation = new PaymentsProductsPayerAuthenticationSubscriptionInformation
+            //{
+            //    Enabled = true
+            //};
 
-            binLookup.SubscriptionInformation = subscriptionInformation;
+            //binLookup.SubscriptionInformation = subscriptionInformation;
 
             CommerceSolutionsProductsBinLookupConfigurationInformation configurationInformation = new CommerceSolutionsProductsBinLookupConfigurationInformation();
             CommerceSolutionsProductsBinLookupConfigurationInformationConfigurations configurations = new CommerceSolutionsProductsBinLookupConfigurationInformationConfigurations

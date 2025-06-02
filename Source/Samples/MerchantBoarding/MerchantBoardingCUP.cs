@@ -147,12 +147,12 @@ namespace Cybersource_rest_samples_dotnet.Samples.MerchantBoarding
             payments.CardProcessing = cardProcessing;
 
             PaymentsProductsVirtualTerminal virtualTerminal = new PaymentsProductsVirtualTerminal();
-            PaymentsProductsPayerAuthenticationSubscriptionInformation subscriptionInformation2 = new PaymentsProductsPayerAuthenticationSubscriptionInformation
-            {
-                Enabled = true
-            };
+            //PaymentsProductsPayerAuthenticationSubscriptionInformation subscriptionInformation2 = new PaymentsProductsPayerAuthenticationSubscriptionInformation
+            //{
+            //    Enabled = true
+            //};
 
-            virtualTerminal.SubscriptionInformation = subscriptionInformation2;
+            //virtualTerminal.SubscriptionInformation = subscriptionInformation2;
 
             PaymentsProductsVirtualTerminalConfigurationInformation configurationInformation2 = new PaymentsProductsVirtualTerminalConfigurationInformation
             {
@@ -163,12 +163,12 @@ namespace Cybersource_rest_samples_dotnet.Samples.MerchantBoarding
             payments.VirtualTerminal = virtualTerminal;
 
             PaymentsProductsTax customerInvoicing = new PaymentsProductsTax();
-            PaymentsProductsPayerAuthenticationSubscriptionInformation subscriptionInformation3 = new PaymentsProductsPayerAuthenticationSubscriptionInformation
-            {
-                Enabled = true
-            };
+            //PaymentsProductsPayerAuthenticationSubscriptionInformation subscriptionInformation3 = new PaymentsProductsPayerAuthenticationSubscriptionInformation
+            //{
+            //    Enabled = true
+            //};
 
-            customerInvoicing.SubscriptionInformation = subscriptionInformation3;
+            //customerInvoicing.SubscriptionInformation = subscriptionInformation3;
             payments.CustomerInvoicing = customerInvoicing;
             selectedProducts.Payments = payments;
 
@@ -177,12 +177,12 @@ namespace Cybersource_rest_samples_dotnet.Samples.MerchantBoarding
             CommerceSolutionsProducts commerceSolutions = new CommerceSolutionsProducts();
 
             CommerceSolutionsProductsTokenManagement tokenManagement = new CommerceSolutionsProductsTokenManagement();
-            PaymentsProductsPayerAuthenticationSubscriptionInformation subscriptionInformation4 = new PaymentsProductsPayerAuthenticationSubscriptionInformation
-            {
-                Enabled = true
-            };
+            //PaymentsProductsPayerAuthenticationSubscriptionInformation subscriptionInformation4 = new PaymentsProductsPayerAuthenticationSubscriptionInformation
+            //{
+            //    Enabled = true
+            //};
 
-            tokenManagement.SubscriptionInformation = subscriptionInformation4;
+            //tokenManagement.SubscriptionInformation = subscriptionInformation4;
 
             CommerceSolutionsProductsTokenManagementConfigurationInformation configurationInformation3 = new CommerceSolutionsProductsTokenManagementConfigurationInformation
             {
@@ -197,17 +197,17 @@ namespace Cybersource_rest_samples_dotnet.Samples.MerchantBoarding
             ValueAddedServicesProducts valueAddedServices = new ValueAddedServicesProducts();
 
             PaymentsProductsTax transactionSearch = new PaymentsProductsTax();
-            PaymentsProductsPayerAuthenticationSubscriptionInformation subscriptionInformation5 = new PaymentsProductsPayerAuthenticationSubscriptionInformation
-            {
-                Enabled = true
-            };
+            //PaymentsProductsPayerAuthenticationSubscriptionInformation subscriptionInformation5 = new PaymentsProductsPayerAuthenticationSubscriptionInformation
+            //{
+            //    Enabled = true
+            //};
 
-            transactionSearch.SubscriptionInformation = subscriptionInformation5;
+            //transactionSearch.SubscriptionInformation = subscriptionInformation5;
             valueAddedServices.TransactionSearch = transactionSearch;
 
             PaymentsProductsTax reporting = new PaymentsProductsTax
             {
-                SubscriptionInformation = subscriptionInformation5
+                //SubscriptionInformation = subscriptionInformation5
             };
 
             valueAddedServices.Reporting = reporting;
