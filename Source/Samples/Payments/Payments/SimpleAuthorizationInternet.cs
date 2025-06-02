@@ -21,7 +21,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments
 
         public static PtsV2PaymentsPost201Response Run()
         {
-            string clientReferenceInformationCode = "TC50171_3999999999";
+            string clientReferenceInformationCode = "TC50171_3";
             Ptsv2paymentsClientReferenceInformation clientReferenceInformation = new Ptsv2paymentsClientReferenceInformation(
                 Code: clientReferenceInformationCode
            );
