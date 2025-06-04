@@ -75,6 +75,12 @@ namespace Cybersource_rest_samples_dotnet.Samples.UnifiedCheckout
                 AmountDetails: orderInformationAmountDetails
             );
 
+            Upv1capturecontextsCompleteMandate completeMandate = new Upv1capturecontextsCompleteMandate(
+                Type: "CAPTURE",
+                DecisionManager: false
+
+            );
+
             var requestObj = new GenerateUnifiedCheckoutCaptureContextRequest(
                 ClientVersion: clientVersion,
                 TargetOrigins: targetOrigins,
@@ -83,7 +89,8 @@ namespace Cybersource_rest_samples_dotnet.Samples.UnifiedCheckout
                 Country: country,
                 Locale: locale,
                 CaptureMandate: captureMandate,
-                OrderInformation: orderInformation
+                OrderInformation: orderInformation,
+                CompleteMandate: completeMandate
             );
 
             try
