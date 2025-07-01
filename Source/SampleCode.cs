@@ -79,10 +79,13 @@ namespace Cybersource_rest_samples_dotnet
                     int sampleCount = 1;
                     foreach (var apiMethod in ApiList)
                     {
-                        Console.WriteLine("\n" + sampleCount + ".\t#### START RUNNING SAMPLE CODE FOR " + apiMethod.ApiFunctionCall + " ####");
-                        RunSample(apiMethod.ApiFunctionCall);
-                        Console.WriteLine("\n#### END RUNNING SAMPLE CODE FOR " + apiMethod.ApiFunctionCall + " ####");
-                        sampleCount++;
+                        if (apiMethod.ApiFamily != "MultiThreading") //ignoring multithreading samples
+                        {
+                            Console.WriteLine("\n" + sampleCount + ".\t#### START RUNNING SAMPLE CODE FOR " + apiMethod.ApiFunctionCall + " ####");
+                            RunSample(apiMethod.ApiFunctionCall);
+                            Console.WriteLine("\n#### END RUNNING SAMPLE CODE FOR " + apiMethod.ApiFunctionCall + " ####");
+                            sampleCount++;
+                        }
                     }
 
                     Console.WriteLine("\n\nTotal number of Sample run : " + sampleCount);
