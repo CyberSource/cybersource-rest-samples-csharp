@@ -16,7 +16,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.BinLookup
 			var filename = filePath[filePath.Length - 1];
 			Console.WriteLine($"[Sample Code Testing] [{filename}] {status}");
 		}
-		public static InlineResponse2011 Run()
+		public static InlineResponse2012 Run()
 		{
 			string paymentInformationCardNumber = "4288900100000";
 			Binv1binlookupPaymentInformationCard paymentInformationCard = new Binv1binlookupPaymentInformationCard(
@@ -37,7 +37,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.BinLookup
 				var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
 				var apiInstance = new BinLookupApi(clientConfig);
-				InlineResponse2011 result= apiInstance.GetAccountInfo(requestObj);
+				InlineResponse2012 result= apiInstance.GetAccountInfo(requestObj);
 				Console.WriteLine(result);
 				WriteLogAudit(apiInstance.GetStatusCode());
 				return result;

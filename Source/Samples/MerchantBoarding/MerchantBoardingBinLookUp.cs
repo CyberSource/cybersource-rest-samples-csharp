@@ -21,7 +21,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.MerchantBoarding
             Console.WriteLine($"[Sample Code Testing] [{filename}] {status}");
         }
 
-        public static InlineResponse2012 Run()
+        public static InlineResponse2013 Run()
         {
 
             PostRegistrationBody reqObj = new PostRegistrationBody();
@@ -110,7 +110,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.MerchantBoarding
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new MerchantBoardingApi(clientConfig);
-                InlineResponse2012 result = apiInstance.PostRegistration(reqObj);
+                InlineResponse2013 result = apiInstance.PostRegistration(reqObj);
                 Console.WriteLine(result);
                 WriteLogAudit(apiInstance.GetStatusCode());
                 return result;
