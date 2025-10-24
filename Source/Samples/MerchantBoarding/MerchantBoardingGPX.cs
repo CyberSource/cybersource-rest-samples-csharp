@@ -183,7 +183,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.MerchantBoarding
 
             configurations.Features = features2;
             configurationInformation.Configurations = configurations;
-            configurationInformation.TemplateId = Guid.Parse("D2A7C000-5FCA-493A-AD21-469744A19EEA");
+            configurationInformation.TemplateId = "D2A7C000-5FCA-493A-AD21-469744A19EEA";
 
             cardProcessing.ConfigurationInformation = configurationInformation;
             payments.CardProcessing = cardProcessing;
@@ -191,7 +191,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.MerchantBoarding
             PaymentsProductsVirtualTerminal virtualTerminal = new PaymentsProductsVirtualTerminal
             {
             //SubscriptionInformation = new PaymentsProductsPayerAuthenticationSubscriptionInformation { Enabled = true },
-            ConfigurationInformation = new PaymentsProductsVirtualTerminalConfigurationInformation { TemplateId = Guid.Parse("9FA1BB94-5119-48D3-B2E5-A81FD3C657B5") }
+            ConfigurationInformation = new PaymentsProductsVirtualTerminalConfigurationInformation { TemplateId = "9FA1BB94-5119-48D3-B2E5-A81FD3C657B5" }
             };
 
             payments.VirtualTerminal = virtualTerminal;
@@ -211,7 +211,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.MerchantBoarding
             CommerceSolutionsProductsTokenManagement tokenManagement = new CommerceSolutionsProductsTokenManagement
             {
             //SubscriptionInformation = new PaymentsProductsPayerAuthenticationSubscriptionInformation { Enabled = true },
-            ConfigurationInformation = new CommerceSolutionsProductsTokenManagementConfigurationInformation { TemplateId = Guid.Parse("D62BEE20-DCFD-4AA2-8723-BA3725958ABA") }
+            ConfigurationInformation = new CommerceSolutionsProductsTokenManagementConfigurationInformation { TemplateId = "D62BEE20-DCFD-4AA2-8723-BA3725958ABA" }
             };
 
             commerceSolutions.TokenManagement = tokenManagement;

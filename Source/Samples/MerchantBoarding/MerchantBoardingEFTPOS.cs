@@ -121,7 +121,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.MerchantBoarding
             configurations.Common = common;
             configurations.Features = new CardProcessingConfigFeatures();
             configurationInformation.Configurations = configurations;
-            configurationInformation.TemplateId = Guid.Parse("1F9B7F6E-F0DB-44C8-BF8E-5013E34C0F87");
+            configurationInformation.TemplateId = "1F9B7F6E-F0DB-44C8-BF8E-5013E34C0F87";
             Console.WriteLine("Template id........" + Guid.Parse("1F9B7F6E-F0DB-44C8-BF8E-5013E34C0F87"));
             cardProcessing.ConfigurationInformation = configurationInformation;
             payments.CardProcessing = cardProcessing;
