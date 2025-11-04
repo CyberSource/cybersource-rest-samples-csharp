@@ -162,7 +162,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.MerchantBoarding
             features2.CardNotPresent = cardNotPresent;
             configurations.Features = features2;
             configurationInformation.Configurations = configurations;
-            Guid templateId = Guid.Parse("2B80A3C7-5A39-4CC3-9882-AC4A828D3646");
+            string  templateId = "2B80A3C7-5A39-4CC3-9882-AC4A828D3646";
             configurationInformation.TemplateId = templateId;
             cardProcessing.ConfigurationInformation = configurationInformation;
             payments.CardProcessing = cardProcessing;
@@ -175,7 +175,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.MerchantBoarding
             //virtualTerminal.SubscriptionInformation = subscriptionInformation2;
 
             PaymentsProductsVirtualTerminalConfigurationInformation configurationInformation3 = new PaymentsProductsVirtualTerminalConfigurationInformation();
-            Guid templateId2 = Guid.Parse("9FA1BB94-5119-48D3-B2E5-A81FD3C657B5");
+            string templateId2 = "9FA1BB94-5119-48D3-B2E5-A81FD3C657B5";
             configurationInformation3.TemplateId = templateId2;
             virtualTerminal.ConfigurationInformation = configurationInformation3;
             payments.VirtualTerminal = virtualTerminal;
@@ -201,7 +201,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.MerchantBoarding
             //};
             //tokenManagement.SubscriptionInformation = subscriptionInformation7;
             CommerceSolutionsProductsTokenManagementConfigurationInformation configurationInformation4 = new CommerceSolutionsProductsTokenManagementConfigurationInformation();
-            Guid templateId3 = Guid.Parse("D62BEE20-DCFD-4AA2-8723-BA3725958ABA");
+            string templateId3 = "D62BEE20-DCFD-4AA2-8723-BA3725958ABA";
             configurationInformation4.TemplateId = templateId3;
             tokenManagement.ConfigurationInformation = configurationInformation4;
             commerceSolutions.TokenManagement = tokenManagement;

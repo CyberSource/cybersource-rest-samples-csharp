@@ -169,7 +169,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.MerchantBoarding
 
             configurationInformation.Configurations = configurations;
 
-            var templateId = Guid.Parse("0A413572-1995-483C-9F48-FCBE4D0B2E86");
+            string templateId = "0A413572-1995-483C-9F48-FCBE4D0B2E86";
             configurationInformation.TemplateId = templateId;
             cardProcessing.ConfigurationInformation = configurationInformation;
 
@@ -186,7 +186,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.MerchantBoarding
 
             PaymentsProductsVirtualTerminalConfigurationInformation configurationInformation2 = new PaymentsProductsVirtualTerminalConfigurationInformation
             {
-            TemplateId = Guid.Parse("E4EDB280-9DAC-4698-9EB9-9434D40FF60C")
+            TemplateId = "E4EDB280-9DAC-4698-9EB9-9434D40FF60C"
             };
 
             virtualTerminal.ConfigurationInformation = configurationInformation2;
@@ -219,7 +219,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.MerchantBoarding
 
             CommerceSolutionsProductsTokenManagementConfigurationInformation configurationInformation5 = new CommerceSolutionsProductsTokenManagementConfigurationInformation
             {
-            TemplateId = Guid.Parse("D62BEE20-DCFD-4AA2-8723-BA3725958ABA")
+            TemplateId = "D62BEE20-DCFD-4AA2-8723-BA3725958ABA"
             };
 
             tokenManagement.ConfigurationInformation = configurationInformation5;

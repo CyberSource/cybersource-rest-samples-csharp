@@ -164,7 +164,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.MerchantBoarding
             configurations.Features = features2;
             configurationInformation.Configurations = configurations;
 
-            Guid templateId = Guid.Parse("685A1FC9-3CEC-454C-9D8A-19205529CE45");
+            string templateId = "685A1FC9-3CEC-454C-9D8A-19205529CE45";
             configurationInformation.TemplateId = templateId;
 
             cardProcessing.ConfigurationInformation = configurationInformation;

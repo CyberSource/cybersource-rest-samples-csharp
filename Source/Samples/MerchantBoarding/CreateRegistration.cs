@@ -195,7 +195,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.MerchantBoarding
             //SubscriptionInformation = new PaymentsProductsPayerAuthenticationSubscriptionInformation { Enabled = true },
             ConfigurationInformation = new RiskProductsFraudManagementEssentialsConfigurationInformation
             {
-            TemplateId = Guid.Parse("E4EDB280-9DAC-4698-9EB9-9434D40FF60C")
+            TemplateId = "E4EDB280-9DAC-4698-9EB9-9434D40FF60C"
             }
             };
 
