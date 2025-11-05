@@ -58,6 +58,8 @@ namespace Cybersource_rest_samples_dotnet.Samples.VisaBankAccountValidation
             try
             {
                 var configDictionary = new BankAccountValidationConfiguration().GetConfiguration();
+                //MLE is supported only on the JWT authentication type
+                //Refer BankAccountValidationConfiguration for more details
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new BankAccountValidationApi(clientConfig);

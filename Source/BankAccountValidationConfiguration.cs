@@ -15,8 +15,6 @@ namespace Cybersource_rest_samples_dotnet
         {
             _configurationDictionary.Add("authenticationType", "JWT"); //mle only support with JWT Auth Type
             _configurationDictionary.Add("merchantID", "testcasmerchpd01001");
-            //_configurationDictionary.Add("merchantsecretKey", "yBJxy6LjM2TmcPGu+GaJrHtkke25fPpUX+UY6/L/1tE=");
-            //_configurationDictionary.Add("merchantKeyId", "08c94330-f618-42a3-b09d-e1e43be5efda");
             _configurationDictionary.Add("keysDirectory", Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\..\\Source\\Resource"));
             _configurationDictionary.Add("keyFilename", "testcasmerchpd01001");
             _configurationDictionary.Add("runEnvironment", "apitest.cybersource.com");
