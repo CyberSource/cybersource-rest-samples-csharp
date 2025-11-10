@@ -6,9 +6,14 @@ using CyberSource.Api;
 using CyberSource.Client;
 using CyberSource.Model;
 
+// The Bank Account Validation API requires encrypted requests as a mandatory requirement. The SDK by default sends encrypted requests for APIs where Request MLE (Message Level Encryption) is mandatory.
+//MLE is supported only on the JWT authentication type
+// For additional configuration options related to MLE, refer to the documentation at https://github.com/CyberSource/cybersource-rest-client-dotnet/blob/master/MLE.md
+// For MLE related sample codes look in the folder Samples/MLEFeature
+
 namespace Cybersource_rest_samples_dotnet.Samples.VisaBankAccountValidation
 {
-    public class BankAccountValidation
+    public class BankAccountValidationValidated
     {
         public static void WriteLogAudit(int status)
         {
@@ -53,6 +58,8 @@ namespace Cybersource_rest_samples_dotnet.Samples.VisaBankAccountValidation
             try
             {
                 var configDictionary = new BankAccountValidationConfiguration().GetConfiguration();
+                //MLE is supported only on the JWT authentication type
+                //Refer BankAccountValidationConfiguration for more details
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new BankAccountValidationApi(clientConfig);
