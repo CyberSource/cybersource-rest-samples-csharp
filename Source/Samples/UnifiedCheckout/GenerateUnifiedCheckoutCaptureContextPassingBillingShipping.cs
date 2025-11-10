@@ -97,7 +97,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.UnifiedCheckout
             string orderInformationBillToCompanyDistrict = "district";
             string orderInformationBillToCompanyLocality = "Foster City";
             string orderInformationBillToCompanyPostalCode = "94404";
-            Upv1capturecontextsOrderInformationBillToCompany orderInformationBillToCompany = new Upv1capturecontextsOrderInformationBillToCompany(
+            Upv1capturecontextsDataOrderInformationBillToCompany orderInformationBillToCompany = new Upv1capturecontextsDataOrderInformationBillToCompany(
                 Name: orderInformationBillToCompanyName,
                 Address1: orderInformationBillToCompanyAddress1,
                 Address2: orderInformationBillToCompanyAddress2,
@@ -119,7 +119,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.UnifiedCheckout
             string orderInformationBillToTitle = "Mr";
             string orderInformationBillToPhoneNumber = "1234567890";
             string orderInformationBillToPhoneType = "phoneType";
-            Upv1capturecontextsOrderInformationBillTo orderInformationBillTo = new Upv1capturecontextsOrderInformationBillTo(
+            Upv1capturecontextsDataOrderInformationBillTo orderInformationBillTo = new Upv1capturecontextsDataOrderInformationBillTo(
                 Address1: orderInformationBillToAddress1,
                 Address2: orderInformationBillToAddress2,
                 Address3: orderInformationBillToAddress3,
@@ -153,7 +153,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.UnifiedCheckout
             string orderInformationShipToPostalCode = "BT1 4LS";
             string orderInformationShipToFirstName = "Joe";
             string orderInformationShipToLastName = "Soap";
-            Upv1capturecontextsOrderInformationShipTo orderInformationShipTo = new Upv1capturecontextsOrderInformationShipTo(
+            Upv1capturecontextsDataOrderInformationShipTo orderInformationShipTo = new Upv1capturecontextsDataOrderInformationShipTo(
                 Address1: orderInformationShipToAddress1,
                 Address2: orderInformationShipToAddress2,
                 Address3: orderInformationShipToAddress3,
