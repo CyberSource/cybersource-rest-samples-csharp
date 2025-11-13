@@ -102,7 +102,6 @@ namespace Cybersource_rest_samples_dotnet.Samples.UnifiedCheckout
                 var apiInstance = new UnifiedCheckoutCaptureContextApi(clientConfig);
                 String result = apiInstance.GenerateUnifiedCheckoutCaptureContext(requestObj);
                 Console.WriteLine(CaptureContextParsingUtility.parseCaptureContextResponse(result, clientConfig, true));
-                //Console.WriteLine(result);
                 WriteLogAudit(apiInstance.GetStatusCode());
                 return result;
             }
