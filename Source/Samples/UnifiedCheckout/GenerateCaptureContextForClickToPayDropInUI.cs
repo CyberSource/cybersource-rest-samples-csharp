@@ -4,6 +4,7 @@ using System.Globalization;
 
 using CyberSource.Api;
 using CyberSource.Model;
+using CyberSource.Utilities.CaptureContext;
 
 namespace Cybersource_rest_samples_dotnet.Samples.UnifiedCheckout
 {
@@ -100,7 +101,8 @@ namespace Cybersource_rest_samples_dotnet.Samples.UnifiedCheckout
 
                 var apiInstance = new UnifiedCheckoutCaptureContextApi(clientConfig);
                 String result = apiInstance.GenerateUnifiedCheckoutCaptureContext(requestObj);
-                Console.WriteLine(result);
+                Console.WriteLine(CaptureContextParsingUtility.parseCaptureContextResponse(result, clientConfig, true));
+                //Console.WriteLine(result);
                 WriteLogAudit(apiInstance.GetStatusCode());
                 return result;
             }

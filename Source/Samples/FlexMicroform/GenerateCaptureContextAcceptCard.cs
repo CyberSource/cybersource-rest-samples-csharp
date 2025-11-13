@@ -3,9 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using CyberSource.Api;
 using CyberSource.Model;
+using CyberSource.Utilities.CaptureContext;
 
 namespace Cybersource_rest_samples_dotnet.Samples.FlexMicroform
 {
@@ -58,7 +58,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.FlexMicroform
 
                 var apiInstance = new MicroformIntegrationApi(clientConfig);
                 String result = apiInstance.GenerateCaptureContext(requestObj);
-                Console.WriteLine(result);
+                Console.WriteLine(CaptureContextParsingUtility.parseCaptureContextResponse(result, clientConfig, true));
                 WriteLogAudit(apiInstance.GetStatusCode());
                 return result;
             }
