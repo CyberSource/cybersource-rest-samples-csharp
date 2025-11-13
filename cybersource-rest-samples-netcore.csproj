@@ -42,6 +42,7 @@
     <PackageReference Include="CyberSource.Authentication.NetStandard" Version="0.0.1.19" />
     <PackageReference Include="CyberSource.Rest.Client.NetStandard" Version="0.0.1.50" />
     <PackageReference Include="jose-jwt" Version="4.1.0" />
+    <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="8.14.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="NLog" Version="5.0.0" />
     <PackageReference Include="NLog.Schema" Version="5.0.0" />
