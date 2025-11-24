@@ -28,7 +28,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TokenManagement
             string cardStartMonth = "01";
             string cardStartYear = "2020";
             string cardUseAs = "pinless debit";
-            Tmsv2customersEmbeddedDefaultPaymentInstrumentCard card = new Tmsv2customersEmbeddedDefaultPaymentInstrumentCard(
+            Tmsv2tokenizeTokenInformationCustomerEmbeddedDefaultPaymentInstrumentCard card = new Tmsv2tokenizeTokenInformationCustomerEmbeddedDefaultPaymentInstrumentCard(
                 ExpirationMonth: cardExpirationMonth,
                 ExpirationYear: cardExpirationYear,
                 Type: cardType,
@@ -48,7 +48,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TokenManagement
             string billToCountry = "US";
             string billToEmail = "test@cybs.com";
             string billToPhoneNumber = "4158880000";
-            Tmsv2customersEmbeddedDefaultPaymentInstrumentBillTo billTo = new Tmsv2customersEmbeddedDefaultPaymentInstrumentBillTo(
+            Tmsv2tokenizeTokenInformationCustomerEmbeddedDefaultPaymentInstrumentBillTo billTo = new Tmsv2tokenizeTokenInformationCustomerEmbeddedDefaultPaymentInstrumentBillTo(
                 FirstName: billToFirstName,
                 LastName: billToLastName,
                 Company: billToCompany,
@@ -63,7 +63,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TokenManagement
 
             string instrumentIdentifierId = "7010000000016241111";
 
-            Tmsv2customersEmbeddedDefaultPaymentInstrumentInstrumentIdentifier instrumentIdentifier = new Tmsv2customersEmbeddedDefaultPaymentInstrumentInstrumentIdentifier(
+            Tmsv2tokenizeTokenInformationCustomerEmbeddedDefaultPaymentInstrumentInstrumentIdentifier instrumentIdentifier = new Tmsv2tokenizeTokenInformationCustomerEmbeddedDefaultPaymentInstrumentInstrumentIdentifier(
                 Id: instrumentIdentifierId
            );
 
