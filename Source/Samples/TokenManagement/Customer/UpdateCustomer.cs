@@ -22,21 +22,21 @@ namespace Cybersource_rest_samples_dotnet.Samples.TokenManagement
             string customerTokenId = "AB695DA801DD1BB6E05341588E0A3BDC";
             string buyerInformationMerchantCustomerID = "Your customer identifier";
             string buyerInformationEmail = "test@cybs.com";
-            Tmsv2customersBuyerInformation buyerInformation = new Tmsv2customersBuyerInformation(
+            Tmsv2tokenizeTokenInformationCustomerBuyerInformation buyerInformation = new Tmsv2tokenizeTokenInformationCustomerBuyerInformation(
                 MerchantCustomerID: buyerInformationMerchantCustomerID,
                 Email: buyerInformationEmail
            );
 
             string clientReferenceInformationCode = "TC50171_3";
-            Tmsv2customersClientReferenceInformation clientReferenceInformation = new Tmsv2customersClientReferenceInformation(
+            Tmsv2tokenizeTokenInformationCustomerClientReferenceInformation clientReferenceInformation = new Tmsv2tokenizeTokenInformationCustomerClientReferenceInformation(
                 Code: clientReferenceInformationCode
            );
 
 
-            List<Tmsv2customersMerchantDefinedInformation> merchantDefinedInformation = new List<Tmsv2customersMerchantDefinedInformation>();
+            List<Tmsv2tokenizeTokenInformationCustomerMerchantDefinedInformation> merchantDefinedInformation = new List<Tmsv2tokenizeTokenInformationCustomerMerchantDefinedInformation>();
             string merchantDefinedInformationName1 = "data1";
             string merchantDefinedInformationValue1 = "Your customer data";
-            merchantDefinedInformation.Add(new Tmsv2customersMerchantDefinedInformation(
+            merchantDefinedInformation.Add(new Tmsv2tokenizeTokenInformationCustomerMerchantDefinedInformation(
                 Name: merchantDefinedInformationName1,
                 Value: merchantDefinedInformationValue1
            ));

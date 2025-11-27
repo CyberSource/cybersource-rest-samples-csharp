@@ -14,19 +14,19 @@ namespace Cybersource_rest_samples_dotnet.Samples.RecurringBillingSubscriptions
 			string clientReferenceInformationCode = "TC501713";
 			string clientReferenceInformationPartnerDeveloperId = "ABCD1234";
 			string clientReferenceInformationPartnerSolutionId = "GEF1234";
-			Rbsv1subscriptionsClientReferenceInformationPartner clientReferenceInformationPartner = new Rbsv1subscriptionsClientReferenceInformationPartner(
-				DeveloperId: clientReferenceInformationPartnerDeveloperId,
-				SolutionId: clientReferenceInformationPartnerSolutionId
-			);
+			//Rbsv1subscriptionsClientReferenceInformationPartner clientReferenceInformationPartner = new Rbsv1subscriptionsClientReferenceInformationPartner(
+			//	DeveloperId: clientReferenceInformationPartnerDeveloperId,
+			//	SolutionId: clientReferenceInformationPartnerSolutionId
+			//);
 
 			string clientReferenceInformationApplicationName = "CYBS-SDK";
 			string clientReferenceInformationApplicationVersion = "v1";
-			Rbsv1subscriptionsClientReferenceInformation clientReferenceInformation = new Rbsv1subscriptionsClientReferenceInformation(
-				Code: clientReferenceInformationCode,
-				Partner: clientReferenceInformationPartner,
-				ApplicationName: clientReferenceInformationApplicationName,
-				ApplicationVersion: clientReferenceInformationApplicationVersion
-			);
+			//Rbsv1subscriptionsClientReferenceInformation clientReferenceInformation = new Rbsv1subscriptionsClientReferenceInformation(
+			//	Code: clientReferenceInformationCode,
+			//	Partner: clientReferenceInformationPartner,
+			//	ApplicationName: clientReferenceInformationApplicationName,
+			//	ApplicationVersion: clientReferenceInformationApplicationVersion
+			//);
 
 			string processingInformationCommerceIndicator = "recurring";
 			string processingInformationAuthorizationOptionsInitiatorType = "merchant";
@@ -62,7 +62,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.RecurringBillingSubscriptions
 			);
 
 			var requestObj = new CreateSubscriptionRequest(
-				ClientReferenceInformation: clientReferenceInformation,
+				//ClientReferenceInformation: clientReferenceInformation,
 				ProcessingInformation: processingInformation,
 				SubscriptionInformation: subscriptionInformation,
 				PaymentInformation: paymentInformation

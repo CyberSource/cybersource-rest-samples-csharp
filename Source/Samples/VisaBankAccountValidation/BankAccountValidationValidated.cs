@@ -22,7 +22,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.VisaBankAccountValidation
             Console.WriteLine($"[Sample Code Testing] [{filename}] {status}");
         }
 
-        public static InlineResponse20013 Run()
+        public static InlineResponse20014 Run()
         {
             string clientReferenceInformationCode = "TC50171_100";
             Bavsv1accountvalidationsClientReferenceInformation clientReferenceInformation = new Bavsv1accountvalidationsClientReferenceInformation(
@@ -63,7 +63,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.VisaBankAccountValidation
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new BankAccountValidationApi(clientConfig);
-                InlineResponse20013 result = apiInstance.BankAccountValidationRequest(requestObj);
+                InlineResponse20014 result = apiInstance.BankAccountValidationRequest(requestObj);
                 Console.WriteLine(result);
                 WriteLogAudit(apiInstance.GetStatusCode());
                 return result;

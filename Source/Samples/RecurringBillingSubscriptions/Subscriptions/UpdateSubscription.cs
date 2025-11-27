@@ -14,15 +14,15 @@ namespace Cybersource_rest_samples_dotnet.Samples.RecurringBillingSubscriptions
 			string clientReferenceInformationCode = "APGHU";
 			string clientReferenceInformationPartnerDeveloperId = "ABCD1234";
 			string clientReferenceInformationPartnerSolutionId = "GEF1234";
-			Rbsv1subscriptionsClientReferenceInformationPartner clientReferenceInformationPartner = new Rbsv1subscriptionsClientReferenceInformationPartner(
-				DeveloperId: clientReferenceInformationPartnerDeveloperId,
-				SolutionId: clientReferenceInformationPartnerSolutionId
-			);
+			//Rbsv1subscriptionsClientReferenceInformationPartner clientReferenceInformationPartner = new Rbsv1subscriptionsClientReferenceInformationPartner(
+			//	DeveloperId: clientReferenceInformationPartnerDeveloperId,
+			//	SolutionId: clientReferenceInformationPartnerSolutionId
+			//);
 
-			Rbsv1subscriptionsClientReferenceInformation clientReferenceInformation = new Rbsv1subscriptionsClientReferenceInformation(
-				Code: clientReferenceInformationCode,
-				Partner: clientReferenceInformationPartner
-			);
+			//Rbsv1subscriptionsClientReferenceInformation clientReferenceInformation = new Rbsv1subscriptionsClientReferenceInformation(
+			//	Code: clientReferenceInformationCode,
+			//	Partner: clientReferenceInformationPartner
+			//);
 
 			string processingInformationAuthorizationOptionsInitiatorType = "merchant";
 			Rbsv1subscriptionsProcessingInformationAuthorizationOptionsInitiator processingInformationAuthorizationOptionsInitiator = new Rbsv1subscriptionsProcessingInformationAuthorizationOptionsInitiator(
@@ -58,7 +58,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.RecurringBillingSubscriptions
 			);
 
 			var requestObj = new CyberSource.Model.UpdateSubscription(
-				ClientReferenceInformation: clientReferenceInformation,
+				//ClientReferenceInformation: clientReferenceInformation,
 				ProcessingInformation: processingInformation,
 				SubscriptionInformation: subscriptionInformation,
 				OrderInformation: orderInformation

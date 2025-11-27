@@ -31,7 +31,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TokenManagement
             string shipToCountry = "US";
             string shipToEmail = "test@cybs.com";
             string shipToPhoneNumber = "4158880000";
-            Tmsv2customersEmbeddedDefaultShippingAddressShipTo shipTo = new Tmsv2customersEmbeddedDefaultShippingAddressShipTo(
+            Tmsv2tokenizeTokenInformationCustomerEmbeddedDefaultShippingAddressShipTo shipTo = new Tmsv2tokenizeTokenInformationCustomerEmbeddedDefaultShippingAddressShipTo(
                 FirstName: shipToFirstName,
                 LastName: shipToLastName,
                 Company: shipToCompany,
