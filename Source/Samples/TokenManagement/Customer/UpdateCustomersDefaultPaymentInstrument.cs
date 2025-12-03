@@ -21,7 +21,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TokenManagement
         {
             string customerTokenId = "AB695DA801DD1BB6E05341588E0A3BDC";
             string defaultPaymentInstrumentId = "AB6A54B982A6FCB6E05341588E0A3935";
-            Tmsv2customersDefaultPaymentInstrument defaultPaymentInstrument = new Tmsv2customersDefaultPaymentInstrument(
+            Tmsv2tokenizeTokenInformationCustomerDefaultPaymentInstrument defaultPaymentInstrument = new Tmsv2tokenizeTokenInformationCustomerDefaultPaymentInstrument(
                 Id: defaultPaymentInstrumentId
            );
 
