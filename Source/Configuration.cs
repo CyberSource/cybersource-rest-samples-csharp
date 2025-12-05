@@ -119,5 +119,20 @@ namespace Cybersource_rest_samples_dotnet
             // _configurationDictionary.Add("proxyPassword", string.Empty);
             return _configurationDictionary;
         }
+
+        public Dictionary<string, string> GetMerchantDetailsForBatchUploadSample()
+        {
+            _configurationDictionary.Add("authenticationType", "JWT");
+            _configurationDictionary.Add("merchantID", "qaebc2");
+            _configurationDictionary.Add("runEnvironment", "apitest.cybersource.com");
+
+            _configurationDictionary.Add("keyAlias", "qaebc2");
+            _configurationDictionary.Add("keyPass", "?Test1234");
+            _configurationDictionary.Add("keysDirectory", Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\..\\Source\\Resource"));
+            _configurationDictionary.Add("keyFilename", "qaebc2");
+            return _configurationDictionary;
+        }
+
+
     }
 }
