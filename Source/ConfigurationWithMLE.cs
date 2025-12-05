@@ -10,12 +10,12 @@ namespace Cybersource_rest_samples_dotnet
     {
         // initialize dictionary object
         private readonly Dictionary<string, string> _configurationDictionary = new Dictionary<string, string>();
-        private readonly Dictionary<string, bool> _configurationDictionaryforMLE = new Dictionary<string, bool>();
+        private readonly Dictionary<string, string> _configurationDictionaryforMLE = new Dictionary<string, string>();
 
-        public Dictionary<string, bool> GetMapToControlMLE()
+        public Dictionary<string, string> GetMapToControlMLE()
         {
-            _configurationDictionaryforMLE.Add("CreatePayment", true);         //CreatePayment function will have MLE=true i.e. (/pts/v2/payments POST API)      
-            _configurationDictionaryforMLE.Add("CapturePayment", false);       //capturePayment function will have MLE=false i.e.  (/pts/v2/payments/{id}/captures POST API)
+            _configurationDictionaryforMLE.Add("CreatePayment", "true");         //CreatePayment function will have MLE=true i.e. (/pts/v2/payments POST API)      
+            _configurationDictionaryforMLE.Add("CapturePayment", "false");       //capturePayment function will have MLE=false i.e.  (/pts/v2/payments/{id}/captures POST API)
 
             return _configurationDictionaryforMLE;
         }
