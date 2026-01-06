@@ -7,7 +7,6 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
-using ApiSdk.model;
 using Org.BouncyCastle.Asn1.Ocsp;
 
 namespace Cybersource_rest_samples_dotnet.Samples.MultiThreading

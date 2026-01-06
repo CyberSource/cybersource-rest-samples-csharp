@@ -38,13 +38,13 @@
       <HintPath>Source\lib\net461\ApiSdk.dll</HintPath>
     </Reference>
     <Reference Include="AuthenticationSdk">
-      <HintPath>packages\CyberSource.Authentication.0.0.0.26\lib\AuthenticationSdk.dll</HintPath>
+      <HintPath>packages\CyberSource.Authentication.0.0.0.27\lib\AuthenticationSdk.dll</HintPath>
     </Reference>
     <Reference Include="BouncyCastle.Crypto">
       <HintPath>packages\Portable.BouncyCastle.1.9.0\lib\net40\BouncyCastle.Crypto.dll</HintPath>
     </Reference>
     <Reference Include="cybersource-rest-client-dotnet">
-      <HintPath>packages\CyberSource.Rest.Client.0.0.1.59\lib\cybersource-rest-client-dotnet.dll</HintPath>
+      <HintPath>packages\CyberSource.Rest.Client.0.0.1.60\lib\cybersource-rest-client-dotnet.dll</HintPath>
     </Reference>
     <Reference Include="jose-jwt, Version=4.1.0.0">
       <HintPath>packages\jose-jwt.4.1.0\lib\net461\jose-jwt.dll</HintPath>
@@ -422,6 +422,8 @@
     <Compile Include="Source\Samples\BinLookup\BINLookupWithTMSJtiTransientToken.cs" />
     <Compile Include="Source\Samples\BinLookup\BINLookupWithTMSJWTTransientToken.cs" />
     <Compile Include="Source\Samples\BinLookup\BINLookupWithTMSPaymentInstrument.cs" />
+    <Compile Include="Source\Samples\MLEFeature\AcpApiExample.cs" />
+    <Compile Include="Source\Samples\MLEFeature\AcpApiExampleWithMleMap.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="NLog.config">
