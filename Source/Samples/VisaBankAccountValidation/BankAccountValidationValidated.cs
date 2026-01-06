@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
-using ApiSdk.model;
 using CyberSource.Api;
 using CyberSource.Client;
 using CyberSource.Model;
