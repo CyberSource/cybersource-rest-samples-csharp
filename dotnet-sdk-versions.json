@@ -1,0 +1,18 @@
+{
+    "latest_version": "0.0.1.59",
+    "minimum_supported_version": "0.0.1.50",
+    "versions": [
+        {
+            "version": "0.0.1.59",
+            "release_date": "2025-12-02",
+            "tag_name": "0.0.1.59",
+            "download_url": "https://github.com/CyberSource/cybersource-rest-client-dotnet/archive/refs/tags/0.0.1.59.zip"
+        }
+    ],
+    "repository": {
+        "owner": "CyberSource",
+        "repo": "cybersource-rest-client-dotnet",
+        "url": "https://github.com/CyberSource/cybersource-rest-client-dotnet"
+    },
+    "last_updated": "2026-01-02T10:00:00Z"
+}
