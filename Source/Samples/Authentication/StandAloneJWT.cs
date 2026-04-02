@@ -1,3 +1,5 @@
+// This is old Sample Code for JWTv1. Please check StandAloneJWTv2.cs for new sample code with JWTv2. This sample code is kept for reference and will be removed in future.
+
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -232,7 +234,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Authentication
                 var cybsHeaders = new Dictionary<string, object>()
                 {
                     { "v-c-merchant-id", merchantID },
-                    { "x5c", x5cList } 
+                    { "x5c", x5cList }
                 };
 
                 // JWT token is Header plus the Body plus the Signature of the Header & Body
