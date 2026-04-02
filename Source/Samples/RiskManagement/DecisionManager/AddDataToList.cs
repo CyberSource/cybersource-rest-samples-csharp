@@ -60,7 +60,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.RiskManagement
                 SolutionId: clientReferenceInformationPartnerSolutionId
            );
 
-            Riskv1liststypeentriesClientReferenceInformation clientReferenceInformation = new Riskv1liststypeentriesClientReferenceInformation(
+            RiskV1DecisionsPost201ResponseClientReferenceInformation clientReferenceInformation = new RiskV1DecisionsPost201ResponseClientReferenceInformation(
                 Code: clientReferenceInformationCode,
                 Partner: clientReferenceInformationPartner
            );

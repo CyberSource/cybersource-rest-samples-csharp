@@ -98,7 +98,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.UnifiedCheckout
             string orderInformationBillToCompanyDistrict = "district";
             string orderInformationBillToCompanyLocality = "Foster City";
             string orderInformationBillToCompanyPostalCode = "94404";
-            Upv1capturecontextsDataOrderInformationBillToCompany orderInformationBillToCompany = new Upv1capturecontextsDataOrderInformationBillToCompany(
+            Upv1capturecontextsOrderInformationBillToCompany orderInformationBillToCompany = new Upv1capturecontextsOrderInformationBillToCompany(
                 Name: orderInformationBillToCompanyName,
                 Address1: orderInformationBillToCompanyAddress1,
                 Address2: orderInformationBillToCompanyAddress2,
@@ -120,7 +120,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.UnifiedCheckout
             string orderInformationBillToTitle = "Mr";
             string orderInformationBillToPhoneNumber = "1234567890";
             string orderInformationBillToPhoneType = "phoneType";
-            Upv1capturecontextsDataOrderInformationBillTo orderInformationBillTo = new Upv1capturecontextsDataOrderInformationBillTo(
+            Upv1capturecontextsOrderInformationBillTo orderInformationBillTo = new Upv1capturecontextsOrderInformationBillTo(
                 Address1: orderInformationBillToAddress1,
                 Address2: orderInformationBillToAddress2,
                 Address3: orderInformationBillToAddress3,

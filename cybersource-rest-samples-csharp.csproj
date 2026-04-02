@@ -33,24 +33,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ApiSdk, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Source\lib\net461\ApiSdk.dll</HintPath>
-    </Reference>
     <Reference Include="AuthenticationSdk">
-      <HintPath>packages\CyberSource.Authentication.0.0.0.27\lib\AuthenticationSdk.dll</HintPath>
+      <HintPath>packages\CyberSource.Authentication.0.0.0.28\lib\AuthenticationSdk.dll</HintPath>
     </Reference>
     <Reference Include="BouncyCastle.Crypto">
       <HintPath>packages\Portable.BouncyCastle.1.9.0\lib\net40\BouncyCastle.Crypto.dll</HintPath>
     </Reference>
     <Reference Include="cybersource-rest-client-dotnet">
-      <HintPath>packages\CyberSource.Rest.Client.0.0.1.61\lib\cybersource-rest-client-dotnet.dll</HintPath>
+      <HintPath>packages\CyberSource.Rest.Client.0.0.1.62\lib\cybersource-rest-client-dotnet.dll</HintPath>
     </Reference>
     <Reference Include="jose-jwt, Version=4.1.0.0">
       <HintPath>packages\jose-jwt.4.1.0\lib\net461\jose-jwt.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>packages\Microsoft.Bcl.AsyncInterfaces.8.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+      <HintPath>packages\Microsoft.Bcl.AsyncInterfaces.8.0.0\lib\netstandard2.0\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -132,6 +128,7 @@
     <Compile Include="Source\Samples\Authentication\GenerateHttpRequestHeaders\PutGenerateHeaders.cs" />
     <Compile Include="Source\Samples\Authentication\StandAloneHttpSignature.cs" />
     <Compile Include="Source\Samples\Authentication\StandAloneJWT.cs" />
+    <Compile Include="Source\Samples\Authentication\StandAloneJWTv2.cs" />
     <Compile Include="Source\Samples\Authentication\StandAloneOAuth.cs" />
     <Compile Include="Source\Samples\Authentication\StandAloneMetaKey.cs" />
     <Compile Include="Source\Samples\AzureIntermediateTesting\SampleTestingForAzureIntermediateHost.cs" />
@@ -423,10 +420,9 @@
     <Compile Include="Source\Samples\BinLookup\BINLookupWithTMSJWTTransientToken.cs" />
     <Compile Include="Source\Samples\BinLookup\BINLookupWithTMSPaymentInstrument.cs" />
     <Compile Include="Source\Samples\MLEFeature\AcpApiExample.cs" />
-	<Compile Include="Source\Samples\MLEFeature\AcpApiExampleWithMleMap.cs" />
-	<Compile Include="Source\Samples\VisaBankAccountValidation\BankAccountValidationValidated.cs" />
-	<Compile Include="Source\BankAccountValidationConfiguration.cs" />
-	
+    <Compile Include="Source\Samples\MLEFeature\AcpApiExampleWithMleMap.cs" />
+    <Compile Include="Source\Samples\VisaBankAccountValidation\BankAccountValidationValidated.cs" />
+    <Compile Include="Source\BankAccountValidationConfiguration.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="NLog.config">

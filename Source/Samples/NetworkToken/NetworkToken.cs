@@ -35,11 +35,11 @@ namespace Cybersource_rest_samples_dotnet.Samples.NetworkToken
                 //var result = JWEUtility.DecryptJWEResponse(encodedResponse, merchantConfig);
 
                 //Using the new method JWEUtility.DecryptJWEResponse(RSAParamet ers, string) instead
-                RSAParameters rsaParams = FetchRSAParametersFromFile(merchantConfig.PemFileDirectory);
-                var result = JWEUtility.DecryptJWEResponse(rsaParams, encodedResponse);
+                //RSAParameters rsaParams = FetchRSAParametersFromFile(merchantConfig.PemFileDirectory);
+                //var result = JWEUtility.DecryptJWEResponse(rsaParams, encodedResponse);
 
-                Console.WriteLine(result);
-                return result;
+                Console.WriteLine(encodedResponse);
+                return encodedResponse;
             }
             catch (Exception e)
             {

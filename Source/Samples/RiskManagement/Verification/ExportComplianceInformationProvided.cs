@@ -21,7 +21,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.RiskManagement
         {
             string clientReferenceInformationCode = "verification example";
             string clientReferenceInformationComments = "Export -fields";
-            Riskv1liststypeentriesClientReferenceInformation clientReferenceInformation = new Riskv1liststypeentriesClientReferenceInformation(
+            RiskV1DecisionsPost201ResponseClientReferenceInformation clientReferenceInformation = new RiskV1DecisionsPost201ResponseClientReferenceInformation(
                 Code: clientReferenceInformationCode,
                 Comments: clientReferenceInformationComments
            );
