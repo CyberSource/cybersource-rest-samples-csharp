@@ -17,7 +17,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TokenManagement
             Console.WriteLine($"[Sample Code Testing] [{filename}] {status}");
         }
 
-        public static PaymentInstrumentList1 Run()
+        public static PaymentInstrumentList Run()
         {
             string instrumentIdentifierTokenId = "7010000000016241111";
             string profileid = "93B32398-AD51-4CC2-A682-EA3E93614EB1";
@@ -29,7 +29,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TokenManagement
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new InstrumentIdentifierApi(clientConfig);
-                PaymentInstrumentList1 result = apiInstance.GetInstrumentIdentifierPaymentInstrumentsList(instrumentIdentifierTokenId, profileid, false, offset, limit);
+                PaymentInstrumentList result = apiInstance.GetInstrumentIdentifierPaymentInstrumentsList(instrumentIdentifierTokenId, profileid, false, offset, limit);
                 Console.WriteLine(result);
                 WriteLogAudit(apiInstance.GetStatusCode());
                 return result;

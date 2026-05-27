@@ -6,6 +6,23 @@ using Cybersource_rest_samples_dotnet.Samples.Payments;
 
 namespace Cybersource_rest_samples_dotnet
 {
+    /// <summary>
+    /// MLE (Message Level Encryption) configuration examples using JWT with P12 certificate.
+    ///
+    /// <para>MLE is only supported with JWT authentication. These examples use JWT with P12
+    /// (the default key type). However, <b>MLE also works with JWT using Shared Secret
+    /// credentials</b> (jwtKeyType=SHARED_SECRET). This means merchants currently
+    /// using HTTP Signature can migrate to JWT with the same merchantKeyId and
+    /// merchantsecretKey and gain MLE support (both Request MLE and Response MLE)
+    /// without managing a P12 certificate file.</para>
+    ///
+    /// <para>For MLE with Shared Secret configuration and sample code, see:</para>
+    /// <list type="bullet">
+    /// <item><see cref="JwtSharedSecretConfiguration.GetMerchantDetailsWithMLE"/> — configuration</item>
+    /// <item><c>Samples.JwtSharedSecretAuth.MLEPaymentWithJwtSharedSecret</c> — sample code</item>
+    /// </list>
+    /// </summary>
+    /// <seealso cref="JwtSharedSecretConfiguration"/>
     class ConfigurationWithMLE
     {
         // initialize dictionary object

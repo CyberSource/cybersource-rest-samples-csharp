@@ -6,6 +6,17 @@ using CyberSource.Model;
 
 namespace Cybersource_rest_samples_dotnet.Samples.MLEFeature
 {
+    /// <summary>
+    /// ACP API example with both Request MLE and Response MLE enabled.
+    ///
+    /// <para><b>Note:</b> MLE also works with JWT using Shared Secret credentials
+    /// (jwtKeyType=SHARED_SECRET), allowing merchants to migrate from HTTP Signature
+    /// and gain MLE support (both Request and Response MLE) using the same merchantKeyId
+    /// and merchantsecretKey — no P12 file needed.</para>
+    ///
+    /// <para>See <c>Samples.JwtSharedSecretAuth.MLEPaymentWithJwtSharedSecret</c> and
+    /// <see cref="JwtSharedSecretConfiguration.GetMerchantDetailsWithMLE"/> for an example.</para>
+    /// </summary>
     public class AcpApiExample
     {
         public static void WriteLogAudit(int status)
