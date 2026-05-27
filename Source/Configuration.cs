@@ -4,6 +4,20 @@ using System.IO;
 
 namespace Cybersource_rest_samples_dotnet
 {
+    /// <summary>
+    /// Default merchant configuration using HTTP Signature authentication.
+    ///
+    /// <para><b>Note:</b> If you are currently using HTTP Signature authentication and want to migrate
+    /// to JWT (required for MLE support), you can now use JWT with the <b>same shared secret
+    /// credentials</b> (merchantKeyId + merchantsecretKey) you already have — no P12 certificate
+    /// needed. HTTP Signature is being deprecated; JWT with Shared Secret is the recommended
+    /// migration path.</para>
+    ///
+    /// <para>See <see cref="JwtSharedSecretConfiguration.GetMerchantDetails"/> for JWT with Shared Secret configuration,
+    /// which supports both Request MLE and Response MLE.</para>
+    /// </summary>
+    /// <seealso cref="JwtSharedSecretConfiguration.GetMerchantDetails"/>
+    /// <seealso cref="JwtSharedSecretConfiguration.GetMerchantDetailsWithMLE"/>
     public class Configuration
     {
         // initialize dictionary object
@@ -21,7 +35,6 @@ namespace Cybersource_rest_samples_dotnet
             _configurationDictionary.Add("keyAlias", "testrest");
             _configurationDictionary.Add("keyPass", "testrest");
             _configurationDictionary.Add("timeout", "300000");
-
             // Configs related to meta key
             _configurationDictionary.Add("portfolioID", string.Empty);
             _configurationDictionary.Add("useMetaKey", "false");

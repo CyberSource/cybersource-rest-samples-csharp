@@ -107,7 +107,7 @@ The samples are organized into categories and common usage examples.
 
 To set your API credentials for an API request, configure the following information in `Source\Configuration.cs` file:
   
-* Http
+* Http (**Deprecated** — migrate to JWT with Shared Secret below)
 
     ```lang-none
     authenticationType  = http_Signature
@@ -118,7 +118,7 @@ To set your API credentials for an API request, configure the following informat
     enableClientCert    = false
     ```
 
-* Jwt
+* Jwt (with P12 certificate)
 
     ```lang-none
     authenticationType  = Jwt
@@ -131,11 +131,25 @@ To set your API credentials for an API request, configure the following informat
     enableClientCert    = false
     ```
 
-* MetaKey Http
+* Jwt with Shared Secret (**Recommended migration path from Http Signature**)
+
+  Uses the **same** `merchantKeyId` and `merchantsecretKey` credentials as Http Signature, but authenticates via JWT. This enables MLE (Message Level Encryption) support for both request and response payloads, which Http Signature does not support.
+
+  For detailed migration guide, configuration, and sample code, see the [JWT Shared Secret Auth samples](Source/Samples/JwtSharedSecretAuth/README.md).
+
+    ```lang-none
+      authenticationType  = Jwt
+      jwtKeyType          = SHARED_SECRET
+      merchantID          = your_merchant_id
+      merchantKeyId       = your_key_serial_number
+      merchantsecretKey   = your_key_shared_secret
+    ```
+
+* MetaKey Http (**Deprecated** — migrate to MetaKey JWT with Shared Secret below)
 
   ```lang-none
     authenticationType  = http_Signature
-    merchantID          = your_child_merchant_id
+    merchantID          = your_transacting_merchant_id
     merchantKeyId       = your_metakey_serial_number
     merchantsecretKey   = your_metakey_shared_secret
     portfolioId         = your_portfolio_id
@@ -143,11 +157,11 @@ To set your API credentials for an API request, configure the following informat
     enableClientCert    = false
   ```
 
-* MetaKey JWT
+* MetaKey JWT (P12)
 
   ```lang-none
     authenticationType  = Jwt
-    merchantID          = your_child_merchant_id
+    merchantID          = your_transacting_merchant_id
     keyAlias            = your_child_merchant_id
     keyPassword         = your_portfolio_id
     keyFileName         = your_portfolio_id
@@ -156,7 +170,41 @@ To set your API credentials for an API request, configure the following informat
     enableClientCert    = false
   ```
 
-  * OAuth
+* MetaKey JWT with Shared Secret (**Recommended migration from MetaKey Http**)
+
+  Uses the same MetaKey credentials as MetaKey Http but authenticates via JWT, enabling MLE support.
+
+  ```lang-none
+    authenticationType  = Jwt
+    jwtKeyType          = SHARED_SECRET
+    merchantID          = your_transacting_merchant_id
+    merchantKeyId       = your_metakey_serial_number
+    merchantsecretKey   = your_metakey_shared_secret
+    portfolioId         = your_portfolio_id
+    useMetaKey          = true
+  ```
+
+* Response MLE with MetaKey
+
+  When Response MLE is enabled (`enableResponseMleGlobally=true`) and MetaKey is in use (`useMetaKey=true`), the Response MLE configuration must use the **portfolio's** response MLE key — not the transacting merchant's. Specifically:
+
+  - `responseMlePrivateKeyFilePath` (or `responseMlePrivateKey` object) must point to the **portfolio's** response MLE private key.
+  - `responseMleKID` — the KID value associated with the **portfolio's** response MLE certificate.
+    - **Optional** when `responseMlePrivateKeyFilePath` points to a CyberSource-generated P12 file (SDK auto-fetches from P12).
+    - **Required** when using PEM format files (`.pem`, `.key`, `.p8`) or when providing `responseMlePrivateKey` object directly.
+
+  ```lang-none
+    enableResponseMleGlobally          = true
+    responseMlePrivateKeyFilePath      = \path\to\portfolio\response\mle\private\key.p12
+    responseMlePrivateKeyFilePassword  = portfolio_private_key_password
+    // responseMleKID is optional when using a CyberSource-generated P12 file (auto-fetched from P12)
+    // Required when using PEM files or responseMlePrivateKey object
+    // responseMleKID                  = your_portfolio_response_mle_kid
+  ```
+
+  > **Important:** The response MLE private key (and KID, if applicable) must belong to the portfolio (parent account), since in MetaKey mode the portfolio is the transaction submitter and the response is encrypted using the portfolio's MLE certificate.
+
+* OAuth
 
   CyberSource OAuth uses mutual authentication. A Client Certificate is required to authenticate against the OAuth API. 
 
