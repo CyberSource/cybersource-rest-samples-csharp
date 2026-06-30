@@ -9,7 +9,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Webhooks.ManageWebhooks
 {
 	public class DeleteWebhookSubscription
 	{
-		public static void Run(string webhookId)
+		public static async System.Threading.Tasks.Task RunAsync(string webhookId)
 		{
 			try
 			{
@@ -17,7 +17,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Webhooks.ManageWebhooks
 				var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
 				var apiInstance = new ManageWebhooksApi(clientConfig);
-				//apiInstance.DeleteWebhookSubscription(webhookId);
+				//await apiInstance.DeleteWebhookSubscriptionAsync(webhookId);
 			}
 			catch (Exception e)
 			{

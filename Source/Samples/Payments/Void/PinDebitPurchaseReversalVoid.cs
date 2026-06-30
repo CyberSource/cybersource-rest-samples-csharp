@@ -9,9 +9,9 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments
 {
     public class PinDebitPurchaseReversalVoid
     {
-        public static PtsV2PaymentsVoidsPost201Response Run()
+        public static async System.Threading.Tasks.Task<PtsV2PaymentsVoidsPost201Response> RunAsync()
         {
-            var id = PinDebitPurchaseUsingEMVTechnologyWithContactlessReadWithVisaPlatformConnect.Run().Id;
+            var id = (await PinDebitPurchaseUsingEMVTechnologyWithContactlessReadWithVisaPlatformConnect.RunAsync()).Id;
             string clientReferenceInformationCode = "Pin Debit Purchase Reversal(Void)";
             Ptsv2paymentsidreversalsClientReferenceInformation clientReferenceInformation = new Ptsv2paymentsidreversalsClientReferenceInformation(
                 Code: clientReferenceInformationCode
@@ -47,7 +47,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments
                 var configDictionary = new Configuration().GetAlternativeConfiguration();
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
                 var apiInstance = new VoidApi(clientConfig);
-                PtsV2PaymentsVoidsPost201Response result = apiInstance.VoidPayment(requestObj, id);
+                PtsV2PaymentsVoidsPost201Response result = await apiInstance.VoidPaymentAsync(requestObj, id);
                 Console.WriteLine(result);
                 return result;
             }

@@ -17,7 +17,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TokenManagement
             Console.WriteLine($"[Sample Code Testing] [{filename}] {status}");
         }
 
-        public static PostCustomerShippingAddressRequest Run()
+        public static async System.Threading.Tasks.Task<PostCustomerShippingAddressRequest> RunAsync()
         {
             string customerTokenId = "AB695DA801DD1BB6E05341588E0A3BDC";
             bool _default = false;
@@ -31,7 +31,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TokenManagement
             string shipToCountry = "US";
             string shipToEmail = "test@cybs.com";
             string shipToPhoneNumber = "4158880000";
-            Tmsv2tokenizeTokenInformationCustomerEmbeddedDefaultShippingAddressShipTo shipTo = new Tmsv2tokenizeTokenInformationCustomerEmbeddedDefaultShippingAddressShipTo(
+            DefaultShippingAddressShipTo shipTo = new DefaultShippingAddressShipTo(
                 FirstName: shipToFirstName,
                 LastName: shipToLastName,
                 Company: shipToCompany,
@@ -55,7 +55,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TokenManagement
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new CustomerShippingAddressApi(clientConfig);
-                PostCustomerShippingAddressRequest result = apiInstance.PostCustomerShippingAddress(customerTokenId, requestObj);
+                PostCustomerShippingAddressRequest result = await apiInstance.PostCustomerShippingAddressAsync(customerTokenId, requestObj);
                 Console.WriteLine(result);
                 WriteLogAudit(apiInstance.GetStatusCode());
                 return result;

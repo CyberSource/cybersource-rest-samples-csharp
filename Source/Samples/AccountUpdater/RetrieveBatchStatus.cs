@@ -9,7 +9,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.AccountUpdater
 {
 	public class RetrieveBatchStatus
 	{
-		public static void Run()
+		public static async System.Threading.Tasks.Task RunAsync()
 		{
 			try
 			{
@@ -19,7 +19,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.AccountUpdater
 				var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
 				var apiInstance = new BatchesApi(clientConfig);
-				InlineResponse20013 result = apiInstance.GetBatchStatus(batchId);
+				InlineResponse20013 result = await apiInstance.GetBatchStatusAsync(batchId);
 				Console.WriteLine(result);
 			}
 			catch (Exception e)

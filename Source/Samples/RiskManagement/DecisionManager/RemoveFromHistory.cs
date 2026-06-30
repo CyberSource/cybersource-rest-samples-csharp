@@ -17,7 +17,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.RiskManagement
             Console.WriteLine($"[Sample Code Testing] [{filename}] {status}");
         }
 
-        public static RiskV1UpdatePost201Response Run()
+        public static async System.Threading.Tasks.Task<RiskV1UpdatePost201Response> RunAsync()
         {
             string id = "5825489395116729903003";
             string riskInformationMarkingDetailsNotes = "Adding this transaction as suspect";
@@ -43,7 +43,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.RiskManagement
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new DecisionManagerApi(clientConfig);
-                RiskV1UpdatePost201Response result = apiInstance.FraudUpdate(id, requestObj);
+                RiskV1UpdatePost201Response result = await apiInstance.FraudUpdateAsync(id, requestObj);
                 Console.WriteLine(result);
                 WriteLogAudit(apiInstance.GetStatusCode());
                 return result;

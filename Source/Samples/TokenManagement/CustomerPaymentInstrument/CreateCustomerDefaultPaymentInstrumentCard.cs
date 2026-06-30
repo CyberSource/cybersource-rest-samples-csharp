@@ -17,14 +17,14 @@ namespace Cybersource_rest_samples_dotnet.Samples.TokenManagement
             Console.WriteLine($"[Sample Code Testing] [{filename}] {status}");
         }
 
-        public static PostCustomerPaymentInstrumentRequest Run()
+        public static async System.Threading.Tasks.Task<PostCustomerPaymentInstrumentRequest> RunAsync()
         {
             string customerTokenId = "AB695DA801DD1BB6E05341588E0A3BDC";
             bool _default = true;
             string cardExpirationMonth = "12";
             string cardExpirationYear = "2031";
             string cardType = "001";
-            Tmsv2tokenizeTokenInformationCustomerEmbeddedDefaultPaymentInstrumentCard card = new Tmsv2tokenizeTokenInformationCustomerEmbeddedDefaultPaymentInstrumentCard(
+            DefaultPaymentInstrumentCard card = new DefaultPaymentInstrumentCard(
                 ExpirationMonth: cardExpirationMonth,
                 ExpirationYear: cardExpirationYear,
                 Type: cardType
@@ -40,7 +40,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TokenManagement
             string billToCountry = "US";
             string billToEmail = "test@cybs.com";
             string billToPhoneNumber = "4158880000";
-            Tmsv2tokenizeTokenInformationCustomerEmbeddedDefaultPaymentInstrumentBillTo billTo = new Tmsv2tokenizeTokenInformationCustomerEmbeddedDefaultPaymentInstrumentBillTo(
+            DefaultPaymentInstrumentBillTo billTo = new DefaultPaymentInstrumentBillTo(
                 FirstName: billToFirstName,
                 LastName: billToLastName,
                 Company: billToCompany,
@@ -54,7 +54,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TokenManagement
            );
 
             string instrumentIdentifierId = "7010000000016241111";
-            Tmsv2tokenizeTokenInformationCustomerEmbeddedDefaultPaymentInstrumentInstrumentIdentifier instrumentIdentifier = new Tmsv2tokenizeTokenInformationCustomerEmbeddedDefaultPaymentInstrumentInstrumentIdentifier(
+            DefaultPaymentInstrumentInstrumentIdentifier instrumentIdentifier = new DefaultPaymentInstrumentInstrumentIdentifier(
                 Id: instrumentIdentifierId
            );
 
@@ -71,7 +71,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TokenManagement
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new CustomerPaymentInstrumentApi(clientConfig);
-                PostCustomerPaymentInstrumentRequest result = apiInstance.PostCustomerPaymentInstrument(customerTokenId, requestObj);
+                PostCustomerPaymentInstrumentRequest result = await apiInstance.PostCustomerPaymentInstrumentAsync(customerTokenId, requestObj);
                 Console.WriteLine(result);
                 WriteLogAudit(apiInstance.GetStatusCode());
                 return result;

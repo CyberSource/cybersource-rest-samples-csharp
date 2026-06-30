@@ -17,16 +17,16 @@ namespace Cybersource_rest_samples_dotnet.Samples.Invoicing
             Console.WriteLine($"[Sample Code Testing] [{filename}] {status}");
         }
 
-        public static InvoicingV2InvoicesGet200Response Run()
+        public static async System.Threading.Tasks.Task<InvoicingV2InvoicesGet200Response> RunAsync()
         {
-            string id = CreateDraftInvoice.Run().Id;
+            string id = (await CreateDraftInvoice.RunAsync()).Id;
             try
             {
                 var configDictionary = new Configuration().GetConfiguration();
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new InvoicesApi(clientConfig);
-                InvoicingV2InvoicesGet200Response result = apiInstance.GetInvoice(id);
+                InvoicingV2InvoicesGet200Response result = await apiInstance.GetInvoiceAsync(id);
                 Console.WriteLine(result);
                 WriteLogAudit(apiInstance.GetStatusCode());
                 return result;

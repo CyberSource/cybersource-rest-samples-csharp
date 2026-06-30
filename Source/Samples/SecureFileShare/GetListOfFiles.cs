@@ -17,7 +17,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.SecureFileShare
             Console.WriteLine($"[Sample Code Testing] [{filename}] {status}");
         }
 
-        public static V1FileDetailsGet200Response Run()
+        public static async System.Threading.Tasks.Task<V1FileDetailsGet200Response> RunAsync()
         {
             var startDate = DateTime.ParseExact("2024-07-20", "yyyy-MM-dd", CultureInfo.InvariantCulture);
             var endDate = DateTime.ParseExact("2024-07-30", "yyyy-MM-dd", CultureInfo.InvariantCulture);
@@ -29,7 +29,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.SecureFileShare
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new SecureFileShareApi(clientConfig);
-                V1FileDetailsGet200Response result = apiInstance.GetFileDetail(startDate, endDate, organizationId, name);
+                V1FileDetailsGet200Response result = await apiInstance.GetFileDetailAsync(startDate, endDate, organizationId, name);
                 Console.WriteLine(result);
                 WriteLogAudit(apiInstance.GetStatusCode());
                 return result;

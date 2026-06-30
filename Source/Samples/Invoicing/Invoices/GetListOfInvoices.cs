@@ -1,4 +1,4 @@
-﻿using CyberSource.Api;
+using CyberSource.Api;
 using CyberSource.Model;
 using System;
 using System.Collections.Generic;
@@ -10,7 +10,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Invoicing
 {
     public class GetListOfInvoices
     {
-        public static InvoicingV2InvoicesAllGet200Response Run()
+        public static async System.Threading.Tasks.Task<InvoicingV2InvoicesAllGet200Response> RunAsync()
         {
             int offset = 0;
             int limit = 10;
@@ -22,7 +22,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Invoicing
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new InvoicesApi(clientConfig);
-                InvoicingV2InvoicesAllGet200Response result = apiInstance.GetAllInvoices(offset, limit, query);
+                InvoicingV2InvoicesAllGet200Response result = await apiInstance.GetAllInvoicesAsync(offset, limit, query);
                 Console.WriteLine(result);
                 return result;
             }

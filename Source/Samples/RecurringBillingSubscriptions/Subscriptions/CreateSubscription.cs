@@ -9,32 +9,20 @@ namespace Cybersource_rest_samples_dotnet.Samples.RecurringBillingSubscriptions
 {
 	public class CreateSubscription
 	{
-		public static CreateSubscriptionResponse Run()
+		public static async System.Threading.Tasks.Task<CreateSubscriptionResponse> RunAsync()
 		{
 			string clientReferenceInformationCode = "TC501713";
-			string clientReferenceInformationPartnerDeveloperId = "ABCD1234";
-			string clientReferenceInformationPartnerSolutionId = "GEF1234";
-			//Rbsv1subscriptionsClientReferenceInformationPartner clientReferenceInformationPartner = new Rbsv1subscriptionsClientReferenceInformationPartner(
-			//	DeveloperId: clientReferenceInformationPartnerDeveloperId,
-			//	SolutionId: clientReferenceInformationPartnerSolutionId
-			//);
-
-			string clientReferenceInformationApplicationName = "CYBS-SDK";
-			string clientReferenceInformationApplicationVersion = "v1";
-			//Rbsv1subscriptionsClientReferenceInformation clientReferenceInformation = new Rbsv1subscriptionsClientReferenceInformation(
-			//	Code: clientReferenceInformationCode,
-			//	Partner: clientReferenceInformationPartner,
-			//	ApplicationName: clientReferenceInformationApplicationName,
-			//	ApplicationVersion: clientReferenceInformationApplicationVersion
+			//GetAllSubscriptionsResponseClientReferenceInformation clientReferenceInformation = new GetAllSubscriptionsResponseClientReferenceInformation(
+			//	Code: clientReferenceInformationCode
 			//);
 
 			string processingInformationCommerceIndicator = "recurring";
 			string processingInformationAuthorizationOptionsInitiatorType = "merchant";
-			Rbsv1subscriptionsProcessingInformationAuthorizationOptionsInitiator processingInformationAuthorizationOptionsInitiator = new Rbsv1subscriptionsProcessingInformationAuthorizationOptionsInitiator(
+			RbsAuthorizationOptionsInitiator processingInformationAuthorizationOptionsInitiator = new RbsAuthorizationOptionsInitiator(
 				Type: processingInformationAuthorizationOptionsInitiatorType
 			);
 
-			Rbsv1subscriptionsProcessingInformationAuthorizationOptions processingInformationAuthorizationOptions = new Rbsv1subscriptionsProcessingInformationAuthorizationOptions(
+			RbsAuthorizationOptions processingInformationAuthorizationOptions = new RbsAuthorizationOptions(
 				Initiator: processingInformationAuthorizationOptionsInitiator
 			);
 
@@ -75,7 +63,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.RecurringBillingSubscriptions
 				var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
 				var apiInstance = new SubscriptionsApi(clientConfig);
-				response = apiInstance.CreateSubscription(requestObj);
+				response = await apiInstance.CreateSubscriptionAsync(requestObj);
 			}
 			catch (Exception e)
 			{

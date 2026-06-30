@@ -1,4 +1,4 @@
-﻿using CyberSource.Api;
+using CyberSource.Api;
 using CyberSource.Model;
 using System;
 
@@ -6,7 +6,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.NetworkToken
 {
     public class CreateInstrumentIdentifierEnrollForNetworkToken
     {
-        public static PostInstrumentIdentifierRequest Run()
+        public static async System.Threading.Tasks.Task<PostInstrumentIdentifierRequest> RunAsync()
         {
             var profileid = "93B32398-AD51-4CC2-A682-EA3E93614EB1";
             string type = "enrollable card";
@@ -28,7 +28,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.NetworkToken
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new InstrumentIdentifierApi(clientConfig);
-                PostInstrumentIdentifierRequest result = apiInstance.PostInstrumentIdentifier(requestObj, profileid);
+                PostInstrumentIdentifierRequest result = await apiInstance.PostInstrumentIdentifierAsync(requestObj, profileid);
                 Console.WriteLine(result);
                 return result;
             }

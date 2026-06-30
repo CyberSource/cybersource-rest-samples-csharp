@@ -17,7 +17,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Reporting
             Console.WriteLine($"[Sample Code Testing] [{filename}] {status}");
         }
 
-        public static ReportingV3ReportsIdGet200Response Run()
+        public static async System.Threading.Tasks.Task<ReportingV3ReportsIdGet200Response> RunAsync()
         {
             string reportId = "79642c43-2368-0cd5-e053-a2588e0a7b3c";
             string organizationId = "testrest";
@@ -27,7 +27,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Reporting
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new ReportsApi(clientConfig);
-                ReportingV3ReportsIdGet200Response result = apiInstance.GetReportByReportId(reportId, organizationId);
+                ReportingV3ReportsIdGet200Response result = await apiInstance.GetReportByReportIdAsync(reportId, organizationId);
                 Console.WriteLine(result);
                 WriteLogAudit(apiInstance.GetStatusCode());
                 return result;

@@ -17,9 +17,9 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments
             Console.WriteLine($"[Sample Code Testing] [{filename}] {status}");
         }
 
-        public static PtsV2PaymentsCapturesPost201Response Run()
+        public static async System.Threading.Tasks.Task<PtsV2PaymentsCapturesPost201Response> RunAsync()
         {
-            var id = SimpleAuthorizationInternet.Run().Id;
+            var id = (await SimpleAuthorizationInternet.RunAsync()).Id;
             string clientReferenceInformationCode = "TC50171_3";
             Ptsv2paymentsClientReferenceInformation clientReferenceInformation = new Ptsv2paymentsClientReferenceInformation(
                 Code: clientReferenceInformationCode
@@ -47,7 +47,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new CaptureApi(clientConfig);
-                PtsV2PaymentsCapturesPost201Response result = apiInstance.CapturePayment(requestObj, id);
+                PtsV2PaymentsCapturesPost201Response result = await apiInstance.CapturePaymentAsync(requestObj, id);
                 Console.WriteLine(result);
                 WriteLogAudit(apiInstance.GetStatusCode());
                 return result;

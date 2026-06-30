@@ -17,7 +17,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TokenManagement
             Console.WriteLine($"[Sample Code Testing] [{filename}] {status}");
         }
 
-        public static ShippingAddressListForCustomer Run()
+        public static async System.Threading.Tasks.Task<ShippingAddressListForCustomer> RunAsync()
         {
             string customerTokenId = "AB695DA801DD1BB6E05341588E0A3BDC";
             string profileid = null;
@@ -29,7 +29,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TokenManagement
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new CustomerShippingAddressApi(clientConfig);
-                ShippingAddressListForCustomer result = apiInstance.GetCustomerShippingAddressesList(customerTokenId, profileid, offset, limit);
+                ShippingAddressListForCustomer result = await apiInstance.GetCustomerShippingAddressesListAsync(customerTokenId, profileid, offset, limit);
                 Console.WriteLine(result);
                 WriteLogAudit(apiInstance.GetStatusCode());
                 return result;

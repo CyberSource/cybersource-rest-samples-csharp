@@ -9,7 +9,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments.Payments
 {
 	public class EBTPurchaseFromCashBenefitsAccountWithCashback
 	{
-		public static PtsV2PaymentsPost201Response Run()
+		public static async System.Threading.Tasks.Task<PtsV2PaymentsPost201Response> RunAsync()
 		{
 			string clientReferenceInformationCode = "EBT - Purchase from Cash Benefits Account with CB";
 			Ptsv2paymentsClientReferenceInformation clientReferenceInformation = new Ptsv2paymentsClientReferenceInformation(
@@ -94,7 +94,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments.Payments
 				var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
 				var apiInstance = new PaymentsApi(clientConfig);
-				PtsV2PaymentsPost201Response result = apiInstance.CreatePayment(requestObj);
+				PtsV2PaymentsPost201Response result = await apiInstance.CreatePaymentAsync(requestObj);
 				Console.WriteLine(result);
 				return result;
 			}

@@ -1,4 +1,4 @@
-﻿using CyberSource.Utilities;
+using CyberSource.Utilities;
 
 using System.Collections.Generic;
 using AuthenticationSdk.core;
@@ -15,7 +15,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.NetworkToken
 {
     public class NetworkToken
     {
-        public static String Run()
+        public static async System.Threading.Tasks.Task<String> RunAsync()
         {
 
             Dictionary<string, string> configDictionary = new Configuration().GetConfiguration();
@@ -25,10 +25,10 @@ namespace Cybersource_rest_samples_dotnet.Samples.NetworkToken
             try
             {
                 // Step-I
-                PostInstrumentIdentifierRequest createInstrumentIdentifierEnrollForNetworkTokenResponse = CreateInstrumentIdentifierEnrollForNetworkToken.Run();
+                PostInstrumentIdentifierRequest createInstrumentIdentifierEnrollForNetworkTokenResponse = await CreateInstrumentIdentifierEnrollForNetworkToken.RunAsync();
 
                 //Step-II
-                var encodedResponse = PaymentCredentialsFromNetworkToken.Run(createInstrumentIdentifierEnrollForNetworkTokenResponse.Id);
+                var encodedResponse = await PaymentCredentialsFromNetworkToken.RunAsync(createInstrumentIdentifierEnrollForNetworkTokenResponse.Id);
 
                 //Step-III
                 //The following method JWEUtility.DecryptJWEResponse(string, MerchantConfig) has been deprecated.
@@ -52,8 +52,17 @@ namespace Cybersource_rest_samples_dotnet.Samples.NetworkToken
         {
             var privateKey = File.ReadAllText(pemFileDirectory);
             PemReader pemReader = new PemReader(new StringReader(privateKey));
-            RsaPrivateCrtKeyParameters keyPair = (RsaPrivateCrtKeyParameters) pemReader.ReadObject();
-            return DotNetUtilities.ToRSAParameters((RsaPrivateCrtKeyParameters)keyPair);
+            object pemObject = pemReader.ReadObject();
+
+            RsaPrivateCrtKeyParameters keyParameters = pemObject as RsaPrivateCrtKeyParameters
+                ?? (pemObject as AsymmetricCipherKeyPair)?.Private as RsaPrivateCrtKeyParameters;
+
+            if (keyParameters == null)
+            {
+                throw new InvalidCastException("The PEM file does not contain a valid RSA private key.");
+            }
+
+            return DotNetUtilities.ToRSAParameters(keyParameters);
         }
     }
 }

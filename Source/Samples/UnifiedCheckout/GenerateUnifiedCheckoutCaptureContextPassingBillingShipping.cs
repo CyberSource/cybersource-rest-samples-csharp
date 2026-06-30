@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 
@@ -18,7 +18,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.UnifiedCheckout
             Console.WriteLine($"[Sample Code Testing] [{filename}] {status}");
         }
 
-        public static String Run()
+        public static async System.Threading.Tasks.Task<String> RunAsync()
         {
 
             string clientVersion = "0.23";
@@ -199,7 +199,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.UnifiedCheckout
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new UnifiedCheckoutCaptureContextApi(clientConfig);
-                String result = apiInstance.GenerateUnifiedCheckoutCaptureContext(requestObj);
+                String result = await apiInstance.GenerateUnifiedCheckoutCaptureContextAsync(requestObj);
                 Console.WriteLine(CaptureContextParsingUtility.parseCaptureContextResponse(result, clientConfig));
                 WriteLogAudit(apiInstance.GetStatusCode());
                 return result;

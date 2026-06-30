@@ -17,9 +17,9 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments
             Console.WriteLine($"[Sample Code Testing] [{filename}] {status}");
         }
 
-        public static PtsV2IncrementalAuthorizationPatch201Response Run()
+        public static async System.Threading.Tasks.Task<PtsV2IncrementalAuthorizationPatch201Response> RunAsync()
         {
-            string id = AuthorizationForIncrementalAuthorizationFlow.Run().Id;
+            string id = (await AuthorizationForIncrementalAuthorizationFlow.RunAsync()).Id;
             string clientReferenceInformationCode = "TC50171_3";
             Ptsv2paymentsidClientReferenceInformation clientReferenceInformation = new Ptsv2paymentsidClientReferenceInformation(
                 Code: clientReferenceInformationCode
@@ -73,7 +73,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new PaymentsApi(clientConfig);
-                PtsV2IncrementalAuthorizationPatch201Response result = apiInstance.IncrementAuth(id, requestObj);
+                PtsV2IncrementalAuthorizationPatch201Response result = await apiInstance.IncrementAuthAsync(id, requestObj);
                 Console.WriteLine(result);
                 WriteLogAudit(apiInstance.GetStatusCode());
                 return result;

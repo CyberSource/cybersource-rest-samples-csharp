@@ -9,7 +9,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Webhooks.ManageWebhooks
 {
 	public class ReplayFailedTransactionsInLast24Hours
 	{
-		public static void Run()
+		public static async System.Threading.Tasks.Task RunAsync()
 		{
 			/*string webhookId = "";
 			string byDeliveryStatusStatus = "FAILED";
@@ -33,7 +33,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Webhooks.ManageWebhooks
 				var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
 				var apiInstance = new ReplayWebhooksApi(clientConfig);
-				apiInstance.ReplayPreviousWebhooks(webhookId, requestObj);
+				await apiInstance.ReplayPreviousWebhooksAsync(webhookId, requestObj);
 			}
 			catch (Exception e)
 			{

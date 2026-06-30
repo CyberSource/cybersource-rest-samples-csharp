@@ -9,7 +9,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.AccountUpdater
 {
 	public class AmexRegistrationInstrumentIdentifierTokenBatch
 	{
-		public static InlineResponse202 Run()
+		public static async System.Threading.Tasks.Task<InlineResponse202> RunAsync()
 		{
 			string type = "amexRegistration";
 
@@ -51,7 +51,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.AccountUpdater
 				var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
 				var apiInstance = new BatchesApi(clientConfig);
-                InlineResponse202 result = apiInstance.PostBatch(requestObj);
+                InlineResponse202 result = await apiInstance.PostBatchAsync(requestObj);
 				Console.WriteLine(result);
 				return result;
 			}

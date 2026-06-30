@@ -9,7 +9,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Webhooks.ManageWebhooks
 {
 	public class UpdateWebhook
 	{
-		public static void Run()
+		public static async System.Threading.Tasks.Task RunAsync()
 		{
 			/*string webhookId = "";
 			string name = "My Sample Webhook";
@@ -46,7 +46,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Webhooks.ManageWebhooks
 				var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
 				var apiInstance = new ManageWebhooksApi(clientConfig);
-				apiInstance.UpdateWebhookSubscription(webhookId, requestObj);
+				await apiInstance.UpdateWebhookSubscriptionAsync(webhookId, requestObj);
 			}
 			catch (Exception e)
 			{

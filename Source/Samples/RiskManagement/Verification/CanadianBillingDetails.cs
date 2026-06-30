@@ -17,7 +17,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.RiskManagement
             Console.WriteLine($"[Sample Code Testing] [{filename}] {status}");
         }
 
-        public static RiskV1AddressVerificationsPost201Response Run()
+        public static async System.Threading.Tasks.Task<RiskV1AddressVerificationsPost201Response> RunAsync()
         {
             string clientReferenceInformationCode = "addressEg";
             string clientReferenceInformationComments = "dav-All fields";
@@ -82,7 +82,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.RiskManagement
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new VerificationApi(clientConfig);
-                RiskV1AddressVerificationsPost201Response result = apiInstance.VerifyCustomerAddress(requestObj);
+                RiskV1AddressVerificationsPost201Response result = await apiInstance.VerifyCustomerAddressAsync(requestObj);
                 Console.WriteLine(result);
                 WriteLogAudit(apiInstance.GetStatusCode());
                 return result;

@@ -1,4 +1,4 @@
-﻿//using System;
+//using System;
 //using AuthenticationSdk.core;
 //using AuthenticationSdk.util;
 //using SampleCode.data;
@@ -18,7 +18,7 @@
 //            var filename = filePath[filePath.Length - 1];
 //            Console.WriteLine($"[Sample Code Testing] [{filename}] {status}");
 //        }
-//        public static void Run()
+//        public static async System.Threading.Tasks.Task RunAsync()
 //        {
 //            string RequestJsonFilePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../../", "Source/Resource/TRRReport.json");
 //            try

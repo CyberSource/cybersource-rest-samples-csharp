@@ -17,7 +17,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TokenManagement
             Console.WriteLine($"[Sample Code Testing] [{filename}] {status}");
         }
 
-        public static PostCustomerRequest Run()
+        public static async System.Threading.Tasks.Task<PostCustomerRequest> RunAsync()
         {
             string buyerInformationMerchantCustomerID = "Your customer identifier";
             string buyerInformationEmail = "test@cybs.com";
@@ -52,7 +52,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TokenManagement
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new CustomerApi(clientConfig);
-                PostCustomerRequest result = apiInstance.PostCustomer(requestObj);
+                PostCustomerRequest result = await apiInstance.PostCustomerAsync(requestObj);
                 Console.WriteLine(result);
                 WriteLogAudit(apiInstance.GetStatusCode());
                 return result;

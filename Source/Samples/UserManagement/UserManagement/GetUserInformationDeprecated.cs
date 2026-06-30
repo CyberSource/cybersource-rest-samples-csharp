@@ -17,7 +17,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.UserManagement
             Console.WriteLine($"[Sample Code Testing] [{filename}] {status}");
         }
 
-        public static UmsV1UsersGet200Response Run()
+        public static async System.Threading.Tasks.Task<UmsV1UsersGet200Response> RunAsync()
         {
             string organizationId = "testrest";
             string userName = null;
@@ -29,7 +29,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.UserManagement
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new UserManagementApi(clientConfig);
-                UmsV1UsersGet200Response result = apiInstance.GetUsers(organizationId, userName, permissionId, roleId);
+                UmsV1UsersGet200Response result = await apiInstance.GetUsersAsync(organizationId, userName, permissionId, roleId);
                 Console.WriteLine(result);
                 WriteLogAudit(apiInstance.GetStatusCode());
                 return result;

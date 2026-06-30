@@ -17,9 +17,9 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments
             Console.WriteLine($"[Sample Code Testing] [{filename}] {status}");
         }
 
-        public static PtsV2PaymentsCapturesPost201Response Run()
+        public static async System.Threading.Tasks.Task<PtsV2PaymentsCapturesPost201Response> RunAsync()
         {
-            var processPaymentId = RestaurantAuthorization.Run().Id;
+            var processPaymentId = (await RestaurantAuthorization.RunAsync()).Id;
             string clientReferenceInformationCode = "1234567890";
             string clientReferenceInformationPartnerThirdPartyCertificationNumber = "123456789012";
             Ptsv2paymentsClientReferenceInformationPartner clientReferenceInformationPartner = new Ptsv2paymentsClientReferenceInformationPartner(
@@ -62,7 +62,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments
 
                 var apiInstance = new CaptureApi(clientConfig);
 
-                PtsV2PaymentsCapturesPost201Response result = apiInstance.CapturePayment(requestObj, processPaymentId);
+                PtsV2PaymentsCapturesPost201Response result = await apiInstance.CapturePaymentAsync(requestObj, processPaymentId);
                 Console.WriteLine(result);
                 WriteLogAudit(apiInstance.GetStatusCode());
                 return result;

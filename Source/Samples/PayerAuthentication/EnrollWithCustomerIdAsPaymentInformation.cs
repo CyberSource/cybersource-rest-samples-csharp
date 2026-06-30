@@ -17,7 +17,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.PayerAuthentication
             Console.WriteLine($"[Sample Code Testing] [{filename}] {status}");
         }
 
-        public static RiskV1AuthenticationsPost201Response Run()
+        public static async System.Threading.Tasks.Task<RiskV1AuthenticationsPost201Response> RunAsync()
         {
             string clientReferenceInformationCode = "UNKNOWN";
             Riskv1decisionsClientReferenceInformation clientReferenceInformation = new Riskv1decisionsClientReferenceInformation(
@@ -80,7 +80,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.PayerAuthentication
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new PayerAuthenticationApi(clientConfig);
-                RiskV1AuthenticationsPost201Response result = apiInstance.CheckPayerAuthEnrollment(requestObj);
+                RiskV1AuthenticationsPost201Response result = await apiInstance.CheckPayerAuthEnrollmentAsync(requestObj);
                 Console.WriteLine(result);
                 WriteLogAudit(apiInstance.GetStatusCode());
                 return result;

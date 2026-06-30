@@ -9,7 +9,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.RecurringBillingSubscriptions
 {
 	public class UpdatePlan
 	{
-		public static void Run()
+		public static async System.Threading.Tasks.Task RunAsync()
 		{
 			string planInformationName = "Gold Plan NA";
 			string planInformationDescription = "Updated Gold Plan";
@@ -62,12 +62,12 @@ namespace Cybersource_rest_samples_dotnet.Samples.RecurringBillingSubscriptions
 
 			try
 			{
-				var id = CreatePlan.Run().Id;
+				var id = (await CreatePlan.RunAsync()).Id;
 				var configDictionary = new Configuration().GetConfiguration();
 				var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
 				var apiInstance = new PlansApi(clientConfig);
-				apiInstance.UpdatePlan(id, requestObj);
+				await apiInstance.UpdatePlanAsync(id, requestObj);
 			}
 			catch (Exception e)
 			{

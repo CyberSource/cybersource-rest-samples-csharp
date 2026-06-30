@@ -17,7 +17,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TransactionBatches
             Console.WriteLine($"[Sample Code Testing] [{filename}] {status}");
         }
 
-        public static PtsV1TransactionBatchesGet200Response Run()
+        public static async System.Threading.Tasks.Task<PtsV1TransactionBatchesGet200Response> RunAsync()
         {
             var startTime = DateTime.ParseExact("2020-02-22T01:47:57Z", "yyyy-MM-ddTHH:mm:ssZ", CultureInfo.InvariantCulture);
             var endTime = DateTime.ParseExact("2020-02-22T22:47:57Z", "yyyy-MM-ddTHH:mm:ssZ", CultureInfo.InvariantCulture);
@@ -27,7 +27,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TransactionBatches
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new TransactionBatchesApi(clientConfig);
-                PtsV1TransactionBatchesGet200Response result = apiInstance.GetTransactionBatches(startTime, endTime);
+                PtsV1TransactionBatchesGet200Response result = await apiInstance.GetTransactionBatchesAsync(startTime, endTime);
                 Console.WriteLine(result);
                 WriteLogAudit(apiInstance.GetStatusCode());
                 return result;

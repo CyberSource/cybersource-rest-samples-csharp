@@ -9,7 +9,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.RecurringBillingSubscriptions
 {
 	public class CreatePlan
 	{
-		public static CreatePlanResponse Run()
+		public static async System.Threading.Tasks.Task<CreatePlanResponse> RunAsync()
 		{
             // Required to make the sample code ActivatePlan.cs work
             string planStatus = "DRAFT";
@@ -60,7 +60,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.RecurringBillingSubscriptions
 				var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
 				var apiInstance = new PlansApi(clientConfig);
-				response = apiInstance.CreatePlan(requestObj);
+				response = await apiInstance.CreatePlanAsync(requestObj);
 				Console.WriteLine(response);
 			}
 			catch (Exception e)

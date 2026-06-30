@@ -17,7 +17,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Invoicing
             Console.WriteLine($"[Sample Code Testing] [{filename}] {status}");
         }
 
-        public static InvoicingV2InvoiceSettingsGet200Response Run()
+        public static async System.Threading.Tasks.Task<InvoicingV2InvoiceSettingsGet200Response> RunAsync()
         {
             try
             {
@@ -25,7 +25,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Invoicing
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new InvoiceSettingsApi(clientConfig);
-                InvoicingV2InvoiceSettingsGet200Response result = apiInstance.GetInvoiceSettings();
+                InvoicingV2InvoiceSettingsGet200Response result = await apiInstance.GetInvoiceSettingsAsync();
                 Console.WriteLine(result);
                 WriteLogAudit(apiInstance.GetStatusCode());
                 return result;

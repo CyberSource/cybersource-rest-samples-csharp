@@ -9,7 +9,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Webhooks.CreateNewWebhooks
 {
 	public class CreateWebhookSymmetricKey
 	{
-		public static void Run()
+		public static async System.Threading.Tasks.Task RunAsync()
 		{
 			string clientRequestAction = "CREATE";
 			string keyInformationProvider = "nrtd";
@@ -38,7 +38,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Webhooks.CreateNewWebhooks
 				var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
 				var apiInstance = new CreateNewWebhooksApi(clientConfig);
-				apiInstance.SaveSymEgressKey(vCsenderOrganizationId, vCpermissions, vCcorrelationId, requestObj);
+				await apiInstance.SaveSymEgressKeyAsync(vCsenderOrganizationId, vCpermissions, vCcorrelationId, requestObj);
 			}
 			catch (Exception e)
 			{

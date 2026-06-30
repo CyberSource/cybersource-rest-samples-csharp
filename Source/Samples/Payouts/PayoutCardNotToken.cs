@@ -17,7 +17,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payouts
             Console.WriteLine($"[Sample Code Testing] [{filename}] {status}");
         }
 
-        public static PtsV2PayoutsPost201Response Run()
+        public static async System.Threading.Tasks.Task<PtsV2PayoutsPost201Response> RunAsync()
         {
             string clientReferenceInformationCode = "33557799";
             Ptsv2payoutsClientReferenceInformation clientReferenceInformation = new Ptsv2payoutsClientReferenceInformation(
@@ -132,7 +132,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payouts
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new PayoutsApi(clientConfig);
-                PtsV2PayoutsPost201Response result = apiInstance.OctCreatePayment(requestObj);
+                PtsV2PayoutsPost201Response result = await apiInstance.OctCreatePaymentAsync(requestObj);
                 Console.WriteLine(result);
                 WriteLogAudit(apiInstance.GetStatusCode());
                 return result;

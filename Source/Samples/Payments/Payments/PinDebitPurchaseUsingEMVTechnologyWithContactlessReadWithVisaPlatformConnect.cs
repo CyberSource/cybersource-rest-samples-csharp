@@ -9,7 +9,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments
 {
     public class PinDebitPurchaseUsingEMVTechnologyWithContactlessReadWithVisaPlatformConnect
     {
-        public static PtsV2PaymentsPost201Response Run()
+        public static async System.Threading.Tasks.Task<PtsV2PaymentsPost201Response> RunAsync()
         {
             string clientReferenceInformationCode = "2.2 Purchase";
             Ptsv2paymentsClientReferenceInformation clientReferenceInformation = new Ptsv2paymentsClientReferenceInformation(
@@ -70,7 +70,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new PaymentsApi(clientConfig);
-                PtsV2PaymentsPost201Response result = apiInstance.CreatePayment(requestObj);
+                PtsV2PaymentsPost201Response result = await apiInstance.CreatePaymentAsync(requestObj);
                 Console.WriteLine(result);
                 return result;
             }

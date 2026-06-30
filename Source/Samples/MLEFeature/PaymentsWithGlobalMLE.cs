@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using CyberSource.Api;
@@ -13,7 +13,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.MLEFeature
     /// <para><b>Note:</b> MLE also works with JWT using Shared Secret credentials
     /// (jwtKeyType=SHARED_SECRET), allowing merchants to migrate from HTTP Signature
     /// and gain MLE support (both Request and Response MLE) using the same merchantKeyId
-    /// and merchantsecretKey — no P12 file needed.</para>
+    /// and merchantsecretKey � no P12 file needed.</para>
     ///
     /// <para>See <c>Samples.JwtSharedSecretAuth.MLEPaymentWithJwtSharedSecret</c> and
     /// <see cref="JwtSharedSecretConfiguration.GetMerchantDetailsWithMLE"/> for an example.</para>
@@ -31,7 +31,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.MLEFeature
 
         public static bool CaptureTrueForProcessPayment { get; set; } = false;
 
-        public static PtsV2PaymentsPost201Response Run()
+        public static async System.Threading.Tasks.Task<PtsV2PaymentsPost201Response> RunAsync()
         {
             string clientReferenceInformationCode = "TC50171_3";
             Ptsv2paymentsClientReferenceInformation clientReferenceInformation = new Ptsv2paymentsClientReferenceInformation(
@@ -108,7 +108,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.MLEFeature
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new PaymentsApi(clientConfig);
-                PtsV2PaymentsPost201Response result = apiInstance.CreatePayment(requestObj);
+                PtsV2PaymentsPost201Response result = await apiInstance.CreatePaymentAsync(requestObj);
                 Console.WriteLine(result);
                 WriteLogAudit(apiInstance.GetStatusCode());
                 return result;

@@ -17,7 +17,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TokenManagement
             Console.WriteLine($"[Sample Code Testing] [{filename}] {status}");
         }
 
-        public static void Run()
+        public static async System.Threading.Tasks.Task RunAsync()
         {
             string instrumentIdentifierTokenId = "7010000000016241111";
             string processingInformationAuthorizationOptionsInitiatorMerchantInitiatedTransactionPreviousTransactionId = "123456789012345";
@@ -47,7 +47,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TokenManagement
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new InstrumentIdentifierApi(clientConfig);
-                apiInstance.PatchInstrumentIdentifier(instrumentIdentifierTokenId, requestObj);
+                await apiInstance.PatchInstrumentIdentifierAsync(instrumentIdentifierTokenId, requestObj);
                 Console.WriteLine($"Instrument Identifier {instrumentIdentifierTokenId} has been updated with previous transaction ID.");
                 WriteLogAudit(apiInstance.GetStatusCode());
             }

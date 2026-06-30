@@ -19,7 +19,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Reporting
 
         public static string ReportNameToDelete { get; set; }
 
-        public static void Run()
+        public static async System.Threading.Tasks.Task RunAsync()
         {
             if (string.IsNullOrEmpty(ReportNameToDelete))
             {
@@ -34,7 +34,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Reporting
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new ReportSubscriptionsApi(clientConfig);
-                apiInstance.DeleteSubscription(reportName, organizationId);
+                await apiInstance.DeleteSubscriptionAsync(reportName, organizationId);
                 ReportNameToDelete = null;
                 WriteLogAudit(apiInstance.GetStatusCode());
             }

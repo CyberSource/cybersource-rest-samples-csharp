@@ -9,7 +9,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.AzureIntermediateTesting
 {
     public class AzureIntermediateTesting
     {
-        public static PtsV2CreditsPost201Response Run()
+        public static async System.Threading.Tasks.Task<PtsV2CreditsPost201Response> RunAsync()
         {
             string clientReferenceInformationCode = "12345678";
             Ptsv2paymentsClientReferenceInformation clientReferenceInformation = new Ptsv2paymentsClientReferenceInformation(
@@ -82,7 +82,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.AzureIntermediateTesting
                 var clientConfig = new CyberSource.Client.Configuration(defaultHeader: additionalHeaders, merchConfigDictObj: configDictionary);
 
                 var apiInstance = new CreditApi(clientConfig);
-                PtsV2CreditsPost201Response result = apiInstance.CreateCredit(requestObj);
+                PtsV2CreditsPost201Response result = await apiInstance.CreateCreditAsync(requestObj);
                 Console.WriteLine(result);
                 return result;
             }

@@ -1,4 +1,4 @@
-﻿using CyberSource.Api;
+using CyberSource.Api;
 using CyberSource.Model;
 using System;
 using System.Collections.Generic;
@@ -10,16 +10,16 @@ namespace Cybersource_rest_samples_dotnet.Samples.Invoicing
 {
     public class CancelInvoice
     {
-        public static InvoicingV2InvoicesCancel200Response Run()
+        public static async System.Threading.Tasks.Task<InvoicingV2InvoicesCancel200Response> RunAsync()
         {
             try
             {
-                var invoiceId = CreateDraftInvoice.Run().Id;
+                var invoiceId = (await CreateDraftInvoice.RunAsync()).Id;
                 var configDictionary = new Configuration().GetConfiguration();
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new InvoicesApi(clientConfig);
-                InvoicingV2InvoicesCancel200Response result = apiInstance.PerformCancelAction(invoiceId);
+                InvoicingV2InvoicesCancel200Response result = await apiInstance.PerformCancelActionAsync(invoiceId);
                 Console.WriteLine(result);
                 return result;
             }

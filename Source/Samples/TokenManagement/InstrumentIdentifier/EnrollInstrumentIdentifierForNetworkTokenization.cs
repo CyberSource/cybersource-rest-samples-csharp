@@ -17,7 +17,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TokenManagement
             Console.WriteLine($"[Sample Code Testing] [{filename}] {status}");
         }
 
-        public static void Run()
+        public static async System.Threading.Tasks.Task RunAsync()
         {
             string instrumentIdentifierTokenId = "7010000000016241111";
             string profileid = "93B32398-AD51-4CC2-A682-EA3E93614EB1";
@@ -57,7 +57,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TokenManagement
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new InstrumentIdentifierApi(clientConfig);
-                apiInstance.PostInstrumentIdentifierEnrollment(instrumentIdentifierTokenId, requestObj, profileid);
+                await apiInstance.PostInstrumentIdentifierEnrollmentAsync(instrumentIdentifierTokenId, requestObj, profileid);
                 Console.WriteLine($"Instrument Identifier for Network Tokenized Card {instrumentIdentifierTokenId} has been enrolled.");
                 WriteLogAudit(apiInstance.GetStatusCode());
             }

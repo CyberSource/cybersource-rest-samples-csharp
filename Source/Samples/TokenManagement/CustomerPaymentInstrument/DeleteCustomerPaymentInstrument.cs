@@ -17,17 +17,17 @@ namespace Cybersource_rest_samples_dotnet.Samples.TokenManagement
             Console.WriteLine($"[Sample Code Testing] [{filename}] {status}");
         }
 
-        public static void Run()
+        public static async System.Threading.Tasks.Task RunAsync()
         {
             string customerTokenId = "AB695DA801DD1BB6E05341588E0A3BDC";
-            string paymentInstrumentTokenId = CreateCustomerNonDefaultPaymentInstrumentCard.Run().Id;
+            string paymentInstrumentTokenId = (await CreateCustomerNonDefaultPaymentInstrumentCard.RunAsync()).Id;
             try
             {
                 var configDictionary = new Configuration().GetConfiguration();
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new CustomerPaymentInstrumentApi(clientConfig);
-                apiInstance.DeleteCustomerPaymentInstrument(customerTokenId, paymentInstrumentTokenId);
+                await apiInstance.DeleteCustomerPaymentInstrumentAsync(customerTokenId, paymentInstrumentTokenId);
                 Console.WriteLine($"Customer Payment Instrument {customerTokenId} --> {paymentInstrumentTokenId} has been deleted.");
                 WriteLogAudit(apiInstance.GetStatusCode());
             }

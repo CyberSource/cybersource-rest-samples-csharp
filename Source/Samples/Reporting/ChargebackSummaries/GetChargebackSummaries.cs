@@ -17,7 +17,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Reporting
             Console.WriteLine($"[Sample Code Testing] [{filename}] {status}");
         }
 
-        public static ReportingV3ChargebackSummariesGet200Response Run()
+        public static async System.Threading.Tasks.Task<ReportingV3ChargebackSummariesGet200Response> RunAsync()
         {
             // QUERY PARAMETERS
             string organizationId = "testrest";
@@ -29,7 +29,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Reporting
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new ChargebackSummariesApi(clientConfig);
-                ReportingV3ChargebackSummariesGet200Response result = apiInstance.GetChargebackSummaries(startTime, endTime, organizationId);
+                ReportingV3ChargebackSummariesGet200Response result = await apiInstance.GetChargebackSummariesAsync(startTime, endTime, organizationId);
                 Console.WriteLine(result);
                 WriteLogAudit(apiInstance.GetStatusCode());
                 return result;

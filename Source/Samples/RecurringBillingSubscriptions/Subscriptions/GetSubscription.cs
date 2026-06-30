@@ -9,16 +9,16 @@ namespace Cybersource_rest_samples_dotnet.Samples.RecurringBillingSubscriptions
 {
 	public class GetSubscription
 	{
-		public static void Run()
+		public static async System.Threading.Tasks.Task RunAsync()
 		{
 			try
 			{
-				var id = CreateSubscription.Run().Id;
+				var id = (await CreateSubscription.RunAsync()).Id;
 				var configDictionary = new Configuration().GetConfiguration();
 				var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
 				var apiInstance = new SubscriptionsApi(clientConfig);
-				apiInstance.GetSubscription(id);
+				await apiInstance.GetSubscriptionAsync(id);
 			}
 			catch (Exception e)
 			{

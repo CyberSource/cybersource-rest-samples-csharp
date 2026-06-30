@@ -17,7 +17,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Reporting
             Console.WriteLine($"[Sample Code Testing] [{filename}] {status}");
         }
 
-        public static ReportingV3ReportDefinitionsGet200Response Run()
+        public static async System.Threading.Tasks.Task<ReportingV3ReportDefinitionsGet200Response> RunAsync()
         {
             string subscriptionType = null;
             string organizationId = "testrest";

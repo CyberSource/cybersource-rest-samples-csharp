@@ -17,7 +17,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments
             Console.WriteLine($"[Sample Code Testing] [{filename}] {status}");
         }
 
-        public static PtsV2PaymentsPost201Response Run()
+        public static async System.Threading.Tasks.Task<PtsV2PaymentsPost201Response> RunAsync()
         {
             string clientReferenceInformationCode = "demomerchant";
             string clientReferenceInformationPartnerThirdPartyCertificationNumber = "123456789012";
@@ -35,7 +35,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments
             bool processingInformationAuthorizationOptionsPartialAuthIndicator = true;
             bool processingInformationAuthorizationOptionsIgnoreAvsResult = false;
             bool processingInformationAuthorizationOptionsIgnoreCvResult = false;
-            Ptsv2paymentsProcessingInformationAuthorizationOptions processingInformationAuthorizationOptions = new Ptsv2paymentsProcessingInformationAuthorizationOptions(
+            ProcessingInfoAuthorizationOptions processingInformationAuthorizationOptions = new ProcessingInfoAuthorizationOptions(
                 PartialAuthIndicator: processingInformationAuthorizationOptionsPartialAuthIndicator,
                 IgnoreAvsResult: processingInformationAuthorizationOptionsIgnoreAvsResult,
                 IgnoreCvResult: processingInformationAuthorizationOptionsIgnoreCvResult
@@ -80,7 +80,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new PaymentsApi(clientConfig);
-                PtsV2PaymentsPost201Response result = apiInstance.CreatePayment(requestObj);
+                PtsV2PaymentsPost201Response result = await apiInstance.CreatePaymentAsync(requestObj);
                 Console.WriteLine(result);
                 WriteLogAudit(apiInstance.GetStatusCode());
                 return result;

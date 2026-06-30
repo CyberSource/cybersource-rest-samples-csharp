@@ -17,17 +17,17 @@ namespace Cybersource_rest_samples_dotnet.Samples.TokenManagement
             Console.WriteLine($"[Sample Code Testing] [{filename}] {status}");
         }
 
-        public static void Run()
+        public static async System.Threading.Tasks.Task RunAsync()
         {
             var profileid = "93B32398-AD51-4CC2-A682-EA3E93614EB1";
-            var tokenId = CreateInstrumentIdentifierCard.Run().Id;
+            var tokenId = (await CreateInstrumentIdentifierCard.RunAsync()).Id;
             try
             {
                 var configDictionary = new Configuration().GetConfiguration();
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new InstrumentIdentifierApi(clientConfig);
-                apiInstance.DeleteInstrumentIdentifier(tokenId, profileid);
+                await apiInstance.DeleteInstrumentIdentifierAsync(tokenId, profileid);
                 Console.WriteLine($"Instrument Identifier {tokenId} has been deleted.");
                 WriteLogAudit(apiInstance.GetStatusCode());
             }
