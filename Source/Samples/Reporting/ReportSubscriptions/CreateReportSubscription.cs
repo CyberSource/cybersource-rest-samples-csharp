@@ -17,7 +17,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Reporting
             Console.WriteLine($"[Sample Code Testing] [{filename}] {status}");
         }
 
-        public static void Run()
+        public static async System.Threading.Tasks.Task RunAsync()
         {
             string reportDefinitionName = "TransactionRequestClass";
 
@@ -49,11 +49,11 @@ namespace Cybersource_rest_samples_dotnet.Samples.Reporting
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new ReportSubscriptionsApi(clientConfig);
-                apiInstance.CreateSubscription(requestObj, organizationId);
+                await apiInstance.CreateSubscriptionAsync(requestObj, organizationId);
                 WriteLogAudit(apiInstance.GetStatusCode());
 
                 DeleteSubscriptionOfReportNameByOrganization.ReportNameToDelete = reportName;
-                DeleteSubscriptionOfReportNameByOrganization.Run();
+                await DeleteSubscriptionOfReportNameByOrganization.RunAsync();
             }
             catch (ApiException e)
             {

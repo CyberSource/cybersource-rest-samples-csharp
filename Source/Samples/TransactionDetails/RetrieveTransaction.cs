@@ -18,9 +18,9 @@ namespace Cybersource_rest_samples_dotnet.Samples.TransactionDetails
             Console.WriteLine($"[Sample Code Testing] [{filename}] {status}");
         }
 
-        public static TssV2TransactionsGet200Response Run()
+        public static async System.Threading.Tasks.Task<TssV2TransactionsGet200Response> RunAsync()
         {
-            string id = SimpleAuthorizationInternet.Run().Id;
+            string id = (await SimpleAuthorizationInternet.RunAsync()).Id;
 
             System.Threading.Thread.Sleep(15000);
 
@@ -30,7 +30,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TransactionDetails
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new TransactionDetailsApi(clientConfig);
-                TssV2TransactionsGet200Response result = apiInstance.GetTransaction(id);
+                TssV2TransactionsGet200Response result = await apiInstance.GetTransactionAsync(id);
                 Console.WriteLine(result);
                 WriteLogAudit(apiInstance.GetStatusCode());
                 return result;

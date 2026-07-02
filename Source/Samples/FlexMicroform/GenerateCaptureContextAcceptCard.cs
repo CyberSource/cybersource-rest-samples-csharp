@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +18,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.FlexMicroform
             Console.WriteLine($"[Sample Code Testing] [{filename}] {status}");
         }
 
-        public static String Run()
+        public static async System.Threading.Tasks.Task<String> RunAsync()
         {
             string clientVersion = "v2";
 
@@ -57,7 +57,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.FlexMicroform
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new MicroformIntegrationApi(clientConfig);
-                String result = apiInstance.GenerateCaptureContext(requestObj);
+                String result = await apiInstance.GenerateCaptureContextAsync(requestObj);
                 Console.WriteLine(CaptureContextParsingUtility.parseCaptureContextResponse(result, clientConfig));
                 WriteLogAudit(apiInstance.GetStatusCode());
                 return result;

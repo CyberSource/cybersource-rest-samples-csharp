@@ -17,7 +17,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.ValueAddedService
             Console.WriteLine($"[Sample Code Testing] [{filename}] {status}");
         }
 
-        public static VasV2PaymentsPost201Response Run()
+        public static async System.Threading.Tasks.Task<VasV2PaymentsPost201Response> RunAsync()
         {
             string clientReferenceInformationCode = "TAX_TC001";
             Vasv2taxClientReferenceInformation clientReferenceInformation = new Vasv2taxClientReferenceInformation(
@@ -106,7 +106,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.ValueAddedService
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new TaxesApi(clientConfig);
-                VasV2PaymentsPost201Response result = apiInstance.CalculateTax(requestObj);
+                VasV2PaymentsPost201Response result = await apiInstance.CalculateTaxAsync(requestObj);
                 Console.WriteLine(result);
                 WriteLogAudit(apiInstance.GetStatusCode());
                 return result;

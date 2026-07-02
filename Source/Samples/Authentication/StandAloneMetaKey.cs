@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using CyberSource.Model;
 using CyberSource.Client;
@@ -36,12 +36,12 @@ namespace Cybersource_rest_samples_dotnet.Samples.Authentication
             return _configurationDictionary;
         }
 
-        public static void Run()
+        public static async System.Threading.Tasks.Task RunAsync()
         {
-            SimplePaymentUsingMetaKey();
+            await SimplePaymentUsingMetaKey();
         }
 
-        public static PtsV2PaymentsPost201Response SimplePaymentUsingMetaKey()
+        public static async Task<PtsV2PaymentsPost201Response> SimplePaymentUsingMetaKey()
         {
             string clientReferenceInformationCode = "TC50171_3";
             Ptsv2paymentsClientReferenceInformation clientReferenceInformation = new Ptsv2paymentsClientReferenceInformation(
@@ -113,7 +113,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Authentication
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new PaymentsApi(clientConfig);
-                PtsV2PaymentsPost201Response result = apiInstance.CreatePayment(requestObj);
+                PtsV2PaymentsPost201Response result = await apiInstance.CreatePaymentAsync(requestObj);
                 Console.WriteLine(result);
                 WriteLogAudit(apiInstance.GetStatusCode());
                 return result;

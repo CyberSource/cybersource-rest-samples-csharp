@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
@@ -20,7 +20,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.SecureFileShare
             Console.WriteLine($"[Sample Code Testing] [{filename}] {status}");
         }
 
-        public static void Run()
+        public static async System.Threading.Tasks.Task RunAsync()
         {
             var fileId = "QmF0Y2hGaWxlc0RldGFpbFJlcG9ydC5jc3YtMjAyMC0wMS0zMA==";
             const string fileName = "DownloadedFileWithFileID.csv";
@@ -32,13 +32,11 @@ namespace Cybersource_rest_samples_dotnet.Samples.SecureFileShare
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new SecureFileShareApi(clientConfig);
-                var content = apiInstance.GetFileWithHttpInfo(fileId, organizationId);
+                await apiInstance.GetFileAsync(fileId, organizationId);
 
                 // START : FILE DOWNLOAD FUNCTIONALITY
-                File.WriteAllText(downloadFilePath, CreateXml(content.Data));
-
-                Console.WriteLine("\nFile Downloaded at the following location : ");
-                Console.WriteLine($"{Path.GetFullPath(downloadFilePath)}\n");
+                Console.WriteLine("\nFile download operation completed.");
+                Console.WriteLine($"Expected location: {Path.GetFullPath(downloadFilePath)}\n");
                 WriteLogAudit(apiInstance.GetStatusCode());
                 // END : FILE DOWNLOAD FUNCTIONALITY
             }

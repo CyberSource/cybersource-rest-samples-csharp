@@ -9,7 +9,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments
 {
 	public class MITIndustryPracticeResubmission
 	{
-		public static PtsV2PaymentsPost201Response Run()
+		public static async System.Threading.Tasks.Task<PtsV2PaymentsPost201Response> RunAsync()
 		{
 			string clientReferenceInformationCode = "TC50171_3";
 			Ptsv2paymentsClientReferenceInformation clientReferenceInformation = new Ptsv2paymentsClientReferenceInformation(
@@ -24,18 +24,18 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments
 			bool processingInformationAuthorizationOptionsInitiatorStoredCredentialUsed = true;
 			string processingInformationAuthorizationOptionsInitiatorMerchantInitiatedTransactionReason = "1";
 			string processingInformationAuthorizationOptionsInitiatorMerchantInitiatedTransactionPreviousTransactionId = "123456789012345";
-			Ptsv2paymentsProcessingInformationAuthorizationOptionsInitiatorMerchantInitiatedTransaction processingInformationAuthorizationOptionsInitiatorMerchantInitiatedTransaction = new Ptsv2paymentsProcessingInformationAuthorizationOptionsInitiatorMerchantInitiatedTransaction(
+			ProcessingInfoAuthorizationOptionsInitiatorMerchantInitiatedTransaction processingInformationAuthorizationOptionsInitiatorMerchantInitiatedTransaction = new ProcessingInfoAuthorizationOptionsInitiatorMerchantInitiatedTransaction(
 				Reason: processingInformationAuthorizationOptionsInitiatorMerchantInitiatedTransactionReason,
 				PreviousTransactionId: processingInformationAuthorizationOptionsInitiatorMerchantInitiatedTransactionPreviousTransactionId
 			);
 
-			Ptsv2paymentsProcessingInformationAuthorizationOptionsInitiator processingInformationAuthorizationOptionsInitiator = new Ptsv2paymentsProcessingInformationAuthorizationOptionsInitiator(
+			ProcessingInfoAuthorizationOptionsInitiator processingInformationAuthorizationOptionsInitiator = new ProcessingInfoAuthorizationOptionsInitiator(
 				Type: processingInformationAuthorizationOptionsInitiatorType,
 				StoredCredentialUsed: processingInformationAuthorizationOptionsInitiatorStoredCredentialUsed,
 				MerchantInitiatedTransaction: processingInformationAuthorizationOptionsInitiatorMerchantInitiatedTransaction
 			);
 
-			Ptsv2paymentsProcessingInformationAuthorizationOptions processingInformationAuthorizationOptions = new Ptsv2paymentsProcessingInformationAuthorizationOptions(
+			ProcessingInfoAuthorizationOptions processingInformationAuthorizationOptions = new ProcessingInfoAuthorizationOptions(
 				IgnoreAvsResult: processingInformationAuthorizationOptionsIgnoreAvsResult,
 				IgnoreCvResult: processingInformationAuthorizationOptionsIgnoreCvResult,
 				Initiator: processingInformationAuthorizationOptionsInitiator
@@ -108,7 +108,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments
 				var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
 				var apiInstance = new PaymentsApi(clientConfig);
-				PtsV2PaymentsPost201Response result = apiInstance.CreatePayment(requestObj);
+				PtsV2PaymentsPost201Response result = await apiInstance.CreatePaymentAsync(requestObj);
 				Console.WriteLine(result);
 				return result;
 			}

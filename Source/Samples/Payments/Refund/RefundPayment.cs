@@ -17,10 +17,10 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments
             Console.WriteLine($"[Sample Code Testing] [{filename}] {status}");
         }
 
-        public static PtsV2PaymentsRefundPost201Response Run()
+        public static async System.Threading.Tasks.Task<PtsV2PaymentsRefundPost201Response> RunAsync()
         {
             SimpleAuthorizationInternet.CaptureTrueForProcessPayment = true;
-            var id = SimpleAuthorizationInternet.Run().Id;
+            var id = (await SimpleAuthorizationInternet.RunAsync()).Id;
 
             string clientReferenceInformationCode = "TC50171_3";
             Ptsv2paymentsidrefundsClientReferenceInformation clientReferenceInformation = new Ptsv2paymentsidrefundsClientReferenceInformation(
@@ -49,7 +49,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new RefundApi(clientConfig);
-                PtsV2PaymentsRefundPost201Response result = apiInstance.RefundPayment(requestObj, id);
+                PtsV2PaymentsRefundPost201Response result = await apiInstance.RefundPaymentAsync(requestObj, id);
                 Console.WriteLine(result);
                 WriteLogAudit(apiInstance.GetStatusCode());
                 return result;

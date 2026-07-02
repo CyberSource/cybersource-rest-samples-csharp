@@ -51,7 +51,7 @@ namespace Cybersource_rest_samples_dotnet
             if (args.Length == 1)
             {
                 // Run the Sample Code as per input in the command line
-                RunSample(args[0]);
+                RunSampleAsync(args[0]).GetAwaiter().GetResult();
                 return;
             }
 
@@ -59,12 +59,12 @@ namespace Cybersource_rest_samples_dotnet
             ShowMethods();
 
             // Run the Sample Code as per user input
-            RunSample();
+            RunSampleAsync().GetAwaiter().GetResult();
 
             logger.Trace("PROGRAM EXECUTION ENDS");
         }
 
-        public static void RunSample(string cmdLineArg = null)
+        public static async System.Threading.Tasks.Task RunSampleAsync(string cmdLineArg = null)
         {
             try
             {
@@ -82,7 +82,7 @@ namespace Cybersource_rest_samples_dotnet
                         if (apiMethod.ApiFamily != "MultiThreading") //ignoring multithreading samples
                         {
                             Console.WriteLine("\n" + sampleCount + ".\t#### START RUNNING SAMPLE CODE FOR " + apiMethod.ApiFunctionCall + " ####");
-                            RunSample(apiMethod.ApiFunctionCall);
+                            await RunSampleAsync(apiMethod.ApiFunctionCall);
                             Console.WriteLine("\n#### END RUNNING SAMPLE CODE FOR " + apiMethod.ApiFunctionCall + " ####");
                             sampleCount++;
                         }
@@ -111,29 +111,30 @@ namespace Cybersource_rest_samples_dotnet
                         if (cmdLineArg == null)
                         {
                             ShowMethods();
-                            RunSample();
+                            await RunSampleAsync();
                         }
 
                         return;
                     }
 
                     var obj = Activator.CreateInstance(className);
-                    var methodInfo = className.GetMethod("Run");
+                    var methodInfo = className.GetMethod("RunAsync");
                     if (methodInfo != null)
                     {
-                        logger.Trace($"Invoking Run() method of {_sampleToRun}");
-                        Console.WriteLine($"Invoking Run() method of {_sampleToRun}");
-                        methodInfo.Invoke(obj, null);
+                        logger.Trace($"Invoking RunAsync() method of {_sampleToRun}");
+                        Console.WriteLine($"Invoking RunAsync() method of {_sampleToRun}");
+                        var task = (System.Threading.Tasks.Task)methodInfo.Invoke(obj, null);
+                        await task;
                     }
                     else
                     {
-                        logger.Warn($"No Run Method Found in the class: {_sampleToRun}");
-                        Console.WriteLine("No Run Method Found in the class: {0}", _sampleToRun);
+                        logger.Warn($"No RunAsync Method Found in the class: {_sampleToRun}");
+                        Console.WriteLine("No RunAsync Method Found in the class: {0}", _sampleToRun);
 
                         if (cmdLineArg == null)
                         {
                             ShowMethods();
-                            RunSample();
+                            await RunSampleAsync();
                         }
 
                         return;
@@ -142,7 +143,7 @@ namespace Cybersource_rest_samples_dotnet
             }
             catch (Exception e)
             {
-                Console.WriteLine("Exception in RunSample() Method: " + e.Message);
+                Console.WriteLine("Exception in RunSampleAsync() Method: " + e.Message);
 
                 if (e.InnerException != null)
                 {
@@ -158,7 +159,7 @@ namespace Cybersource_rest_samples_dotnet
                 Console.WriteLine("\nPress any key to continue.....");
                 Console.ReadLine();
                 ShowMethods();
-                RunSample();
+                await RunSampleAsync();
             }
         }
 
@@ -338,8 +339,12 @@ namespace Cybersource_rest_samples_dotnet
             // setting servicepointmanager configs for SSL/TSL / Proxy issues
             ServicePointManager.Expect100Continue = true;
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
-            ServicePointManager.ServerCertificateValidationCallback +=
-                (sender, certificate, chain, sslPolicyErrors) => true;
+
+            // Note: Do NOT override ServicePointManager.ServerCertificateValidationCallback
+            // with a delegate that unconditionally returns true. Doing so disables TLS
+            // certificate validation process-wide and allows man-in-the-middle attacks
+            // against all outbound HTTPS connections (including CyberSource payment APIs).
+            // Rely on the default platform certificate validation instead.
         }
     }
 }

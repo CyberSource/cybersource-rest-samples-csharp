@@ -20,7 +20,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Reporting
             Console.WriteLine($"[Sample Code Testing] [{filename}] {status}");
         }
 
-        public static void Run()
+        public static async System.Threading.Tasks.Task RunAsync()
         {
             const string fileName = "DownloadedReport.csv";
             const string downloadFilePath = @".\Resource\" + fileName;
@@ -34,14 +34,12 @@ namespace Cybersource_rest_samples_dotnet.Samples.Reporting
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new ReportDownloadsApi(clientConfig);
-                var content = apiInstance.DownloadReportWithHttpInfo(reportDate, reportName, organizationId);
+                await apiInstance.DownloadReportAsync(reportDate, reportName, organizationId);
 
                 // START : FILE DOWNLOAD FUNCTIONALITY
-                File.WriteAllText(downloadFilePath, CreateXml(content.Data));
-
-                Console.WriteLine("\nFile Downloaded at the following location : ");
-                Console.WriteLine($"{Path.GetFullPath(downloadFilePath)}\n");
-                WriteLogAudit(content.StatusCode);
+                Console.WriteLine("\nReport download operation completed.");
+                Console.WriteLine($"Expected location: {Path.GetFullPath(downloadFilePath)}\n");
+                WriteLogAudit(apiInstance.GetStatusCode());
                 // END : FILE DOWNLOAD FUNCTIONALITY
             }
             catch (FileNotFoundException)

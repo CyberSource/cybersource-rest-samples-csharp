@@ -9,7 +9,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Webhooks.ManageWebhooks
 {
 	public class CreateAsymmetricKey
 	{
-		public static InlineResponse2018 Run()
+		public static async System.Threading.Tasks.Task<InlineResponse2018> RunAsync()
 		{
 			string clientRequestAction = "STORE";
 			string keyInformationProvider = "merchantName";
@@ -42,7 +42,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Webhooks.ManageWebhooks
 				var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
 				var apiInstance = new ManageWebhooksApi(clientConfig);
-				InlineResponse2018 result = apiInstance.SaveAsymEgressKey(requestObj, vCpermissions, vCsenderOrganizationId, vCcorrelationId);
+				InlineResponse2018 result = await apiInstance.SaveAsymEgressKeyAsync(requestObj, vCpermissions, vCsenderOrganizationId, vCcorrelationId);
                 Console.WriteLine(result);
                 return result;
 			}

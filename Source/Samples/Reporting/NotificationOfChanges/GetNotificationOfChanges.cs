@@ -17,7 +17,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Reporting
             Console.WriteLine($"[Sample Code Testing] [{filename}] {status}");
         }
 
-        public static ReportingV3NotificationofChangesGet200Response Run()
+        public static async System.Threading.Tasks.Task<ReportingV3NotificationofChangesGet200Response> RunAsync()
         {
             var startTime = DateTime.ParseExact("2024-01-01T12:00:00Z", "yyyy-MM-ddTHH:mm:ssZ", CultureInfo.InvariantCulture);
             var endTime = DateTime.ParseExact("2024-01-10T12:00:00Z", "yyyy-MM-ddTHH:mm:ssZ", CultureInfo.InvariantCulture);
@@ -27,7 +27,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Reporting
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new NotificationOfChangesApi(clientConfig);
-                ReportingV3NotificationofChangesGet200Response result = apiInstance.GetNotificationOfChangeReport(startTime, endTime);
+                ReportingV3NotificationofChangesGet200Response result = await apiInstance.GetNotificationOfChangeReportAsync(startTime, endTime);
                 Console.WriteLine(result);
                 WriteLogAudit(apiInstance.GetStatusCode());
                 return result;

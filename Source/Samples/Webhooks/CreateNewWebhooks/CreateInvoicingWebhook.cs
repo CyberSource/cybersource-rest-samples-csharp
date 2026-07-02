@@ -9,7 +9,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Webhooks.CreateNewWebhooks
 {
 	public class CreateInvoicingWebhook
 	{
-		public static void Run()
+		public static async System.Threading.Tasks.Task RunAsync()
 		{
 			/*string name = "My Custom Webhook";
 			string description = "Sample Webhook from Developer Center";
@@ -70,7 +70,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Webhooks.CreateNewWebhooks
 				var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
 				var apiInstance = new CreateNewWebhooksApi(clientConfig);
-                //apiInstance.CreateWebhookSubscription(requestObj);
+                //await apiInstance.CreateWebhookSubscriptionAsync(requestObj);
 			}
 			catch (Exception e)
 			{

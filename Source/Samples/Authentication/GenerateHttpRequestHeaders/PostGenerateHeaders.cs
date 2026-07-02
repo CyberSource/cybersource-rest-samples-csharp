@@ -20,7 +20,7 @@
 //            Console.WriteLine($"[Sample Code Testing] [{filename}] {status}");
 //        }
 
-//        public static void Run()
+//        public static async System.Threading.Tasks.Task RunAsync()
 //        {
 //            try
 //            {

@@ -17,7 +17,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Reporting
             Console.WriteLine($"[Sample Code Testing] [{filename}] {status}");
         }
 
-        public static ReportingV3PurchaseRefundDetailsGet200Response Run()
+        public static async System.Threading.Tasks.Task<ReportingV3PurchaseRefundDetailsGet200Response> RunAsync()
         {
             var startTime = DateTime.ParseExact("2025-01-01T12:00:00Z", "yyyy-MM-ddTHH:mm:ssZ", CultureInfo.InvariantCulture);
             var endTime = DateTime.ParseExact("2025-01-30T12:00:00Z", "yyyy-MM-ddTHH:mm:ssZ", CultureInfo.InvariantCulture);
@@ -33,7 +33,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Reporting
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new PurchaseAndRefundDetailsApi(clientConfig);
-                ReportingV3PurchaseRefundDetailsGet200Response result = apiInstance.GetPurchaseAndRefundDetails(startTime, endTime, organizationId, paymentSubtype, viewBy, groupName, offset, limit);
+                ReportingV3PurchaseRefundDetailsGet200Response result = await apiInstance.GetPurchaseAndRefundDetailsAsync(startTime, endTime, organizationId, paymentSubtype, viewBy, groupName, offset, limit);
                 Console.WriteLine(result);
                 WriteLogAudit(apiInstance.GetStatusCode());
                 return result;

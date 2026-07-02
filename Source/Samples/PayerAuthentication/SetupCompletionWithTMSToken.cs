@@ -17,7 +17,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.PayerAuthentication
             Console.WriteLine($"[Sample Code Testing] [{filename}] {status}");
         }
 
-        public static RiskV1AuthenticationSetupsPost201Response Run()
+        public static async System.Threading.Tasks.Task<RiskV1AuthenticationSetupsPost201Response> RunAsync()
         {
             string clientReferenceInformationCode = "cybs_test";
             Riskv1decisionsClientReferenceInformation clientReferenceInformation = new Riskv1decisionsClientReferenceInformation(
@@ -44,7 +44,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.PayerAuthentication
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new PayerAuthenticationApi(clientConfig);
-                RiskV1AuthenticationSetupsPost201Response result = apiInstance.PayerAuthSetup(requestObj);
+                RiskV1AuthenticationSetupsPost201Response result = await apiInstance.PayerAuthSetupAsync(requestObj);
                 Console.WriteLine(result);
                 WriteLogAudit(apiInstance.GetStatusCode());
                 return result;

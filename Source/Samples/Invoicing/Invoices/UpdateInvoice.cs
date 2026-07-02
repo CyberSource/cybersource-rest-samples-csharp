@@ -1,4 +1,4 @@
-﻿using CyberSource.Api;
+using CyberSource.Api;
 using CyberSource.Model;
 using System;
 using System.Collections.Generic;
@@ -10,9 +10,9 @@ namespace Cybersource_rest_samples_dotnet.Samples.Invoicing
 {
     public class UpdateInvoice
     {
-        public static InvoicingV2InvoicesPut200Response Run()
+        public static async System.Threading.Tasks.Task<InvoicingV2InvoicesPut200Response> RunAsync()
         {
-            var invoiceId = CreateDraftInvoice.Run().Id;
+            var invoiceId = (await CreateDraftInvoice.RunAsync()).Id;
 
             string customerInformationName = "New Customer Name";
             string customerInformationEmail = "new_email@my-email.world";
@@ -94,7 +94,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Invoicing
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new InvoicesApi(clientConfig);
-                InvoicingV2InvoicesPut200Response result = apiInstance.UpdateInvoice(invoiceId, requestObj);
+                InvoicingV2InvoicesPut200Response result = await apiInstance.UpdateInvoiceAsync(invoiceId, requestObj);
                 Console.WriteLine(result);
                 return result;
             }

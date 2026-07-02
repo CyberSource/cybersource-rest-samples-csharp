@@ -17,7 +17,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Invoicing
             Console.WriteLine($"[Sample Code Testing] [{filename}] {status}");
         }
 
-        public static InvoicingV2InvoicesPost201Response Run()
+        public static async System.Threading.Tasks.Task<InvoicingV2InvoicesPost201Response> RunAsync()
         {
             string customerInformationName = "Tanya Lee";
             string customerInformationEmail = "tanya.lee@my-email.world";
@@ -102,7 +102,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Invoicing
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new InvoicesApi(clientConfig);
-                InvoicingV2InvoicesPost201Response result = apiInstance.CreateInvoice(requestObj);
+                InvoicingV2InvoicesPost201Response result = await apiInstance.CreateInvoiceAsync(requestObj);
                 Console.WriteLine(result);
                 WriteLogAudit(apiInstance.GetStatusCode());
                 return result;

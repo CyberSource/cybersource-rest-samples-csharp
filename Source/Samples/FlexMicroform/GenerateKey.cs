@@ -17,7 +17,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.FlexMicroform
             Console.WriteLine($"[Sample Code Testing] [{filename}] {status}");
         }
 
-        public static FlexV1KeysPost200Response Run()
+        public static async System.Threading.Tasks.Task<FlexV1KeysPost200Response> RunAsync()
         {
             string encryptionType = "RsaOaep";
             string targetOrigin = "https://www.test.com";
@@ -33,7 +33,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.FlexMicroform
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new KeyGenerationApi(clientConfig);
-                FlexV1KeysPost200Response result = apiInstance.GeneratePublicKey(format, requestObj);
+                FlexV1KeysPost200Response result = await apiInstance.GeneratePublicKeyAsync(format, requestObj);
                 Console.WriteLine(result);
                 WriteLogAudit(apiInstance.GetStatusCode());
                 return result;

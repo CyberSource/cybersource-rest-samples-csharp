@@ -17,10 +17,10 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments
             Console.WriteLine($"[Sample Code Testing] [{filename}] {status}");
         }
 
-        public static PtsV2PaymentsReversalsPost201Response Run()
+        public static async System.Threading.Tasks.Task<PtsV2PaymentsReversalsPost201Response> RunAsync()
         {
             SimpleAuthorizationInternet.CaptureTrueForProcessPayment = false;
-            var id = SimpleAuthorizationInternet.Run().Id;
+            var id = (await SimpleAuthorizationInternet.RunAsync()).Id;
 
             string clientReferenceInformationCode = "TC50171_3";
             Ptsv2paymentsidreversalsClientReferenceInformation clientReferenceInformation = new Ptsv2paymentsidreversalsClientReferenceInformation(
@@ -49,7 +49,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new ReversalApi(clientConfig);
-                PtsV2PaymentsReversalsPost201Response result = apiInstance.AuthReversal(id, requestObj);
+                PtsV2PaymentsReversalsPost201Response result = await apiInstance.AuthReversalAsync(id, requestObj);
                 Console.WriteLine(result);
                 WriteLogAudit(apiInstance.GetStatusCode());
                 return result;

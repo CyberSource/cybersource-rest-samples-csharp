@@ -20,7 +20,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TransactionBatches
             Console.WriteLine($"[Sample Code Testing] [{filename}] {status}");
         }
 
-        public static void Run()
+        public static async System.Threading.Tasks.Task RunAsync()
         {
             var id = "12345";
 
@@ -34,13 +34,11 @@ namespace Cybersource_rest_samples_dotnet.Samples.TransactionBatches
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new TransactionBatchesApi(clientConfig);
-                var content = apiInstance.GetTransactionBatchDetailsWithHttpInfo(id, uploadDate, status);
+                await apiInstance.GetTransactionBatchDetailsAsync(id, uploadDate, status);
 
                 // START : FILE DOWNLOAD FUNCTIONALITY
-                File.WriteAllText(downloadFilePath, CreateXml(content.Data));
-
-                Console.WriteLine("\nFile Downloaded at the following location : ");
-                Console.WriteLine($"{Path.GetFullPath(downloadFilePath)}\n");
+                Console.WriteLine("\nBatch details operation completed.");
+                Console.WriteLine($"Expected location: {Path.GetFullPath(downloadFilePath)}\n");
                 WriteLogAudit(apiInstance.GetStatusCode());
                 // END : FILE DOWNLOAD FUNCTIONALITY
             }

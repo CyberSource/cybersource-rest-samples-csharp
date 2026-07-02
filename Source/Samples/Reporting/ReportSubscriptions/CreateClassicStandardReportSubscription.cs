@@ -17,7 +17,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Reporting
             Console.WriteLine($"[Sample Code Testing] [{filename}] {status}");
         }
 
-        public static void Run()
+        public static async System.Threading.Tasks.Task RunAsync()
         {
             string reportDefinitionName = "TransactionRequestClass";
             string subscriptionType = "CLASSIC";
@@ -33,7 +33,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Reporting
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new ReportSubscriptionsApi(clientConfig);
-                apiInstance.CreateStandardOrClassicSubscription(requestObj, organizationId);
+                await apiInstance.CreateStandardOrClassicSubscriptionAsync(requestObj, organizationId);
                 WriteLogAudit(apiInstance.GetStatusCode());
             }
             catch (ApiException e)

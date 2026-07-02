@@ -17,7 +17,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TransactionBatches
             Console.WriteLine($"[Sample Code Testing] [{filename}] {status}");
         }
 
-        public static PtsV1TransactionBatchesIdGet200Response Run()
+        public static async System.Threading.Tasks.Task<PtsV1TransactionBatchesIdGet200Response> RunAsync()
         {
             try
             {
@@ -27,7 +27,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TransactionBatches
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new TransactionBatchesApi(clientConfig);
-                PtsV1TransactionBatchesIdGet200Response result = apiInstance.GetTransactionBatchId(id);
+                PtsV1TransactionBatchesIdGet200Response result = await apiInstance.GetTransactionBatchIdAsync(id);
                 Console.WriteLine(result);
                 WriteLogAudit(apiInstance.GetStatusCode());
                 return result;

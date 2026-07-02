@@ -1,4 +1,4 @@
-﻿using CyberSource.Api;
+using CyberSource.Api;
 using CyberSource.Model;
 using System;
 using System.Collections.Generic;
@@ -10,16 +10,16 @@ namespace Cybersource_rest_samples_dotnet.Samples.RecurringBillingSubscriptions
 {
     public class CancelSubscription
     {
-        public static CancelSubscriptionResponse Run()
+        public static async System.Threading.Tasks.Task<CancelSubscriptionResponse> RunAsync()
         {
             try
             {
-                var subscriptionId = CreateSubscription.Run().Id;
+                var subscriptionId = (await CreateSubscription.RunAsync()).Id;
                 var configDictionary = new Configuration().GetConfiguration();
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new SubscriptionsApi(clientConfig);
-                var result = apiInstance.CancelSubscription(subscriptionId);
+                var result = await apiInstance.CancelSubscriptionAsync(subscriptionId);
                 Console.WriteLine(result);
                 return result;
             }

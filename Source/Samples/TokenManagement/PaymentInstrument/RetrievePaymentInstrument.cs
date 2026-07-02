@@ -17,7 +17,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TokenManagement
             Console.WriteLine($"[Sample Code Testing] [{filename}] {status}");
         }
 
-        public static PostPaymentInstrumentRequest Run()
+        public static async System.Threading.Tasks.Task<PostPaymentInstrumentRequest> RunAsync()
         {
             var profileid = "93B32398-AD51-4CC2-A682-EA3E93614EB1";
             var tokenId = "888454C31FB6150CE05340588D0AA9BE";
@@ -28,7 +28,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TokenManagement
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new PaymentInstrumentApi(clientConfig);
-                PostPaymentInstrumentRequest result = apiInstance.GetPaymentInstrument(tokenId, profileid);
+                PostPaymentInstrumentRequest result = await apiInstance.GetPaymentInstrumentAsync(tokenId, profileid);
                 Console.WriteLine(result);
                 WriteLogAudit(apiInstance.GetStatusCode());
                 return result;

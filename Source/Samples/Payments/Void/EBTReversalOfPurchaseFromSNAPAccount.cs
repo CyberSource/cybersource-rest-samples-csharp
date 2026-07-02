@@ -9,9 +9,9 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments
 {
 	public class EBTReversalOfPurchaseFromSNAPAccount
 	{
-		public static PtsV2PaymentsVoidsPost201Response Run()
+		public static async System.Threading.Tasks.Task<PtsV2PaymentsVoidsPost201Response> RunAsync()
 		{
-			var id = EBTMerchandiseReturnCreditVoucherFromSNAP.Run().Id;
+			var id = (await EBTMerchandiseReturnCreditVoucherFromSNAP.RunAsync()).Id;
 			string clientReferenceInformationCode = "Reversal of Purchase from SNAP Account";
 			Ptsv2paymentsidreversalsClientReferenceInformation clientReferenceInformation = new Ptsv2paymentsidreversalsClientReferenceInformation(
 				Code: clientReferenceInformationCode
@@ -51,7 +51,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments
 				var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
 				var apiInstance = new VoidApi(clientConfig);
-				PtsV2PaymentsVoidsPost201Response result = apiInstance.VoidPayment(requestObj, id);
+				PtsV2PaymentsVoidsPost201Response result = await apiInstance.VoidPaymentAsync(requestObj, id);
 				Console.WriteLine(result);
 				return result;
 			}

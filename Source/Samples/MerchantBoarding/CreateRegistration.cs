@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,7 +21,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.MerchantBoarding
             Console.WriteLine($"[Sample Code Testing] [{filename}] {status}");
         }
 
-        public static InlineResponse2014 Run()
+        public static async System.Threading.Tasks.Task<InlineResponse2014> RunAsync()
         {
 
             PostRegistrationBody reqObj = new PostRegistrationBody();
@@ -33,12 +33,12 @@ namespace Cybersource_rest_samples_dotnet.Samples.MerchantBoarding
             Configurable = true
             };
 
-            Boardingv1registrationsOrganizationInformationBusinessInformation businessInformation = new Boardingv1registrationsOrganizationInformationBusinessInformation
+            BoardingBusinessInformation businessInformation = new BoardingBusinessInformation
             {
             Name = "StuartWickedFastEatz"
             };
 
-            Boardingv1registrationsOrganizationInformationBusinessInformationAddress address = new Boardingv1registrationsOrganizationInformationBusinessInformationAddress
+            BoardingBusinessInformationAddress address = new BoardingBusinessInformationAddress
             {
             Country = "US",
             Address1 = "123456 SandMarket",
@@ -51,7 +51,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.MerchantBoarding
             businessInformation.WebsiteUrl = "https://www.StuartWickedEats.com";
             businessInformation.PhoneNumber = "6574567813";
 
-            Boardingv1registrationsOrganizationInformationBusinessInformationBusinessContact businessContact = new Boardingv1registrationsOrganizationInformationBusinessInformationBusinessContact
+            BoardingBusinessInformationBusinessContact businessContact = new BoardingBusinessInformationBusinessContact
             {
             FirstName = "Stuart",
             LastName = "Stuart",
@@ -213,7 +213,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.MerchantBoarding
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new MerchantBoardingApi(clientConfig);
-                InlineResponse2014 result = apiInstance.PostRegistration(reqObj);
+                InlineResponse2014 result = await apiInstance.PostRegistrationAsync(reqObj);
                 Console.WriteLine(result);
                 WriteLogAudit(apiInstance.GetStatusCode());
                 return result;

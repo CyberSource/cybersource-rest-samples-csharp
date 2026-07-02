@@ -17,7 +17,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Reporting
             Console.WriteLine($"[Sample Code Testing] [{filename}] {status}");
         }
 
-        public static ReportingV3ReportDefinitionsNameGet200Response Run()
+        public static async System.Threading.Tasks.Task<ReportingV3ReportDefinitionsNameGet200Response> RunAsync()
         {
             string reportDefinitionName = "SubscriptionDetailClass";
             string subscriptionType = null;
@@ -29,7 +29,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Reporting
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new ReportDefinitionsApi(clientConfig);
-                ReportingV3ReportDefinitionsNameGet200Response result = apiInstance.GetResourceInfoByReportDefinition(reportDefinitionName, subscriptionType, reportMimeType, organizationId);
+                ReportingV3ReportDefinitionsNameGet200Response result = await apiInstance.GetResourceInfoByReportDefinitionAsync(reportDefinitionName, subscriptionType, reportMimeType, organizationId);
                 Console.WriteLine(result);
                 WriteLogAudit(apiInstance.GetStatusCode());
                 return result;

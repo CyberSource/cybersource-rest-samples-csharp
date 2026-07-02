@@ -17,7 +17,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.RiskManagement
             Console.WriteLine($"[Sample Code Testing] [{filename}] {status}");
         }
 
-        public static RiskV1ExportComplianceInquiriesPost201Response Run()
+        public static async System.Threading.Tasks.Task<RiskV1ExportComplianceInquiriesPost201Response> RunAsync()
         {
             string clientReferenceInformationCode = "verification example";
             string clientReferenceInformationComments = "Export -fields";
@@ -112,7 +112,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.RiskManagement
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new VerificationApi(clientConfig);
-                RiskV1ExportComplianceInquiriesPost201Response result = apiInstance.ValidateExportCompliance(requestObj);
+                RiskV1ExportComplianceInquiriesPost201Response result = await apiInstance.ValidateExportComplianceAsync(requestObj);
                 Console.WriteLine(result);
                 WriteLogAudit(apiInstance.GetStatusCode());
                 return result;

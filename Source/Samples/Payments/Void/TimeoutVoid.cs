@@ -17,9 +17,9 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments
             Console.WriteLine($"[Sample Code Testing] [{filename}] {status}");
         }
 
-        public static PtsV2PaymentsVoidsPost201Response Run()
+        public static async System.Threading.Tasks.Task<PtsV2PaymentsVoidsPost201Response> RunAsync()
         {
-            AuthorizationCaptureForTimeoutVoidFlow.Run();
+            await AuthorizationCaptureForTimeoutVoidFlow.RunAsync();
             string clientReferenceInformationTransactionId = SampleCode.TimeoutVoidTransactionId;
             Ptsv2paymentsClientReferenceInformation clientReferenceInformation = new Ptsv2paymentsClientReferenceInformation(
                 TransactionId: clientReferenceInformationTransactionId
@@ -35,7 +35,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new VoidApi(clientConfig);
-                PtsV2PaymentsVoidsPost201Response result = apiInstance.MitVoid(requestObj);
+                PtsV2PaymentsVoidsPost201Response result = await apiInstance.MitVoidAsync(requestObj);
                 Console.WriteLine(result);
                 WriteLogAudit(apiInstance.GetStatusCode());
                 return result;

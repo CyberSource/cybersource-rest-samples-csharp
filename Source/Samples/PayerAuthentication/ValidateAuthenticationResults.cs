@@ -17,7 +17,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.PayerAuthentication
             Console.WriteLine($"[Sample Code Testing] [{filename}] {status}");
         }
 
-        public static RiskV1AuthenticationResultsPost201Response Run()
+        public static async System.Threading.Tasks.Task<RiskV1AuthenticationResultsPost201Response> RunAsync()
         {
             string clientReferenceInformationCode = "pavalidatecheck";
             string clientReferenceInformationPartnerDeveloperId = "7891234";
@@ -89,7 +89,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.PayerAuthentication
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new PayerAuthenticationApi(clientConfig);
-                RiskV1AuthenticationResultsPost201Response result = apiInstance.ValidateAuthenticationResults(requestObj);
+                RiskV1AuthenticationResultsPost201Response result = await apiInstance.ValidateAuthenticationResultsAsync(requestObj);
                 Console.WriteLine(result);
                 WriteLogAudit(apiInstance.GetStatusCode());
                 return result;

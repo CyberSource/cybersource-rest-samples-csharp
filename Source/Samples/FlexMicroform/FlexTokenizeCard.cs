@@ -6,7 +6,7 @@ using CyberSource.Api;
 using CyberSource.Client;
 using CyberSource.Model;
 using CyberSource.Utilities.Flex.Model;
-using CyberSource.Utilities.Flex.TokenVerification;
+//using CyberSource.Utilities.Flex.TokenVerification;
 
 namespace Cybersource_rest_samples_dotnet.Samples.FlexMicroform
 {
@@ -19,9 +19,9 @@ namespace Cybersource_rest_samples_dotnet.Samples.FlexMicroform
             Console.WriteLine($"[Sample Code Testing] [{filename}] {status}");
         }
 
-        public static FlexV1TokensPost200Response Run()
+        public static async System.Threading.Tasks.Task<FlexV1TokensPost200Response> RunAsync()
         {
-            var generateKeyResult = GenerateKeyLegacyTokenFormat.Run();
+            var generateKeyResult = await GenerateKeyLegacyTokenFormat.RunAsync();
             string keyId = generateKeyResult.KeyId;
             var derFormat = generateKeyResult.Der.Format;
             var derAlgo = generateKeyResult.Der.Algorithm;
@@ -49,7 +49,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.FlexMicroform
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new TokenizationApi(clientConfig);
-                FlexV1TokensPost200Response result = apiInstance.Tokenize(requestObj);
+                FlexV1TokensPost200Response result = await apiInstance.TokenizeAsync(requestObj);
                 Console.WriteLine(result);
 
                 TokenVerificationUtility tokenVerifier = new TokenVerificationUtility();

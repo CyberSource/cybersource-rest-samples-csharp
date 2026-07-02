@@ -9,7 +9,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Webhooks.ManageWebhooks
 {
 	public class GetDetailsOnSingleWebhook
 	{
-		public static void Run()
+		public static async System.Threading.Tasks.Task RunAsync()
 		{
 			string webhookId = "";
 			try
@@ -18,7 +18,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Webhooks.ManageWebhooks
 				var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
 				var apiInstance = new ManageWebhooksApi(clientConfig);
-				//apiInstance.GetWebhookSubscriptionById(webhookId);
+				//await apiInstance.GetWebhookSubscriptionByIdAsync(webhookId);
 			}
 			catch (Exception e)
 			{

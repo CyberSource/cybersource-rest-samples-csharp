@@ -17,7 +17,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TokenManagement
             Console.WriteLine($"[Sample Code Testing] [{filename}] {status}");
         }
 
-        public static PostInstrumentIdentifierRequest Run()
+        public static async System.Threading.Tasks.Task<PostInstrumentIdentifierRequest> RunAsync()
         {
             var profileid = "93B32398-AD51-4CC2-A682-EA3E93614EB1";
             var tokenId = "7010000000016241111";
@@ -27,7 +27,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TokenManagement
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new InstrumentIdentifierApi(clientConfig);
-                PostInstrumentIdentifierRequest result = apiInstance.GetInstrumentIdentifier(tokenId, profileid);
+                PostInstrumentIdentifierRequest result = await apiInstance.GetInstrumentIdentifierAsync(tokenId, profileid);
                 Console.WriteLine(result);
                 WriteLogAudit(apiInstance.GetStatusCode());
                 return result;

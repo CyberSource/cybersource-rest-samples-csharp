@@ -17,7 +17,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TokenManagement
             Console.WriteLine($"[Sample Code Testing] [{filename}] {status}");
         }
 
-        public static PostCustomerRequest Run()
+        public static async System.Threading.Tasks.Task<PostCustomerRequest> RunAsync()
         {
             string customerTokenId = "AB695DA801DD1BB6E05341588E0A3BDC";
             try
@@ -26,7 +26,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TokenManagement
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new CustomerApi(clientConfig);
-                PostCustomerRequest result = apiInstance.GetCustomer(customerTokenId);
+                PostCustomerRequest result = await apiInstance.GetCustomerAsync(customerTokenId);
                 Console.WriteLine(result);
                 WriteLogAudit(apiInstance.GetStatusCode());
                 return result;

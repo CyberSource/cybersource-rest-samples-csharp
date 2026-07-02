@@ -17,7 +17,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Reporting
             Console.WriteLine($"[Sample Code Testing] [{filename}] {status}");
         }
 
-        public static ReportingV3ConversionDetailsGet200Response Run()
+        public static async System.Threading.Tasks.Task<ReportingV3ConversionDetailsGet200Response> RunAsync()
         {
             var startTime = DateTime.ParseExact("2023-01-21T00:00:00Z", "yyyy-MM-ddTHH:mm:ssZ", CultureInfo.InvariantCulture);
             var endTime = DateTime.ParseExact("2023-01-21T23:00:00Z", "yyyy-MM-ddTHH:mm:ssZ", CultureInfo.InvariantCulture);
@@ -28,7 +28,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Reporting
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new ConversionDetailsApi(clientConfig);
-                ReportingV3ConversionDetailsGet200Response result = apiInstance.GetConversionDetail(startTime, endTime, organizationId);
+                ReportingV3ConversionDetailsGet200Response result = await apiInstance.GetConversionDetailAsync(startTime, endTime, organizationId);
                 Console.WriteLine(result);
                 WriteLogAudit(apiInstance.GetStatusCode());
                 return result;

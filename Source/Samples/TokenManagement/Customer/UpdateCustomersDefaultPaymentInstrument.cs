@@ -17,7 +17,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TokenManagement
             Console.WriteLine($"[Sample Code Testing] [{filename}] {status}");
         }
 
-        public static PatchCustomerRequest Run()
+        public static async System.Threading.Tasks.Task<PatchCustomerRequest> RunAsync()
         {
             string customerTokenId = "AB695DA801DD1BB6E05341588E0A3BDC";
             string defaultPaymentInstrumentId = "AB6A54B982A6FCB6E05341588E0A3935";
@@ -35,7 +35,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TokenManagement
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new CustomerApi(clientConfig);
-                PatchCustomerRequest result = apiInstance.PatchCustomer(customerTokenId, requestObj);
+                PatchCustomerRequest result = await apiInstance.PatchCustomerAsync(customerTokenId, requestObj);
                 Console.WriteLine(result);
                 WriteLogAudit(apiInstance.GetStatusCode());
                 return result;

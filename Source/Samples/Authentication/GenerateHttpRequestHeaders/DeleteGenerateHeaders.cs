@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using AuthenticationSdk.core;
 using AuthenticationSdk.util;
 
@@ -17,7 +17,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Authentication
             Console.WriteLine($"[Sample Code Testing] [{filename}] {status}");
         }
 
-        public static void Run()
+        public static async System.Threading.Tasks.Task RunAsync()
         {
             try
             {

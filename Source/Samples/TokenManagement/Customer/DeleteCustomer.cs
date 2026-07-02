@@ -17,16 +17,16 @@ namespace Cybersource_rest_samples_dotnet.Samples.TokenManagement
             Console.WriteLine($"[Sample Code Testing] [{filename}] {status}");
         }
 
-        public static void Run()
+        public static async System.Threading.Tasks.Task RunAsync()
         {
-            string customerTokenId = CreateCustomer.Run().Id;
+            string customerTokenId = (await CreateCustomer.RunAsync()).Id;
             try
             {
                 var configDictionary = new Configuration().GetConfiguration();
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new CustomerApi(clientConfig);
-                apiInstance.DeleteCustomer(customerTokenId);
+                await apiInstance.DeleteCustomerAsync(customerTokenId);
                 Console.WriteLine($"Customer {customerTokenId} has been deleted.");
                 WriteLogAudit(apiInstance.GetStatusCode());
             }

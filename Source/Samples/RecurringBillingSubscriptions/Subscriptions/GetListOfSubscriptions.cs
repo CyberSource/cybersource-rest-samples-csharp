@@ -1,4 +1,4 @@
-﻿using CyberSource.Api;
+using CyberSource.Api;
 using CyberSource.Model;
 using System;
 using System.Collections.Generic;
@@ -11,7 +11,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.RecurringBillingSubscriptions
 {
     public class GetListOfSubscriptions
     {
-        public static GetAllSubscriptionsResponse Run()
+        public static async System.Threading.Tasks.Task<GetAllSubscriptionsResponse> RunAsync()
         {
             int? offset = (int?)null;
             int? limit = (int?)null;
@@ -24,7 +24,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.RecurringBillingSubscriptions
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new SubscriptionsApi(clientConfig);
-                var result = apiInstance.GetAllSubscriptions(offset, limit, code, status);
+                var result = await apiInstance.GetAllSubscriptionsAsync(offset, limit, code, status);
                 Console.WriteLine(result);
                 return result;
             }

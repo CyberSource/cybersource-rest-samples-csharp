@@ -1,4 +1,4 @@
-﻿using CyberSource.Api;
+using CyberSource.Api;
 using CyberSource.Model;
 using System;
 using System.Collections.Generic;
@@ -10,7 +10,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.RecurringBillingSubscriptions
 {
     public class GetListOfPlans
     {
-        public static GetAllPlansResponse Run()
+        public static async System.Threading.Tasks.Task<GetAllPlansResponse> RunAsync()
         {
             int? offset = (int?)null;
             int? limit = (int?)null;
@@ -24,7 +24,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.RecurringBillingSubscriptions
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new PlansApi(clientConfig);
-                var result = apiInstance.GetPlans(offset, limit, code, status, name);
+                var result = await apiInstance.GetPlansAsync(offset, limit, code, status, name);
                 Console.WriteLine(result);
                 return result;
             }

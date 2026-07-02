@@ -17,7 +17,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.RiskManagement
             Console.WriteLine($"[Sample Code Testing] [{filename}] {status}");
         }
 
-        public static RiskV1UpdatePost201Response Run()
+        public static async System.Threading.Tasks.Task<RiskV1UpdatePost201Response> RunAsync()
         {
             string type = "positive";
             string orderInformationAddressAddress1 = "1234 Sample St.";
@@ -79,7 +79,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.RiskManagement
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new DecisionManagerApi(clientConfig);
-                RiskV1UpdatePost201Response result = apiInstance.AddNegative(type, requestObj);
+                RiskV1UpdatePost201Response result = await apiInstance.AddNegativeAsync(type, requestObj);
                 Console.WriteLine(result);
                 WriteLogAudit(apiInstance.GetStatusCode());
                 return result;

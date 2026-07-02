@@ -9,7 +9,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Webhooks.CreateNewWebhooks
 {
 	public class FindProductsYouCanSubscribeTo
 	{
-		public static void Run()
+		public static async System.Threading.Tasks.Task RunAsync()
 		{
 			string organizationId = "testrest";
 
@@ -19,7 +19,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Webhooks.CreateNewWebhooks
 				var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
 				var apiInstance = new CreateNewWebhooksApi(clientConfig);
-				//apiInstance.FindProductsToSubscribe(organizationId);
+				//await apiInstance.FindProductsToSubscribeAsync(organizationId);
 			}
 			catch (Exception e)
 			{

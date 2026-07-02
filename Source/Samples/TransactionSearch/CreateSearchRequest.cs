@@ -17,7 +17,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TransactionSearch
             Console.WriteLine($"[Sample Code Testing] [{filename}] {status}");
         }
 
-        public static TssV2TransactionsPost201Response Run()
+        public static async System.Threading.Tasks.Task<TssV2TransactionsPost201Response> RunAsync()
         {
             bool save = false;
             string name = "MRN";
@@ -42,7 +42,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TransactionSearch
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new SearchTransactionsApi(clientConfig);
-                TssV2TransactionsPost201Response result = apiInstance.CreateSearch(requestObj);
+                TssV2TransactionsPost201Response result = await apiInstance.CreateSearchAsync(requestObj);
                 Console.WriteLine(result);
                 WriteLogAudit(apiInstance.GetStatusCode());
                 return result;

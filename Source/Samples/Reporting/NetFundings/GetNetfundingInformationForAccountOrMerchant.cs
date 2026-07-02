@@ -17,7 +17,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Reporting
             Console.WriteLine($"[Sample Code Testing] [{filename}] {status}");
         }
 
-        public static ReportingV3NetFundingsGet200Response Run()
+        public static async System.Threading.Tasks.Task<ReportingV3NetFundingsGet200Response> RunAsync()
         {
             var startTime = DateTime.ParseExact("2024-01-01T00:00:00Z", "yyyy-MM-ddTHH:mm:ssZ", CultureInfo.InvariantCulture);
             var endTime = DateTime.ParseExact("2024-01-02T23:59:59Z", "yyyy-MM-ddTHH:mm:ssZ", CultureInfo.InvariantCulture);
@@ -29,7 +29,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Reporting
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new NetFundingsApi(clientConfig);
-                ReportingV3NetFundingsGet200Response result = apiInstance.GetNetFundingDetails(startTime, endTime, organizationId, groupName);
+                ReportingV3NetFundingsGet200Response result = await apiInstance.GetNetFundingDetailsAsync(startTime, endTime, organizationId, groupName);
                 Console.WriteLine(result);
                 WriteLogAudit(apiInstance.GetStatusCode());
                 return result;

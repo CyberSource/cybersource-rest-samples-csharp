@@ -17,11 +17,11 @@ namespace Cybersource_rest_samples_dotnet.Samples.TokenManagement
             Console.WriteLine($"[Sample Code Testing] [{filename}] {status}");
         }
 
-        public static PostCustomerPaymentInstrumentRequest Run()
+        public static async System.Threading.Tasks.Task<PostCustomerPaymentInstrumentRequest> RunAsync()
         {
             string customerTokenId = "AB695DA801DD1BB6E05341588E0A3BDC";
             string bankAccountType = "savings";
-            Tmsv2tokenizeTokenInformationCustomerEmbeddedDefaultPaymentInstrumentBankAccount bankAccount = new Tmsv2tokenizeTokenInformationCustomerEmbeddedDefaultPaymentInstrumentBankAccount(
+            DefaultPaymentInstrumentBankAccount bankAccount = new DefaultPaymentInstrumentBankAccount(
                 Type: bankAccountType
            );
 
@@ -29,21 +29,21 @@ namespace Cybersource_rest_samples_dotnet.Samples.TokenManagement
             string buyerInformationCurrency = "USD";
             DateTime buyerInformationDateOfBirth = Convert.ToDateTime("2000-12-13");
 
-            List<Tmsv2tokenizeTokenInformationCustomerEmbeddedDefaultPaymentInstrumentBuyerInformationPersonalIdentification> buyerInformationPersonalIdentification = new List<Tmsv2tokenizeTokenInformationCustomerEmbeddedDefaultPaymentInstrumentBuyerInformationPersonalIdentification>();
+            List<DefaultPaymentInstrumentBuyerInformationPersonalIdentification> buyerInformationPersonalIdentification = new List<DefaultPaymentInstrumentBuyerInformationPersonalIdentification>();
             string buyerInformationPersonalIdentificationId1 = "57684432111321";
             string buyerInformationPersonalIdentificationType1 = "driver license";
             string buyerInformationPersonalIdentificationIssuedByAdministrativeArea1 = "CA";
-            Tmsv2tokenizeTokenInformationCustomerEmbeddedDefaultPaymentInstrumentBuyerInformationIssuedBy buyerInformationPersonalIdentificationIssuedBy1 = new Tmsv2tokenizeTokenInformationCustomerEmbeddedDefaultPaymentInstrumentBuyerInformationIssuedBy(
+            DefaultPaymentInstrumentBuyerInformationIssuedBy buyerInformationPersonalIdentificationIssuedBy1 = new DefaultPaymentInstrumentBuyerInformationIssuedBy(
                 AdministrativeArea: buyerInformationPersonalIdentificationIssuedByAdministrativeArea1
            );
 
-            buyerInformationPersonalIdentification.Add(new Tmsv2tokenizeTokenInformationCustomerEmbeddedDefaultPaymentInstrumentBuyerInformationPersonalIdentification(
+            buyerInformationPersonalIdentification.Add(new DefaultPaymentInstrumentBuyerInformationPersonalIdentification(
                 Id: buyerInformationPersonalIdentificationId1,
                 Type: buyerInformationPersonalIdentificationType1,
                 IssuedBy: buyerInformationPersonalIdentificationIssuedBy1
            ));
 
-            Tmsv2tokenizeTokenInformationCustomerEmbeddedDefaultPaymentInstrumentBuyerInformation buyerInformation = new Tmsv2tokenizeTokenInformationCustomerEmbeddedDefaultPaymentInstrumentBuyerInformation(
+            DefaultPaymentInstrumentBuyerInformation buyerInformation = new DefaultPaymentInstrumentBuyerInformation(
                 CompanyTaxID: buyerInformationCompanyTaxID,
                 Currency: buyerInformationCurrency,
                 DateOfBirth: buyerInformationDateOfBirth,
@@ -60,7 +60,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TokenManagement
             string billToCountry = "US";
             string billToEmail = "test@cybs.com";
             string billToPhoneNumber = "4158880000";
-            Tmsv2tokenizeTokenInformationCustomerEmbeddedDefaultPaymentInstrumentBillTo billTo = new Tmsv2tokenizeTokenInformationCustomerEmbeddedDefaultPaymentInstrumentBillTo(
+            DefaultPaymentInstrumentBillTo billTo = new DefaultPaymentInstrumentBillTo(
                 FirstName: billToFirstName,
                 LastName: billToLastName,
                 Company: billToCompany,
@@ -83,7 +83,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TokenManagement
            );
 
             string instrumentIdentifierId = "A7A91A2CA872B272E05340588D0A0699";
-            Tmsv2tokenizeTokenInformationCustomerEmbeddedDefaultPaymentInstrumentInstrumentIdentifier instrumentIdentifier = new Tmsv2tokenizeTokenInformationCustomerEmbeddedDefaultPaymentInstrumentInstrumentIdentifier(
+            DefaultPaymentInstrumentInstrumentIdentifier instrumentIdentifier = new DefaultPaymentInstrumentInstrumentIdentifier(
                 Id: instrumentIdentifierId
            );
 
@@ -101,7 +101,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.TokenManagement
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new CustomerPaymentInstrumentApi(clientConfig);
-                PostCustomerPaymentInstrumentRequest result = apiInstance.PostCustomerPaymentInstrument(customerTokenId, requestObj);
+                PostCustomerPaymentInstrumentRequest result = await apiInstance.PostCustomerPaymentInstrumentAsync(customerTokenId, requestObj);
                 Console.WriteLine(result);
                 WriteLogAudit(apiInstance.GetStatusCode());
                 return result;

@@ -17,7 +17,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.RiskManagement
             Console.WriteLine($"[Sample Code Testing] [{filename}] {status}");
         }
 
-        public static RiskV1DecisionsPost201Response Run()
+        public static async System.Threading.Tasks.Task<RiskV1DecisionsPost201Response> RunAsync()
         {
             string clientReferenceInformationCode = "54323007";
             Riskv1decisionsClientReferenceInformation clientReferenceInformation = new Riskv1decisionsClientReferenceInformation(
@@ -100,7 +100,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.RiskManagement
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new DecisionManagerApi(clientConfig);
-                RiskV1DecisionsPost201Response result = apiInstance.CreateBundledDecisionManagerCase(requestObj);
+                RiskV1DecisionsPost201Response result = await apiInstance.CreateBundledDecisionManagerCaseAsync(requestObj);
                 Console.WriteLine(result);
                 WriteLogAudit(apiInstance.GetStatusCode());
                 return result;

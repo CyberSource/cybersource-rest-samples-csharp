@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using CyberSource.Api;
@@ -25,7 +25,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.MLEFeature
             var filename = filePath[filePath.Length - 1];
             Console.WriteLine($"[Sample Code Testing] [{filename}] {status}");
         }
-        public static AgenticCardEnrollmentResponse200 Run()
+        public static async System.Threading.Tasks.Task<AgenticCardEnrollmentResponse200> RunAsync()
         {
             string clientCorrelationId = "3e1b7943-6567-4965-a32b-5aa93d057d35";
             string deviceInformationUserAgent = "SampleUserAgent";
@@ -36,7 +36,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.MLEFeature
             string deviceInformationDeviceDataManufacturer = "Apple";
             string deviceInformationDeviceDataBrand = "Apple";
             string deviceInformationDeviceDataModel = "iPhone 16 Pro Max";
-            Acpv1tokensDeviceInformationDeviceData deviceInformationDeviceData = new Acpv1tokensDeviceInformationDeviceData(
+            Iccv1tokensDeviceInformationDeviceData deviceInformationDeviceData = new Iccv1tokensDeviceInformationDeviceData(
                 Type: deviceInformationDeviceDataType,
                 Manufacturer: deviceInformationDeviceDataManufacturer,
                 Brand: deviceInformationDeviceDataBrand,
@@ -45,7 +45,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.MLEFeature
 
             string deviceInformationIpAddress = "192.168.0.100";
             string deviceInformationClientDeviceId = "000b2767814e4416999f4ee2b099491d2087";
-            Acpv1tokensDeviceInformation deviceInformation = new Acpv1tokensDeviceInformation(
+            Iccv1tokensDeviceInformation deviceInformation = new Iccv1tokensDeviceInformation(
                 UserAgent: deviceInformationUserAgent,
                 ApplicationName: deviceInformationApplicationName,
                 FingerprintSessionId: deviceInformationFingerprintSessionId,
@@ -58,15 +58,15 @@ namespace Cybersource_rest_samples_dotnet.Samples.MLEFeature
             string buyerInformationLanguage = "en";
             string buyerInformationMerchantCustomerId = "3e1b7943-6567-4965-a32b-5aa93d057d35";
 
-            List<Acpv1tokensBuyerInformationPersonalIdentification> buyerInformationPersonalIdentification = new List<Acpv1tokensBuyerInformationPersonalIdentification>();
+            List<Iccv1tokensBuyerInformationPersonalIdentification> buyerInformationPersonalIdentification = new List<Iccv1tokensBuyerInformationPersonalIdentification>();
             string buyerInformationPersonalIdentificationType1 = "The identification type";
             string buyerInformationPersonalIdentificationId1 = "1";
-            buyerInformationPersonalIdentification.Add(new Acpv1tokensBuyerInformationPersonalIdentification(
+            buyerInformationPersonalIdentification.Add(new Iccv1tokensBuyerInformationPersonalIdentification(
                 Type: buyerInformationPersonalIdentificationType1,
                 Id: buyerInformationPersonalIdentificationId1
             ));
 
-            Acpv1tokensBuyerInformation buyerInformation = new Acpv1tokensBuyerInformation(
+            Iccv1tokensBuyerInformation buyerInformation = new Iccv1tokensBuyerInformation(
                 Language: buyerInformationLanguage,
                 MerchantCustomerId: buyerInformationMerchantCustomerId,
                 PersonalIdentification: buyerInformationPersonalIdentification
@@ -80,7 +80,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.MLEFeature
             string billToPhoneNumber = "5551234567";
             bool billToNumberIsVoiceOnly = false;
             string billToCountry = "US";
-            Acpv1tokensBillTo billTo = new Acpv1tokensBillTo(
+            Iccv1tokensBillTo billTo = new Iccv1tokensBillTo(
                 FirstName: billToFirstName,
                 LastName: billToLastName,
                 FullName: billToFullName,
@@ -95,7 +95,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.MLEFeature
             string consumerIdentityIdentityValue = "john.doe@example.com";
             string consumerIdentityIdentityProvider = "PARTNER";
             string consumerIdentityIdentityProviderUrl = "https://identity.partner.com";
-            Acpv1tokensConsumerIdentity consumerIdentity = new Acpv1tokensConsumerIdentity(
+            Iccv1tokensConsumerIdentity consumerIdentity = new Iccv1tokensConsumerIdentity(
                 IdentityType: consumerIdentityIdentityType,
                 IdentityValue: consumerIdentityIdentityValue,
                 IdentityProvider: consumerIdentityIdentityProvider,
@@ -103,21 +103,21 @@ namespace Cybersource_rest_samples_dotnet.Samples.MLEFeature
             );
 
             string paymentInformationCustomerId = "";
-            Acpv1tokensPaymentInformationCustomer paymentInformationCustomer = new Acpv1tokensPaymentInformationCustomer(
+            Iccv1tokensPaymentInformationCustomer paymentInformationCustomer = new Iccv1tokensPaymentInformationCustomer(
                 Id: paymentInformationCustomerId
             );
 
             string paymentInformationPaymentInstrumentId = "";
-            Acpv1tokensPaymentInformationPaymentInstrument paymentInformationPaymentInstrument = new Acpv1tokensPaymentInformationPaymentInstrument(
+            Iccv1tokensPaymentInformationPaymentInstrument paymentInformationPaymentInstrument = new Iccv1tokensPaymentInformationPaymentInstrument(
                 Id: paymentInformationPaymentInstrumentId
             );
 
             string paymentInformationInstrumentIdentifierId = "4044EB915C613A82E063AF598E0AE6EF";
-            Acpv1tokensPaymentInformationInstrumentIdentifier paymentInformationInstrumentIdentifier = new Acpv1tokensPaymentInformationInstrumentIdentifier(
+            Iccv1tokensPaymentInformationInstrumentIdentifier paymentInformationInstrumentIdentifier = new Iccv1tokensPaymentInformationInstrumentIdentifier(
                 Id: paymentInformationInstrumentIdentifierId
             );
 
-            Acpv1tokensPaymentInformation paymentInformation = new Acpv1tokensPaymentInformation(
+            Iccv1tokensPaymentInformation paymentInformation = new Iccv1tokensPaymentInformation(
                 Customer: paymentInformationCustomer,
                 PaymentInstrument: paymentInformationPaymentInstrument,
                 InstrumentIdentifier: paymentInformationInstrumentIdentifier
@@ -125,13 +125,13 @@ namespace Cybersource_rest_samples_dotnet.Samples.MLEFeature
 
             string enrollmentReferenceDataEnrollmentReferenceType = "TOKEN_REFERENCE_ID";
             string enrollmentReferenceDataEnrollmentReferenceProvider = "VTS";
-            Acpv1tokensEnrollmentReferenceData enrollmentReferenceData = new Acpv1tokensEnrollmentReferenceData(
+            Iccv1tokensEnrollmentReferenceData enrollmentReferenceData = new Iccv1tokensEnrollmentReferenceData(
                 EnrollmentReferenceType: enrollmentReferenceDataEnrollmentReferenceType,
                 EnrollmentReferenceProvider: enrollmentReferenceDataEnrollmentReferenceProvider
             );
 
 
-            List<Acpv1tokensAssuranceData> assuranceData = new List<Acpv1tokensAssuranceData>();
+            List<Iccv1tokensAssuranceData> assuranceData = new List<Iccv1tokensAssuranceData>();
             string assuranceDataVerificationType1 = "DEVICE";
             string assuranceDataVerificationEntity1 = "10";
 
@@ -141,21 +141,21 @@ namespace Cybersource_rest_samples_dotnet.Samples.MLEFeature
             string assuranceDataVerificationResults1 = "01";
             string assuranceDataVerificationTimestamp1 = "1735690745";
             string assuranceDataAuthenticationContextAction1 = "AUTHENTICATE";
-            Acpv1tokensAuthenticationContext assuranceDataAuthenticationContext1 = new Acpv1tokensAuthenticationContext(
+            Iccv1tokensAuthenticationContext assuranceDataAuthenticationContext1 = new Iccv1tokensAuthenticationContext(
                 Action: assuranceDataAuthenticationContextAction1
             );
 
             string assuranceDataAuthenticatedIdentitiesData1 = "authenticatedData";
             string assuranceDataAuthenticatedIdentitiesProvider1 = "VISA_PAYMENT_PASSKEY";
             string assuranceDataAuthenticatedIdentitiesId1 = "f48ac10b-58cc-4372-a567-0e02b2c3d489";
-            Acpv1tokensAuthenticatedIdentities assuranceDataAuthenticatedIdentities1 = new Acpv1tokensAuthenticatedIdentities(
+            Iccv1tokensAuthenticatedIdentities assuranceDataAuthenticatedIdentities1 = new Iccv1tokensAuthenticatedIdentities(
                 Data: assuranceDataAuthenticatedIdentitiesData1,
                 Provider: assuranceDataAuthenticatedIdentitiesProvider1,
                 Id: assuranceDataAuthenticatedIdentitiesId1
             );
 
             string assuranceDataAdditionalData1 = "";
-            assuranceData.Add(new Acpv1tokensAssuranceData(
+            assuranceData.Add(new Iccv1tokensAssuranceData(
                 VerificationType: assuranceDataVerificationType1,
                 VerificationEntity: assuranceDataVerificationEntity1,
                 VerificationEvents: assuranceDataVerificationEvents,
@@ -168,13 +168,13 @@ namespace Cybersource_rest_samples_dotnet.Samples.MLEFeature
             ));
 
 
-            List<Acpv1tokensConsentData> consentData = new List<Acpv1tokensConsentData>();
+            List<Iccv1tokensConsentData> consentData = new List<Iccv1tokensConsentData>();
             string consentDataId1 = "550e8400-e29b-41d4-a716-446655440000";
             string consentDataType1 = "PERSONALIZATION";
             string consentDataSource1 = "CLIENT";
             string consentDataAcceptedTime1 = "1719169800";
             string consentDataEffectiveUntil1 = "1750705800";
-            consentData.Add(new Acpv1tokensConsentData(
+            consentData.Add(new Iccv1tokensConsentData(
                 Id: consentDataId1,
                 Type: consentDataType1,
                 Source: consentDataSource1,
@@ -198,8 +198,8 @@ namespace Cybersource_rest_samples_dotnet.Samples.MLEFeature
             {
                 var configDictionary = new ConfigurationWithMLE().GetMerchantDetailsWithRequestAndResponseMLE1();
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
-                var apiInstance = new EnrollmentApi(clientConfig);
-                AgenticCardEnrollmentResponse200 result = apiInstance.EnrollCard(requestObj);
+                var apiInstance = new AgentCapabilitiesApi(clientConfig);
+                AgenticCardEnrollmentResponse200 result = await apiInstance.EnrollCardAsync(requestObj);
                 Console.WriteLine(result);
                 WriteLogAudit(apiInstance.GetStatusCode());
                 return result;
